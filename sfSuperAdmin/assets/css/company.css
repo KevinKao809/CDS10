@@ -1,0 +1,56 @@
+﻿
+
+/** override style*/
+
+#CompanyList tr td .column-btn-collapse-set.open .btn.btn-trans.btn-primary:focus, #CompanyList tr td .column-btn-collapse-set.open .btn.btn-trans.btn-primary:active {
+    background-color: #8bc9f9 !important;
+}
+
+
+/**/
+
+#CompanyList tr td .column-btn-set .btn {
+    margin-right: 6px;
+}
+
+
+.column-btn-collapse-set{
+    display:none;
+}
+
+#CompanyList > tr > td > div.column-btn-collapse-set.open{
+    position:relative;
+}
+
+#CompanyList > tr > td > div.column-btn-collapse-set.open .dropdown-menu{
+    min-width:0px;
+}
+
+.main-info-cotainer.smaller .rwd-small-hide {
+    display: none;
+}
+
+.main-info-cotainer.smaller .column-btn-set {
+    display: none;
+}
+
+.main-info-cotainer.smaller .column-btn-collapse-set {
+    display: block;
+}
+
+@media (min-width: 0px) and (max-width: 1390px) {
+
+    .rwd-small-hide{
+        display:none;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 1150px) {
+
+    .column-btn-set {
+        display: none;
+    }
+    .column-btn-collapse-set {
+        display: block;
+    }
+}

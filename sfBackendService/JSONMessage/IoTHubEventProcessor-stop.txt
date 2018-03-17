@@ -1,0 +1,15 @@
+Purpose:
+  Stop EventProcessor  
+
+Message Property:
+  process='iothubeventprocessor'
+  iothubalias='xx'
+
+Message Payload:
+{  
+  "command": "stop",
+  "requester": "First Name Last Name",
+  "requesterEmail": "email",
+  "requestDateTime": "UTC DateTime",
+  "taskId": 18
+}

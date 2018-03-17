@@ -1,0 +1,56 @@
+﻿.flashRun {
+    width: 100%;
+    height: 100%;
+    -webkit-animation: FlashRun 1s infinite; /* Safari 4+ */
+    -moz-animation: FlashRun 1s infinite; /* Fx 5+ */
+    -o-animation: FlashRun 1s infinite; /* Opera 12+ */
+    animation: FlashRun 1s infinite; /* IE 10+, Fx 29+ */
+}
+
+@-webkit-keyframes FlashRun {
+    0%, 49% {
+        background-color: #0B6121;
+    }
+
+    50%, 100% {
+        background-color: #00FF40;
+    }
+}
+
+.flashIdle {
+    width: 100%;
+    height: 100%;
+    -webkit-animation: FlashIdle 1s infinite; /* Safari 4+ */
+    -moz-animation: FlashIdle 1s infinite; /* Fx 5+ */
+    -o-animation: FlashIdle 1s infinite; /* Opera 12+ */
+    animation: FlashIdle 1s infinite; /* IE 10+, Fx 29+ */
+}
+
+@-webkit-keyframes FlashIdle {
+    0%, 49% {
+        background-color: #B45F04;
+    }
+
+    50%, 100% {
+        background-color: #FAAC58;
+    }
+}
+
+.flashStop {
+    width: 100%;
+    height: 100%;
+    -webkit-animation: FlashStop 1s infinite; /* Safari 4+ */
+    -moz-animation: FlashStop 1s infinite; /* Fx 5+ */
+    -o-animation: FlashStop 1s infinite; /* Opera 12+ */
+    animation: FlashStop 1s infinite; /* IE 10+, Fx 29+ */
+}
+
+@-webkit-keyframes FlashStop {
+    0%, 49% {
+        background-color: #8A0808;
+    }
+
+    50%, 100% {
+        background-color: #FF0000;
+    }
+}

@@ -1,0 +1,571 @@
+﻿
+@{
+    ViewBag.Title = "Edit IoTHub";
+}
+
+@section PanelDetail{
+    <div class="col-sm-12 slide-panel-section">
+        <form id="iotHub-form" class="form-horizontal" role="form" data-toggle="validator">
+            <div class="col-sm-12">
+                <div id="PrimarySection" style="padding-top:20px;">
+                    <div class="form-group">
+                        <label for="cIoTHubAlias" class="col-sm-4 control-label">
+                            IoT Hub Alias(*)
+                        </label>
+                        <div class="col-sm-8">
+                            <input id="cIoTHubAlias" type="text" class="form-control edit-read-only" placeholder="IoT Hub Alias" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cDescription" class="col-sm-4 control-label">
+                            Description
+                        </label>
+                        <div class="col-sm-8">
+                            <textarea id="cDescription" class="form-control" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="form-group">
+                        <label for="cPrimaryIoTHubEndPoit" class="col-sm-3 control-label">Primary IoT Hub End Point (*)</label>
+                        <div class="col-sm-9">
+                            <input id="cPrimaryIoTHubEndPoit" type="text" class="form-control" placeholder="Primary IoT Hub End Point" required>
+                        </div>
+                    </div>
+                    -->
+                    <div class="form-group">
+                        <label for="cPrimaryIoTHubConnectionString" class="col-sm-4 control-label">IoT Hub Connection String (*)</label>
+                        <div class="col-sm-8">
+                            <input id="cPrimaryIoTHubConnectionString" type="text" class="form-control edit-read-only" placeholder="Primary IoT Hub Connection String" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cPrimaryIoTHubConsumeGroup" class="col-sm-4 control-label">IoT Hub Consume Group (*)</label>
+                        <div class="col-sm-8">
+                            <input id="cPrimaryIoTHubConsumeGroup" type="text" class="form-control edit-read-only" placeholder="Primary IoT Hub Consume Group" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cPrimaryIoTHubStorageConnectionString" class="col-sm-4 control-label">Storage Connection String (*)</label>
+                        <div class="col-sm-8">
+                            <input id="cPrimaryIoTHubStorageConnectionString" type="text" class="form-control edit-read-only" placeholder="Primary IoT Hub Storage Connection String" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cPrimaryUploadContainer" class="col-sm-4 control-label">Upload Storage Container (*)</label>
+                        <div class="col-sm-8">
+                            <input id="cPrimaryUploadContainer" type="text" class="form-control edit-read-only" placeholder="Primary Upload Storage Container" required>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="form-group">
+                        <label for="cEnableHAFlag" class="col-sm-4 control-label">Enable IoT Hub Fail Over</label>
+                        <div class="col-sm-8">
+                            <div class="checkbox checkbox-custom">
+                                <input id="cEnableHAFlag" type="checkbox">
+                                <label for="cEnableHAFlag">Yes</label>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+                <div id="SecondarySection" style="display:none">
+                    <!--
+                    <div class="form-group">
+                        <label for="cSecondaryIoTHubEndPoit" class="col-sm-3 control-label">Secondary IoT Hub End Point (*)</label>
+                        <div class="col-sm-9">
+                            <input id="cSecondaryIoTHubEndPoit" type="text" class="form-control" placeholder="Secondary IoT Hub End Point" required>
+                        </div>
+                    </div>
+                    -->
+                    <div class="form-group">
+                        <label for="cSecondaryIoTHubConnectionString" class="col-sm-4 control-label">Secondary IoT Hub Connection String (*)</label>
+                        <div class="col-sm-8">
+                            <input id="cSecondaryIoTHubConnectionString" type="text" class="form-control edit-read-only" placeholder="Secondary IoT Hub Connection String" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cSecondaryIoTHubConsumeGroup" class="col-sm-4 control-label">Secondary IoT Hub Consume Group (*)</label>
+                        <div class="col-sm-8">
+                            <input id="cSecondaryIoTHubConsumeGroup" type="text" class="form-control edit-read-only" placeholder="Secondary IoT Hub Consume Group" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cSecondaryIoTHubStorageConnectionString" class="col-sm-4 control-label">Secondary IoT Hub Storage Connection String (*)</label>
+                        <div class="col-sm-8">
+                            <input id="cSecondaryIoTHubStorageConnectionString" type="text" class="form-control edit-read-only" placeholder="Secondary IoT Hub Storage Connection String" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cSecondaryUploadContainer" class="col-sm-4 control-label">Secondary Upload Storage Container (*)</label>
+                        <div class="col-sm-8">
+                            <input id="cSecondaryUploadContainer" type="text" class="form-control edit-read-only" placeholder="Secondary Upload Storage Container" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+}
+<!-- end row -->
+
+@section PanelDetailButton{
+    <div class="panel-detail-button-footer">
+        <div class="float-right">
+            <button id="DeleteIoTHubButton" class="btn btn-danger waves-effect waves-light m-b-5" style="width:92px;"> <i class="ti-trash m-r-5"></i> <span>Delete</span> </button>
+            <button id="UpdateIoTHubButton" class="btn btn-success waves-effect waves-light m-b-5" style="width:92px;"> <i class="ti-save m-r-5"></i> <span>Save</span> </button>
+            <button id="SubmitNewIoTHubButton" class="btn btn-success waves-effect waves-light m-b-5" style="width:92px; display:none"> <i class="ti-location-arrow m-r-5"></i> <span>Submit</span> </button>
+        </div>
+    </div>
+}
+
+<div>
+    <button id="AddNewIoTHubButton" type="button" class="pull-right m-t-15 btn btn-custom dropdown-toggle waves-effect waves-light"> <i class="ti-plus m-r-5"></i> <span>Add IoT Hub Alias</span> </button>
+    <h4 class="page-title">@ViewBag.CompanyName / IoT Hub Alias</h4>
+
+</div>
+
+
+<div class="row">
+    <div class="card-box table-responsive">
+        <div class="col-sm-12">
+            <table id="datatable-responsive" name="iotHubListTable" class="table table-striped table-bordered dt-responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>IoT Hub Alias</th>
+                        <th>Description</th>
+                        <th>Primary IoT Hub</th>
+                        <th>Secondary IoT Hub</th>
+                    </tr>
+                </thead>
+
+                <tbody id="IoTHubList"></tbody>
+            </table>
+        </div>
+    </div><!-- end col -->
+</div>
+<!-- end row -->
+
+
+<script type="text/javascript">
+    var _iotHubJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.IoTHubList'));
+    var _iotHubDataSet = $('#datatable-responsive').DataTable({
+        'autoWidth': false
+    });
+    var _companyId = @ViewBag.CompanyId;
+    var _selectedIoTHubId = -1;
+
+    function LoadIoTHubListIntoTable() {
+        _iotHubDataSet.clear();
+
+        for (var i in _iotHubJSONObjs) {
+            var primaryString = _iotHubJSONObjs[i].P_IoTHubConnectionString;
+            if (primaryString!=null && primaryString.length > 40)
+                primaryString = _iotHubJSONObjs[i].P_IoTHubConnectionString.substring(0, 39) + "...";
+            var secondaryString = _iotHubJSONObjs[i].S_IoTHubConnectionString;
+            if (secondaryString!=null && secondaryString.length > 40)
+                secondaryString = _iotHubJSONObjs[i].S_IoTHubConnectionString.substring(0, 39) + "...";
+            _iotHubDataSet.row.add([
+                parseInt(i)+1,
+                _iotHubJSONObjs[i].IoTHubAlias,
+                _iotHubJSONObjs[i].Description,
+                primaryString,
+                secondaryString,
+            ])
+            _iotHubDataSet.rows(i).nodes().to$().data('info', _iotHubJSONObjs[i]);
+        }
+        _iotHubDataSet.columns.adjust().draw();
+    }
+
+    function CleanFormInput() {
+        $("#cIoTHubAlias").val('');
+        $('#cDescription').val('');
+        $('#cPrimaryIoTHubEndPoit').val('');
+        $('#cPrimaryIoTHubConnectionString').val('');
+        $('#cPrimaryIoTHubConsumeGroup').val('');
+        $('#cPrimaryIoTHubStorageConnectionString').val('');
+        $('#cPrimaryUploadContainer').val('');
+        $('#cSecondaryIoTHubEndPoit').val('');
+        $('#cSecondaryIoTHubConnectionString').val('');
+        $('#cSecondaryIoTHubConsumeGroup').val('');
+        $('#cSecondaryIoTHubStorageConnectionString').val('');
+        $('#cSecondaryUploadContainer').val('');
+        $('#SecondarySection').hide();
+        //$('#cEnableHAFlag').prop('checked', false);
+    }
+
+    function RefreshIoTHubTable(companyId) {
+        var postData = new FormData()
+        postData.append('CompanyId', companyId);
+        $.ajax({
+            type: "POST",
+            url: "/Company/ReqAction?action=" + "getiothub" + "&t=" + Date.now(),
+            data: postData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                _iotHubJSONObjs = $.parseJSON(data.replace(/&quot;/g, '\"'));
+                LoadIoTHubListIntoTable();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("Session Expired. Please Re-Login.");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    function OnSelectIoTHubItem(iotHubId, selectInfo) {
+        $('#EditingPanelTitle').html("Detail");
+        _selectedIoTHubId = iotHubId;
+        $('#slide-panel-title-text').html("Edit IoT Hub Alias"); /**edit by Cindy*/
+        CleanFormInput();
+
+        $('#SubmitNewIoTHubButton').hide();
+        $('#DeleteIoTHubButton').show();
+        $('#UpdateIoTHubButton').show();
+
+
+        $('.edit-read-only').prop('readonly', true);
+        $('#cIoTHubAlias').val(selectInfo.IoTHubAlias);
+
+        $('#cDescription').val(selectInfo.Description);
+        $('#cPrimaryIoTHubEndPoit').val(selectInfo.P_IoTHubEndPoint);
+        $('#cPrimaryIoTHubConnectionString').val(selectInfo.P_IoTHubConnectionString);
+        $('#cPrimaryIoTHubConsumeGroup').val(selectInfo.P_EventConsumerGroup);
+        $('#cPrimaryIoTHubStorageConnectionString').val(selectInfo.P_EventHubStorageConnectionString);
+        $('#cPrimaryUploadContainer').val(selectInfo.P_UploadContainer);
+
+        //if (selectInfo.S_IoTHubEndPoint.length > 0 && selectInfo.S_IoTHubEndPoint != 'none') {
+        //    $('#SecondarySection').css('display', 'block');
+        //    $('#cEnableHAFlag').prop('checked', true);
+        //}
+        //if (selectInfo.S_IoTHubEndPoint != 'none')
+        //    $('#cSecondaryIoTHubEndPoit').val(selectInfo.S_IoTHubEndPoint);
+
+        //if (selectInfo.S_IoTHubConnectionString != 'none')
+        //    $('#cSecondaryIoTHubConnectionString').val(selectInfo.S_IoTHubConnectionString);
+
+        //if (selectInfo.S_EventConsumerGroup != 'none')
+
+        //$('#cSecondaryIoTHubConsumeGroup').prop('readonly', true);
+        //if (selectInfo.S_EventHubStorageConnectionString != 'none')
+        //    $('#cSecondaryIoTHubStorageConnectionString').val(selectInfo.S_EventHubStorageConnectionString);
+
+        //if (selectInfo.S_UploadContainer != 'none')
+        //    $('#cSecondaryUploadContainer').val(selectInfo.S_UploadContainer);
+
+    }
+
+    function DoIoTHubTransactionAjax(actionName, Id, postData) {
+        var endPoint = "/Company/ReqAction?action=" + actionName;
+        if (Id.length > 0)
+            endPoint = endPoint + "&Id=" + Id;
+        $.ajax({
+            type: "POST",
+            url: endPoint + "&t=" + Date.now(),
+            data: postData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                RefreshIoTHubTable(_companyId);
+                _selectedIoTHubId = "";
+                toastr["success"]("Action Completed. (" + data + ")");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("Session Expired. Please Re-Login.");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    TableManageButtons.init();
+
+    LoadIoTHubListIntoTable();
+
+    $(document).ready(function () {
+        $('#datatable-responsive #IoTHubList').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+                panelDetialSlideOut();
+            }
+            else {
+                _iotHubDataSet.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+                panelDetialSlideIn();
+                $('.slide-info-container').data('status', 1);
+                OnSelectIoTHubItem(_iotHubJSONObjs[_iotHubDataSet.row(this).index()].IoTHubAlias, $(this).data('info'));
+            }
+            
+        });
+
+        function dataValidation(postData) {
+            var IoTHubAliasExp = /^[A-Za-z\d\s]+$/;
+            var IoTHubName = $("#cIoTHubAlias").val();
+            if (IoTHubName.length == 0) {
+                $("#cIoTHubAlias").focus();
+                swal("Invalid !", "IoT Hub Alias is necessary.");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+            if (IoTHubName.length > 30) {
+                $("#cIoTHubAlias").focus();
+                swal("Invalid !", "IoT Hub Alias must shorter than 30 characters.");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            };
+            if (!IoTHubName.match(IoTHubAliasExp)) {
+                $("#cIoTHubAlias").focus();
+                swal("Invalid !", "IoT Hub Alias can contain only letters and numbers character.");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+            postData.append('IoTHubAlias', $("#cIoTHubAlias").val());
+
+            if ($("#cDescription").val().length != 0)
+                postData.append('Description', $("#cDescription").val());
+
+            //if ($("#cPrimaryIoTHubEndPoit").val().length != 0) {
+            //    postData.append('P_IoTHubEndPoint', $("#cPrimaryIoTHubEndPoit").val());
+            //} else {
+            //    $("#cPrimaryIoTHubEndPoit").focus();
+            //    swal("Invalid !", "Primary IoT Hub End Point is necessary.");
+            //    return {
+            //        postData: postData,
+            //        isValidated: false
+            //    };
+            //}
+            postData.append('P_IoTHubEndPoint', 'messages/events');
+
+            if ($("#cPrimaryIoTHubConnectionString").val().length != 0) {
+                postData.append('P_IoTHubConnectionString', $("#cPrimaryIoTHubConnectionString").val());
+            } else {
+                $("#cPrimaryIoTHubConnectionString").focus();
+                swal("Invalid !", "Primary IoT Hub Connection String is necessary.");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+            if ($("#cPrimaryIoTHubConsumeGroup").val().length != 0) {
+                postData.append('P_EventConsumerGroup', $("#cPrimaryIoTHubConsumeGroup").val());
+            } else {
+                $("#cPrimaryIoTHubConsumeGroup").focus();
+                swal("Invalid !", "Primary IoT Hub Consume Group is necessary.");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+            if ($("#cPrimaryIoTHubStorageConnectionString").val().length != 0) {
+                postData.append('P_EventHubStorageConnectionString', $("#cPrimaryIoTHubStorageConnectionString").val());
+            } else {
+                $("#cPrimaryIoTHubStorageConnectionString").focus();
+                swal("Invalid !", "Primary IoT Hub Storage Connection String is necessary.");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+            if ($("#cPrimaryUploadContainer").val().length != 0) {
+                postData.append('P_UploadContainer', $("#cPrimaryUploadContainer").val());
+            } else {
+                $("#cPrimaryUploadContainer").focus();
+                swal("Invalid !", "Primary Upload Storage Container is necessary.");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+            //if ($('#cEnableHAFlag').is(":checked")) {
+                //if ($("#cSecondaryIoTHubEndPoit").val().length != 0) {
+                //    postData.append('S_IoTHubEndPoint', $("#cSecondaryIoTHubEndPoit").val());
+                //} else {
+                //    $("#cSecondaryIoTHubEndPoit").focus();
+                //    swal("Invalid !", "Secondary IoT Hub End Point is necessary.");
+                //    return {
+                //        postData: postData,
+                //        isValidated: false
+                //    };
+                //}
+                //postData.append('S_IoTHubEndPoint', 'messages/events');
+
+                //if ($("#cSecondaryIoTHubConnectionString").val().length != 0) {
+                //    postData.append('S_IoTHubConnectionString', $("#cSecondaryIoTHubConnectionString").val());
+                //} else {
+                //    $("#cSecondaryIoTHubConnectionString").focus();
+                //    swal("Invalid !", "Secondary IoT Hub Connection String is necessary.");
+                //    return {
+                //        postData: postData,
+                //        isValidated: false
+                //    };
+                //}
+
+                //if ($("#cSecondaryIoTHubConsumeGroup").val().length != 0) {
+                //    postData.append('S_EventConsumerGroup', $("#cSecondaryIoTHubConsumeGroup").val());
+                //} else {
+                //    $("#cSecondaryIoTHubConsumeGroup").focus();
+                //    swal("Invalid !", "Secondary IoT Hub Consume Group is necessary.");
+                //    return {
+                //        postData: postData,
+                //        isValidated: false
+                //    };
+                //}
+
+                //if ($("#cSecondaryIoTHubStorageConnectionString").val().length != 0) {
+                //    postData.append('S_EventHubStorageConnectionString', $("#cSecondaryIoTHubStorageConnectionString").val());
+                //} else {
+                //    $("#cSecondaryIoTHubStorageConnectionString").focus();
+                //    swal("Invalid !", "Secondary IoT Hub Storage Connection String is necessary.");
+                //    return {
+                //        postData: postData,
+                //        isValidated: false
+                //    };
+                //}
+
+                //if ($("#cSecondaryUploadContainer").val().length != 0) {
+                //    postData.append('S_UploadContainer', $("#cSecondaryUploadContainer").val());
+                //} else {
+                //    $("#cSecondaryUploadContainer").focus();
+                //    swal("Invalid !", "Secondary Upload Storage Container is necessary.");
+                //    return {
+                //        postData: postData,
+                //        isValidated: false
+                //    };
+                //}
+            //}
+            //else {
+                postData.append('S_IoTHubEndPoint', 'none');
+                postData.append('S_IoTHubConnectionString', 'none');
+                postData.append('S_EventConsumerGroup', 'none');
+                postData.append('S_EventHubStorageConnectionString', 'none');
+                postData.append('S_UploadContainer', 'none');
+            //}
+
+            postData.append('CompanyId', _companyId);
+
+            return {
+                postData: postData,
+                isValidated: true
+            }
+        }
+
+        //$('#cEnableHAFlag').change(function () {
+        //    if ($('#cEnableHAFlag').is(":checked")) {
+        //        $('#SecondarySection').css('display', 'block');
+        //    }
+        //    else
+        //        $('#SecondarySection').css('display', 'none');
+        //});
+
+        $('#AddNewIoTHubButton').click(function () {
+            $('.slide-info-container').data('status', 0);
+            panelDetialSlideIn();
+            $('#slide-panel-title-text').text('Add New IoT Hub Alias');
+            $('#EditingPanelTitle').html("Add New IoTHub");
+            $('#DeleteIoTHubButton').hide();
+            $('#UpdateIoTHubButton').css("display", "none");
+            $('#SubmitNewIoTHubButton').css("display", "inline");
+
+            CleanFormInput();
+            $('.edit-read-only').prop('readonly', false);
+            $("#cIoTHubAlias").focus();
+        });
+
+        $('#SubmitNewIoTHubButton').click(function () {
+            var postData = new FormData();
+            var result = dataValidation(postData);
+
+            if (result.isValidated) {
+                swal({
+                    title: "Are you sure?",
+                    text: "",
+                    type: "success",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-success waves-effect waves-light',
+                    confirmButtonText: 'Submit!'
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        DoIoTHubTransactionAjax("addiothub", "", result.postData);
+
+                        $('#EditingPanelTitle').html("Detail");
+                        $('#DeleteIoTHubButton').show();
+                        $('#UpdateIoTHubButton').show();
+                        $('#SubmitNewIoTHubButton').hide();
+
+                        CleanFormInput();
+                        window.scrollTo(0, 0);
+                    }
+                });
+            }
+        });
+
+        $('#DeleteIoTHubButton').click(function () {
+            if (_selectedIoTHubId.length == 0)
+                toastr["error"]("No IoT Hub Select.");
+            else {
+                swal({
+                    title: "Are you sure?",
+                    text: "",
+                    type: "error",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-danger waves-effect waves-light',
+                    confirmButtonText: 'Delete!'
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        var postData = new FormData();
+                        postData.append('CompanyId', _companyId);
+                        DoIoTHubTransactionAjax("deleteiothub", _selectedIoTHubId, postData);
+                        CleanFormInput();
+                        window.scrollTo(0, 0);
+                    }
+                });
+            }
+        });
+
+        $('#UpdateIoTHubButton').click(function () {
+            if (_selectedIoTHubId.length == 0)
+                toastr["error"]("No IoT Hub Select.");
+            else {
+                var postData = new FormData();
+                var result = dataValidation(postData);
+
+                if(result.isValidated){
+                    swal({
+                        title: "Are you sure?",
+                        text: "",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonClass: 'btn-warning waves-effect waves-light',
+                        confirmButtonText: 'Update!'
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            DoIoTHubTransactionAjax("updateiothub", _selectedIoTHubId, result.postData);
+                        }
+                    });
+                }
+            }
+        });
+    });
+</script>
+

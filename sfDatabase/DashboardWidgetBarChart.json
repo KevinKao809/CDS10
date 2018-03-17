@@ -1,0 +1,28 @@
+﻿{  
+  "Name": "汽缸溫度壓力監測",
+  "Wideget": "BarChart",
+  "Context": {
+    "Title": "汽缸溫度壓力監測",
+    "BarSpace": 2,
+    "Axis_X": "FieldX",
+    "Axis_X_DataType": "datetime",
+    "Axis_X_Display": "ABC",
+    "Axis_Y_Values": [
+      {
+        "Axis_Y": "FieldY1",
+        "Display": "name1",
+        "ColorCode": "#121212"
+      },
+      {
+        "Axis_Y": "FieldY2",
+        "Display": "name2",
+        "ColorCode": "#121212"
+      },
+      {
+        "Axis_Y": "FieldY3",
+        "Display": "name3",
+        "ColorCode": "#121212"
+      }
+    ]
+  }
+}

@@ -1,0 +1,610 @@
+﻿@{
+    ViewBag.Title = "Companies";
+    <link href="@Url.Content("/assets/css/company.css")" rel="stylesheet" type="text/css" />  
+}
+
+@section PanelDetail {
+            <div class="col-sm-12 slide-panel-section">
+                <div class="avatar-logo">
+                    <img id="cLogoURL" src="/assets/images/default/company-128.png" class="img-responsive avatar-image" alt="Logo" style="max-width: 160px; height: inherit;">
+                    <div id="add-clogo" class="upload-icon transition-200ms" title="upload company logo"><i class="zmdi zmdi-upload"></i></div>
+                    <input id="cLogoFileInput" type="file" class="form-control" accept="image/*" style="display:none;" onchange="displayImage(this, event)" data-display="cLogoURL">
+                </div>
+            </div>
+            <div class="col-sm-12 slide-panel-section">
+                <form id="company-form" class="form-horizontal" role="form" data-toggle="validator">
+
+                    <div class="form-group">
+                        <label for="inputName" class="col-sm-3 control-label">
+                            Name(*)
+                        </label>
+                        <div class="col-sm-9">
+                            <input id="cName" type="text" class="form-control" placeholder="Name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputShortName" class="col-sm-3 control-label">
+                            ShortName(*)
+                        </label>
+                        <div class="col-sm-9">
+                            <input id="cShortName" type="text" class="form-control" placeholder="Short Name" required maxlength="10">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmployeeNumber" class="col-sm-3 control-label">Address</label>
+                        <div class="col-sm-9">
+                            <textarea id="cAddress" class="form-control" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputFirstName" class="col-sm-3 control-label">Latitude</label>
+                        <div class="col-sm-9">
+                            <input id="cLatitude" type="number" step=any min=0 class="form-control" placeholder="Latitude">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputLastName" class="col-sm-3 control-label">Longitude</label>
+                        <div class="col-sm-9">
+                            <input id="cLongitude" type="number" step=any min=0 class="form-control" placeholder="Longitude">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="allowDomain" class="col-sm-3 control-label">
+                            Allow domain
+                        </label>
+                        <div class="col-sm-9">
+                            <input id="cAllowDomain" type="text" class="form-control" placeholder="Domain1; Domain2; Domain3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cCompanyWebSite" class="col-sm-3 control-label">
+                            Website
+                        </label>
+                        <div class="col-sm-9">
+                            <input id="cCompanyWebSite" type="text" class="form-control" placeholder="Website">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cContactName" class="col-sm-3 control-label">
+                            Contact
+                        </label>
+                        <div class="col-sm-9">
+                            <input id="cContactName" type="text" class="form-control" placeholder="Contact">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cContactPhone" class="col-sm-3 control-label">
+                            Phone
+                        </label>
+                        <div class="col-sm-9">
+                            <input id="cContactPhone" type="text" class="form-control" placeholder="Phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cContactEmail" class="col-sm-3 control-label">
+                            Email
+                        </label>
+                        <div class="col-sm-9">
+                            <input id="cContactEmail" type="email" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cCultureInfoId" class="col-sm-3 control-label">Culture Info</label>
+                        <div class="col-sm-9">
+                            <select id="cCultureInfoId" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="DocDBConnectionString" class="col-sm-3 control-label">DocDB Connection String</label>
+                        <div class="col-sm-9">
+                            <input id="cDocDBConnectionString" type="email" class="form-control" placeholder="DocDB Connection String">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ExtAppAuthenticationKey" class="col-sm-3 control-label">Ext. App. Key</label>
+                        <div class="col-sm-9">
+                            <input id="cExtAppAuthenticationKey" type="email" readonly="readonly" class="form-control" />
+                            <input id="genExtAppKeyButton" type="button" value="Get Key" style="width:80px;" /> <input id="delExtAppKeyButton" type="button" value="Delete Key" style="width:120px" />
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+}
+
+@section PanelDetailButton{
+    <div class="panel-detail-button-footer">
+        <div class="float-right">
+            <button id="LogonAsSAButton" class="btn btn-primary waves-effect w-md waves-light m-b-5" style="width:140px; display:inline"> <i class="ti-location-arrow m-r-5"></i> <span>Login as SA</span> </button>
+            <button id="UpdateCompanyButton" class="btn btn-success waves-effect w-md waves-light m-b-5" style="width:92px;"> <i class="ti-save m-r-5"></i> <span>Save</span> </button>
+            <button id="DeleteCompanyButton" class="btn btn-danger waves-effect w-md waves-light m-b-5" style="width:92px;"> <i class="ti-trash m-r-5"></i> <span>Delete</span> </button> 
+        </div>
+    </div>
+}
+
+    <div>
+        <button id="AddNewCompanyButton" type="button" class="pull-right m-t-15 btn btn-custom dropdown-toggle waves-effect waves-light"> <i class="ti-plus m-r-5"></i> <span>Add Company</span> </button>
+        <h4 class="page-title">Companies</h4>  
+    </div>
+
+<div class="row">
+    <div class="card-box table-responsive">
+        <div class="col-sm-12">
+            <table id="datatable-responsive" name="companyListTable" class="table table-striped table-bordered dt-responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Short Name</th>
+                        <th>Contact</th>
+                        <th>Phone</th>
+                        <th>Allow Domain</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody id="CompanyList"></tbody>
+            </table>
+        </div>
+    </div><!-- end col -->
+</div>
+<!-- end row -->
+
+<!-- end row -->
+<form id="GoToPage" name="GoToPage" method="post" action="">
+    <input type="hidden" id="inputCompanyId" name="inputCompanyId" />
+    <input type="hidden" id="inputCredential" name="inputCredential" />
+</form>
+                                           
+<script type="text/javascript">
+    var _companyJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.CompanyList')),
+        _cultureInfoJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.CultureInfoList')),
+        _defaulDocDBConnectionString = '@ViewBag.DocDBConnectionString',
+        _selectedCompanyId = -1,
+        _companyDataSet = $('#datatable-responsive').DataTable({
+            'autoWidth': false,
+            "columnDefs": [
+                { className: "rwd-small-hide", "targets": [5] }
+            ]
+        });
+
+    function LoadCompanyListIntoTable() {
+
+        _companyDataSet.clear().draw(false);
+
+        for (var i in _companyJSONObjs) {
+            var action = '<div class="column-btn-set">'+
+                    '<button type= "button" class="btn btn-primary btn-trans waves-effect w-md waves-info m-b-5" onclick= "EditEmployee(' + _companyJSONObjs[i].Id + ',event);" >Employee</button >'+
+                    '<button type= "button" class="btn btn-success btn-trans waves-effect w-md waves-info m-b-5" onclick= "EditIoTHub(' + _companyJSONObjs[i].Id + ',event);">IoT Hub</button>'+
+                    '<button type= "button" class="btn btn-info btn-trans waves-effect w-md waves-info m-b-5" onclick= "EditDashboard(' + _companyJSONObjs[i].Id + ',event);">Dashboard</button>'+
+                '</div>'+
+                '<div class="column-btn-collapse-set">' +
+                '<button type="button" class="prevent-bubble btn btn-primary btn-trans waves-effect waves-primary m-b-5" data-toggle="dropdown" aria-expanded="true">Action<span class="m-l-5"><i class="fa fa-caret-down prevent-bubble"></i></span></button>' +
+                    '<ul class="dropdown-menu" role="menu">'+
+                        '<li onclick= "EditEmployee(' + _companyJSONObjs[i].Id + ',event);"><a href="#">Employee</a></li>'+
+                        '<li onclick= "EditIoTHub(' + _companyJSONObjs[i].Id + ',event);"><a href="#">IoT Hub</a></li>'+
+                        '<li onclick= "EditDashboard(' + _companyJSONObjs[i].Id + ',event);"><a href="#">Dashboard</a></li>'+
+                    '</ul>'+
+                '</div> ';
+
+            _companyDataSet.row.add([
+                parseInt(i)+1,
+                _companyJSONObjs[i].Name,
+                _companyJSONObjs[i].ShortName,
+                _companyJSONObjs[i].ContactName,
+                _companyJSONObjs[i].ContactPhone,
+                _companyJSONObjs[i].AllowDomain,
+                action,
+            ]);
+
+            _companyDataSet.rows(i).nodes().to$().data('info', _companyJSONObjs[i]);
+
+        }
+        _companyDataSet.columns.adjust().draw();
+
+        $('.prevet-bubble').bind('', function (event) {
+            event.stopPropagation();
+        });
+
+    }
+
+    function LoadCultureInfoIntoObjects() {
+        var options = "";
+        for (var key in _cultureInfoJSONObjs) {
+            options += "<option value=" + _cultureInfoJSONObjs[key].CultureCode + ">" + _cultureInfoJSONObjs[key].Name + "</option>"
+        }
+        document.getElementById("cCultureInfoId").innerHTML = options;
+    }
+
+    function CleanFormInput() {
+        $("#cName").val('');
+        $('#cShortName').val('');
+        $('#cAddress').val('');
+        $('#cLatitude').val('');
+        $('#cLongitude').val('');
+        $('#cAllowDomain').val('');
+        $('#cCompanyWebSite').val('');
+        $('#cContactName').val('');
+        $('#cContactEmail').val('');
+        $('#cContactPhone').val('');
+        $('#cLogoFileInput').val('');
+        $('#cLogoURL').attr("src", '/assets/images/default/company-128.png');
+        $('#cDocDBConnectionString').val('');
+        $('#cExtAppAuthenticationKey').val('');
+        LoadCultureInfoIntoObjects();
+    }
+
+    function RefreshCompanyTable() {
+        $.ajax({
+            type: "POST",
+            url: "/Company/ReqAction?action=" + "getcompany" + "&t=" + Date.now(),
+            data: null,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                _companyJSONObjs = $.parseJSON(data.replace(/&quot;/g, '\"'));
+                LoadCompanyListIntoTable();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("Session Expired. Please Re-Login.");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    function preventBubble(event) {
+
+        if (!event) {
+            var event = window.event
+        }
+
+        event.cancelBubble = true;
+
+        if (event.stopPropagation){ 
+            event.stopPropagation();
+        } 
+    }
+
+    function EditEmployee(companyId, event)
+    {
+        preventBubble(event);
+        $('#inputCompanyId').val(companyId);
+        $('#GoToPage').prop('action', '/Company/EditEmployee');
+        $('#GoToPage').prop('target', '_self');
+        $('#GoToPage').submit();
+    }
+
+    function EditIoTHub(companyId, event)
+    {   
+        preventBubble(event);
+        $('#inputCompanyId').val(companyId);
+        $('#GoToPage').prop('action', '/Company/EditIoTHub');
+        $('#GoToPage').prop('target', '_self');
+        $('#GoToPage').submit();
+    }
+
+    function EditDashboard(companyId, event)
+    {
+        preventBubble(event);
+        $('#inputCompanyId').val(companyId);
+        $('#GoToPage').prop('action', '/Company/EditDashboard');
+        $('#GoToPage').prop('target', '_self');
+        $('#GoToPage').submit();
+    }
+
+    function OnSelectCompanyItem(companyId, event, $dom) {
+
+        if (event.target.className.match('prevent-bubble') != null) {
+            return false;
+        }
+
+        if ($dom.hasClass('selected')) {
+            $dom.removeClass('selected');
+            panelDetialSlideOut();
+        }
+        else {
+            fillCompanyInfo($dom.data('info'));
+            _companyDataSet.$('tr.selected').removeClass('selected');
+            $dom.addClass('selected');
+            panelDetialSlideIn();
+        }
+        _selectedCompanyId = companyId;
+    }
+
+    function fillCompanyInfo(companyInfo) {
+        $('.slide-info-container').data('status', 1);
+        $('#LogonAsSAButton').show();
+        CleanFormInput();
+        $('#slide-panel-title-text').text('Edit Company');
+        $('#cName').val(companyInfo.Name);
+        $('#cShortName').val(companyInfo.ShortName);
+        $('#cAddress').val(companyInfo.Address);
+        $('#cLatitude').val(companyInfo.Latitude);
+        $('#cLongitude').val(companyInfo.Longitude);
+        $('#cAllowDomain').val(companyInfo.AllowDomain);
+        $('#cCompanyWebSite').val(companyInfo.CompanyWebSite);
+        $('#cContactName').val(companyInfo.ContactName);
+        $('#cContactEmail').val(companyInfo.ContactEmail);
+        $('#cContactPhone').val(companyInfo.ContactPhone);
+        $("#cCultureInfoId").val(companyInfo.CultureInfoId);
+        if (companyInfo.LogoURL != null && companyInfo.LogoURL.length > 0)
+            $('#cLogoURL').attr("src", companyInfo.LogoURL);
+        else
+            $('#cLogoURL').attr("src", '/assets/images/default/company-128.png');
+        $("#cDocDBConnectionString").val(companyInfo.DocDBConnectionString);
+        $('#cExtAppAuthenticationKey').val(companyInfo.ExtAppAuthenticationKey);
+
+
+    }
+
+    function initSlidePanel() {
+        $('#slide-panel-title-text').text('Edit Company');
+        $('#add-clogo, #cLogoURL').click(function () {
+            $('#cLogoFileInput').trigger('click');
+        });
+    }
+
+    function DoCompanyTransactionAjax(actionName, Id, postData) {
+        var endPoint = "/Company/ReqAction?action=" + actionName;
+        if (Id >= 0)
+            endPoint = endPoint + "&Id=" + Id;
+        $.ajax({
+            type: "POST",
+            url: endPoint + "&t=" + Date.now(),
+            data: postData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                RefreshCompanyTable();
+                _selectedCompanyId = -1;
+                toastr["success"]("Action Completed. (" + data + ")");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("Session Expired. Please Re-Login.");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    TableManageButtons.init();
+    LoadCompanyListIntoTable();
+
+    $(document).ready(function () {
+        initSlidePanel();
+        
+        $('#datatable-responsive #CompanyList').on('click', 'tr', function (event) {
+            OnSelectCompanyItem(_companyJSONObjs[_companyDataSet.row(this).index()].Id, event, $(this));
+        });
+
+        function dataValidation(postData) {
+            postData.append('UploadFile', $('#cLogoFileInput')[0].files[0]);
+            if ($("#cName").val().length != 0) {
+                postData.append('Name', $("#cName").val());
+            } else {
+                $("#cName").focus();
+                swal("Invalid !", "Name is necessary.");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+            if ($("#cShortName").val().length != 0) {
+                postData.append('ShortName', $("#cShortName").val());
+            } else {
+                $("#cShortName").focus();
+                swal("Invalid !", "Short Name is necessary and must be shorten then 10 characters.");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+            if ($("#cAddress").val().length != 0)
+                postData.append('Address', $("#cAddress").val());
+            if ($("#cAllowDomain").val().length != 0)
+                postData.append('AllowDomain', $("#cAllowDomain").val());
+            if ($("#cCompanyWebSite").val().length != 0)
+                postData.append('CompanyWebSite', $("#cCompanyWebSite").val());
+            if ($("#cContactName").val().length != 0)
+                postData.append('ContactName', $("#cContactName").val());
+            if ($("#cContactPhone").val().length != 0)
+                postData.append('ContactPhone', $("#cContactPhone").val());
+            if ($("#cContactEmail").val().length != 0)
+                postData.append('ContactEmail', $("#cContactEmail").val());
+            if ($("#cLatitude").val().length != 0) {
+                if (isNaN($("#cLatitude").val())) {
+                    $("#cLatitude").focus();
+                    swal("Invalid !", "Latitude must be a number.");
+                    return {
+                        postData: postData,
+                        isValidated: false
+                    };
+                } else {
+                    postData.append('Latitude', eval($("#cLatitude").val()));
+                }
+            }
+
+            if ($("#cLongitude").val().length != 0) {
+                if (isNaN($("#cLongitude").val())) {
+                    $("#cLongitude").focus();
+                    swal("Invalid !", "Longitude must be a number.");
+                    return {
+                        postData: postData,
+                        isValidated: false
+                    };
+                } else {
+                    postData.append('Longitude', eval($("#cLongitude").val()));
+                }
+            }
+
+            if ($("#cCultureInfoId").val().length != 0)
+                postData.append('CultureInfoId', $("#cCultureInfoId").val());
+            
+            if ($("#cExtAppAuthenticationKey").val().length != 0)
+                postData.append('ExtAppAuthenticationKey', $("#cExtAppAuthenticationKey").val());
+            else
+                postData.append('ExtAppAuthenticationKey', '');
+
+            if ($("#cDocDBConnectionString").val().length != 0)
+                postData.append('DocDBConnectionString', $("#cDocDBConnectionString").val());
+            else
+                postData.append('DocDBConnectionString', _defaulDocDBConnectionString);
+
+            return {
+                postData: postData,
+                isValidated: true
+            }
+        }
+
+        $('#AddNewCompanyButton').click(function () {
+            panelDetialSlideIn();
+            $('#slide-panel-title-text').text('Add New Company');
+            CleanFormInput();
+            $("#cName").focus();
+            $('.slide-info-container').data('status', 0);
+            $('#LogonAsSAButton').hide();
+        });
+
+
+        $('#DeleteCompanyButton').click(function () {
+            if (_selectedCompanyId < 0)
+                toastr["error"]("No Company Select.");
+            else {
+                swal({
+                    title: "Are you sure?",
+                    text: "",
+                    type: "error",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-danger waves-effect waves-light',
+                    confirmButtonText: 'Delete!'
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        DoCompanyTransactionAjax("deletecompany", _selectedCompanyId, null);
+                        panelDetialSlideOut();
+                    }
+                });
+            }
+        });
+
+        $('#UpdateCompanyButton').click(function () {
+            var status = $('.slide-info-container').data('status');
+            // add company status
+            if (status === 0) {
+
+                var postData = new FormData();
+                var result = dataValidation(postData);
+
+                if (result.isValidated) {
+
+                    swal({
+                        title: "Are you sure?",
+                        text: "",
+                        type: "success",
+                        showCancelButton: true,
+                        confirmButtonClass: 'btn-success waves-effect waves-light',
+                        confirmButtonText: 'Submit!'
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            DoCompanyTransactionAjax("addcompany", -1, result.postData);
+                            panelDetialSlideOut();
+                            CleanFormInput();
+                            window.scrollTo(0, 0);
+                        }
+                    });
+                }
+
+            //edit comapny status
+            }else if (status === 1) {
+                if (_selectedCompanyId < 0)
+                    toastr["error"]("No Company Select.");
+                else {
+                    var postData = new FormData();
+                    var result = dataValidation(postData);
+
+                    if (result.isValidated) {
+                        swal({
+                            title: "Are you sure?",
+                            text: "",
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonClass: 'btn-warning waves-effect waves-light',
+                            confirmButtonText: 'Update!'
+                        }, function (isConfirm) {
+                            if (isConfirm) {
+                                DoCompanyTransactionAjax("updatecompany", _selectedCompanyId, result.postData);
+                                panelDetialSlideOut();
+                            }
+                        });
+                    }
+                }
+            }
+        });        
+
+        $('#delExtAppKeyButton').click(function () {            
+            $('#cExtAppAuthenticationKey').val('');              
+        });
+
+        $('#genExtAppKeyButton').click(function () {
+            var endPoint = "/Company/ReqAction?action=genExtAppKey";
+            $.ajax({
+                type: "POST",
+                url: endPoint + "&t=" + Date.now(),
+                data: null,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    var credentialJson = $.parseJSON(jsonStringFilter(data));
+                    $('#cExtAppAuthenticationKey').val(credentialJson.Key);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    if (XMLHttpRequest.status == 401) {
+                        toastr["error"]("Session Expired. Please Re-Login.");
+                        setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                    }
+                    else
+                        toastr["error"]("Error");
+                }
+            });
+        });
+
+        $('#LogonAsSAButton').click(function () {
+            var endPoint = "/Company/ReqAction?action=getSACredential";
+            $.ajax({
+                type: "POST",
+                url: endPoint + "&t=" + Date.now(),
+                data: null,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    var credentialJson = $.parseJSON(jsonStringFilter(data));
+                    $('#inputCompanyId').val(_selectedCompanyId);
+                    $('#inputCredential').val(credentialJson.Credential);
+                    $('#GoToPage').prop('action', '@ViewBag.AdminWebURI' + 'Home/LoginBySA');
+                    $('#GoToPage').prop('target', '_blank');
+                    $('#GoToPage').submit();
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    if (XMLHttpRequest.status == 401) {
+                        toastr["error"]("Session Expired. Please Re-Login.");
+                        setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                    }
+                    else
+                        toastr["error"]("Error");
+                }
+            });
+        });
+    });
+</script>

@@ -1,0 +1,13 @@
+{
+  "job": "provisioning company",
+  "entity": "company",
+  "entityId": "12",
+  "task": "purge documentdb collection",
+  "taskId": 1508,
+  "databaseName": "db12",
+  "collectionId": "12",
+  "documentdbConnectionString": "AccountEndpoint=https://sfdocumentdb.documents.azure.com:443/;AccountKey=uscYe8taxXEtIIzQjCM47T3y3F53wMn2QOPUOnZu55oBClFnzOzfd5UDSlMixgCR6aqBNbHebJmIgoSmdk2MxQ==;",
+  "requester": "Kevin Kao",
+  "requesterEmail": "kevika@microsoft.com",
+  "requestDateTime": "2017-02-19T15:44:00.473895Z"
+}

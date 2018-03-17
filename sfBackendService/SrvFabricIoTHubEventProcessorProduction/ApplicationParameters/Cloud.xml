@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Name="fabric:/SrvFabricIoTHubEventProcessorProduction" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Parameters>
+    <Parameter Name="IoTHubEventProcessor_InstanceCount" Value="1" />
+    <Parameter Name="input_IoTHubAlias" Value="ContosoIoTHub" />
+  </Parameters>
+</Application>

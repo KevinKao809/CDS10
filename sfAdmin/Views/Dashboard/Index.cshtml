@@ -1,0 +1,330 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/plugins/gridstack/gridstack.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/css/dashboard.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/plugins/bootstrap-sweetalert/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    <!-- jQuery  -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/detect.js"></script>
+    <script src="/assets/js/fastclick.js"></script>
+    <script src="/assets/js/jquery.slimscroll.js"></script>
+    <script src="/assets/js/jquery.blockUI.js"></script>
+    <script src="/assets/js/waves.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/jquery.nicescroll.js"></script>
+    <script src="/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="/assets/plugins/bootstrap-sweetalert/sweet-alert.min.js"></script>
+    <script src="/assets/plugins/toastr/toastr.min.js"></script>
+    <script src="/assets/js/smartfactory.js"></script>
+
+    <!--grid stack-->
+    <script src="/assets/plugins/lodash/lodash.js"></script>
+    <script src="/assets/plugins/gridstack/gridstack.js"></script>
+    <script src="/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/assets/plugins/gridstack/gridstack.jQueryUI.min.js"></script>
+
+    <!-- Flot Chart -->
+    <script src="/assets/plugins/flot-chart-083/jquery.flot.js"></script>
+    <script src="/assets/plugins/flot-chart-083/jquery.flot.time.js"></script>
+    <script src="/assets/plugins/flot-chart-083/jquery.flot.symbol.js"></script>
+    <script src="/assets/plugins/flot-chart-083/jquery.flot.pie.js"></script>
+    <script src="/assets/plugins/flot-chart-083/jshashtable-2.1.js"></script>
+    <script src="/assets/plugins/flot-chart-083/jquery.numberformatter-1.2.3.min.js"></script>
+    <script src="/assets/plugins/flot-chart-083/jquery.flot.axislabels.js"></script>
+
+    <!-- DataTable -->
+    <script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.buttons.min.js"></script>
+    <script src="/assets/plugins/datatables/buttons.bootstrap.min.js"></script>
+    <script src="/assets/plugins/datatables/jszip.min.js"></script>
+    <script src="/assets/plugins/datatables/pdfmake.min.js"></script>
+    <script src="/assets/plugins/datatables/vfs_fonts.js"></script>
+    <script src="/assets/plugins/datatables/buttons.html5.min.js"></script>
+    <script src="/assets/plugins/datatables/buttons.print.min.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.fixedHeader.min.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.keyTable.min.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.responsive.min.js"></script>
+    <script src="/assets/plugins/datatables/responsive.bootstrap.min.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.scroller.min.js"></script>
+    <script src="/assets/pages/datatables.init.js"></script>
+
+    <!-- DashBoard-->
+    <script src="/assets/js/dashboard.js"></script>
+
+</head>
+<body>
+
+    <div id="loader-screen" class="loader-component">
+        <div class="loader"></div>
+    </div>
+
+    <div class="dashboard-wrapper">
+        <div class="grid-stack transparent">
+            @Html.Raw(ViewBag.WidgetOutput)
+        </div>
+    </div>
+
+    <form id="NavToFactoryDashboardForm" name="NavToFactoryDashboardForm" method="post" action="/Dashboard/FactoryDashboard">
+        <input type="hidden" id="factoryId" name="factoryId" />
+    </form>
+
+    <!-- SignalR -->
+    <script src="/Scripts/jquery.signalR-2.2.1.js"></script>
+    <script src="/signalr/hubs"></script>
+    <script type="text/javascript">
+        $(function () {
+            var hub = $.connection.RTMessageHub;
+            hub.client.onReceivedMessage = function (message) {
+
+                //console.log(message);
+                var DeviceMessage = $.parseJSON(message);
+                var equipmentId = "", alarmMsg = false;
+                @Html.Raw(ViewBag.WidgetUpdateFunctions)
+
+                if (DeviceMessage.AlarmRuleCatalogId == null) {
+                    equipmentId = DeviceMessage.equipmentId;
+                }
+                else {
+                    equipmentId = DeviceMessage.Message.equipmentId;
+                    alarmMsg = true;
+                }
+
+                console.log('---------------------------------------');
+                console.log('equipmentId:', equipmentId);
+
+                for (var i in _FactoryEquipmentObjs) {
+                    for (var j in _FactoryEquipmentObjs[i].Equipments) {
+                        var found = false;
+                        if (_FactoryEquipmentObjs[i].Equipments[j].EquipmentId == equipmentId) {
+                            var DTNow = new Date();
+                            _FactoryEquipmentObjs[i].Equipments[j].msgTimestamp = sfDateToString(DTNow);
+                            if (alarmMsg) {
+                                _Alarm24H++;
+                                _FactoryEquipmentObjs[i].alarm24H++;
+                                _FactoryEquipmentObjs[i].Equipments[j].alarmMsgTimestamp = sfDateToString(DTNow);
+                                _alarmDataSet.row.add([
+                                    _MessageAlarmObjs.length + 1,
+                                    getFactoryNameByEquipmentId(DeviceMessage.Message.equipmentId),
+                                    DeviceMessage.Message.equipmentId,
+                                    DeviceMessage.AlarmRuleCatalogName,
+                                    DeviceMessage.AlarmRuleCatalogDescription,
+                                    DeviceMessage.Message.msgTimestamp,
+                                    '<input onClick="javascript:showMessageContentofAlert(' + _MessageAlarmObjs.length + ')" type="button" value="Message" />'
+                                ]).order([0, 'desc']).draw(false);
+                                _MessageAlarmObjs.push(DeviceMessage);
+
+                                update_GoogleMap(_FactoryEquipmentObjs[i].Id);
+                            }
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (found) break;
+                }
+            };
+
+            $.connection.hub.start().done(function () {
+                hub.server.register("@ViewBag.CompanyId");
+            });
+        })
+    </script>
+
+    <!-- KNOB JS -->
+    <script src="/assets/plugins/jquery-knob/jquery.knob.js"></script>
+
+    <!-- App js -->
+    <script src="/assets/js/jquery.core.js"></script>
+    <script src="/assets/js/jquery.app.js"></script>
+    <script src="/assets/js/modernizr.min.js"></script>
+
+    <!-- Company Dashboard js-->
+    <script type="text/javascript">
+        var _FactoryEquipmentObjs = $.parseJSON(jsonStringFilter('@ViewBag.FactoryEquipmentList'));
+
+        console.log(_FactoryEquipmentObjs);
+
+        var _MessageAlarmCount = @ViewBag.AlarmMessageCount;
+        //var _MessageAlarmObjs = $.parseJSON(jsonStringFilter('@Html.Raw(ViewBag.AlarmMessageList)'));
+        var _MessageAlarmObjs = $.parseJSON("[]");
+        var _TotalFactory = 0, _TotalEquipment = 0, _Alarm24H = 0; _ConnectedFactory = 0, _ConnectedEquipment = 0, _Alarm1M = 0;        
+
+        function MapMoveTo(lat, log) {
+            var position = new google.maps.LatLng(parseFloat(lat), parseFloat(log));
+            map.setCenter(position);
+            map.setZoom(10);
+        }
+
+        // End Google Map
+        // For Factory List
+        function LoadFactoryIntoUL() {
+            var factoryItem = "";
+            for (var i in _FactoryEquipmentObjs) {
+                var factoryImage = _FactoryEquipmentObjs[i].PhotoURL;
+                if (factoryImage == null)
+                    factoryImage = "/assets/images/default/factory-128.png";
+                factoryItem = factoryItem + "<li class='list-group-item'>";
+                factoryItem = factoryItem + "<table border='1' style='width:100%'><tr><td style='text-align:center;width:20%'><a href='javascript:MoveToFactory(" + _FactoryEquipmentObjs[i].Latitude + "," + _FactoryEquipmentObjs[i].Longitude + ");'><img src='" + factoryImage + "' style='max-height:70px; max-width:70px;'></a></td>";
+                factoryItem = factoryItem + "<td style='text-align:center'><h5><a href='javascript:NavToFactoryDashboard(" + _FactoryEquipmentObjs[i].Id + ");' class='user-list-item'>" + _FactoryEquipmentObjs[i].Name + "</a></h5></td>";
+                factoryItem = factoryItem + "<td style='text-align:center;width:20%'><a href='javascript:FilterFactoryAlarm(" + _FactoryEquipmentObjs[i].Latitude + "," + _FactoryEquipmentObjs[i].Longitude + ",\"" + _FactoryEquipmentObjs[i].Name + "\");' class='user-list-item'><h4><span id='factory_" + _FactoryEquipmentObjs[i].Id + "1MAlarm'> 0</span> / <span id='factory_" + _FactoryEquipmentObjs[i].Id + "24HAlarm'>" + _FactoryEquipmentObjs[i].alarm24H + "</span> </h4></a>(alarm)</td>";
+                factoryItem = factoryItem + "<td style='text-align:center;width:20%'><a href='#' class='user-list-item'><h4> <span id='factory_" + _FactoryEquipmentObjs[i].Id + "ConnectedEquipmentCount'>0</span> / <span id='factory_" + _FactoryEquipmentObjs[i].Id + "EquipmentCount'>0</span> </h4></a>(equipment)</td>";
+                factoryItem = factoryItem + "</tr></table></li>";
+            }
+            $('#FactoryList').html(factoryItem);
+        }
+
+        function NavToFactoryDashboard(factoryId) {
+            document.getElementById('factoryId').value = factoryId;
+            var NavToFactoryDashboardForm = document.getElementById('NavToFactoryDashboardForm');
+            NavToFactoryDashboardForm.submit();
+        }
+
+        function MoveToFactory(lat, log) {
+            MapMoveTo(lat, log);
+        }
+
+        function FilterFactoryAlarm(lat, log, factoryName) {
+            MapMoveTo(lat, log);
+            $('#datatable-responsive').DataTable({'autoWidth': false}).search(factoryName).draw();
+        }
+        // End Factory List
+
+        // For Alarm List
+        function getFactoryNameByEquipmentId(equipmentId) {
+            for (var i in _FactoryEquipmentObjs) {
+                for (var j in _FactoryEquipmentObjs[i].Equipments) {
+                    if (equipmentId == _FactoryEquipmentObjs[i].Equipments[j].EquipmentId) {
+                        return _FactoryEquipmentObjs[i].Name;
+                    }
+                }
+            }
+            return "";
+        }
+        function getFactoryIdByEquipmentId(equipmentId) {
+            for (var i in _FactoryEquipmentObjs) {
+                for (var j in _FactoryEquipmentObjs[i].Equipments) {
+                    if (equipmentId == _FactoryEquipmentObjs[i].Equipments[j].EquipmentId) {
+                        return _FactoryEquipmentObjs[i].Id;
+                    }
+                }
+            }
+            return "";
+        }
+        // End Table Data
+
+        // RefreshDashboard
+        function RefreshDataboard() {
+            _ConnectedFactory = 0;
+            _ConnectedEquipment = 0;
+            _Alarm1M = 0;
+            var nowDT = new Date();
+            for (var i in _FactoryEquipmentObjs) {
+                var connectedEquipmentInFactory = 0, Alert1MInFactory = 0;
+                for (var j in _FactoryEquipmentObjs[i].Equipments) {
+                    if (_FactoryEquipmentObjs[i].Equipments[j].msgTimestamp.length > 0) {
+                        var lastUpdated = sfStringToDate(_FactoryEquipmentObjs[i].Equipments[j].msgTimestamp);
+                        var difInSec = (nowDT.getTime() - lastUpdated.getTime()) / 1000;
+                        if (difInSec < 60) {
+                            connectedEquipmentInFactory++;
+                            _ConnectedEquipment++;
+                        }
+                        else
+                            _FactoryEquipmentObjs[i].Equipments[j].msgTimestamp = "";
+                    }
+                    if (_FactoryEquipmentObjs[i].Equipments[j].alarmMsgTimestamp.length > 0) {
+                        var lastUpdated = sfStringToDate(_FactoryEquipmentObjs[i].Equipments[j].alarmMsgTimestamp);
+                        var difInSec = (nowDT.getTime() - lastUpdated.getTime()) / 1000;
+                        if (difInSec < 60) {
+                            Alert1MInFactory++;
+                            _Alarm1M++;
+                        }
+                        else
+                            _FactoryEquipmentObjs[i].Equipments[j].alarmMsgTimestamp = "";
+                    }
+                }
+                if (connectedEquipmentInFactory > 0)
+                    _ConnectedFactory++;
+                $('#factory_' + _FactoryEquipmentObjs[i].Id + 'ConnectedEquipmentCount').html(connectedEquipmentInFactory);
+                $('#factory_' + _FactoryEquipmentObjs[i].Id + '1MAlarm').html(Alert1MInFactory);
+                $('#factory_' + _FactoryEquipmentObjs[i].Id + '24HAlarm').html(_FactoryEquipmentObjs[i].alarm24H);
+            }
+            $('#ConnectedFactoryCard').html(_ConnectedFactory);
+            $('#ConnectedEquipmentCard').html(_ConnectedEquipment);
+            $('#Alarm1MCard').html(_Alarm1M);
+            $('#Alarm24HCard').html(_Alarm24H);
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var companyDashboardId = "@ViewBag.DashboardId";
+            var widgetCatalogJson = $.parseJSON(jsonStringFilter("@ViewBag.WidgetCatalogList"));
+
+            var dashboardAttrObj = {
+                'companyDashboardId': companyDashboardId,
+                'widgetCatalogJson': widgetCatalogJson,
+                'permissionList':[@ViewBag.PermissionList],
+                'dashboardLevel':0
+            };
+
+            toastr.options = {
+                positionClass: 'toast-top-right',
+            }
+
+            LoadFactoryIntoUL();
+
+            dashboardWidget.dashboardInit(dashboardAttrObj);
+
+            _TotalFactory = Object.keys(_FactoryEquipmentObjs).length
+            for (var i in _FactoryEquipmentObjs) {
+                var EquipmentOfFactory = 0;
+                for (var j in _FactoryEquipmentObjs[i].Equipments) {
+                    _TotalEquipment++;
+                    EquipmentOfFactory++;
+                }
+                var objFactoryEquipmentNumber = '\'#factory_' + _FactoryEquipmentObjs[i].Id + 'EquipmentCount\'';
+                $('#factory_' + _FactoryEquipmentObjs[i].Id + 'EquipmentCount').html(EquipmentOfFactory);
+            }
+            $('#FactoryCard').html(_TotalFactory);
+            $('#EquipmentCard').html(_TotalEquipment);
+            _Alarm24H = _MessageAlarmCount;
+            $('#Alarm24HCard').html(_Alarm24H);
+
+            setInterval(function () { RefreshDataboard() }, 2000);
+        });
+    </script>
+</body>
+</html>

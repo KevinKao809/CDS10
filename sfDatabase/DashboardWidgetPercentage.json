@@ -1,0 +1,12 @@
+﻿{
+  "Name": "生產進度百分比",
+  "Wideget": "NumberPercentage",
+  "Context": {
+    "Title": "生產進度百分比",
+    "TotalNumberFrom": "Value|MessageElement",
+    "TotalNumber": "FiledZ",
+    "Field": "FieldX",
+    "FGColorCode": "#FF0000",
+    "BGColorCode": "#FFFF00"
+  }
+}

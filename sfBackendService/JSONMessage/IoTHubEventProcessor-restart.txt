@@ -1,0 +1,17 @@
+Purpose:
+  Stop EventProcessor
+  Re-Load MessageCatalog, Alarm Rule, Action
+  Start EventProcessor
+
+Message Property:
+  process='iothubeventprocessor'
+  iothubalias='xx'
+
+Message Payload:
+{  
+  "command": "restart",
+  "requester": "First Name Last Name",
+  "requesterEmail": "email",
+  "requestDateTime": "UTC DateTime",
+  "taskId": 18
+}

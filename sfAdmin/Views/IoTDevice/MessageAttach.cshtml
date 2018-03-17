@@ -1,0 +1,417 @@
+﻿@{
+    ViewBag.Title = "IoTDevice / Device Message";
+}
+<div class="row">
+    <div class="card-box table-responsive">
+        <div style="float:left">
+            <h4 class="header-title m-t-0 m-b-30">[[[IoTDevice]]] / [[[Device]]] [[[Message]]]</h4>
+        </div>
+        <div style="float:right">
+            <button id="DownloadMsgTemplateButton" type="button" class="btn btn-inverse waves-effect waves-light m-b-5"> <i class="ti-plus m-r-5"></i> <span>[[[Download Message Template]]]</span> </button>
+        </div>
+        <div class="col-sm-12">
+            <table id="datatable-responsive" name="iotDeviceListTable" class="table table-striped table-bordered dt-responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>[[[No]]]</th>
+                        <th>[[[IOT Device]]] ID</th>
+                        <th>[[[IOT Hub Alias]]]</th>
+                        <th>[[[Protocol]]]</th>
+                        <th>[[[Factory]]]</th>
+                        <th>[[[Authentication]]]</th>
+                        <th>[[[Type]]]</th>
+                    </tr>
+                </thead>
+
+                <tbody id="IOTDeviceList"></tbody>
+            </table>
+        </div>
+    </div><!-- end col -->
+</div>
+<!-- end row -->
+
+<div class="row" id="panel_detail" style="display:none;">
+    <div class="panel-group" id="accordion" 2 role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingDetail" style="height: 60px;">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDetail" aria-expanded="true" aria-controls="collapseDetail">
+                </a>
+                <div style="float:left">
+                    <h4 id="EditingPanelTitle" class="header-title m-t-0 m-b-30">Detail</h4>
+                </div>
+                <div style="float:right">
+
+                    <button id="UpdateMessageAttachButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px;"> <i class="ti-save m-r-5"></i> <span>[[[Save]]]</span> </button>
+
+                </div>
+            </div>
+
+            <div id="collapseDetail" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingDetail">
+                <div class="panel-body">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-sm-2 text-left">
+
+                        </div>
+                        <div class="col-sm-10">
+                            <form id="company-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="form-group">
+                                    <div class="col-sm-2">
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div style="float:left">
+                                            [[[Attached]]] [[[Messages]]]
+                                            <br>
+                                            <select size="5" id="selectMsg" style="width:auto; height:200px; min-width: 100px;"></select>
+                                        </div>
+                                        <div style="float:left">
+                                            <i class="zmdi zmdi-swap" style="margin-top:95px; margin-left:10px; margin-right:10px;"></i>
+                                        </div>
+                                        <div style="float:left">
+                                            [[[Available]]] [[[Messages]]]
+                                            <br>
+                                            <select size="5" id="selectAvailableMsg" style="width:auto; height:200px; min-width: 100px;"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+
+<script type="text/javascript">
+    var _iotDeviceJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.iotDevice'));
+    var _availableMsgJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.nonChildMsg'));
+    var _selectediotDeviceId = -1;
+    var _factoryJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.FactoryList'));
+
+    var _permissions = [@ViewBag.PermissionList];
+    var ioTDeviceDataSet = $('#datatable-responsive').DataTable({
+        dom: 'l<"toolbar">frtip',
+        initComplete: function () {
+            $("div.toolbar")
+               .html(' <div><div class="col-sm-4" >[[[Show Factory]]]:  <select id="factoryFilter" class="form-control" onChange=search(this)>' +
+               getFactoryFilterOptionsHTML() +
+               '<select>' +
+               '</div>');
+            $("div.dataTables_length").css("margin-left", "10px");
+        }
+    });
+
+    function LoadIotDeviceListIntoTable() {
+
+        ioTDeviceDataSet.clear().draw(false);
+        for (var i in _iotDeviceJSONObjs) {
+            ioTDeviceDataSet.row.add([
+                parseInt(i) + 1,
+                _iotDeviceJSONObjs[i].IoTHubDeviceId,
+                _iotDeviceJSONObjs[i].IoTHubAlias,
+                _iotDeviceJSONObjs[i].IoTHubProtocol,
+                _iotDeviceJSONObjs[i].FactoryName,
+                _iotDeviceJSONObjs[i].AuthenticationType,
+                _iotDeviceJSONObjs[i].DeviceTypeName
+            ]).draw(false);
+        }
+        ioTDeviceDataSet.columns.adjust().draw();
+    }
+    function LoadAvailableMsgIntoSelect() {
+        var options = "";
+        for (var i in _availableMsgJSONObjs) {
+            options += "<option value=" + _availableMsgJSONObjs[i].Id + ">" + _availableMsgJSONObjs[i].Name + "</option>"
+        }
+        document.getElementById("selectAvailableMsg").innerHTML = options;
+    }
+
+
+    function CleanFormInput() {
+        $("#selectAvailableMsg").empty();
+        $("#selectMsg").empty();
+        LoadAvailableMsgIntoSelect();
+    }
+
+
+    function OnSelectDeviceItem(iotDeviceId) {
+        $('#panel_detail').css("display", "block");
+        $('#EditingPanelTitle').html("[[[Detail]]]");
+        var attachedMsg = [];
+        _selectediotDeviceId = iotDeviceId;
+        CleanFormInput();
+        attachedMsg = getAttachedMessageByDeviceId(_selectediotDeviceId);
+        for (var i in attachedMsg) {
+            $("#selectMsg").append("<option value='" + attachedMsg[i].MessageCatalogId + "'>" + attachedMsg[i].MessageCatalogName + "</option>");
+            $(eval("\"#selectAvailableMsg option[value='" + attachedMsg[i].MessageCatalogId + "']\"")).remove();
+        }
+
+    }
+    function getAttachedMessageByDeviceId(Id) {
+        var endPoint = "/IoTDevice/ReqAction?action=getattachedmessagebydeviceid";
+        var result;
+        if (Id != null)
+            endPoint = endPoint + "&Id=" + Id;
+        $.ajax({
+            type: "GET",
+            url: endPoint + "&t=" + Date.now(),
+            async: false,
+            success: function (data) {
+                if (data != "[]") {
+                    JSONdata = JSON.parse(data);
+                    console.log(Id, data);
+                    result = JSONdata;
+                }
+
+                else result = [];
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("[[[Error]]]");
+            }
+        });
+
+        return result;
+    }
+    function downloadAttachedMessageByDeviceId(Id) {
+        var endPoint = "/IoTDevice/ReqAction?action=downloadmessagetemplate";
+        if (Id != null)
+            endPoint = endPoint + "&Id=" + Id;
+        $.ajax({
+            type: "GET",
+            url: endPoint + "&t=" + Date.now(),
+            async: false,
+            success: function (data) {
+                toastr["success"]("[[[Start Download]]].");
+                download('MessageTemplate.json', data);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("[[[Error]]]");
+            }
+        });
+        ;
+    }
+    function download(filename, text) {
+        var broswerType = checkBroswerType();
+        if (broswerType == "IE" || broswerType == "Edge") {
+            var jsonContent = text;
+            var blob = new Blob([jsonContent], { type: "application/json" });
+            window.navigator.msSaveOrOpenBlob(blob, filename);
+        }
+        else {
+            var pom = document.createElement('a');
+            pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            pom.setAttribute('download', filename);
+
+            if (document.createEvent) {
+                var event = document.createEvent('MouseEvents');
+                event.initEvent('click', true, true);
+                pom.dispatchEvent(event);
+            }
+            else {
+                pom.click();
+            }
+        }
+
+    }
+    function getFactoryFilterOptionsHTML() {
+        var options = "<option value=all>ALL</option>";
+        for (var i in _factoryJSONObjs) {
+            options = options + "<option value= " + _factoryJSONObjs[i].Id + ">" + _factoryJSONObjs[i].Name + "</option>";
+        }
+        return options;
+
+    }
+    function search(factoryId) {
+
+        var factory = "&factoryId=" + factoryId.value;
+
+        $.ajax({
+            type: "POST",
+            url: "/IoTDevice/ReqAction?action=getIoTDeviceByFactory" + "&t=" + Date.now() + factory,
+            data: null,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                _iotDeviceJSONObjs = $.parseJSON(data.replace(/&quot;/g, '\"'));
+                LoadIotDeviceListIntoTable();
+                $("#panel_detail").css("display", "none");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("Session Expired. Please Re-Login.");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("[[[Error]]]");
+            }
+        });
+    }
+    function checkBroswerType() {
+        // Opera 8.0+
+        var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+        // Firefox 1.0+
+        var isFirefox = typeof InstallTrigger !== 'undefined';
+        // At least Safari 3+: "[object HTMLElementConstructor]"
+        var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+        // Internet Explorer 6-11
+        var isIE = false || !!document.documentMode;
+        // Edge 20+
+        var isEdge = !isIE && !!window.StyleMedia;
+        // Chrome 1+
+        var isChrome = !!window.chrome && !!window.chrome.webstore;
+        // Blink engine detection
+        //var isBlink = (isChrome || isOpera) && !!window.CSS;
+        if (isOpera == true) return "Opera";
+        else if (isFirefox == true) return "FireFox";
+        else if (isSafari == true) return "Safari";
+        else if (isIE == true) return "IE";
+        else if (isEdge == true) return "Edge";
+        else if (isChrome == true) return "Chrome";
+        else return "no broswer";
+    }
+    function DoMessageAttachTransactionAjax(actionName, Id, postData) {
+        var endPoint = "/IoTDevice/ReqAction?action=" + actionName;
+        if (Id != null)
+            endPoint = endPoint + "&Id=" + Id;
+        $.ajax({
+            type: "POST",
+            url: endPoint + "&t=" + Date.now(),
+            data: postData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                _selectediotDeviceId = -1;
+                toastr["success"]("[[[Action Completed]]]. (" + data + ")");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+    function checkPermission() {
+        var piority = -1;
+        for (var i in _permissions) {
+            if (_permissions[i] == 0) {  //Admin
+                piority = 2;
+                break;
+            }
+            if (_permissions[i] == 34) {  //MsgAttach View
+                piority = 1;
+            }
+            if (_permissions[i] == 35) {  //MsgAttach Edit
+                piority = 2;
+                break;
+            }
+        }
+        if (piority == 1) {  //only View
+            $('#DownloadMsgTemplateButton').css("display", "none");
+            $('#UpdateMessageAttachButton').css("display", "none");
+            //$('#selectMsg').attr("readonly", "readonly");
+            //$('#selectAvailableMsg').attr("readonly", "readonly");
+        }
+
+    }
+
+    TableManageButtons.init();
+    checkPermission();
+    LoadIotDeviceListIntoTable();
+    LoadAvailableMsgIntoSelect();
+
+    $(document).ready(function () {
+        var table = $('#datatable-responsive').DataTable();
+        $('#datatable-responsive #IOTDeviceList').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                table.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+            OnSelectDeviceItem(_iotDeviceJSONObjs[table.row(this).index()].IoTHubDeviceId);
+        });
+
+        $("#selectAvailableMsg").change(function () {
+            var text = $("#selectAvailableMsg").find("option:selected").text();
+            var value = $("#selectAvailableMsg").val();
+            $("#selectMsg").append("<option value='" + value + "'>" + text + "</option>");
+            $("#selectAvailableMsg").find("option:selected").remove();
+        });
+
+        $("#selectMsg").change(function () {
+            var text = $("#selectMsg").find("option:selected").text();
+            var value = $("#selectMsg").val();
+            $("#selectAvailableMsg").append("<option value='" + value + "'>" + text + "</option>");
+            $("#selectMsg").find("option:selected").remove();
+        });
+
+
+        function dataValidation(postData) {
+
+            // Add Attached Messages
+            var attachedmsg = document.getElementById('selectMsg').options;
+            for (var i = 0; i < attachedmsg.length; i++) {
+                postData.append('MessageCatalogIdList', attachedmsg[i].value);
+            }
+
+            return {
+                postData: postData,
+                isValidated: true
+            }
+        }
+
+
+
+        $('#UpdateMessageAttachButton').click(function () {
+            if (_selectediotDeviceId < 0)
+                toastr["error"]("[[[No IOT Device Select]]].");
+            else {
+                var postData = new FormData();
+                var result = dataValidation(postData);
+
+                if (result.isValidated) {
+                    swal({
+                        title: "[[[Are you sure]]]?",
+                        text: "",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonClass: 'btn-warning waves-effect waves-light',
+                        confirmButtonText: '[[[Update]]]!'
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            DoMessageAttachTransactionAjax("updateattachedmessage", _selectediotDeviceId, result.postData);
+                            CleanFormInput();
+                            $('#panel_detail').css("display", "none");
+                            window.scrollTo(0, 0);
+                        }
+                    });
+                }
+            }
+        });
+        $('#DownloadMsgTemplateButton').click(function () {
+            if (_selectediotDeviceId < 0)
+                toastr["error"]("[[[No IOT Device Select]]].[[[Please select one]]].");
+            else {
+                downloadAttachedMessageByDeviceId(_selectediotDeviceId);
+            }
+        });
+    });
+</script>

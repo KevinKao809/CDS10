@@ -1,0 +1,9 @@
+{
+  "companyId": 49,
+  "msgTimestamp": "2017-02-19T22:27:42",
+  "equipmentId": "A5Machine001",
+  "equipmentRunStatus": 1,
+  "Speed": 82,
+  "MainProgram": "Program A0",
+  "MessageCatalogId": 44
+}

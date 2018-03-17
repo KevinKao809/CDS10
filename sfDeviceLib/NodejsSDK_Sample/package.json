@@ -1,0 +1,8 @@
+{
+  "name": "nodejs-sdk_sample",
+  "version": "1.0.1",
+  "description": "Simple samples demonstrates how to use Node.js SDK in Connected Device Studio",
+  "author": "Microsoft IoT Innnovation Center",
+  "license": "MIT",
+  "dependencies": {}
+}

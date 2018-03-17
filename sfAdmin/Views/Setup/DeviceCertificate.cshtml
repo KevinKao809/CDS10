@@ -1,0 +1,367 @@
+﻿@{
+    ViewBag.Title = "Setup / Device Certificate";
+}
+
+<div class="row">
+    <div class="card-box table-responsive">
+        <div style="float:left">
+            <h4 class="header-title m-t-0 m-b-30">[[[Setup]]] / [[[Device Certificate]]]</h4>
+        </div>
+        <div style="float:right">
+            <button id="AddNewDeviceCertificateButton" type="button" class="btn btn-inverse waves-effect waves-light m-b-5"> <i class="ti-plus m-r-5"></i> <span>[[[Add]]] [[[Device Certificate]]]</span> </button>
+        </div>
+        <div class="col-sm-12">
+            <table id="datatable-responsive" name="deviceCertificateListTable" class="table table-striped table-bordered dt-responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>[[[No]]]</th>
+                        <th>[[[Name]]]</th>
+                        <th>PFX [[[File Name]]]</th>
+                        <th>[[[Thumbprint]]]</th>
+                        <th>[[[Expired Date]]]</th>
+                    </tr>
+                </thead>
+
+                <tbody id="DeviceCertificateList"></tbody>
+            </table>
+        </div>
+    </div><!-- end col -->
+</div>
+<!-- end row -->
+
+<div class="row" id="panel_detail" style="display:none;">
+    <div class="panel-group" id="accordion" 2 role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingDetail" style="height: 60px;">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDetail" aria-expanded="true" aria-controls="collapseDetail">
+                </a>
+                <div style="float:left">
+                    <h4 id="EditingPanelTitle" class="header-title m-t-0 m-b-30">[[[Detail]]]</h4>
+                </div>
+                <div style="float:right">
+                    <button id="DeleteDeviceCertificateButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px;"> <i class="ti-trash m-r-5"></i> <span>[[[Delete]]]</span> </button>
+                    <button id="UpdateDeviceCertificateButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px;"> <i class="ti-save m-r-5"></i> <span>[[[Save]]]</span> </button>
+                    <button id="CancelAddNewDeviceCertificateButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px; display:none"> <i class="ti-close m-r-5"></i> <span>[[[Cancel]]]</span> </button>
+                    <button id="SubmitNewDeviceCertificateButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px; display:none"> <i class="ti-location-arrow m-r-5"></i> <span>[[[Submit]]]</span> </button>
+                </div>
+            </div>
+
+            <div id="collapseDetail" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingDetail">
+                <div class="panel-body">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-sm-2 text-left">
+                        </div>
+                        <div class="col-sm-10">
+                            <form id="deviceCertificate-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="inputName" class="col-sm-3 control-label">
+                                            [[[Name]]](*)
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input id="cName" type="text" class="form-control" placeholder="[[[Name]]]" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputShortName" class="col-sm-3 control-label">
+                                            PFX [[[File Name]]]
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input id="cFileName" type="text" class="form-control" placeholder="[[[PFX File Name]]]" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputFirstName" class="col-sm-3 control-label">[[[Thumbprint]]]</label>
+                                        <div class="col-sm-9">
+                                            <input id="cThumbprint" type="text" step=any min=0 class="form-control" placeholder="[[[Thumbprint]]]">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputLastName" class="col-sm-3 control-label">PFX [[[Password]]]</label>
+                                        <div class="col-sm-9">
+                                            <input id="cPFXPassword" type="text" step=any min=0 class="form-control" placeholder="PFX [[[Password]]]">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="inputRole" class="col-sm-3 control-label">[[[Expired Date]]]</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose">
+                                            <span class="input-group-addon bg-primary b-0 text-white"><i class="ti-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-5">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+
+<script type="text/javascript">
+    var _deviceCertificateJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.DeviceCertificateList'));
+    var _selectedDeviceCertificateId = -1;
+
+    function LoadDeviceCertificateListIntoTable() {
+
+        var deviceCertificateDataSet = $('#datatable-responsive').DataTable();
+        deviceCertificateDataSet.clear();
+
+        for (var i in _deviceCertificateJSONObjs) {
+            deviceCertificateDataSet.row.add([
+                parseInt(i) + 1,
+                _deviceCertificateJSONObjs[i].Name,
+                _deviceCertificateJSONObjs[i].FileName,
+                _deviceCertificateJSONObjs[i].Thumbprint,
+                _deviceCertificateJSONObjs[i].ExpiredAt,
+            ]).draw(false);
+        }
+        deviceCertificateDataSet.columns.adjust().draw();
+    }
+
+    function CleanFormInput() {
+        $("#cName").val('');
+        $('#cFileName').val('');
+        $('#cThumbprint').val('');
+        $('#cPFXPassword').val('');
+        $('#datepicker-autoclose').val('');
+    }
+
+    function RefreshDeviceCertificateTable() {
+        $.ajax({
+            type: "POST",
+            url: "/Setup/ReqAction?action=getdeviceCertificate" + "&t=" + Date.now(),
+            data: null,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                _deviceCertificateJSONObjs = $.parseJSON(data.replace(/&quot;/g, '\"'));
+                LoadDeviceCertificateListIntoTable();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    function OnSelectDeviceCertificateItem(deviceCertificateId) {
+        $('#panel_detail').css("display", "block");
+        $('#EditingPanelTitle').html("[[[Detail]]]");
+        _selectedDeviceCertificateId = deviceCertificateId;
+        CleanFormInput();
+        for (var i in _deviceCertificateJSONObjs) {
+            if (_deviceCertificateJSONObjs[i].Id == _selectedDeviceCertificateId) {
+                $('#cName').val(_deviceCertificateJSONObjs[i].Name);
+                $('#cFileName').val(_deviceCertificateJSONObjs[i].FileName);
+                $('#cThumbprint').val(_deviceCertificateJSONObjs[i].Thumbprint);
+                $('#cPFXPassword').val(_deviceCertificateJSONObjs[i].PFXPassword);
+                $('#datepicker-autoclose').val(_deviceCertificateJSONObjs[i].ExpiredAt);
+                break;
+            }
+        }
+    }
+
+    function DoDeviceCertificateTransactionAjax(actionName, Id, postData) {
+        var endPoint = "/Setup/ReqAction?action=" + actionName;
+        if (Id >= 0)
+            endPoint = endPoint + "&Id=" + Id;
+        $.ajax({
+            type: "POST",
+            url: endPoint + "&t=" + Date.now(),
+            data: postData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                RefreshDeviceCertificateTable();
+                _selectedDeviceCertificateId = -1;
+                toastr["success"]("[[[Action Completed]]]. (" + data + ")");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    TableManageButtons.init();
+
+    LoadDeviceCertificateListIntoTable();
+
+    $(document).ready(function () {
+        var table = $('#datatable-responsive').DataTable();
+        $('#datatable-responsive #DeviceCertificateList').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                table.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+            OnSelectDeviceCertificateItem(_deviceCertificateJSONObjs[table.row(this).index()].Id);
+        });
+
+        jQuery('#datepicker-autoclose').datepicker({
+                autoclose: true,
+                todayHighlight: true
+            });
+
+        function dataValidation(postData) {
+           if ($("#cName").val().length != 0) {
+                postData.append('Name', $("#cName").val());
+            } else {
+                $("#cName").focus();
+                swal("[[[Invalid]]] !", "[[[Name is necessary]]].");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+           if ($("#cFileName").val().length != 0)
+               postData.append('FileName', $("#cFileName").val());
+
+           if ($("#cThumbprint").val().length != 0)
+               postData.append('Thumbprint', $("#cThumbprint").val());
+
+           if ($("#cPFXPassword").val().length != 0)
+               postData.append('PFXPassword', $("#cPFXPassword").val());
+
+           if ($("#datepicker-autoclose").val().length != 0)
+               postData.append('ExpiredAt', $("#datepicker-autoclose").val());
+
+            return {
+                postData: postData,
+                isValidated: true
+            }
+        }
+
+        $('#AddNewDeviceCertificateButton').click(function () {
+            $('#panel_detail').css("display", "block");
+
+            $('#EditingPanelTitle').html("[[[Add New]]] [[[Device Certificate]]]");
+            $('#DeleteDeviceCertificateButton').css("display", "none");
+            $('#UpdateDeviceCertificateButton').css("display", "none");
+            $('#CancelAddNewDeviceCertificateButton').css("display", "inline");
+
+            $('#SubmitNewDeviceCertificateButton').css("display", "inline");
+
+            $('#AddNewDeviceCertificateButton').css("display", "none");
+            CleanFormInput();
+            $("#cName").focus();
+        });
+
+        $('#CancelAddNewDeviceCertificateButton').click(function () {
+            $('#panel_detail').css("display", "none");
+            $('#EditingPanelTitle').html("[[[Detail]]]");
+            $('#DeleteDeviceCertificateButton').css("display", "inline");
+            $('#UpdateDeviceCertificateButton').css("display", "inline");
+            $('#CancelAddNewDeviceCertificateButton').css("display", "none");
+            $('#SubmitNewDeviceCertificateButton').css("display", "none");
+
+            $('#AddNewDeviceCertificateButton').css("display", "inline");
+            CleanFormInput();
+            window.scrollTo(0, 0);
+        });
+
+        $('#SubmitNewDeviceCertificateButton').click(function () {
+            var postData = new FormData();
+            var result = dataValidation(postData);
+
+            if (result.isValidated) {
+                swal({
+                    title: "[[[Are you sure]]]?",
+                    text: "",
+                    type: "success",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-success waves-effect waves-light',
+                    confirmButtonText: '[[[Submit]]]!'
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        DoDeviceCertificateTransactionAjax("adddeviceCertificate", -1, result.postData);
+
+                        $('#panel_detail').css("display", "none");
+                        $('#EditingPanelTitle').html("[[[Detail]]]");
+                        $('#DeleteDeviceCertificateButton').css("display", "inline");
+                        $('#UpdateDeviceCertificateButton').css("display", "inline");
+                        $('#CancelAddNewDeviceCertificateButton').css("display", "none");
+                        $('#SubmitNewDeviceCertificateButton').css("display", "none");
+
+                        $('#AddNewDeviceCertificateButton').css("display", "inline");
+
+                        CleanFormInput();
+                        window.scrollTo(0, 0);
+                    }
+                });
+            }
+        });
+
+        $('#DeleteDeviceCertificateButton').click(function () {
+            if (_selectedDeviceCertificateId < 0)
+                toastr["error"]("[[[No Device Certificate Select]]].");
+            else {
+                swal({
+                    title: "[[[Are you sure]]]?",
+                    text: "",
+                    type: "error",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-danger waves-effect waves-light',
+                    confirmButtonText: '[[[Delete]]]!'
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        DoDeviceCertificateTransactionAjax("deletedeviceCertificate", _selectedDeviceCertificateId, null);
+                        CleanFormInput();
+                        $('#panel_detail').css("display", "none");
+                        window.scrollTo(0, 0);
+                    }
+                });
+            }
+        });
+
+        $('#UpdateDeviceCertificateButton').click(function () {
+            if (_selectedDeviceCertificateId < 0)
+                toastr["error"]("[[[No Device Certificate Select]]].");
+            else {
+                var postData = new FormData();
+                var result = dataValidation(postData);
+
+                if(result.isValidated){
+                    swal({
+                        title: "[[[Are you sure]]]?",
+                        text: "",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonClass: 'btn-warning waves-effect waves-light',
+                        confirmButtonText: '[[[Update]]]!'
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            DoDeviceCertificateTransactionAjax("updatedeviceCertificate", _selectedDeviceCertificateId, result.postData);
+                            $('#panel_detail').css("display", "none");
+                        }
+                    });
+                }
+            }
+        });
+    });
+</script>
+
+

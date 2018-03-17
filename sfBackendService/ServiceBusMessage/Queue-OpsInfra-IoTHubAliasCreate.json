@@ -1,0 +1,10 @@
+{
+  "job": "provisioning iothub alias",
+  "entity": "iothub",
+  "entityId": "iothub-asia-1",
+  "task": "create iothub alias",
+  "taskId": 1512,
+  "requester": "Admin A-Car",
+  "requesterEmail": "admin@a-car.com",
+  "requestDateTime": "2017-02-19T15:54:26.4208436Z"
+}

@@ -1,0 +1,488 @@
+﻿@{
+    ViewBag.Title = "Factory";
+}
+
+<div class="row">
+    <div class="card-box table-responsive">
+        <div style="float:left">
+            <h4 class="header-title m-t-0 m-b-30">[[[Factory]]]</h4>
+        </div>
+        <div style="float:right">
+            <button id="AddNewFactoryButton" type="button" class="btn btn-inverse waves-effect waves-light m-b-5"> <i class="ti-plus m-r-5"></i> <span>[[[Add]]] [[[Factory]]]</span> </button>
+        </div>
+        <div class="col-sm-12">
+            <table id="datatable-responsive" name="factoryListTable" class="table table-striped table-bordered dt-responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>[[[No]]]</th>
+                        <th>[[[Name]]]</th>
+                        <th>[[[Description]]]</th>
+                        <th>[[[Culture Info]]]</th>
+                        <th>[[[Time Zone]]]</th>
+                    </tr>
+                </thead>
+
+                <tbody id="FactoryList"></tbody>
+            </table>
+        </div>
+    </div><!-- end col -->
+</div>
+<!-- end row -->
+
+<div class="row" id="panel_detail" style="display:none;">
+    <div class="panel-group" id="accordion" 2 role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingDetail" style="height: 60px;">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDetail" aria-expanded="true" aria-controls="collapseDetail">
+                </a>
+                <div style="float:left">
+                    <h4 id="EditingPanelTitle" class="header-title m-t-0 m-b-30">[[[Detail]]]</h4>
+                </div>
+                <div style="float:right">
+                    <button id="DeleteFactoryButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px;"> <i class="ti-trash m-r-5"></i> <span>[[[Delete]]]</span> </button>
+                    <button id="UpdateFactoryButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px;"> <i class="ti-save m-r-5"></i> <span>[[[Save]]]</span> </button>
+                    <button id="CancelAddNewFactoryButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px; display:none"> <i class="ti-close m-r-5"></i> <span>[[[Cancel]]]</span> </button>
+                    <button id="SubmitNewFactoryButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px; display:none"> <i class="ti-location-arrow m-r-5"></i> <span>[[[Submit]]]</span> </button>
+                </div>
+            </div>
+
+            <div id="collapseDetail" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingDetail">
+                <div class="panel-body">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-sm-2 text-left">
+                            <img id="cPhotoURL" src="/assets/images/default/factory-128.png" class="img-responsive" alt="Logo" style="max-width: 200px; height: inherit; padding-bottom: 15px;">
+                            <div class="row" style="width: 200px;">
+                                <input id="cLogoFileInput" type="file" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <form id="factory-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cName" class="col-sm-3 control-label">
+                                            [[[Name]]](*)
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input id="cName" type="text" class="form-control" placeholder="[[[Name]]]" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cDescription" class="col-sm-3 control-label">
+                                            [[[Description]]]
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <textarea id="cDescription" class="form-control" rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cLatitude" class="col-sm-3 control-label">[[[Latitude]]](*)</label>
+                                        <div class="col-sm-9">
+                                            <input id="cLatitude" type="number" step=any min=0 class="form-control" placeholder="[[[Latitude]]]">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cLongitude" class="col-sm-3 control-label">[[[Longitude]]](*)</label>
+                                        <div class="col-sm-9">
+                                            <input id="cLongitude" type="number" step=any min=0 class="form-control" placeholder="[[[Longitude]]]">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cCultureInfoId" class="col-sm-3 control-label">[[[Culture Info]]]</label>
+                                        <div class="col-sm-9">
+                                            <select id="cCultureInfoId" class="form-control"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cTimeZone" class="col-sm-3 control-label">[[[TimeZone]]] (*)</label>
+                                        <div class="col-sm-9">
+                                            <select id="cTimeZone" class="form-control">
+                                                <option value="0" selected="selected">UTC 0</option>
+                                                <option value="1">UTC +1</option>
+                                                <option value="2">UTC +2</option>
+                                                <option value="3">UTC +3</option>
+                                                <option value="4">UTC +4</option>
+                                                <option value="5">UTC +5</option>
+                                                <option value="6">UTC +6</option>
+                                                <option value="7">UTC +7</option>
+                                                <option value="8">UTC +8</option>
+                                                <option value="9">UTC +9</option>
+                                                <option value="10">UTC +10</option>
+                                                <option value="11">UTC +11</option>
+                                                <option value="12">UTC +12</option>
+                                                <option value="-1">UTC -1</option>
+                                                <option value="-2">UTC -2</option>
+                                                <option value="-3">UTC -3</option>
+                                                <option value="-4">UTC -4</option>
+                                                <option value="-5">UTC -5</option>
+                                                <option value="-6">UTC -6</option>
+                                                <option value="-7">UTC -7</option>
+                                                <option value="-8">UTC -8</option>
+                                                <option value="-9">UTC -9</option>
+                                                <option value="-10">UTC -10</option>
+                                                <option value="-11">UTC -11</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+
+<script type="text/javascript">
+    var _factoryJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.FactoryList'));
+    var _cultureInfoJSONObjs = $.parseJSON('@ViewBag.CultureInfoList'.replace(/&quot;/g, '\"'));
+    var _selectedFactoryId = -1;
+    var _companyLatitude = @ViewBag.CompanyLat;
+    var _companyLongitude = @ViewBag.CompanyLng;
+
+    var _permissions = [@ViewBag.PermissionList];
+
+
+    function LoadFactoryListIntoTable() {
+
+        var factoryDataSet = $('#datatable-responsive').DataTable();
+        factoryDataSet.clear().draw(false);
+
+        for (var i in _factoryJSONObjs) {
+            factoryDataSet.row.add([
+                parseInt(i) + 1,
+                _factoryJSONObjs[i].Name,
+                _factoryJSONObjs[i].Description,
+                _factoryJSONObjs[i].CultureInfoName,
+                'UTC ' + (_factoryJSONObjs[i].TimeZone > 0 ? "+" : "") + _factoryJSONObjs[i].TimeZone,
+            ]).draw(false);
+        }
+        factoryDataSet.columns.adjust().draw();
+    }
+
+    function LoadCultureInfoIntoObjects() {
+        var options = "";
+        for (var key in _cultureInfoJSONObjs) {
+            options += "<option value=" + _cultureInfoJSONObjs[key].CultureCode + ">" + _cultureInfoJSONObjs[key].Name + "</option>"
+        }
+        document.getElementById("cCultureInfoId").innerHTML = options;
+    }
+
+    function CleanFormInput() {
+        $("#cName").val('');
+        $('#cDescription').val('');
+        $('#cLatitude').val('');
+        $('#cLongitude').val('');
+        $('#cTimeZone').val('0');
+        $('#cLogoFileInput').val('');
+        $('#cPhotoURL').attr("src", '/assets/images/default/factory-128.png');
+        LoadCultureInfoIntoObjects();
+    }
+
+    function RefreshFactoryTable() {
+        $.ajax({
+            type: "POST",
+            url: "/Factory/ReqAction?action=getfactory" + "&t=" + Date.now(),
+            data: null,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                _factoryJSONObjs = $.parseJSON(data.replace(/&quot;/g, '\"'));
+                LoadFactoryListIntoTable();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("[[[Error]]]");
+            }
+        });
+    }
+
+    function OnSelectFactoryItem(factoryId) {
+        $('#panel_detail').css("display", "block");
+        $('#EditingPanelTitle').html("[[[Detail]]]");
+        _selectedFactoryId = factoryId;
+        CleanFormInput();
+        for (var i in _factoryJSONObjs) {
+            if (_factoryJSONObjs[i].Id == _selectedFactoryId) {
+                $('#cName').val(_factoryJSONObjs[i].Name);
+                $('#cDescription').val(_factoryJSONObjs[i].Description);
+                $('#cLatitude').val(_factoryJSONObjs[i].Latitude);
+                $('#cLongitude').val(_factoryJSONObjs[i].Longitude);
+                $('#cTimeZone').val(_factoryJSONObjs[i].TimeZone);
+                $("#cCultureInfoId").val(_factoryJSONObjs[i].CultureInfoId);
+                if (_factoryJSONObjs[i].PhotoURL != null && _factoryJSONObjs[i].PhotoURL.length > 0)
+                    $('#cPhotoURL').attr("src", _factoryJSONObjs[i].PhotoURL);
+                else
+                    $('#cPhotoURL').attr("src", '/assets/images/default/factory-128.png');
+                break;
+            }
+        }
+    }
+
+    function DoFactoryTransactionAjax(actionName, Id, postData) {
+        var endPoint = "/Factory/ReqAction?action=" + actionName;
+        if (Id >= 0)
+            endPoint = endPoint + "&Id=" + Id;
+        $.ajax({
+            type: "POST",
+            url: endPoint + "&t=" + Date.now(),
+            data: postData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                RefreshFactoryTable();
+                _selectedFactoryId = -1;
+                toastr["success"]("[[[Action Completed]]]. (" + data + ")");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401)
+                {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("[[[Error]]]");
+            }
+        });
+    }
+    function checkPermission() {
+        var piority = -1;
+        for (var i in _permissions) {
+            if (_permissions[i] == 0) {  //Admin
+                piority = 2;
+                break;
+            }
+            if (_permissions[i] == 10) {  //Factory View
+                piority = 1;
+            }
+            if (_permissions[i] == 11) {  //Factory Edit
+                piority = 2;
+                break;
+            }
+        }
+        if (piority == 1) {  //only View
+            $('#DeleteFactoryButton').css("display", "none");
+            $('#UpdateFactoryButton').css("display", "none");
+            $('#SubmitNewFactoryButton').css("display", "none");
+            $('#AddNewFactoryButton').css("display", "none");
+        }
+
+    }
+
+    TableManageButtons.init();
+    checkPermission();
+    LoadFactoryListIntoTable();
+
+    $(document).ready(function () {
+        var table = $('#datatable-responsive').DataTable();
+        $('#datatable-responsive #FactoryList').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                table.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+            OnSelectFactoryItem(_factoryJSONObjs[table.row(this).index()].Id);
+        });
+
+        function dataValidation(postData) {
+            postData.append('UploadFile', $('#cLogoFileInput')[0].files[0]);
+            if ($("#cName").val().length != 0) {
+                postData.append('Name', $("#cName").val());
+            } else {
+                $("#cName").focus();
+                swal("[[[Invalid]]] !", "[[[Name]]] [[[is necessary]]].");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+            if ($("#cDescription").val().length != 0)
+                postData.append('Description', $("#cDescription").val());
+
+            if ($("#cLatitude").val().length == 0 || $("#cLongitude").val().length == 0)
+            {
+                if ($("#cLatitude").val().length == 0)
+                    $("#cLatitude").focus();
+                else
+                    $("#cLongitude").focus();
+
+                swal("[[[Invalid]]] !", "[[[Location]]] [[[is necessary]]].");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+            else
+            {
+                if ($("#cLatitude").val() == 0 && $("#cLongitude").val() == 0)
+                {
+                    $("#cLatitude").focus();
+                    swal("[[[Invalid]]] !", "[[[Location]]] [[[is invalid]]].");
+                    return {
+                        postData: postData,
+                        isValidated: false
+                    };
+                }
+                else
+                {
+                    if (isNaN($("#cLatitude").val())) {
+                        $("#cLatitude").focus();
+                        swal("[[[Invalid]]] !", "[[[Latitude]]] [[[must be a number]]].");
+                        return {
+                            postData: postData,
+                            isValidated: false
+                        };
+                    } else {
+                        postData.append('Latitude', eval($("#cLatitude").val()));
+                    }
+
+                    if (isNaN($("#cLongitude").val())) {
+                        $("#cLongitude").focus();
+                        swal("[[[Invalid]]] !", "[[[Longitude]]] [[[must be a number]]].");
+                        return {
+                            postData: postData,
+                            isValidated: false
+                        };
+                    } else {
+                        postData.append('Longitude', eval($("#cLongitude").val()));
+                    }
+                }
+            }
+
+            if ($("#cCultureInfoId").val().length != 0)
+                postData.append('CultureInfoId', $("#cCultureInfoId").val());
+
+            if ($("#cTimeZone").val().length != 0)
+                postData.append('TimeZone', $("#cTimeZone").val());
+
+            return {
+                postData: postData,
+                isValidated: true
+            }
+        }
+
+        $('#AddNewFactoryButton').click(function () {
+            $('#panel_detail').css("display", "block");
+
+            $('#EditingPanelTitle').html("[[[Add New Factory]]]");
+            $('#DeleteFactoryButton').css("display", "none");
+            $('#UpdateFactoryButton').css("display", "none");
+            $('#CancelAddNewFactoryButton').css("display", "inline");
+
+            $('#SubmitNewFactoryButton').css("display", "inline");
+
+            $('#AddNewFactoryButton').css("display", "none");
+            CleanFormInput();
+            $('#cLatitude').val(_companyLatitude);
+            $('#cLongitude').val(_companyLongitude);
+            $("#cName").focus();
+        });
+
+        $('#CancelAddNewFactoryButton').click(function () {
+            $('#panel_detail').css("display", "none");
+            $('#EditingPanelTitle').html("[[[Detail]]]");
+            $('#DeleteFactoryButton').css("display", "inline");
+            $('#UpdateFactoryButton').css("display", "inline");
+            $('#CancelAddNewFactoryButton').css("display", "none");
+            $('#SubmitNewFactoryButton').css("display", "none");
+
+            $('#AddNewFactoryButton').css("display", "inline");
+            CleanFormInput();
+            window.scrollTo(0, 0);
+        });
+
+        $('#SubmitNewFactoryButton').click(function () {
+            var postData = new FormData();
+            var result = dataValidation(postData);
+
+            if (result.isValidated) {
+                swal({
+                    title: "[[[Are you sure]]]?",
+                    text: "",
+                    type: "success",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-success waves-effect waves-light',
+                    confirmButtonText: '[[[Submit]]]!'
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        DoFactoryTransactionAjax("addfactory", -1, result.postData);
+                        $('#panel_detail').css("display", "none");
+                        $('#EditingPanelTitle').html("[[[Detail]]]");
+                        $('#DeleteFactoryButton').css("display", "inline");
+                        $('#UpdateFactoryButton').css("display", "inline");
+                        $('#CancelAddNewFactoryButton').css("display", "none");
+                        $('#SubmitNewFactoryButton').css("display", "none");
+
+                        $('#AddNewFactoryButton').css("display", "inline");
+
+                        CleanFormInput();
+                        window.scrollTo(0, 0);
+                    }
+                });
+            }
+        });
+
+        $('#DeleteFactoryButton').click(function () {
+            if (_selectedFactoryId < 0)
+                toastr["error"]("[[[No Factory Select]]].");
+            else {
+                swal({
+                    title: "[[[Are you sure]]]?",
+                    text: "",
+                    type: "error",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-danger waves-effect waves-light',
+                    confirmButtonText: '[[[Delete]]]!'
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        DoFactoryTransactionAjax("deletefactory", _selectedFactoryId, null);
+                        CleanFormInput();
+                        $('#panel_detail').css("display", "none");
+                        window.scrollTo(0, 0);
+                    }
+                });
+            }
+        });
+
+        $('#UpdateFactoryButton').click(function () {
+            if (_selectedFactoryId < 0)
+                toastr["error"]("[[[No Factory Select]]].");
+            else {
+                var postData = new FormData();
+                var result = dataValidation(postData);
+
+                if(result.isValidated){
+                    swal({
+                        title: "[[[Are you sure]]]?",
+                        text: "",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonClass: 'btn-warning waves-effect waves-light',
+                        confirmButtonText: '[[[Update]]]!'
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            DoFactoryTransactionAjax("updatefactory", _selectedFactoryId, result.postData);
+                            $('#panel_detail').css("display", "none");
+                        }
+                    });
+                }
+            }
+        });
+    });
+</script>

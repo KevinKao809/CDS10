@@ -1,0 +1,535 @@
+﻿@{
+    ViewBag.Title = "Edit Employee";
+}
+
+@section PanelDetail{
+
+    <div class="col-sm-12 slide-panel-section">
+        <div class="avatar-logo">
+            <img id="ePhotoURL" src="/assets/images/default/employee-128.png" class="img-responsive avatar-image" alt="Logo" style="max-width: 160px; height: inherit;">
+            <div id="add-ephoto" class="upload-icon transition-200ms" title="upload employee photo"><i class="zmdi zmdi-upload"></i></div>
+            <input id="eLogoFileInput" type="file" class="form-control" accept="image/*" style="display:none;" onchange="displayImage(this, event)" data-display="ePhotoURL">
+        </div>
+    </div>
+
+    <div class="col-sm-12 slide-panel-section">
+        <form id="employee-form" class="form-horizontal" role="form" data-toggle="validator">
+            <div class="form-group">
+                <label for="inputEmail" class="col-sm-3 control-label">
+                    Email(*)
+                </label>
+                <div class="col-sm-9">
+                    <input id="eEmail" type="text" class="form-control" placeholder="Email" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-3 control-label">
+                    Password(*)
+                </label>
+                <div class="col-sm-9">
+                    <button  type="button" id="ResetPasswordButton" class="btn btn-custom btn-trans btn-sm waves-effect waves-inverse m-b-5 hide-add-pwd">Reset Password</button>
+                    <input id="eNewPassword" type="password" class="form-control hide-edit-pwd" placeholder="New Password">
+                </div>
+            </div>
+
+            <div class="form-group hide-edit-pwd">
+                <label for="inputFirstName" class="col-sm-3 control-label">Confirm Password (*)</label>
+                <div class="col-sm-9">
+                    <input id="eConfirmNewPassword" type="password" class="form-control" placeholder="Confirm New Password">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputEmployeeNumber" class="col-sm-3 control-label">
+                    Employee Number
+                </label>
+                <div class="col-sm-9">
+                    <input id="eEmployeeNumber" type="text" class="form-control" placeholder="EmployeeNumber">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputFirstName" class="col-sm-3 control-label">First Name</label>
+                <div class="col-sm-9">
+                    <input id="eFirstName" type="text" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputLastName" class="col-sm-3 control-label">Last Name</label>
+                <div class="col-sm-9">
+                    <input id="eLastName" type="text" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputAdmin" class="col-sm-3 control-label">Administrator</label>
+                <div class="col-sm-9">
+                    <div class="checkbox checkbox-custom">
+                        <input id="eAdmin" type="checkbox">
+                        <label for="eAdmin">Yes</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputShortName" class="col-sm-3 control-label">
+                    Permission
+                </label>
+                <div class="col-sm-9">
+                    <div style="float:left">
+                        Grant Roles
+                        <br>
+                        <select size="5" id="selectGrant" style="width:auto; height:200px; min-width: 100px;"></select>
+                    </div>
+                    <div style="float:left">
+                        <i class="zmdi zmdi-swap" style="margin-top:95px; margin-left:10px; margin-right:10px;"></i>
+                    </div>
+                    <div style="float:left">
+                        Available Permissions
+                        <br>
+                        <select size="5" id="selectAvailable" style="width:auto; height:200px; min-width: 100px;"></select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+}
+
+@section PanelDetailButton{
+    <div class="panel-detail-button-footer">
+        <div class="float-right">
+            <button id="UpdateEmployeeButton" class="btn btn-success waves-effect waves-light m-b-5" style="width:92px;"> <i class="ti-save m-r-5"></i> <span>Save</span> </button>
+            <button id="DeleteEmployeeButton" class="btn btn-danger waves-effect waves-light m-b-5" style="width:92px;"> <i class="ti-trash m-r-5"></i> <span>Delete</span> </button>
+        </div>
+    </div>
+}
+
+<div>
+    <button id="AddNewEmployeeButton" type="button" class="pull-right m-t-15 btn btn-custom dropdown-toggle waves-effect waves-light"> <i class="ti-plus m-r-5"></i> <span>Add Employee</span> </button>
+    <h4 class="page-title">@ViewBag.CompanyName / Employee</h4>
+</div>
+
+<div class="row">
+    <div class="panel-group" id="accordionEmployee" 2 role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default" id="employee">
+
+            <div id="collapseEmployee" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingEmployee">
+                <div class="panel-body">
+                    <table id="employeeListTable" class="table table-striped table-bordered dt-responsive nowrap">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Employee Number</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>E-mail</th>
+                                <th>Administrator</th>
+                            </tr>
+                        </thead>
+                        <tbody id="EmployeeList"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var _employeeByCompanyJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.EmployeeList'));
+    var _userRoleByCompanyJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.UserRoleList'));
+    var _companyId = @ViewBag.CompanyId;
+    var _selectedEmployeeId = -1;
+    var _employeeDataSet = $('#employeeListTable').DataTable({
+        'autoWidth': false
+    });
+
+    //Role should be modified.
+    function LoadEmployeeListIntoTable() {
+        _employeeDataSet.clear().draw();
+        //construct table
+        for (var i in _employeeByCompanyJSONObjs) {
+            _employeeDataSet.row.add([
+                parseInt(i) + 1,
+                _employeeByCompanyJSONObjs[i].EmployeeNumber,
+                _employeeByCompanyJSONObjs[i].FirstName,
+                _employeeByCompanyJSONObjs[i].LastName,
+                _employeeByCompanyJSONObjs[i].Email,
+                (_employeeByCompanyJSONObjs[i].AdminFlag ? '<i class="zmdi zmdi-circle text-success"></i> <span class="name"> Admin</span>' : '')
+            ]);
+            _employeeDataSet.rows(i).nodes().to$().data('info', _employeeByCompanyJSONObjs[i]);
+        }
+        _employeeDataSet.columns.adjust().draw();
+    }
+
+    function LoadUserRole() {
+        for (var key in _userRoleByCompanyJSONObjs) {
+            $("#selectAvailable").append("<option value='" + _userRoleByCompanyJSONObjs[key].Id + "'>" + _userRoleByCompanyJSONObjs[key].Name + "</option>");
+        }
+    }
+
+    function CleanFormInput() {
+        $("#eEmail").val('');
+        $('#eFirstName').val('');
+        $('#eEmployeeNumber').val('');
+        $('#eLastName').val('');
+        $('#eAdmin').prop('checked', false);
+        $('#eNewPassword').val('');
+        $('#eConfirmNewPassword').val('');
+        $('#ePhotoURL').attr("src", '/assets/images/default/employee-128.png');
+        $("#selectAvailable").empty();
+        $("#selectGrant").empty();
+        LoadUserRole();
+    }
+
+    //Role show has some problem.
+    function OnSelectEmployeeItem(employeeId, $dom) {
+
+        $('.hide-edit-pwd').hide();
+        $('.hide-add-pwd').show();
+        $("#ResetPasswordButton").attr('data-status', '0').text('Reset Password');
+        $('.slide-info-container').data('status', 1);
+        $('#slide-panel-title-text').html("Edit Employee");
+        $("#eEmail").prop('disabled', true);
+        _selectedEmployeeId = employeeId;
+        CleanFormInput();
+        fillEmployeeInfo($dom.data('info'));
+    }
+
+    function fillEmployeeInfo(selectEmployeeInfo) {
+        var userRole = [];
+        var userRoleId = [];
+
+        $('#eEmail').val(selectEmployeeInfo.Email);
+        $('#eEmployeeNumber').val(selectEmployeeInfo.EmployeeNumber);
+        $('#eFirstName').val(selectEmployeeInfo.FirstName);
+        $('#eLastName').val(selectEmployeeInfo.LastName);
+        if (selectEmployeeInfo.AdminFlag) $('#eAdmin').prop('checked', true);
+        else $('#eAdmin').prop('checked', false);
+        if (selectEmployeeInfo.PhotoURL != null && selectEmployeeInfo.PhotoURL.length > 0)
+            $('#ePhotoURL').attr("src", selectEmployeeInfo.PhotoURL);
+        else
+            $('#ePhotoURL').attr("src", '/assets/images/default/employee-128.png');
+
+        getUserRoleByEmployeeId(selectEmployeeInfo.Id, function (userRole) {
+            if (userRole != null) {
+                for (var i in userRole) {
+                    $("#selectGrant").append("<option value='" + userRole[i].UserRoleId + "'>" + getUserRoleNameById(userRole[i].UserRoleId) + "</option>");
+                    $(eval("\"#selectAvailable option[value='" + userRole[i].UserRoleId + "']\"")).remove();
+                }
+            }
+        });
+    }
+
+    function getUserRoleNameById(RoleId) {
+        for (var key in _userRoleByCompanyJSONObjs) {
+            if (_userRoleByCompanyJSONObjs[key].Id == RoleId) {
+                return _userRoleByCompanyJSONObjs[key].Name;
+            }
+        }
+    }
+
+    function getUserRoleByEmployeeId(Id, callback) {
+        var endPoint = "/Company/ReqAction?action=getUserRoleByEmployeeId";
+        if (Id >= 0)
+            endPoint = endPoint + "&Id=" + Id;
+        $.ajax({
+            type: "GET",
+            url: endPoint + "&t=" + Date.now(),
+            success: function (data) {
+                if (data != "[]") {
+                    JSONdata = JSON.parse(data);
+                    callback(JSONdata);
+                }
+                else callback([]);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("Session Expired. Please Re-Login.");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+    function DoEmployeeTransactionAjax(actionName, Id, postData, callback) {
+        var endPoint = "/Company/ReqAction?action=" + actionName;
+        if (postData != null) postData.append('CompanyId', _companyId);
+
+        if (Id >= 0)
+            endPoint = endPoint + "&Id=" + Id;
+        $.ajax({
+            type: "POST",
+            url: endPoint + "&t=" + Date.now(),
+            data: postData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                switch (actionName) {
+                    case "getemployeebycmp":
+                        _employeeByCompanyJSONObjs = $.parseJSON(data.replace(/&quot;/g, '\"'));
+                        LoadEmployeeListIntoTable();
+                        break;
+                    default:
+                        if (callback) {
+                            callback(data);
+                        }
+                        break;
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("Session Expired. Please Re-Login.");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    function dataValidation(postData, status, doRestPassword) {
+        postData.append('UploadFile', $('#eLogoFileInput')[0].files[0]);
+
+        if ($("#eEmail").val().length != 0) {
+            postData.append('Email', $("#eEmail").val());
+        } else {
+            $("#eEmail").focus();
+            swal("Invalid !", "Email is necessary.");
+            return {
+                postData: postData,
+                isValidated: false
+            };
+        }
+        if ($("#eEmployeeNumber").val().length != 0) {
+            postData.append('EmployeeNumber', $("#eEmployeeNumber").val());
+        }
+        if ($("#eFirstName").val().length != 0) {
+            postData.append('FirstName', $("#eFirstName").val());
+        }
+        if ($("#eLastName").val().length != 0) {
+            postData.append('LastName', $("#eLastName").val());
+        }
+        postData.append('AdminFlag', $("#eAdmin").is(":checked") ? true : false);
+
+        //add status
+        if (status === 0) {
+            if (($("#eNewPassword").val() == $("#eConfirmNewPassword").val()) && ($("#eNewPassword").val().length != 0)) {
+                postData.append('Password', $("#eNewPassword").val());
+            } else {
+                $("#eNewPassword").focus();
+                $("#eNewPassword").val('');
+                swal("Invalid !", "Please Confirm Password!");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+            //edit status
+        } else if (status === 1) {
+
+            if (doRestPassword) {
+                if (($("#eNewPassword").val() == $("#eConfirmNewPassword").val()) && ($("#eNewPassword").val().length != 0)) {
+                    postData.append('NewPassword', $("#eNewPassword").val());
+                } else {
+                    $("#eNewPassword").focus();
+                    swal("Invalid !", "Please Confirm Password.");
+                    return {
+                        postData: postData,
+                        isValidated: false
+                    };
+                }
+            }
+        }
+
+        var grantRole = document.getElementById('selectGrant').options;
+        for (var i = 0; i < grantRole.length; i++) {
+            postData.append('UserRoleId', grantRole[i].value);
+        }
+
+        return {
+            postData: postData,
+            isValidated: true
+        }
+    }
+
+    TableManageButtons.init();
+    LoadEmployeeListIntoTable();
+    LoadUserRole();
+
+    $(document).ready(function () {
+
+        $('#add-ephoto, #ePhotoURL').click(function () {
+            $('#eLogoFileInput').trigger('click');
+        });
+
+        $("#selectAvailable").change(function () {
+            var text = $("#selectAvailable").find("option:selected").text();
+            var value = $("#selectAvailable").val();
+            $("#selectGrant").append("<option value='" + value + "'>" + text + "</option>");
+            $("#selectAvailable").find("option:selected").remove();
+        });
+
+        $("#selectGrant").change(function () {
+            var text = $("#selectGrant").find("option:selected").text();
+            var value = $("#selectGrant").val();
+            $("#selectAvailable").append("<option value='" + value + "'>" + text + "</option>");
+            $("#selectGrant").find("option:selected").remove();
+        });
+
+        $('#employeeListTable #EmployeeList').on('click', 'tr', function () {
+
+
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+                CleanFormInput();
+                panelDetialSlideOut();
+            } else {
+                _employeeDataSet.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+                panelDetialSlideIn();
+                OnSelectEmployeeItem(_employeeByCompanyJSONObjs[_employeeDataSet.row(this).index()].Id, $(this));
+            }
+            
+        });
+
+        $('#AddNewEmployeeButton').click(function () {
+            $('.slide-info-container').data('status',0);
+            CleanFormInput();
+            $('#eEmail').removeAttr('disabled').focus();
+            $('.hide-add-pwd').hide();
+            $('.hide-edit-pwd').show();
+            panelDetialSlideIn();
+            $('#slide-panel-title-text').text('Add New Employee');
+        });
+
+        $("#ResetPasswordButton").click(function () {
+            var $this = $(this);
+
+            if ($this.attr('data-status') === '0') {
+                $this.text('Cancel');
+                $('.hide-edit-pwd').slideDown('fast', function () {
+                    $this.attr('data-status', '1');
+                });
+
+            } else if ($this.attr('data-status') === '1') {
+                $this.text('Reset Password');
+                $('.hide-edit-pwd').slideUp('fast', function () {
+                    $this.attr('data-status', '0');
+                });
+            }
+        });
+
+        $('#DeleteEmployeeButton').click(function () {
+            if (_selectedEmployeeId < 0)
+                toastr["error"]("No Employee Select.");
+            else {
+                swal({
+                    title: "Are you sure?",
+                    text: "",
+                    type: "error",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-danger waves-effect waves-light',
+                    confirmButtonText: 'Delete!'
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        DoEmployeeTransactionAjax("deleteemployee", _selectedEmployeeId, null, function (data) {
+                            toastr["success"]("Action Completed. (" + data + ")");
+                            panelDetialSlideOut();
+                            CleanFormInput();
+                            DoEmployeeTransactionAjax("getemployeebycmp", _companyId, null);
+                        });
+                        CleanFormInput();
+                        window.scrollTo(0, 0);
+                    }
+                });
+            }
+        });
+
+        $('#UpdateEmployeeButton').click(function () {
+
+            var status = $('.slide-info-container').data('status');
+
+            //add employee
+            if (status === 0) {
+
+                var postData = new FormData();
+                var result = dataValidation(postData, 0);
+       
+                if (result.isValidated) {
+                    swal({
+                        title: "Are you sure?",
+                        text: "",
+                        type: "success",
+                        showCancelButton: true,
+                        confirmButtonClass: 'btn-success waves-effect waves-light',
+                        confirmButtonText: 'Submit!'
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            DoEmployeeTransactionAjax("addemployee", -1, result.postData, function (data) {
+                                toastr["success"]("Action Completed. (" + data + ")");
+                                DoEmployeeTransactionAjax("getemployeebycmp", _companyId, null);
+                            });
+                            CleanFormInput();
+                            panelDetialSlideOut();
+                        }
+                    });
+                }
+
+
+            //edit employee
+            } else if (status === 1) {
+                if (_selectedEmployeeId < 0)
+                    toastr["error"]("No Employee Select.");
+                else {
+
+                    var doResetPassword = ($('#ResetPasswordButton').attr('data-status') === '1') ? true : false;
+
+                    var postData = new FormData();
+                    var result = dataValidation(postData, 1, doResetPassword);
+
+                    if (result.isValidated) {
+                        swal({
+                            title: "Are you sure?",
+                            text: "",
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonClass: 'btn-warning waves-effect waves-light',
+                            confirmButtonText: 'Update!'
+                        }, function (isConfirm) {
+                            if (isConfirm) {
+                                DoEmployeeTransactionAjax("updateemployee", _selectedEmployeeId, result.postData, function (data) {
+
+                                    if (!doResetPassword) {
+                                        toastr["success"]("Action Completed. (" + data + ")");
+                                        DoEmployeeTransactionAjax("getemployeebycmp", _companyId, null);
+                                    }
+                                    
+                                });
+
+                                if (doResetPassword) {
+                                    DoEmployeeTransactionAjax("ResetPassword", _selectedEmployeeId, postData, function (data) {
+                                        toastr["success"]("Action Completed. (" + data + ")");
+                                        DoEmployeeTransactionAjax("getemployeebycmp", _companyId, null);
+                                    });
+                                }
+
+                                CleanFormInput();
+                                panelDetialSlideOut();
+                            }
+                        });
+                    }
+                }
+            }
+
+
+
+
+        });
+    });
+</script> 

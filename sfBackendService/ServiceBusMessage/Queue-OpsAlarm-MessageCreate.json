@@ -1,0 +1,31 @@
+{
+  "MessageCatalogId": 20,
+  "AlarmRuleCatalogId": 7,
+  "AlarmRuleCatalogName": "Machine Tool Alarm",
+  "AlarmRuleCatalogDescription": "Machine Tool Alarm",
+  "MessageDocumentId": "8cb80cb0-5983-4735-a343-c14a3fd8054e",
+  "TriggeredTime": "2017-05-08T04:02:01",
+  "Message": {
+    "companyId": 5,
+    "msgTimestamp": "2017-05-08T04:02:01",
+    "equipmentId": "FAMT001",
+    "equipmentRunStatus": 1,
+    "mainProgram": "A3400",
+    "toolNumber": "XZ90",
+    "partsTotal": 1000,
+    "partsCount": 75,
+    "position_absolute": "[143, 38, 19]",
+    "position_relative": "[22, 119, 4]",
+    "position_machine": "[67, 319, 274]",
+    "position_distanceToGo": 48,
+    "feedRate_commandFeedRate": 500,
+    "feedRate_actualFeedRate": 357,
+    "time_powerOn": 781,
+    "time_cutting": 55,
+    "time_operation": 136,
+    "time_cycling": 81,
+    "spindleSpeed_commandSpeed": 1000,
+    "spindleSpeed_actualSpeed": 849,
+    "alarmMessage": "This is Alarm from Machine"
+  }
+}

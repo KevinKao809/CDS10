@@ -1,0 +1,222 @@
+﻿@{
+    ViewBag.Title = "Monitor / Running Ops Process";
+}
+
+<!-- SignalR -->
+<script src="/Scripts/jquery.signalR-2.2.1.js"></script>
+<script src="/signalr/hubs"></script>
+
+<script type="text/javascript">
+    $(function () {
+        var hub = $.connection.RTMessageHub;
+        hub.client.onReceivedMessage = function (message) {
+            var HeartbeatMessage = $.parseJSON(message);
+            if (HeartbeatMessage.topic == "Process Heartbeat")
+                UpdateRunningOpsProcess(HeartbeatMessage.processId, HeartbeatMessage);
+        };
+
+        $.connection.hub.start().done(function () {
+            hub.server.register();
+        });
+    })
+
+</script>
+
+<div class="row">
+    <div class="card-box table-responsive">
+        <div style="float:left">
+            <h4 class="header-title m-t-0 m-b-30">Monitor / Running Ops Process</h4>
+        </div>
+        <div style="float:right">
+            <button id="ServiceFabricButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:240px;"> <span>Service Fabric (Certificate)</span> </button>
+            <!--
+            <button id="IncreaseOpsInfraButton" disabled class="btn btn-inverse waves-effect waves-light m-b-5" style="width:140px;"> <i class="ti-plus m-r-5"></i> <span>Infra Process</span> </button>
+            <button id="DecreaseOpsInfraButton" disabled class="btn btn-inverse waves-effect waves-light m-b-5" style="width:140px;"> <span>Infra Process</span> <i class="ti-minus m-r-5"></i> </button>
+            <button id="IncreaseAlarmButton" disabled class="btn btn-inverse waves-effect waves-light m-b-5" style="width:140px;"> <i class="ti-plus m-r-5"></i> <span>Alarm Process</span> </button>
+            <button id="DecreaseAlarmButton" disabled class="btn btn-inverse waves-effect waves-light m-b-5" style="width:140px;"> <span>Alarm Process</span> <i class="ti-minus m-r-5"></i> </button>
+            -->
+        </div>
+        <div class="col-sm-12">
+            <table id="datatable-responsive" name="runningOpsProcessTable" class="table table-striped table-bordered dt-responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Process</th>
+                        <th>Process Id</th>
+                        <th>Machine</th>
+                        <th>Queue</th>
+                        <th>CPU</th>
+                        <th>RAM Avail (GB)</th>
+                        <th>Status</th>
+                        <th>Last Updated</th>
+                    </tr>
+                </thead>
+
+                <tbody id="runningOpsProcessList"></tbody>
+            </table>
+        </div>
+    </div><!-- end col -->
+</div>
+<!-- end row -->
+
+<script type="text/javascript">
+    var _runningOpsProcessDataSet = $('#datatable-responsive').DataTable();
+    var _showRunning = '<button class="btn btn-success disabled btn-xs m-b-5"> Running </button>';
+
+    function CheckRunningOpsProcessShutdown() {
+        var nowDT = new Date();
+        var OpsInfraCount = 0, OpsAlarmCount = 0, Launcher = 0;
+        for (var i = 0; i < _runningOpsProcessDataSet.rows().count() ; i++) {
+            var lastUpdated = sfStringToDate(_runningOpsProcessDataSet.cell(i, 5).data());
+            var difInSec = (nowDT.getTime() - lastUpdated.getTime()) / 1000;
+            if (difInSec > 15) {
+                DeleteDataTableByRowId(i);
+            }
+            else
+            {
+                if (_runningOpsProcessDataSet.cell(i, 1).data() == "Ops Infra")
+                    OpsInfraCount++;
+                else if (_runningOpsProcessDataSet.cell(i, 1).data() == "Ops Alarm")
+                    OpsAlarmCount++;
+                else if (_runningOpsProcessDataSet.cell(i, 1).data() == "Launcher")
+                    Launcher++;
+            }
+        }
+        //if (OpsInfraCount == 0)
+        //    $('#DecreaseOpsInfraButton').prop('disabled', true);
+        //else
+        //    $('#DecreaseOpsInfraButton').prop('disabled', false);
+
+        //if (OpsAlarmCount == 0)
+        //    $('#DecreaseAlarmButton').prop('disabled', true);
+        //else
+        //    $('#DecreaseAlarmButton').prop('disabled', false);
+
+        //if (Launcher == 0)
+        //{
+        //    $('#IncreaseOpsInfraButton').prop('disabled', true);
+        //    $('#IncreaseAlarmButton').prop('disabled', true);
+        //}
+        //else
+        //{
+        //    $('#IncreaseOpsInfraButton').prop('disabled', false);
+        //    $('#IncreaseAlarmButton').prop('disabled', false);
+        //}
+    }
+
+    function UpdateRunningOpsProcess(ProcessId, HeartbeatMessage) {
+        var nowDT = new Date();
+        var isNewProcess = true;
+        var queueL = "";
+        if (HeartbeatMessage.queueLength != null)
+            queueL = HeartbeatMessage.queueLength;
+        var i;
+        for (i = 0; i < _runningOpsProcessDataSet.rows().count() ; i++) {
+            if (_runningOpsProcessDataSet.cell(i, 2).data() == ProcessId) {
+                isNewProcess = false;            
+                var newData = [
+                    _runningOpsProcessDataSet.cell(i, 0).data(),
+                    _runningOpsProcessDataSet.cell(i, 1).data(),
+                    _runningOpsProcessDataSet.cell(i, 2).data(),
+                    _runningOpsProcessDataSet.cell(i, 3).data(),
+                    queueL,
+                    HeartbeatMessage.cpu,
+                    HeartbeatMessage.ramAvail,
+                    _showRunning,
+                    sfDateToString(nowDT)
+                    ];
+
+                UpdateDataTableByRowId(i, newData);
+                break;
+            }
+        }
+        
+        if (isNewProcess) {
+            _runningOpsProcessDataSet.row.add([
+                parseInt(i) + 1,
+                HeartbeatMessage.name,
+                HeartbeatMessage.processId,
+                HeartbeatMessage.machine,
+                queueL,
+                HeartbeatMessage.cpu,
+                HeartbeatMessage.ramAvail,
+                "",
+                sfDateToString(nowDT)
+            ]).draw(false);
+        }
+    }
+
+    function DeleteDataTableByRowId(rowID) {
+        _runningOpsProcessDataSet.row(rowID).remove().draw(true);
+    }
+
+    function UpdateDataTableByRowId(rowID, newData) {
+        var currentPageNum = _runningOpsProcessDataSet.page.info().page;
+        _runningOpsProcessDataSet.row(rowID).data(newData).page(currentPageNum).draw('page'); 
+        //_runningOpsProcessDataSet.row(rowID).data(newData).draw(false);
+    }
+
+    //function doAction(commandNo, processName) {
+    //    var sActionName;
+    //    switch (commandNo) {
+    //        case 1:
+    //            sActionName = "&sAction=Launch Process&ProcessName=" + processName;
+    //            break;
+    //        case 2:
+    //            sActionName = "&sAction=Shutdown Process&&ProcessName=" + processName;
+    //            break;            
+    //        default:
+    //            return;
+    //    }
+        
+    //    var endPoint = "/Monitor/ReqAction?mAction=RunningOpsProcess" + sActionName;
+    //    var postData = new FormData();
+
+    //    $.ajax({
+    //        type: "POST",
+    //        url: endPoint + "&t=" + Date.now(),
+    //        data: postData,
+    //        cache: false,
+    //        contentType: false,
+    //        processData: false,
+    //        success: function (data) {
+    //            toastr["success"]("Action Completed. (" + data + ")");
+    //        },
+    //        error: function (XMLHttpRequest, textStatus, errorThrown) {
+    //            if (XMLHttpRequest.status == 401) {
+    //                toastr["error"]("Session Expired. Please Re-Login.");
+    //                setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+    //            }
+    //            else
+    //                toastr["error"]("Error");
+    //        }
+    //    });
+    //}
+
+    $('#ServiceFabricButton').click(function () {
+        window.open("@ViewBag.ServiceFabricURI", "ServiceFabric");
+    });
+
+    //$('#IncreaseOpsInfraButton').click(function () {
+    //    doAction(1, "Ops Infra");
+    //});
+
+    //$('#DecreaseOpsInfraButton').click(function () {
+    //    doAction(2, "Ops Infra");
+    //});
+
+    //$('#IncreaseAlarmButton').click(function () {
+    //    doAction(1, "Ops Alarm");
+    //});
+
+    //$('#DecreaseAlarmButton').click(function () {
+    //    doAction(2, "Ops Alarm");
+    //});
+
+    $(document).ready(function () {
+        setInterval(function () { CheckRunningOpsProcessShutdown() }, 15000);
+    });
+</script>
+
+
+

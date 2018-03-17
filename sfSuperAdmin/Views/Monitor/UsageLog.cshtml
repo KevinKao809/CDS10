@@ -1,0 +1,260 @@
+﻿
+@{
+    ViewBag.Title = "UsageLog";
+}
+
+<div class="row">
+    <div class="card-box table-responsive">
+        <div style="float:left">
+            <h4 class="header-title m-t-0 m-b-30">Monitor / Usage Log</h4>
+        </div>
+        <div class="col-sm-12">
+            <table id="datatable-responsive" name="deviceClassListTable" class="table table-striped table-bordered dt-responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>Company Quantity</th>
+                        <th>Factory Quantity</th>
+                        <th>Equipment Quantity</th>
+                        <th>Message</th>
+                        <th>Updated DateTime</th>
+                    </tr>
+                </thead>
+
+                <tbody id="UsageLogList"></tbody>
+            </table>
+        </div>
+
+    </div><!-- end col -->
+</div>
+<!-- end row -->
+<div>
+    <label>Days:</label>
+    <select id="selectDays" onchange="getNewChart(this)">
+        <option value="30">30</option>
+        <option value="60">60</option>
+        <option value="90">90</option>
+        <option value="120">120</option>
+    </select>
+</div>
+<div style="width:100%;height:500px;text-align:center;margin:10px">
+    <div id="flot-placeholder1" style="width:100%;height:100%;"></div>
+</div>
+
+<script type="text/javascript">
+    var _usageLogJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.UsageLog'));
+    var previousPoint = null, previousLabel = null;
+    var ticksize = null;
+    function LoadUsageLogListIntoTable() {
+
+        var usageLogDataSet = $('#datatable-responsive').DataTable({
+            "bPaginate": false,
+            "bLengthChange": false,
+            "bFilter": false,
+            "bInfo": false,
+            "bAutoWidth": false
+        });
+        usageLogDataSet.clear().draw(false);
+            usageLogDataSet.row.add([
+                number_format(_usageLogJSONObjs.CompanyQty),
+                number_format(_usageLogJSONObjs.FactoryQty),
+                number_format(_usageLogJSONObjs.EquipmentQty),
+                number_format(_usageLogJSONObjs.DeviceMessage),
+                _usageLogJSONObjs.UpdatedDateTime
+            ]).draw(false);
+
+        usageLogDataSet.columns.adjust().draw();
+    }
+
+    function getTime(DateTime) {
+        return new Date(DateTime).getTime();
+    }
+
+    function number_format(n) {
+        n += "";
+        var arr = n.split(".");
+        var re = /(\d{1,3})(?=(\d{3})+$)/g;
+        return arr[0].replace(re, "$1,") + (arr.length == 2 ? "." + arr[1] : "");
+    }
+
+    function RefreshUsageLogChart(data) {
+
+        var deviceMessageData = new Array();
+        var equipmentQtyData = new Array();
+        var factoryQtyData = new Array();
+        var companyQtyData = new Array();
+
+        for (var i in data) {
+            deviceMessageData[i] = new Array();
+            deviceMessageData[i][0] = getTime(data[i].UpdatedDateTime);
+            deviceMessageData[i][1] = data[i].DeviceMessage;
+            equipmentQtyData[i] = new Array();
+            equipmentQtyData[i][0] = getTime(data[i].UpdatedDateTime);
+            equipmentQtyData[i][1] = data[i].EquipmentQty;
+            factoryQtyData[i] = new Array();
+            factoryQtyData[i][0] = getTime(data[i].UpdatedDateTime);
+            factoryQtyData[i][1] = data[i].FactoryQty;
+            companyQtyData[i] = new Array();
+            companyQtyData[i][0] = getTime(data[i].UpdatedDateTime);
+            companyQtyData[i][1] = data[i].CompanyQty;
+        }
+
+        var dataset = [
+            { label: "Message #", data: deviceMessageData,
+                bars: {
+                show: true,
+                align: "center",
+                barWidth: 24 * 60 * 60 * 600,
+                lineWidth:1
+            } },
+            { label: "Equipment #", data: equipmentQtyData, yaxis: 2, points: { symbol: "circle", fillColor: "#0022FF", show: true }, lines: { show: true }, color: "#0022FF" },
+            { label: "Factory #", data: factoryQtyData, yaxis: 2, points: { symbol: "diamond", fillColor: "#00FF00", show: true }, lines: { show: true }, color: "#00FF00" },
+            { label: "Company #", data: companyQtyData, yaxis: 2, points: { symbol: "triangle", fillColor: "#000000", show: true }, lines: { show: true }, color: "#000000" }
+
+        ];
+
+        var options = {
+
+            xaxis: {
+                mode: "time",
+                tickSize:[ticksize,"day"],
+                tickLength: 10,
+                timezone:"browser",
+                color: "black",
+                axisLabel: "Date",
+                axisLabelUseCanvas: true,
+                axisLabelFontSizePixels: 12,
+                axisLabelFontFamily: 'Verdana, Arial',
+                axisLabelPadding: 10
+            },
+            yaxes: [{
+                axisLabel: "Message #",
+                axisLabelUseCanvas: true,
+                axisLabelFontSizePixels: 12,
+                axisLabelFontFamily: 'Verdana, Arial',
+                axisLabelPadding: 3,
+                tickFormatter: function (v, axis) {
+                    return $.formatNumber(v, { format: "#,###", locale: "us" });
+                }
+            }, {
+                alignTicksWithAxis:2,
+                position: "right",
+                axisLabel: "Equipment | Factory | Company",
+                axisLabelUseCanvas: true,
+                axisLabelFontSizePixels: 12,
+                axisLabelFontFamily: 'Verdana, Arial',
+                axisLabelPadding: 3,
+                tickFormatter: function (v, axis) {
+                    return $.formatNumber(v, { format: "#,###", locale: "us" });
+                }
+            }
+            ],
+            legend: {
+                noColumns: 0,
+                labelBoxBorderColor: "#000000",
+                position: "nw"
+            },
+            grid: {
+                hoverable: true,
+                borderWidth: 2,
+                borderColor: "#633200",
+                backgroundColor: { colors: ["#ffffff", "#EDF5FF"] }
+            },
+            colors: ["#FF0000", "#0022FF"]
+        };
+
+        $.plot($("#flot-placeholder1"), dataset, options);
+        $("#flot-placeholder1").UseTooltip();
+    }
+
+    function getNewChart(selectedObject) {
+        DoUsageLogSumByDayTransactionAjax(selectedObject.value);
+    }
+
+    function DoUsageLogSumByDayTransactionAjax(day) {
+        var endPoint = "/Monitor/ReqAction?mAction=getUsageLogSumByDay";
+        endPoint = endPoint + "&day=" + day;
+        $.ajax({
+            type: "GET",
+            url: endPoint + "&t=" + Date.now(),
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                var _JSONObjs = $.parseJSON(jsonStringFilter(data));
+                ticksize = day / 15;
+                RefreshUsageLogChart(_JSONObjs);
+                toastr["success"]("Action Completed.");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("Session Expired. Please Re-Login.");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    TableManageButtons.init();
+    LoadUsageLogListIntoTable();
+    DoUsageLogSumByDayTransactionAjax(30);
+
+    $.fn.UseTooltip = function () {
+        $(this).bind("plothover", function (event, pos, item) {
+            if (item) {
+                if ((previousLabel != item.series.label) || (previousPoint != item.dataIndex)) {
+                    previousPoint = item.dataIndex;
+                    previousLabel = item.series.label;
+                    $("#tooltip").remove();
+
+                    var x = item.datapoint[0];
+                    var y = item.datapoint[1];
+
+                    var color = item.series.color;
+                    var date = new Date(x);
+
+                    if (item.seriesIndex == 0) {
+                        showTooltip(item.pageX,
+                        item.pageY,
+                        color,
+                        "<strong>" + item.series.label + "</strong>: <strong>" + number_format(y) + "</strong><br>" + date);
+                    } else {
+                        showTooltip(item.pageX,
+                        item.pageY,
+                        color,
+                        "<strong>" + item.series.label + "</strong>: <strong>" + number_format(y) + "</strong><br>" + date);
+                    }
+                }
+            } else {
+                $("#tooltip").remove();
+                previousPoint = null;
+            }
+        });
+    };
+
+    function showTooltip(x, y, color, contents) {
+        $('<div id="tooltip">' + contents + '</div>').css({
+            position: 'absolute',
+            display: 'none',
+            top: y - 40,
+            left: x - 120,
+            border: '2px solid ' + color,
+            padding: '3px',
+            'font-size': '9px',
+            'border-radius': '5px',
+            'background-color': '#fff',
+            'font-family': 'Verdana, Arial, Helvetica, Tahoma, sans-serif',
+            opacity: 0.9
+        }).appendTo("body").fadeIn(200);
+    }
+</script>
+<!-- Flot Chart -->
+<script src="/assets/plugins/flot-chart-083/jquery.flot.js"></script>
+<script src="/assets/plugins/flot-chart-083/jquery.flot.time.js"></script>
+<script src="/assets/plugins/flot-chart-083/jquery.flot.symbol.js"></script>
+<script src="/assets/plugins/flot-chart-083/jquery.flot.pie.js"></script>
+<script src="/assets/plugins/flot-chart-083/jshashtable-2.1.js"></script>
+<script src="/assets/plugins/flot-chart-083/jquery.numberformatter-1.2.3.min.js"></script>
+<script src="/assets/plugins/flot-chart-083/jquery.flot.axislabels.js"></script>
+

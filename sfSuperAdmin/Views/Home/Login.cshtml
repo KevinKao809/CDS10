@@ -1,0 +1,121 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- App Favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+    <!-- App title -->
+    <title>Login</title>
+
+    <!-- App CSS -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+
+    <link href="assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="/assets/js/modernizr.min.js"></script>
+</head>
+<body>
+    <div class="account-pages"></div>
+    <div class="clearfix"></div>
+    <div class="wrapper-page">
+        <div class="m-t-40 card-box">
+            <div class="col-xs-5">
+                <img src="/assets/images/logo.png" class="img-thumbnail" alt="profile-image" style="width: 120px; height: 120px;">
+            </div>
+            <div class="col-xs-7">
+                <h4 class="page-title" style="font-size: 24px;">Connected Device Studio</h4>
+                <h5 class="text-muted font-600" style="text-align: right;">Super Admin</h5>
+            </div>
+
+            <div class="panel-body" style="margin-top: 105px;">
+                <form id="form1" action="/Home/DoLogin" method="post" class="form-horizontal m-t-20">
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="text" name="email" required="" placeholder="E-mail" value="@ViewBag.CookieEmail" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input class="form-control" type="password" name="password" required="" placeholder="Password" value="@ViewBag.CookiePassword" />
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <div class="checkbox checkbox-danger">
+                                <input id="rememberMe" name="rememberMe" type="checkbox" checked="@ViewBag.CookieRememberMe" />
+                                <label for="rememberMe">
+                                    <span>Remember me</span>
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group text-center m-t-30">
+                        <div class="col-xs-12">
+                            <button class="btn btn-danger btn-bordred btn-block waves-effect waves-light" style="color:red;" type="submit">Log In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- end card-box-->
+
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <p class="text-muted">Connected Device Studio Version 1.0.2</p>
+            </div>
+        </div>
+
+    </div>
+    <!-- end wrapper page -->
+
+    <script>
+        var resizefunc = [];
+    </script>
+
+    <!-- jQuery  -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/detect.js"></script>
+    <script src="assets/js/fastclick.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/jquery.blockUI.js"></script>
+    <script src="assets/js/waves.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/jquery.nicescroll.js"></script>
+    <script src="assets/js/jquery.scrollTo.min.js"></script>
+
+    <script src="assets/plugins/toastr/toastr.min.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script>
+
+    @{ if (ViewBag.ToastLevel != null)
+        {
+            <script>
+
+            toastr["@ViewBag.ToastLevel"]("@ViewBag.LoginMessage");
+            </script>
+        }
+    }
+</body>
+</html>

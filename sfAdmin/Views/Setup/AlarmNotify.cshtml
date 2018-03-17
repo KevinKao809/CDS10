@@ -1,0 +1,279 @@
+﻿@using Newtonsoft.Json;
+@{
+    ViewBag.Title = "Setup / Alarm Action";
+}
+
+<div class="row">
+    <div class="card-box table-responsive">
+        <div style="float:left">
+            <h4 class="header-title m-t-0 m-b-30">[[[Setup]]] / [[[Alarm Action]]]</h4>
+        </div>
+
+        <div class="col-sm-12">
+            <table id="datatable-responsive" name="messageCatalogListTable" class="table table-striped table-bordered dt-responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>[[[No]]]</th>
+                        <th>[[[Alarm Name]]]</th>
+                        <th>[[[Description]]]</th>
+                        <th>[[[On Message]]]</th>
+                        <th>[[[Active]]]</th>
+                    </tr>
+                </thead>
+
+                <tbody id="AlarmRuleCatalogList"></tbody>
+            </table>
+        </div>
+    </div><!-- end col -->
+</div>
+<!-- end row -->
+<div class="row" id="panel_detail" style="display:none;">
+    <div class="panel-group" id="accordion" 2 role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingDetail" style="height: 60px;">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDetail" aria-expanded="true" aria-controls="collapseDetail">
+                </a>
+                <div style="float:left">
+                    <h4 id="EditingPanelTitle" class="header-title m-t-0 m-b-30">[[[Detail]]]</h4>
+                </div>
+                <div style="float:right">
+
+                    <button id="UpdateAlarmNotifyButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px;"> <i class="ti-save m-r-5"></i> <span>[[[Save]]]</span> </button>
+
+                </div>
+            </div>
+            <div id="collapseDetail" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingDetail">
+                <div class="panel-body">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-sm-2 text-left">
+                        </div>
+                        <div class="col-sm-12">
+                            <form id="role-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <div class="col-sm-4">
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div style="float:left">
+                                                [[[Enforced Actions]]]
+                                                <br>
+                                                <select size="5" id="selectEnforcedNotify" style="width:auto; height:200px; min-width: 100px;"></select>
+                                            </div>
+                                            <div style="float:left">
+                                                <i class="zmdi zmdi-swap" style="margin-top:95px; margin-left:10px; margin-right:10px;"></i>
+                                            </div>
+                                            <div style="float:left">
+                                                [[[Available Actions]]]
+                                                <br>
+                                                <select size="5" id="selectAvailableExApp" style="width:auto; height:200px; min-width: 100px;"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+
+<script type="text/javascript">
+    var _alarmRuleCatalogJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.AlarmRuleCatalogList'));
+    var _messageCatalogJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.MessageCatalogList'));
+    var _externalApplicationJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.ExternalApplicationList'));
+    var _selectedAlarmRuleCatalogId = -1;
+
+    function LoadAlarmRuleCatalogListIntoTable() {
+
+        var alarmRuleCatalogDataSet = $('#datatable-responsive').DataTable();
+        var messageName;
+        alarmRuleCatalogDataSet.clear().draw(false);
+
+        for (var i in _alarmRuleCatalogJSONObjs) {
+            for (var j in _messageCatalogJSONObjs) {
+                if (_alarmRuleCatalogJSONObjs[i].MessageCatalogId == _messageCatalogJSONObjs[j].Id) {
+                    messageName = _messageCatalogJSONObjs[j].Name;
+                    break;
+                }
+            }
+            alarmRuleCatalogDataSet.row.add([
+                parseInt(i) + 1,
+                _alarmRuleCatalogJSONObjs[i].Name,
+                _alarmRuleCatalogJSONObjs[i].Description,
+                messageName,
+                (_alarmRuleCatalogJSONObjs[i].ActiveFlag ? '<i class="zmdi zmdi-circle text-success"></i> <span class="name"> Active</span>' : '<i class="zmdi zmdi-circle text-danger"></i> <span class="name"></span>')
+            ]).draw(false);
+        }
+        alarmRuleCatalogDataSet.columns.adjust().draw();
+    }
+
+    function LoadAvailableExAppIntoObjectsd() {
+        for (var key in _externalApplicationJSONObjs) {
+            $("#selectAvailableExApp").append("<option value='" + _externalApplicationJSONObjs[key].Id + "'>" + _externalApplicationJSONObjs[key].Name + "</option>");
+        }
+    }
+
+    function CleanFormInput() {
+
+        $("#selectAvailableExApp").empty();
+        $("#selectEnforcedNotify").empty();
+        LoadAvailableExAppIntoObjectsd();
+    }
+
+
+
+    function OnSelectAlarmRuleCatalogItem(alarmRuleCatalogId) {
+        $('#panel_detail').css("display", "block");
+        $('#EditingPanelTitle').html("[[[Alarm Actions]]]");
+        var enforcedNotify = []
+        _selectedAlarmRuleCatalogId = alarmRuleCatalogId;
+        CleanFormInput();
+        enforcedNotify = getEnforcedNotifyById(_selectedAlarmRuleCatalogId);
+        for (var i in enforcedNotify) {
+            $("#selectEnforcedNotify").append("<option value='" + enforcedNotify[i].ExternalApplicationId + "'>" + enforcedNotify[i].ExternalApplicationName + "</option>");
+            $(eval("\"#selectAvailableExApp option[value='" + enforcedNotify[i].ExternalApplicationId + "']\"")).remove();
+        }
+    }
+    function getEnforcedNotifyById(Id) {
+        var endPoint = "/Setup/ReqAction?action=getrulenotificationbyid";
+        var result;
+        if (Id != null)
+            endPoint = endPoint + "&Id=" + Id;
+        $.ajax({
+            type: "GET",
+            url: endPoint + "&t=" + Date.now(),
+            async: false,
+            success: function (data) {
+                if (data != "[]") {
+                    JSONdata = JSON.parse(data);
+                    console.log(Id, data);
+                    result = JSONdata;
+                }
+
+                else result = [];
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+
+        return result;
+    }
+
+    function DoAlarmNotifyTransactionAjax(actionName, Id, postData) {
+        var endPoint = "/Setup/ReqAction?action=" + actionName;
+        if (Id >= 0)
+            endPoint = endPoint + "&Id=" + Id;
+        $.ajax({
+            type: "POST",
+            url: endPoint + "&t=" + Date.now(),
+            data: postData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+
+                _selectedAlarmRuleCatalogId = -1;
+                toastr["success"]("[[[Action Completed]]]. (" + data + ")");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    TableManageButtons.init();
+
+    LoadAlarmRuleCatalogListIntoTable();
+
+    LoadAvailableExAppIntoObjectsd();
+
+    $(document).ready(function () {
+        $("#selectAvailableExApp").change(function () {
+            var text = $("#selectAvailableExApp").find("option:selected").text();
+            var value = $("#selectAvailableExApp").val();
+            $("#selectEnforcedNotify").append("<option value='" + value + "'>" + text + "</option>");
+            $("#selectAvailableExApp").find("option:selected").remove();
+        });
+
+        $("#selectEnforcedNotify").change(function () {
+            var text = $("#selectEnforcedNotify").find("option:selected").text();
+            var value = $("#selectEnforcedNotify").val();
+            $("#selectAvailableExApp").append("<option value='" + value + "'>" + text + "</option>");
+            $("#selectEnforcedNotify").find("option:selected").remove();
+        });
+
+        var table = $('#datatable-responsive').DataTable();
+        $('#datatable-responsive #AlarmRuleCatalogList').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                table.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+            OnSelectAlarmRuleCatalogItem(_alarmRuleCatalogJSONObjs[table.row(this).index()].Id);
+        });
+
+        function dataValidation(postData) {
+
+
+            // Add Permission
+             var enforcedNotify = document.getElementById('selectEnforcedNotify').options;
+            for (var i = 0; i < enforcedNotify.length; i++) {
+                postData.append('ExternalApplicationIdList', enforcedNotify[i].value);
+            }
+
+            return {
+                postData: postData,
+                isValidated: true
+            }
+        }
+
+
+        $('#UpdateAlarmNotifyButton').click(function () {
+            if (_selectedAlarmRuleCatalogId < 0)
+                toastr["error"]("[[[No Alarm Rule Catalog Select]]].");
+            else {
+                var postData = new FormData();
+                var result = dataValidation(postData);
+
+                if (result.isValidated) {
+                    swal({
+                        title: "[[[Are you sure]]]?",
+                        text: "",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonClass: 'btn-warning waves-effect waves-light',
+                        confirmButtonText: '[[[Update]]]!'
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            DoAlarmNotifyTransactionAjax("updaterulenotification", _selectedAlarmRuleCatalogId, result.postData);
+                            $('#panel_detail').css("display", "none");
+                        }
+                    });
+                }
+            }
+        });
+    });
+
+</script>
+
+

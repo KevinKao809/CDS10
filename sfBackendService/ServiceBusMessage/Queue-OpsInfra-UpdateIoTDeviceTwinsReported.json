@@ -1,0 +1,14 @@
+{
+  "job": "device management",
+  "entity": "iotdevice",
+  "entityId": "ACarDevice002",
+  "task": "update device reported property to db",
+  "iothubDeviceId": "ACarDevice002",
+  "requester": "IoTHubReceiver_IoTHubAliasName",
+  "requestDateTime": "2017-02-19T15:54:26.4208436Z",
+  "iothubAlias": "IoTHubAliasName",
+  "iothubIsPrimary": true,
+  "deviceConfiguration": {
+    "SF_LastUpdatedTimestamp": 1495077112
+  }
+}

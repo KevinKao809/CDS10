@@ -1,0 +1,7 @@
+{  
+  "command": "shutdown",
+  "requester": "First Name Last Name",
+  "requesterEmail": "email",
+  "requestDateTime": "UTC DateTime",
+  "taskId": 18
+}

@@ -1,0 +1,18 @@
+{
+  "MessageCatalogId": 63,
+  "AlarmRuleCatalogId": 52,
+  "AlarmRuleCatalogName": "Machine Error Message",
+  "AlarmRuleCatalogDescription": "Machine Error Message",
+  "MessageDocumentId": "2c94fe87-46b9-47f0-abe8-0ef942636d1b",
+  "TriggeredTime": "2017-10-21T11:45:03",
+  "Message": {
+    "companyId": 65,
+    "msgTimestamp": "2017-10-21T11:18:05",
+    "equipmentId": "FAMT01",
+    "equipmentRunStatus": 1,
+    "SpindleCommandSpeed": 1000,
+    "SpindleActualSpeed": 792,
+    "temperature": 16,
+    "AlarmMessage": "This is Alarm"
+  }
+}

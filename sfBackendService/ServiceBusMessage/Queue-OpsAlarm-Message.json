@@ -1,0 +1,28 @@
+{
+  "MessageCatalogId": 49,
+  "AlarmRuleCatalogId": 33,
+  "TriggeredTime": "2017-02-21T16:13:10",
+  "MessagePayload": {
+    "companyId": 49,
+    "msgTimestamp": "2017-02-22T00:13:05",
+    "equipmentId": "A5Machine001",
+    "equipmentRunStatus": 1,
+    "MainProgram": "A8133",
+    "Spindle_CommandSpeed": 1000,
+    "Spindle_ActualSpeed": 908,
+    "FeedRate_CommandFeedRate": 400,
+    "FeedRate_ActualFeedRate": 341,
+    "Time_PowerOn": 545,
+    "Time_Cutting": 141,
+    "Time_Operation": 370,
+    "Time_Cycle": 229,
+    "Position_Absolute": "[176, 19, 29]",
+    "Position_Relative": "[42, 122, 29]",
+    "Position_Machine": "[77, 248, 270]",
+    "Position_DistanceToGo": 71,
+    "Parts_Total": 3990,
+    "Parts_Count": 100,
+    "Parts_Required": 3890,
+    "AlarmMessage": "Door Open"
+  }
+}

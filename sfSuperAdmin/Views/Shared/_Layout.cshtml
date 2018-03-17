@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Connected Device Studio SuperAdmin</title>
+    @Styles.Render("~/sfAssets/css")
+    @Styles.Render("~/sfAssets/css/datatables")
+    @Scripts.Render("~/sfAssets/modernizr")
+</head>
+<body>
+    <!-- Navigation Bar-->
+    <header id="topnav">
+        <div class="topbar-main">
+            <div class="container header-nav">
+                <!-- LOGO -->
+                <div class="col-md-4 col-xs-3">
+                    <div class="topbar-left">
+                        <a href="index.html" class="logo">
+                            <span><img src="../assets/images/logo.png" id="userPic" alt="Logo" style="height:50px;"/></span>
+                        </a>
+                    </div>
+                </div>
+                <!-- End Logo container-->
+
+                <div class="col-md-4 col-xs-6">
+                    <h1 class="navTitle text-overflw " style="color: white; text-align: center; line-height:40px;">Connected Device Studio</h1>
+                </div>
+
+                <div class="col-md-4 col-xs-3">
+                    <div class="menu-extras">
+                        <ul class="nav navbar-nav navbar-right pull-right" style="float:right;">
+                            <li class="dropdown user-box">
+                                <a href="" class="dropdown-toggle waves-effect waves-light profile " data-toggle="dropdown" aria-expanded="true">
+                                    <img src="/assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
+                                    <div class="user-status away"><i class="zmdi zmdi-dot-circle"></i></div>
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li><a href="/Home/DoLogout" class="logout-a-style"><i class="ti-power-off m-r-5"></i> Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="userinfo text-right" style="float:right;">
+                            <p class="text-muted font-13 text-overflw"><strong>@ViewBag.FirstName @ViewBag.LastName </strong></p>
+                            <p class="text-muted font-13 text-overflw"><strong>@ViewBag.Email </strong></p>
+                        </div>
+
+                        <div class="menu-item">
+                            <!-- Mobile menu toggle-->
+                            <a class="navbar-toggle">
+                                <div class="lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <!-- End mobile menu toggle-->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--<div class="navbar-custom" style="background-color: #F6CECE;">-->
+            <div class="navbar-custom">
+                    <div class="container">
+                        <div id="navigation">
+                            <!-- Navigation Menu-->
+                            <ul class="navigation-menu">
+                                <li id="menuUserIcon" class="menu-li-hidden">
+                                    <div class="menubar-profile-header">
+
+                                        <div class="inline-block col-xs-8 text-overflw profile">
+                                            <img src="/assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
+                                            <sapn class="text-muted font-13 text-overflw"><strong>@ViewBag.FirstName @ViewBag.LastName (@ViewBag.Email) </strong></sapn>
+                                        </div>
+
+                                        <div class="inline-block col-xs-4">
+                                            <a class="inline-block menu-logout-a logout-a-style" href="/Home/DoLogout"><i class="ti-power-off m-r-5 above"></i>Logout</a>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li id="menuCompany"><a href=/Company/Index><i class="zmdi zmdi-windows"></i> <span> Company </span> </a></li>
+                                <li class="has-submenu" id="menuSetup">
+                                    <span class="arrow-right"></span>
+                                    <a href="#"><i class="ti-panel"></i><span> Setup </span></a>
+                                    <ul class="submenu">
+                                        <li><a href="/Setup/DeviceClass">Device Class</a></li>
+                                        <li><a href="/Setup/DeviceConfigurationCatalog">Device Configuration Catalog</a></li>
+                                        <li><a href="/Setup/EquipmentClass">Equipment Class</a></li>
+                                        <li><a href="/Setup/MandatoryMessageElement">Mandatory Message Element Define</a></li>
+                                        <li><a href="/Setup/WidgetClassCompany">Widget Class - Company</a></li>
+                                        <li><a href="/Setup/WidgetClassFactory">Widget Class - Factory</a></li>
+                                        <li><a href="/Setup/WidgetClassEquipment">Widget Class - Equipment</a></li>
+                                        <li><a href="/Setup/PermissionCatalog">Permission Catalog</a></li>
+                                    </ul>
+
+                                </li>
+                                <li class="has-submenu" id="menuMonitor">
+                                    <span class="arrow-right"></span>
+                                    <a href="#"><i class="ti-eye"></i><span> Monitor </span> </a>
+                                    <ul class="submenu">
+                                        <li><a href="/Monitor/RunningTask">Backend Task</a></li>
+                                        <li><a href="/Monitor/IoTHubReceiver">IoT Hub Message Receiver</a></li>
+                                        <li><a href="/Monitor/RunningOpsProcess">Running Ops Process</a></li>
+                                        <li><a href="/Monitor/UsageLog">UsageLog</a></li>
+                                    </ul>
+                                </li>
+                                <li id="menuSuperAdmin">
+                                    <a href="/SuperAdmin/Index"><i class="ti-medall"></i> <span> Super Admin </span> </a>
+                                </li>
+                            </ul>
+                            <!-- End navigation menu  -->
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </header>
+    <!-- End Navigation Bar-->
+
+    @Scripts.Render("~/sfAssets/jquery")    
+    @Scripts.Render("~/sfAssets/js/datatables")
+
+    <div class="wrapper">
+
+        <div class="main-info-cotainer">
+            <div class="container">
+                @RenderBody()
+                <hr />
+            </div>
+        </div>
+
+        <div class="slide-info-container">
+            <div class="slide-panel-title-bar">
+                <h4 id="slide-panel-title-text" class="header-title"></h4>
+                <i class="slide-panel-close ti-close"></i>
+            </div>
+            <div class="slide-panel-detail">
+                @RenderSection("PanelDetail", false)
+            </div>
+
+            <div class="slide-panel-footer">
+                @RenderSection("PanelDetailButton", false)
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer text-right">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6">
+                        2016 © Microsoft Azure.
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+
+    </div>
+    <script type="text/javascript">
+        $('#@ViewBag.MenuItem').addClass("active");
+        
+        function panelDetialSlideIn() {
+            var $slideDom = $('.slide-info-container'),
+                $mainDom = $('.main-info-cotainer');
+
+            $slideDom.addClass('transition-200ms slide-in');
+            $mainDom.addClass('transition-200ms smaller nowarp-line');
+            setTimeout(function () {
+                $slideDom.removeClass('transition-200ms');
+                $mainDom.removeClass('transition-200ms nowarp-line');
+            }, 300);
+        }
+
+        function panelDetialSlideOut() {
+            $('table tbody tr').removeClass('selected');
+            var $slideDom = $('.slide-info-container'),
+                $mainDom = $('.main-info-cotainer');
+            $slideDom.addClass('transition-200ms').removeClass('slide-in');
+            $mainDom.addClass('transition-200ms nowarp-line').removeClass('smaller');
+            setTimeout(function () {
+                $slideDom.removeClass('transition-200ms');
+                $mainDom.removeClass('transition-200ms nowarp-line');
+            }, 300);
+        }
+
+        function displayImage(dom, event) {
+            $('#' + $(dom).data('display')).attr('src', URL.createObjectURL(event.target.files[0]));
+        }
+
+        $(document).ready(function () {
+            $('.slide-panel-close').click(function () {
+                panelDetialSlideOut();
+            });
+        });
+
+
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

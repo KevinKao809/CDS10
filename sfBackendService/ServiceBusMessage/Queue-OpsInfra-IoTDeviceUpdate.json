@@ -1,0 +1,18 @@
+{
+  "job": "provisioning iotdevice",
+  "entity": "iotdevice",
+  "entityId": "ACarDevice001",
+  "task": "update iothub register",
+  "taskId": 1511,
+  "oldPrimaryIothubConnectionString": "HostName=sfContosoIoTHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=9+YrNbSvpRi6/AbpLt75R1i263Q+9bzI6PwL910/h44=",
+  "oldSecondaryIothubConnectionString": "HostName=sfContosoIoTHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=9+YrNbSvpRi6/AbpLt75R1i263Q+9bzI6PwL910/h44=",
+  "primaryIothubConnectionString": "HostName=sfContosoIoTHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=9+YrNbSvpRi6/AbpLt75R1i263Q+9bzI6PwL910/h44=",
+  "secondaryIothubConnectionString": "HostName=sfContosoIoTHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=9+YrNbSvpRi6/AbpLt75R1i263Q+9bzI6PwL910/h44=",
+  "iothubDeviceId": "ACarDevice001",
+  "authenticationType": "Certificate",
+  "iothubDeviceKey": null,
+  "certificateThumbprint": "12345678",
+  "requester": "Admin A-Car",
+  "requesterEmail": "admin@a-car.com",
+  "requestDateTime": "2017-02-19T15:52:08.4705421Z"
+}

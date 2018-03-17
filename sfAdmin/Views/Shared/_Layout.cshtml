@@ -1,0 +1,156 @@
+﻿@{
+    string companyPhoto = ViewBag.CompanyPhotoURL;
+    if (string.IsNullOrEmpty(companyPhoto))
+    {
+        companyPhoto = "/assets/images/default/company-128.png";
+    }
+    string employeePhoto = ViewBag.PhotoURL;
+    if (string.IsNullOrEmpty(employeePhoto))
+    {
+        employeePhoto = "/assets/images/default/employee-64.png";
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.CompanyName - Connected Device Studio Admin Console</title>
+    @Styles.Render("~/sfAssets/css")
+    @Styles.Render("~/sfAssets/css/datatables")
+    @Scripts.Render("~/sfAssets/modernizr")
+
+</head>
+<body>
+    <!-- Navigation Bar-->
+    <header id="topnav">
+        <div class="topbar-main">
+            <div class="container header-nav">
+                <!-- LOGO -->
+                <div class="col-md-4 col-sm-4 col-xs-3">
+                    <div class="topbar-left">
+                        <a href="#" class="logo">
+                            <span><img src="@companyPhoto" id="userPic" alt="Logo" style="height:50px;" /></span>
+                        </a>
+                    </div>
+                </div>
+                <!-- End Logo container-->
+
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <h1 class="navTitle text-overflw" style="color: white; text-align: center; line-height:40px;">@ViewBag.CompanyName</h1>
+                </div>
+
+                <div class="col-md-4 col-sm-4 col-xs-3">
+                    <div class="menu-extras">
+                        <ul class="nav navbar-nav navbar-right pull-right" style="float:right;">
+                            <li class="dropdown user-box">
+                                <a href="" class="dropdown-toggle waves-effect waves-light profile " data-toggle="dropdown" aria-expanded="true">
+                                    <img src="@employeePhoto" alt="user-img" class="img-circle user-img">
+                                    <div class="user-status away"><i class="zmdi zmdi-dot-circle"></i></div>
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" class="profile-a-style" onclick="ShowProfile();"><i class="ti-user m-r-5"></i> [[[Profile]]]</a></li>                                   
+                                    <li><a href="/Home/DoLogout" class="logout-a-style"><i class="ti-power-off m-r-5"></i> [[[Logout]]]</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="userinfo text-right" style="float:right;">
+                            <p class="text-muted font-13 text-overflw"><strong>@ViewBag.FirstName @ViewBag.LastName </strong></p>
+                            <p class="text-muted font-13 text-overflw"><strong>@ViewBag.Email </strong></p>
+                        </div>
+
+                        <div class="menu-item">
+                            <!-- Mobile menu toggle-->
+                            <a class="navbar-toggle">
+                                <div class="lines">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a>
+                            <!-- End mobile menu toggle-->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="navbar-custom" style="background-color: #D8F6CE;">
+                <div class="container menu-nav">
+                    <div id="navigation">
+                        <!-- Navigation Menu-->
+
+                        <ul class="navigation-menu">
+
+                            <li id="menuUserIcon" class="menu-li-hidden">
+                                <div class="menubar-profile-header">
+
+                                    <div class="inline-block col-xs-8 text-overflw profile">
+                                        <img src="@employeePhoto" alt="user-img" class="img-circle user-img">
+                                        <sapn class="text-muted font-13 text-overflw"><strong>@ViewBag.FirstName @ViewBag.LastName (@ViewBag.Email) </strong></sapn>
+                                    </div>
+
+                                    <div class="inline-block col-xs-4">
+                                        <div class="menu-profile-right-click-set">
+                                            <a class="inline-block profile-a-style" href="#" onclick="ShowProfile();"><i class="ti-user m-r-5"></i><span class="can-hide-text"> [[[Profile]]]</span></a>
+                                            <a class="inline-block logout-a-style" href="/Home/DoLogout"><i class="ti-power-off m-r-5 above"></i><span class="can-hide-text">[[[Logout]]]</span></a>
+                                        </div>                                     
+                                    </div>
+                                </div>
+                            </li>
+
+                            @Html.Raw(ViewBag.MenuNavigation)                            
+                        </ul>
+
+                        <!-- End navigation menu  -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Navigation Bar-->
+
+    @Scripts.Render("~/sfAssets/jquery")
+    @Scripts.Render("~/sfAssets/js/datatables")
+
+    <div class="wrapper">        
+        <div class="container">
+            <div id="popWindow" class="row" style="display:none;">
+            </div>
+            @RenderBody()
+            <hr />
+            <!-- Footer -->
+            <footer class="footer text-right">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            2016 © Microsoft Azure.
+                        </div>
+                        <div style="float:right">
+                            [[[Connected Device Studio]]] [[[Version]]] @ViewBag.Version
+                        </div>                        
+                    </div>
+                </div>
+            </footer>
+            <!-- End Footer -->
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('#@ViewBag.MenuItem').addClass("active");
+
+        ShowProfile = function () {
+            var userProfile = "<iframe src='/Home/ShowProfile' frameborder='0' scrolling='no' width='100%' height='100%'></iframe>";
+            $('#popWindow').height(400);
+            $('#popWindow').html(userProfile);
+            $('#popWindow').css("display", "block");
+        }
+        function closePopWindow()
+        {
+            $('#popWindow').css("display", "none");
+        }        
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

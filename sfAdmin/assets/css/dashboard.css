@@ -1,0 +1,218 @@
+﻿html{
+  width:100%;
+  height:100%;
+}
+
+body {
+   width: 100%;
+   height: 100%;
+   padding-bottom: 0px;
+   overflow: auto;
+}
+
+.dashboard-wrapper {
+    width: calc(100% - 100px);
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.dashboard-side-btn-wrapper {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    z-index: 99;
+}
+
+.dashboard-side-btn-wrapper .hide-btn {
+    display:none;
+}
+
+.dashboard-side-btn-wrapper .side-btn {
+    border-radius: 50%;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 16px;
+}
+
+.transparent {
+    opacity:0;
+}
+
+.grid-stack .fake-new-widget {
+    display: none !important;
+}
+
+.grid-stack .grid-stack-item {
+    border-radius: 5px; 
+}
+
+.grid-stack .panel-wrapper {
+    height: 100%;
+}
+
+.grid-stack > .grid-stack-item > .grid-stack-item-content {
+    overflow-x: initial !important;
+    overflow-y: initial !important;
+    background:#FFF;
+}
+
+.grid-stack .panel-wrapper .panel-heading {
+    padding: 0px;
+    line-height: 40px;
+    border-color: #71b6f9 !important;
+    color: #71b6f9 !important;
+    border-top: 3px solid !important;
+    border-bottom: 1px solid #ccc !important;
+}   
+
+.grid-stack .panel-heading .drag-area {
+    display: inline-block;
+    width: 35px;
+    text-align: center;
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.grid-stack .panel-heading .drag-area:hover .grippy {
+    color: #71b6f9;
+    text-shadow: 1px 0 1px #71b6f9;
+    font-size: 13px;
+}
+
+.grid-stack .panel-heading .drag-area :active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
+
+.grid-stack .panel-heading .drag-area span.grippy {
+    content: '....';
+    width: 20px;
+    height: 28px;
+    display: inline-block;
+    overflow: hidden;
+    line-height: 5px;
+    padding: 3px 4px;
+    vertical-align: middle;
+    margin-top: -.7em;
+    margin-right: .3em;
+    font-size: 12px;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+    color: #cccccc;
+    text-shadow: 1px 0 1px black;
+}
+
+.grid-stack .panel-heading .drag-area span.grippy::after {
+    content: '.. .. .. ..';
+}
+
+.grid-stack .panel-heading .title-area {
+    display: inline-block;
+    width: calc(100% - 70px);
+}
+
+.grid-stack .panel-heading .panel-header-icon-area {
+    display: inline-block;
+    width: 35px;
+    float: right;
+}
+
+.grid-stack .panel-heading .panel-header-icon-area .header-icon {
+    line-height: 40px;
+    font-size: 1.2em;
+    text-align: center;
+    color: #ccc;
+    cursor: pointer;
+    display: none;
+}
+
+.grid-stack .panel-wrapper:hover .panel-heading .panel-header-icon-area .header-icon {
+    display: block;
+}
+
+.grid-stack .panel-heading .panel-header-icon-area .header-icon:hover {
+    color: #71b6f9;
+}
+
+
+.grid-stack .card-content {
+    height: calc(100% - 40px);
+    overflow: auto;
+}
+
+.grid-stack .card-content .card-box {
+    height: 100%;
+    margin: 0px;
+}
+
+/* loading screen*/
+
+.loader-component {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 99;
+    background: rgba(255, 255, 255, 0.6);
+    display: none;
+}
+
+.loader,
+.loader:after {
+    border-radius: 50%;
+    width: 10em;
+    height: 10em;
+}
+
+.loader {
+    margin: 60px auto;
+    font-size: 10px;
+    position: relative;
+    top: calc(50% - 10em);
+    text-indent: -9999em;
+    border-top: 1.1em solid rgba(51,177,253, 0.2);
+    border-right: 1.1em solid rgba(51,177,253, 0.2);
+    border-bottom: 1.1em solid rgba(51,177,253, 0.2);
+    border-left: 1.1em solid #33b1fd;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation: load8 1.1s infinite linear;
+    animation: load8 1.1s infinite linear;
+}
+
+@-webkit-keyframes load8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes load8 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.grid-stack-item-content td > div {
+    position: relative;
+}
+
+.grid-stack-item-content .widget-chart-1 .widget-chart-box-1 > div{
+    position:relative;
+}

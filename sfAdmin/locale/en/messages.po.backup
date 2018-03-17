@@ -1,0 +1,3067 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2017-06-21 15:15+08:00\n"
+"PO-Revision-Date: 2017-06-21 15:15+08:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: i18n.POTGenerator\n"
+
+#: Views\Monitor\IoTHubReceiver.cshtml:40
+msgid "Action"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:296
+#: Views\Factory\Index.cshtml:248
+#: Views\Home\Profile.cshtml:273
+#: Views\IoTDevice\ConfigurationManagement.cshtml:274
+#: Views\IoTDevice\Index.cshtml:399
+#: Views\IoTDevice\MessageAttach.cshtml:298
+#: Views\Message\Index.cshtml:182
+#: Views\Message\MessageElement.cshtml:302
+#: Views\Monitor\IoTHubReceiver.cshtml:160
+#: Views\Monitor\UsageLog.cshtml:202
+#: Views\Setup\AlarmNotify.cshtml:189
+#: Views\Setup\AlarmRuleCatalog.cshtml:503
+#: Views\Setup\DashboardCompany.cshtml:267
+#: Views\Setup\DashboardCompany.cshtml:304
+#: Views\Setup\DashboardEquipment.cshtml:273
+#: Views\Setup\DashboardEquipment.cshtml:310
+#: Views\Setup\DashboardFactory.cshtml:267
+#: Views\Setup\DashboardFactory.cshtml:304
+#: Views\Setup\DeviceCertificate.cshtml:193
+#: Views\Setup\DeviceConfiguration.cshtml:207
+#: Views\Setup\Employee.cshtml:362
+#: Views\Setup\ExternalApplication.cshtml:298
+#: Views\Setup\IoTHubAlias.cshtml:282
+#: Views\Setup\Role.cshtml:194
+#: Views\Setup\WidgetCatalogCompany.cshtml:470
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1410
+#: Views\Setup\WidgetCatalogFactory.cshtml:501
+msgid "Action Completed"
+msgstr ""
+
+#: Views\Setup\AlarmNotify.cshtml:20
+#: Views\Setup\AlarmRuleCatalog.cshtml:21
+#: Views\Setup\AlarmRuleCatalog.cshtml:80
+msgid "Active"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:11
+#: Views\Factory\Index.cshtml:11
+#: Views\IoTDevice\Index.cshtml:10
+#: Views\Message\Index.cshtml:11
+#: Views\Message\Index.cshtml:260
+#: Views\Message\MessageElement.cshtml:37
+#: Views\Setup\AlarmRuleCatalog.cshtml:11
+#: Views\Setup\DashboardCompany.cshtml:37
+#: Views\Setup\DashboardEquipment.cshtml:41
+#: Views\Setup\DashboardFactory.cshtml:38
+#: Views\Setup\DeviceCertificate.cshtml:11
+#: Views\Setup\DeviceConfiguration.cshtml:11
+#: Views\Setup\Employee.cshtml:10
+#: Views\Setup\ExternalApplication.cshtml:11
+#: Views\Setup\IoTHubAlias.cshtml:12
+#: Views\Setup\Role.cshtml:12
+#: Views\Setup\WidgetCatalogCompany.cshtml:13
+#: Views\Setup\WidgetCatalogEquipment.cshtml:11
+#: Views\Setup\WidgetCatalogFactory.cshtml:11
+msgid "Add"
+msgstr ""
+
+#: Views\Message\MessageElement.cshtml:423
+#: Views\Setup\AlarmRuleCatalog.cshtml:660
+#: Views\Setup\DashboardCompany.cshtml:413
+#: Views\Setup\DashboardEquipment.cshtml:419
+#: Views\Setup\DashboardFactory.cshtml:413
+#: Views\Setup\DeviceCertificate.cshtml:261
+#: Views\Setup\IoTHubAlias.cshtml:478
+#: Views\Setup\Role.cshtml:267
+#: Views\Setup\WidgetCatalogCompany.cshtml:713
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2664
+#: Views\Setup\WidgetCatalogFactory.cshtml:774
+msgid "Add New"
+msgstr ""
+
+#: Views\Setup\DeviceConfiguration.cshtml:324
+msgid "Add New Device Configuration"
+msgstr ""
+
+#: Views\Factory\Index.cshtml:383
+msgid "Add New Factory"
+msgstr ""
+
+#: Views\Home\Login.cshtml:42
+msgid "Admin Console"
+msgstr ""
+
+#: Views\Setup\Employee.cshtml:21
+#: Views\Setup\Employee.cshtml:93
+msgid "Administrator"
+msgstr ""
+
+#: Views\Setup\AlarmRuleCatalog.cshtml:98
+msgid "Aggregate Alarm Interval (Sec)"
+msgstr ""
+
+#: Views\Setup\AlarmRuleCatalog.cshtml:18
+#: Views\Setup\AlarmRuleCatalog.cshtml:64
+msgid "Alarm"
+msgstr ""
+
+#: Models\Employee.cs:171
+#: Views\Setup\AlarmNotify.cshtml:9
+msgid "Alarm Action"
+msgstr ""
+
+#: Views\Setup\AlarmNotify.cshtml:134
+msgid "Alarm Actions"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogCompany.cshtml:672
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2391
+#: Views\Setup\WidgetCatalogFactory.cshtml:727
+msgid "Alarm Card"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogCompany.cshtml:148
+#: Views\Setup\WidgetCatalogEquipment.cshtml:958
+#: Views\Setup\WidgetCatalogFactory.cshtml:146
+msgid "Alarm Data Range"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:641
+msgid "Alarm Duration (sec)"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogCompany.cshtml:677
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2567
+#: Views\Setup\WidgetCatalogFactory.cshtml:732
+msgid "Alarm List"
+msgstr ""
+
+#: Views\Monitor\UsageLog.cshtml:20
+msgid "Alarm Message"
+msgstr ""
+
+#: Views\Setup\AlarmNotify.cshtml:17
+msgid "Alarm Name"
+msgstr ""
+
+#: Models\Employee.cs:167
+#: Views\Setup\AlarmRuleCatalog.cshtml:8
+#: Views\Setup\AlarmRuleCatalog.cshtml:11
+#: Views\Setup\AlarmRuleCatalog.cshtml:660
+msgid "Alarm Rule Catalog"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2131
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2141
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2223
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2233
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2243
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2253
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2263
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2273
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2283
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2293
+msgid "and must between 0 to 100"
+msgstr ""
+
+#: Views\Setup\ExternalApplication.cshtml:11
+msgid "Application"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:496
+#: Views\Equipment\Index.cshtml:519
+#: Views\Equipment\Index.cshtml:546
+#: Views\Factory\Index.cshtml:416
+#: Views\Factory\Index.cshtml:446
+#: Views\Factory\Index.cshtml:472
+#: Views\Home\Profile.cshtml:374
+#: Views\Home\Profile.cshtml:403
+#: Views\IoTDevice\ConfigurationManagement.cshtml:458
+#: Views\IoTDevice\Index.cshtml:686
+#: Views\IoTDevice\Index.cshtml:710
+#: Views\IoTDevice\Index.cshtml:733
+#: Views\IoTDevice\Index.cshtml:760
+#: Views\IoTDevice\MessageAttach.cshtml:392
+#: Views\Message\Index.cshtml:292
+#: Views\Message\Index.cshtml:349
+#: Views\Message\MessageElement.cshtml:454
+#: Views\Message\MessageElement.cshtml:485
+#: Views\Message\MessageElement.cshtml:511
+#: Views\Setup\AlarmNotify.cshtml:260
+#: Views\Setup\AlarmRuleCatalog.cshtml:690
+#: Views\Setup\AlarmRuleCatalog.cshtml:721
+#: Views\Setup\AlarmRuleCatalog.cshtml:747
+#: Views\Setup\AlarmRuleCatalog.cshtml:829
+#: Views\Setup\DashboardCompany.cshtml:443
+#: Views\Setup\DashboardCompany.cshtml:474
+#: Views\Setup\DashboardCompany.cshtml:500
+#: Views\Setup\DashboardEquipment.cshtml:449
+#: Views\Setup\DashboardEquipment.cshtml:480
+#: Views\Setup\DashboardEquipment.cshtml:506
+#: Views\Setup\DashboardFactory.cshtml:443
+#: Views\Setup\DashboardFactory.cshtml:474
+#: Views\Setup\DashboardFactory.cshtml:500
+#: Views\Setup\DeviceCertificate.cshtml:292
+#: Views\Setup\DeviceCertificate.cshtml:323
+#: Views\Setup\DeviceCertificate.cshtml:349
+#: Views\Setup\DeviceConfiguration.cshtml:355
+#: Views\Setup\DeviceConfiguration.cshtml:385
+#: Views\Setup\DeviceConfiguration.cshtml:411
+#: Views\Setup\Employee.cshtml:550
+#: Views\Setup\Employee.cshtml:574
+#: Views\Setup\Employee.cshtml:597
+#: Views\Setup\Employee.cshtml:624
+#: Views\Setup\ExternalApplication.cshtml:537
+#: Views\Setup\ExternalApplication.cshtml:560
+#: Views\Setup\ExternalApplication.cshtml:587
+#: Views\Setup\IoTHubAlias.cshtml:520
+#: Views\Setup\IoTHubAlias.cshtml:551
+#: Views\Setup\IoTHubAlias.cshtml:577
+#: Views\Setup\Role.cshtml:298
+#: Views\Setup\Role.cshtml:329
+#: Views\Setup\Role.cshtml:355
+#: Views\Setup\WidgetCatalogCompany.cshtml:749
+#: Views\Setup\WidgetCatalogCompany.cshtml:781
+#: Views\Setup\WidgetCatalogCompany.cshtml:812
+#: Views\Setup\WidgetCatalogCompany.cshtml:840
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2700
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2732
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2777
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2805
+#: Views\Setup\WidgetCatalogFactory.cshtml:810
+#: Views\Setup\WidgetCatalogFactory.cshtml:842
+#: Views\Setup\WidgetCatalogFactory.cshtml:873
+#: Views\Setup\WidgetCatalogFactory.cshtml:901
+msgid "Are you sure"
+msgstr ""
+
+#: Views\IoTDevice\MessageAttach.cshtml:64
+msgid "Attached"
+msgstr ""
+
+#: Views\Setup\ExternalApplication.cshtml:112
+#: Views\Setup\ExternalApplication.cshtml:130
+#: Views\Setup\ExternalApplication.cshtml:137
+msgid "Auth"
+msgstr ""
+
+#: Views\Setup\ExternalApplication.cshtml:436
+msgid "Auth ID / PW"
+msgstr ""
+
+#: Views\IoTDevice\ConfigurationManagement.cshtml:25
+#: Views\IoTDevice\Index.cshtml:21
+#: Views\IoTDevice\Index.cshtml:99
+#: Views\IoTDevice\Index.cshtml:552
+#: Views\IoTDevice\MessageAttach.cshtml:21
+msgid "Authentication"
+msgstr ""
+
+#: Controllers\DashboardController.cs:129
+#: Controllers\DashboardController.cs:181
+#: Controllers\DashboardController.cs:299
+#: Controllers\DashboardController.cs:355
+#: Controllers\DashboardController.cs:438
+#: Controllers\EquipmentController.cs:61
+#: Controllers\FactoryController.cs:60
+#: Controllers\HomeController.cs:152
+#: Controllers\HomeController.cs:204
+#: Controllers\HomeController.cs:265
+#: Controllers\IoTDeviceController.cs:66
+#: Controllers\IoTDeviceController.cs:120
+#: Controllers\IoTDeviceController.cs:175
+#: Controllers\MessageController.cs:58
+#: Controllers\MessageController.cs:111
+#: Controllers\MonitorController.cs:139
+#: Controllers\MonitorController.cs:192
+#: Controllers\MonitorController.cs:246
+#: Controllers\SetupController.cs:72
+#: Controllers\SetupController.cs:128
+#: Controllers\SetupController.cs:185
+#: Controllers\SetupController.cs:242
+#: Controllers\SetupController.cs:299
+#: Controllers\SetupController.cs:361
+#: Controllers\SetupController.cs:418
+#: Controllers\SetupController.cs:473
+#: Controllers\SetupController.cs:527
+#: Controllers\SetupController.cs:585
+#: Controllers\SetupController.cs:643
+#: Controllers\SetupController.cs:701
+#: Controllers\SetupController.cs:755
+#: Controllers\SetupController.cs:809
+msgid "Authentication Fail"
+msgstr ""
+
+#: Views\Setup\ExternalApplication.cshtml:445
+msgid "AuthType"
+msgstr ""
+
+#: Views\IoTDevice\MessageAttach.cshtml:72
+#: Views\Setup\Employee.cshtml:114
+msgid "Available"
+msgstr ""
+
+#: Views\Setup\AlarmNotify.cshtml:68
+msgid "Available Actions"
+msgstr ""
+
+#: Views\Setup\Role.cshtml:78
+msgid "Available Permissions"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:145
+#: Views\Setup\WidgetCatalogEquipment.cshtml:153
+#: Views\Setup\WidgetCatalogEquipment.cshtml:161
+#: Views\Setup\WidgetCatalogEquipment.cshtml:180
+#: Views\Setup\WidgetCatalogEquipment.cshtml:198
+#: Views\Setup\WidgetCatalogEquipment.cshtml:217
+#: Views\Setup\WidgetCatalogEquipment.cshtml:233
+#: Views\Setup\WidgetCatalogEquipment.cshtml:252
+#: Views\Setup\WidgetCatalogEquipment.cshtml:302
+#: Views\Setup\WidgetCatalogEquipment.cshtml:310
+#: Views\Setup\WidgetCatalogEquipment.cshtml:318
+#: Views\Setup\WidgetCatalogEquipment.cshtml:326
+#: Views\Setup\WidgetCatalogEquipment.cshtml:344
+#: Views\Setup\WidgetCatalogEquipment.cshtml:352
+#: Views\Setup\WidgetCatalogEquipment.cshtml:368
+#: Views\Setup\WidgetCatalogEquipment.cshtml:376
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1538
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1554
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1564
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1574
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1657
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1674
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1685
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1696
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1706
+msgid "Axis"
+msgstr ""
+
+#: Models\Employee.cs:140
+#: Views\Monitor\RunningTask.cshtml:7
+msgid "Backend Task"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:573
+#: Views\Setup\WidgetCatalogEquipment.cshtml:657
+#: Views\Setup\WidgetCatalogEquipment.cshtml:660
+#: Views\Setup\WidgetCatalogEquipment.cshtml:665
+#: Views\Setup\WidgetCatalogEquipment.cshtml:668
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1496
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1801
+msgid "Background"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:854
+#: Views\Setup\WidgetCatalogEquipment.cshtml:878
+#: Views\Setup\WidgetCatalogEquipment.cshtml:904
+#: Views\Setup\WidgetCatalogEquipment.cshtml:928
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1967
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1999
+msgid "Ball"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2412
+msgid "Bar Chart"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1523
+msgid "Bar Space"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:290
+msgid "Bar Width"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2427
+msgid "Basic Card"
+msgstr ""
+
+#: Views\Message\MessageElement.cshtml:106
+msgid "bool"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:44
+#: Views\Factory\Index.cshtml:44
+#: Views\Home\Profile.cshtml:51
+#: Views\Home\Profile.cshtml:53
+#: Views\IoTDevice\Index.cshtml:44
+#: Views\IoTDevice\Index.cshtml:46
+#: Views\Message\Index.cshtml:43
+#: Views\Message\MessageElement.cshtml:76
+#: Views\Setup\AlarmRuleCatalog.cshtml:44
+#: Views\Setup\AlarmRuleCatalog.cshtml:47
+#: Views\Setup\DashboardCompany.cshtml:75
+#: Views\Setup\DashboardEquipment.cshtml:79
+#: Views\Setup\DashboardFactory.cshtml:76
+#: Views\Setup\DeviceCertificate.cshtml:44
+#: Views\Setup\DeviceConfiguration.cshtml:45
+#: Views\Setup\Employee.cshtml:44
+#: Views\Setup\Employee.cshtml:46
+#: Views\Setup\ExternalApplication.cshtml:42
+#: Views\Setup\IoTHubAlias.cshtml:44
+#: Views\Setup\Role.cshtml:41
+#: Views\Setup\WidgetCatalogCompany.cshtml:45
+#: Views\Setup\WidgetCatalogEquipment.cshtml:44
+#: Views\Setup\WidgetCatalogFactory.cshtml:43
+#: assets\plugins\bootstrap-sweetalert\sweet-alert.min.js:1
+#: assets\plugins\bootstrap-sweetalert\sweet-alert.min.js:1
+msgid "Cancel"
+msgstr ""
+
+#: Views\IoTDevice\Index.cshtml:113
+msgid "Certification"
+msgstr ""
+
+#: Views\Home\Profile.cshtml:49
+#: Views\Home\Profile.cshtml:338
+msgid "Change Password"
+msgstr ""
+
+#: Views\Dashboard\EquipmentList.cshtml:60
+#: Views\Monitor\IoTHubReceiver.cshtml:55
+msgid "Checking"
+msgstr ""
+
+#: Views\Message\Index.cshtml:77
+#: Views\Message\MessageElement.cshtml:50
+#: Views\Message\MessageElement.cshtml:126
+msgid "Child Message"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:79
+msgid "Classification"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:382
+msgid "Classification is necessary"
+msgstr ""
+
+#: Views\Home\Profile.cshtml:55
+msgid "Close"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:188
+#: Views\Setup\WidgetCatalogEquipment.cshtml:191
+#: Views\Setup\WidgetCatalogEquipment.cshtml:225
+#: Views\Setup\WidgetCatalogEquipment.cshtml:228
+#: Views\Setup\WidgetCatalogEquipment.cshtml:260
+#: Views\Setup\WidgetCatalogEquipment.cshtml:263
+#: Views\Setup\WidgetCatalogEquipment.cshtml:334
+#: Views\Setup\WidgetCatalogEquipment.cshtml:337
+#: Views\Setup\WidgetCatalogEquipment.cshtml:360
+#: Views\Setup\WidgetCatalogEquipment.cshtml:384
+#: Views\Setup\WidgetCatalogEquipment.cshtml:387
+#: Views\Setup\WidgetCatalogEquipment.cshtml:431
+#: Views\Setup\WidgetCatalogEquipment.cshtml:434
+#: Views\Setup\WidgetCatalogEquipment.cshtml:455
+#: Views\Setup\WidgetCatalogEquipment.cshtml:458
+#: Views\Setup\WidgetCatalogEquipment.cshtml:481
+#: Views\Setup\WidgetCatalogEquipment.cshtml:484
+#: Views\Setup\WidgetCatalogEquipment.cshtml:505
+#: Views\Setup\WidgetCatalogEquipment.cshtml:508
+#: Views\Setup\WidgetCatalogEquipment.cshtml:565
+#: Views\Setup\WidgetCatalogEquipment.cshtml:568
+#: Views\Setup\WidgetCatalogEquipment.cshtml:573
+#: Views\Setup\WidgetCatalogEquipment.cshtml:576
+#: Views\Setup\WidgetCatalogEquipment.cshtml:611
+#: Views\Setup\WidgetCatalogEquipment.cshtml:614
+#: Views\Setup\WidgetCatalogEquipment.cshtml:649
+#: Views\Setup\WidgetCatalogEquipment.cshtml:652
+#: Views\Setup\WidgetCatalogEquipment.cshtml:657
+#: Views\Setup\WidgetCatalogEquipment.cshtml:660
+#: Views\Setup\WidgetCatalogEquipment.cshtml:665
+#: Views\Setup\WidgetCatalogEquipment.cshtml:668
+#: Views\Setup\WidgetCatalogEquipment.cshtml:854
+#: Views\Setup\WidgetCatalogEquipment.cshtml:857
+#: Views\Setup\WidgetCatalogEquipment.cshtml:878
+#: Views\Setup\WidgetCatalogEquipment.cshtml:881
+#: Views\Setup\WidgetCatalogEquipment.cshtml:904
+#: Views\Setup\WidgetCatalogEquipment.cshtml:907
+#: Views\Setup\WidgetCatalogEquipment.cshtml:928
+#: Views\Setup\WidgetCatalogEquipment.cshtml:931
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1486
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1496
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1574
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1706
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1844
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1876
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1924
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1967
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1999
+msgid "Color"
+msgstr ""
+
+#: Views\Setup\DashboardCompany.cshtml:48
+#: Views\Setup\DashboardCompany.cshtml:101
+#: Views\Setup\DashboardCompany.cshtml:364
+#: Views\Setup\DashboardEquipment.cshtml:52
+#: Views\Setup\DashboardEquipment.cshtml:105
+#: Views\Setup\DashboardEquipment.cshtml:370
+#: Views\Setup\DashboardFactory.cshtml:49
+#: Views\Setup\DashboardFactory.cshtml:102
+#: Views\Setup\DashboardFactory.cshtml:364
+msgid "Column No"
+msgstr ""
+
+#: Views\Setup\DashboardCompany.cshtml:16
+msgid "Company"
+msgstr ""
+
+#: Models\Employee.cs:152
+msgid "Company Board"
+msgstr ""
+
+#: Views\Setup\DashboardCompany.cshtml:9
+msgid "Company Dashboard"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogFactory.cshtml:737
+msgid "Company Logo"
+msgstr ""
+
+#: Views\Monitor\RunningTask.cshtml:97
+msgid "Completed"
+msgstr ""
+
+#: Views\Monitor\RunningTask.cshtml:16
+msgid "Completed At"
+msgstr ""
+
+#: Views\Setup\AlarmRuleCatalog.cshtml:124
+msgid "Condition"
+msgstr ""
+
+#: Views\IoTDevice\ConfigurationManagement.cshtml:440
+msgid "Configuration"
+msgstr ""
+
+#: Views\IoTDevice\ConfigurationManagement.cshtml:252
+msgid "Configuration Management"
+msgstr ""
+
+#: Views\IoTDevice\ConfigurationManagement.cshtml:334
+msgid "Confirm"
+msgstr ""
+
+#: Views\Home\Profile.cshtml:143
+#: Views\Home\Profile.cshtml:145
+#: Views\IoTDevice\Index.cshtml:189
+#: Views\IoTDevice\Index.cshtml:191
+#: Views\Setup\Employee.cshtml:166
+#: Views\Setup\Employee.cshtml:168
+msgid "Confirm New Password"
+msgstr ""
+
+#: Views\IoTDevice\Index.cshtml:155
+#: Views\Setup\Employee.cshtml:132
+msgid "Confirm Password"
+msgstr ""
+
+#: Views\Home\Login.cshtml:41
+#: Views\Home\Login.cshtml:83
+#: Views\Shared\_Layout.cshtml:131
+msgid "Connected Device Studio"
+msgstr ""
+
+#: Views\Setup\IoTHubAlias.cshtml:77
+#: Views\Setup\IoTHubAlias.cshtml:79
+#: Views\Setup\IoTHubAlias.cshtml:89
+#: Views\Setup\IoTHubAlias.cshtml:91
+#: Views\Setup\IoTHubAlias.cshtml:109
+#: Views\Setup\IoTHubAlias.cshtml:365
+#: Views\Setup\IoTHubAlias.cshtml:412
+msgid "Connection String"
+msgstr ""
+
+#: Views\Setup\IoTHubAlias.cshtml:83
+#: Views\Setup\IoTHubAlias.cshtml:85
+#: Views\Setup\IoTHubAlias.cshtml:115
+#: Views\Setup\IoTHubAlias.cshtml:376
+#: Views\Setup\IoTHubAlias.cshtml:423
+msgid "Consume Group"
+msgstr ""
+
+#: Views\Monitor\RunningTask.cshtml:55
+#: Views\Setup\WidgetCatalogCompany.cshtml:42
+#: Views\Setup\WidgetCatalogEquipment.cshtml:41
+#: Views\Setup\WidgetCatalogFactory.cshtml:40
+msgid "Content"
+msgstr ""
+
+#: Views\Setup\DashboardEquipment.cshtml:532
+msgid "Create A Dashboard Definition"
+msgstr ""
+
+#: Views\Monitor\RunningTask.cshtml:20
+msgid "Created At"
+msgstr ""
+
+#: Views\Factory\Index.cshtml:20
+#: Views\Factory\Index.cshtml:94
+msgid "Culture Info"
+msgstr ""
+
+#: Views\Home\Profile.cshtml:61
+msgid "Current Language"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1781
+msgid "Current Number"
+msgstr ""
+
+#: Models\Employee.cs:175
+msgid "Customize Device Configuration"
+msgstr ""
+
+#: Models\Employee.cs:150
+#: Views\Dashboard\EquipmentList.cshtml:29
+#: Views\Dashboard\EquipmentList.cshtml:40
+#: Views\Dashboard\EquipmentList.cshtml:125
+#: Views\Dashboard\FactoryList.cshtml:8
+#: Views\Dashboard\FactoryList.cshtml:18
+#: Views\Dashboard\FactoryList.cshtml:47
+#: Views\Setup\DashboardCompany.cshtml:17
+#: Views\Setup\DashboardEquipment.cshtml:9
+#: Views\Setup\DashboardEquipment.cshtml:12
+#: Views\Setup\DashboardEquipment.cshtml:21
+#: Views\Setup\DashboardFactory.cshtml:10
+#: Views\Setup\DashboardFactory.cshtml:18
+#: Views\Setup\ExternalApplication.cshtml:81
+msgid "Dashboard"
+msgstr ""
+
+#: Models\Employee.cs:184
+msgid "Dashboard - Company"
+msgstr ""
+
+#: Models\Employee.cs:186
+msgid "Dashboard - Equipment"
+msgstr ""
+
+#: Models\Employee.cs:185
+msgid "Dashboard - Factory"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:603
+msgid "Data"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogCompany.cshtml:537
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2039
+#: Views\Setup\WidgetCatalogFactory.cshtml:568
+msgid "Data Range"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1914
+msgid "Data Source"
+msgstr ""
+
+#: Views\IoTDevice\ConfigurationManagement.cshtml:62
+#: Views\Message\MessageElement.cshtml:48
+#: Views\Message\MessageElement.cshtml:102
+#: Views\Setup\DeviceConfiguration.cshtml:19
+#: Views\Setup\DeviceConfiguration.cshtml:79
+msgid "Data Type"
+msgstr ""
+
+#: Views\Monitor\UsageLog.cshtml:54
+msgid "Date"
+msgstr ""
+
+#: Views\Message\MessageElement.cshtml:109
+msgid "datetime"
+msgstr ""
+
+#: Views\Monitor\UsageLog.cshtml:33
+msgid "Days"
+msgstr ""
+
+#: Views\Setup\AlarmRuleCatalog.cshtml:101
+msgid "Default"
+msgstr ""
+
+#: Views\Setup\DeviceConfiguration.cshtml:21
+#: Views\Setup\DeviceConfiguration.cshtml:90
+msgid "Default Value"
+msgstr ""
+
+#: Views\Setup\DashboardCompany.cshtml:34
+#: Views\Setup\DashboardEquipment.cshtml:12
+#: Views\Setup\DashboardEquipment.cshtml:38
+#: Views\Setup\WidgetCatalogFactory.cshtml:95
+msgid "Define"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogCompany.cshtml:672
+#: Views\Setup\WidgetCatalogCompany.cshtml:677
+#: Views\Setup\WidgetCatalogCompany.cshtml:682
+#: Views\Setup\WidgetCatalogCompany.cshtml:687
+#: Views\Setup\WidgetCatalogCompany.cshtml:692
+#: Views\Setup\WidgetCatalogCompany.cshtml:697
+#: Views\Setup\WidgetCatalogCompany.cshtml:702
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2391
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2412
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2427
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2432
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2441
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2472
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2500
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2528
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2539
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2567
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2573
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2592
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2618
+#: Views\Setup\WidgetCatalogFactory.cshtml:727
+#: Views\Setup\WidgetCatalogFactory.cshtml:732
+#: Views\Setup\WidgetCatalogFactory.cshtml:737
+#: Views\Setup\WidgetCatalogFactory.cshtml:742
+#: Views\Setup\WidgetCatalogFactory.cshtml:747
+#: Views\Setup\WidgetCatalogFactory.cshtml:752
+#: Views\Setup\WidgetCatalogFactory.cshtml:757
+#: Views\Setup\WidgetCatalogFactory.cshtml:762
+msgid "Definition"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:42
+#: Views\Equipment\Index.cshtml:524
+#: Views\Factory\Index.cshtml:42
+#: Views\Factory\Index.cshtml:451
+#: Views\IoTDevice\Index.cshtml:42
+#: Views\IoTDevice\Index.cshtml:738
+#: Views\Message\Index.cshtml:41
+#: Views\Message\MessageElement.cshtml:74
+#: Views\Message\MessageElement.cshtml:490
+#: Views\Setup\AlarmRuleCatalog.cshtml:42
+#: Views\Setup\AlarmRuleCatalog.cshtml:726
+#: Views\Setup\DashboardCompany.cshtml:73
+#: Views\Setup\DashboardCompany.cshtml:479
+#: Views\Setup\DashboardEquipment.cshtml:77
+#: Views\Setup\DashboardEquipment.cshtml:485
+#: Views\Setup\DashboardFactory.cshtml:74
+#: Views\Setup\DashboardFactory.cshtml:479
+#: Views\Setup\DeviceCertificate.cshtml:42
+#: Views\Setup\DeviceCertificate.cshtml:328
+#: Views\Setup\DeviceConfiguration.cshtml:43
+#: Views\Setup\DeviceConfiguration.cshtml:390
+#: Views\Setup\Employee.cshtml:42
+#: Views\Setup\Employee.cshtml:602
+#: Views\Setup\ExternalApplication.cshtml:40
+#: Views\Setup\ExternalApplication.cshtml:565
+#: Views\Setup\IoTHubAlias.cshtml:42
+#: Views\Setup\IoTHubAlias.cshtml:556
+#: Views\Setup\Role.cshtml:39
+#: Views\Setup\Role.cshtml:334
+#: Views\Setup\WidgetCatalogCompany.cshtml:43
+#: Views\Setup\WidgetCatalogCompany.cshtml:786
+#: Views\Setup\WidgetCatalogEquipment.cshtml:42
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2737
+#: Views\Setup\WidgetCatalogFactory.cshtml:41
+#: Views\Setup\WidgetCatalogFactory.cshtml:847
+msgid "Delete"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:535
+#: Views\Setup\WidgetCatalogEquipment.cshtml:546
+msgid "Denominator"
+msgstr ""
+
+#: Views\Dashboard\FactoryList.cshtml:16
+#: Views\Factory\Index.cshtml:19
+#: Views\Factory\Index.cshtml:73
+#: Views\IoTDevice\ConfigurationManagement.cshtml:61
+#: Views\Message\Index.cshtml:19
+#: Views\Message\Index.cshtml:69
+#: Views\Message\MessageElement.cshtml:16
+#: Views\Setup\AlarmNotify.cshtml:18
+#: Views\Setup\AlarmRuleCatalog.cshtml:19
+#: Views\Setup\AlarmRuleCatalog.cshtml:72
+#: Views\Setup\DashboardEquipment.cshtml:20
+#: Views\Setup\DeviceConfiguration.cshtml:20
+#: Views\Setup\DeviceConfiguration.cshtml:69
+#: Views\Setup\ExternalApplication.cshtml:66
+#: Views\Setup\ExternalApplication.cshtml:69
+#: Views\Setup\IoTHubAlias.cshtml:70
+msgid "Description"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:39
+#: Views\Equipment\Index.cshtml:255
+#: Views\Equipment\Index.cshtml:455
+#: Views\Factory\Index.cshtml:39
+#: Views\Factory\Index.cshtml:214
+#: Views\Factory\Index.cshtml:399
+#: Views\Factory\Index.cshtml:426
+#: Views\IoTDevice\ConfigurationManagement.cshtml:45
+#: Views\IoTDevice\Index.cshtml:38
+#: Views\IoTDevice\Index.cshtml:358
+#: Views\IoTDevice\Index.cshtml:599
+#: Views\IoTDevice\MessageAttach.cshtml:141
+#: Views\Message\Index.cshtml:152
+#: Views\Message\Index.cshtml:275
+#: Views\Message\Index.cshtml:303
+#: Views\Message\MessageElement.cshtml:229
+#: Views\Message\MessageElement.cshtml:465
+#: Views\Monitor\RunningTask.cshtml:38
+#: Views\Setup\AlarmNotify.cshtml:37
+#: Views\Setup\AlarmRuleCatalog.cshtml:39
+#: Views\Setup\AlarmRuleCatalog.cshtml:472
+#: Views\Setup\AlarmRuleCatalog.cshtml:640
+#: Views\Setup\AlarmRuleCatalog.cshtml:701
+#: Views\Setup\DashboardCompany.cshtml:225
+#: Views\Setup\DashboardCompany.cshtml:426
+#: Views\Setup\DashboardCompany.cshtml:454
+#: Views\Setup\DashboardEquipment.cshtml:74
+#: Views\Setup\DashboardEquipment.cshtml:231
+#: Views\Setup\DashboardEquipment.cshtml:432
+#: Views\Setup\DashboardEquipment.cshtml:460
+#: Views\Setup\DashboardEquipment.cshtml:541
+#: Views\Setup\DashboardFactory.cshtml:225
+#: Views\Setup\DashboardFactory.cshtml:426
+#: Views\Setup\DashboardFactory.cshtml:454
+#: Views\Setup\DeviceCertificate.cshtml:39
+#: Views\Setup\DeviceCertificate.cshtml:164
+#: Views\Setup\DeviceCertificate.cshtml:275
+#: Views\Setup\DeviceCertificate.cshtml:303
+#: Views\Setup\DeviceConfiguration.cshtml:40
+#: Views\Setup\DeviceConfiguration.cshtml:175
+#: Views\Setup\DeviceConfiguration.cshtml:338
+#: Views\Setup\DeviceConfiguration.cshtml:365
+#: Views\Setup\Employee.cshtml:38
+#: Views\Setup\Employee.cshtml:305
+#: Views\Setup\Employee.cshtml:464
+#: Views\Setup\ExternalApplication.cshtml:37
+#: Views\Setup\ExternalApplication.cshtml:244
+#: Views\Setup\ExternalApplication.cshtml:497
+#: Views\Setup\IoTHubAlias.cshtml:39
+#: Views\Setup\IoTHubAlias.cshtml:214
+#: Views\Setup\IoTHubAlias.cshtml:503
+#: Views\Setup\Role.cshtml:165
+#: Views\Setup\Role.cshtml:281
+#: Views\Setup\Role.cshtml:309
+#: Views\Setup\WidgetCatalogCompany.cshtml:39
+#: Views\Setup\WidgetCatalogCompany.cshtml:431
+#: Views\Setup\WidgetCatalogCompany.cshtml:731
+#: Views\Setup\WidgetCatalogCompany.cshtml:760
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1363
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2682
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2711
+#: Views\Setup\WidgetCatalogFactory.cshtml:37
+#: Views\Setup\WidgetCatalogFactory.cshtml:462
+#: Views\Setup\WidgetCatalogFactory.cshtml:792
+#: Views\Setup\WidgetCatalogFactory.cshtml:821
+msgid "Detail"
+msgstr ""
+
+#: Views\IoTDevice\Index.cshtml:66
+#: Views\IoTDevice\Index.cshtml:479
+#: Views\IoTDevice\MessageAttach.cshtml:7
+msgid "Device"
+msgstr ""
+
+#: Models\Employee.cs:173
+#: Views\IoTDevice\Index.cshtml:543
+#: Views\Setup\DeviceCertificate.cshtml:8
+#: Views\Setup\DeviceCertificate.cshtml:11
+#: Views\Setup\DeviceCertificate.cshtml:261
+msgid "Device Certificate"
+msgstr ""
+
+#: Models\Employee.cs:124
+#: Views\IoTDevice\ConfigurationManagement.cshtml:7
+#: Views\Setup\DeviceConfiguration.cshtml:8
+msgid "Device Configuration"
+msgstr ""
+
+#: Models\Employee.cs:122
+msgid "Device Message"
+msgstr ""
+
+#: Views\IoTDevice\Index.cshtml:565
+msgid "Device Type"
+msgstr ""
+
+#: Views\IoTDevice\ConfigurationManagement.cshtml:63
+msgid "Device Value"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:183
+msgid "Diaplay"
+msgstr ""
+
+#: Views\Dashboard\EquipmentList.cshtml:64
+msgid "Disconnect"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:156
+#: Views\Setup\WidgetCatalogEquipment.cshtml:220
+#: Views\Setup\WidgetCatalogEquipment.cshtml:255
+#: Views\Setup\WidgetCatalogEquipment.cshtml:329
+#: Views\Setup\WidgetCatalogEquipment.cshtml:423
+#: Views\Setup\WidgetCatalogEquipment.cshtml:426
+#: Views\Setup\WidgetCatalogEquipment.cshtml:447
+#: Views\Setup\WidgetCatalogEquipment.cshtml:450
+#: Views\Setup\WidgetCatalogEquipment.cshtml:473
+#: Views\Setup\WidgetCatalogEquipment.cshtml:476
+#: Views\Setup\WidgetCatalogEquipment.cshtml:497
+#: Views\Setup\WidgetCatalogEquipment.cshtml:500
+#: Views\Setup\WidgetCatalogEquipment.cshtml:846
+#: Views\Setup\WidgetCatalogEquipment.cshtml:849
+#: Views\Setup\WidgetCatalogEquipment.cshtml:870
+#: Views\Setup\WidgetCatalogEquipment.cshtml:873
+#: Views\Setup\WidgetCatalogEquipment.cshtml:896
+#: Views\Setup\WidgetCatalogEquipment.cshtml:899
+#: Views\Setup\WidgetCatalogEquipment.cshtml:920
+#: Views\Setup\WidgetCatalogEquipment.cshtml:923
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1564
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1696
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1834
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1866
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1957
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1989
+msgid "Display"
+msgstr ""
+
+#: Views\Monitor\UsageLog.cshtml:35
+msgid "Display Days"
+msgstr ""
+
+#: Views\Monitor\UsageLog.cshtml:22
+msgid "Doc DB Percentage"
+msgstr ""
+
+#: Views\Monitor\UsageLog.cshtml:21
+msgid "Doc DB Size"
+msgstr ""
+
+#: Views\IoTDevice\MessageAttach.cshtml:10
+msgid "Download Message Template"
+msgstr ""
+
+#: Views\Message\MessageElement.cshtml:34
+#: Views\Setup\AlarmRuleCatalog.cshtml:46
+#: Views\Setup\AlarmRuleCatalog.cshtml:764
+#: Views\Setup\WidgetCatalogCompany.cshtml:42
+#: Views\Setup\WidgetCatalogEquipment.cshtml:41
+#: Views\Setup\WidgetCatalogFactory.cshtml:40
+msgid "Edit"
+msgstr ""
+
+#: Views\Message\MessageElement.cshtml:34
+#: Views\Message\MessageElement.cshtml:37
+#: Views\Message\MessageElement.cshtml:94
+msgid "Element"
+msgstr ""
+
+#: Views\Home\Profile.cshtml:75
+#: Views\Home\Profile.cshtml:300
+#: Views\Setup\Employee.cshtml:66
+#: Views\Setup\Employee.cshtml:69
+#: Views\Setup\Employee.cshtml:418
+msgid "Email"
+msgstr ""
+
+#: Views\Setup\Employee.cshtml:20
+msgid "E-mail"
+msgstr ""
+
+#: Models\Employee.cs:189
+#: Views\Home\Profile.cshtml:83
+#: Views\Setup\Employee.cshtml:7
+#: Views\Setup\Employee.cshtml:10
+#: Views\Setup\Employee.cshtml:17
+#: Views\Setup\Employee.cshtml:74
+#: Views\Setup\Employee.cshtml:484
+msgid "Employee"
+msgstr ""
+
+#: Views\Setup\Employee.cshtml:77
+msgid "EmployeeNumber"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:103
+#: Views\Equipment\Index.cshtml:109
+msgid "Empty: Same with Factory"
+msgstr ""
+
+#: Views\IoTDevice\ConfigurationManagement.cshtml:57
+msgid "Enable"
+msgstr ""
+
+#: Views\Setup\IoTHubAlias.cshtml:101
+msgid "Enable IoT Hub Fail Over"
+msgstr ""
+
+#: Views\Setup\IoTHubAlias.cshtml:352
+msgid "End Point"
+msgstr ""
+
+#: Views\Setup\AlarmNotify.cshtml:60
+msgid "Enforced Actions"
+msgstr ""
+
+#: Views\Monitor\RunningTask.cshtml:18
+#: Views\Monitor\RunningTask.cshtml:19
+msgid "Entity"
+msgstr ""
+
+#: assets\plugins\datatables\jquery.dataTables.min.js:140
+#: assets\plugins\datatables\jquery.dataTables.min.js:140
+#: assets\plugins\datatables\jquery.dataTables.min.js:141
+msgid "entries"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:72
+#: Views\Monitor\UsageLog.cshtml:18
+msgid "Equip"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:18
+msgid "Equip ID"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:372
+msgid "Equip ID is necessary"
+msgstr ""
+
+#: Models\Employee.cs:116
+#: Views\Dashboard\EquipmentList.cshtml:29
+#: Views\Dashboard\EquipmentList.cshtml:37
+#: Views\Equipment\Index.cshtml:8
+#: Views\Equipment\Index.cshtml:11
+#: Views\Equipment\Index.cshtml:19
+#: Views\Equipment\Index.cshtml:75
+#: Views\Equipment\Index.cshtml:470
+#: Views\Monitor\UsageLog.cshtml:72
+#: Views\Monitor\UsageLog.cshtml:153
+#: Views\Setup\DashboardEquipment.cshtml:9
+#: Views\Setup\WidgetCatalogFactory.cshtml:742
+msgid "Equipment"
+msgstr ""
+
+#: Models\Employee.cs:156
+msgid "Equipment Board"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogCompany.cshtml:682
+msgid "Equipment Card"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:20
+msgid "Equipment Classification"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogFactory.cshtml:747
+msgid "Equipment List"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:193
+#: Views\Equipment\Index.cshtml:248
+#: Views\Factory\Index.cshtml:207
+#: Views\Factory\Index.cshtml:257
+#: Views\IoTDevice\ConfigurationManagement.cshtml:223
+#: Views\IoTDevice\ConfigurationManagement.cshtml:246
+#: Views\IoTDevice\Index.cshtml:350
+#: Views\IoTDevice\Index.cshtml:407
+#: Views\IoTDevice\MessageAttach.cshtml:176
+#: Views\IoTDevice\MessageAttach.cshtml:200
+#: Views\IoTDevice\MessageAttach.cshtml:258
+#: Views\Setup\DeviceConfiguration.cshtml:168
+#: Views\Setup\DeviceConfiguration.cshtml:216
+msgid "Error"
+msgstr ""
+
+#: Views\Monitor\RunningTask.cshtml:38
+msgid "Execution"
+msgstr ""
+
+#: Views\Monitor\RunningTask.cshtml:65
+msgid "Execution Log"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2193
+msgid "Expected Units"
+msgstr ""
+
+#: Views\Setup\DeviceCertificate.cshtml:21
+#: Views\Setup\DeviceCertificate.cshtml:90
+msgid "Expired Date"
+msgstr ""
+
+#: Views\Setup\ExternalApplication.cshtml:77
+msgid "External"
+msgstr ""
+
+#: Models\Employee.cs:169
+#: Views\Setup\ExternalApplication.cshtml:8
+#: Views\Setup\ExternalApplication.cshtml:511
+msgid "External Application"
+msgstr ""
+
+#: Models\Employee.cs:113
+#: Views\Dashboard\EquipmentList.cshtml:36
+#: Views\Dashboard\FactoryList.cshtml:8
+#: Views\Equipment\Index.cshtml:23
+#: Views\Equipment\Index.cshtml:94
+#: Views\Factory\Index.cshtml:8
+#: Views\Factory\Index.cshtml:11
+#: Views\IoTDevice\ConfigurationManagement.cshtml:24
+#: Views\IoTDevice\Index.cshtml:20
+#: Views\IoTDevice\Index.cshtml:91
+#: Views\IoTDevice\Index.cshtml:530
+#: Views\IoTDevice\MessageAttach.cshtml:20
+#: Views\Monitor\UsageLog.cshtml:17
+#: Views\Monitor\UsageLog.cshtml:72
+#: Views\Monitor\UsageLog.cshtml:166
+#: Views\Setup\DashboardFactory.cshtml:10
+#: Views\Setup\DashboardFactory.cshtml:17
+msgid "Factory"
+msgstr ""
+
+#: Models\Employee.cs:154
+msgid "Factory Board"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogCompany.cshtml:687
+msgid "Factory Card"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:392
+msgid "Factory is necessary"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogCompany.cshtml:692
+msgid "Factory List"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogFactory.cshtml:757
+msgid "Factory Photo"
+msgstr ""
+
+#: Views\Monitor\RunningTask.cshtml:95
+msgid "Fail"
+msgstr ""
+
+#: Views\Message\MessageElement.cshtml:120
+msgid "false"
+msgstr ""
+
+#: Views\Setup\AlarmRuleCatalog.cshtml:123
+msgid "Field"
+msgstr ""
+
+#: Views\Setup\DeviceCertificate.cshtml:19
+#: Views\Setup\DeviceCertificate.cshtml:69
+msgid "File Name"
+msgstr ""
+
+#: assets\plugins\datatables\jquery.dataTables.min.js:140
+msgid "First"
+msgstr ""
+
+#: Views\Home\Profile.cshtml:90
+#: Views\Setup\Employee.cshtml:18
+#: Views\Setup\Employee.cshtml:81
+msgid "First Name"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:565
+#: Views\Setup\WidgetCatalogEquipment.cshtml:611
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1791
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1924
+msgid "Foreground"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2101
+msgid "Good Count"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2203
+msgid "Good Units"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogCompany.cshtml:697
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2432
+#: Views\Setup\WidgetCatalogFactory.cshtml:752
+msgid "Google Map Card"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2573
+msgid "Google Map Location Trace"
+msgstr ""
+
+#: Views\Setup\Employee.cshtml:106
+msgid "Granted"
+msgstr ""
+
+#: Views\Setup\Role.cshtml:70
+msgid "Granted Permissions"
+msgstr ""
+
+#: Views\Setup\ExternalApplication.cshtml:153
+msgid "Header Values"
+msgstr ""
+
+#: Views\Setup\DashboardCompany.cshtml:51
+#: Views\Setup\DashboardCompany.cshtml:127
+#: Views\Setup\DashboardCompany.cshtml:397
+#: Views\Setup\DashboardEquipment.cshtml:55
+#: Views\Setup\DashboardEquipment.cshtml:131
+#: Views\Setup\DashboardEquipment.cshtml:403
+#: Views\Setup\DashboardFactory.cshtml:52
+#: Views\Setup\DashboardFactory.cshtml:128
+#: Views\Setup\DashboardFactory.cshtml:397
+msgid "Height Pixel"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2111
+msgid "Ideal Cycle Time"
+msgstr ""
+
+#: Views\Dashboard\EquipmentList.cshtml:62
+msgid "Idle"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:719
+#: Views\Setup\WidgetCatalogEquipment.cshtml:788
+msgid "Initial Zoom Level"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:362
+#: Views\Equipment\Index.cshtml:372
+#: Views\Equipment\Index.cshtml:382
+#: Views\Equipment\Index.cshtml:392
+#: Views\Equipment\Index.cshtml:402
+#: Views\Equipment\Index.cshtml:413
+#: Views\Equipment\Index.cshtml:423
+#: Views\Equipment\Index.cshtml:434
+#: Views\Factory\Index.cshtml:308
+#: Views\Factory\Index.cshtml:325
+#: Views\Factory\Index.cshtml:336
+#: Views\Factory\Index.cshtml:346
+#: Views\Factory\Index.cshtml:357
+#: Views\Home\Profile.cshtml:360
+#: Views\Home\Profile.cshtml:369
+#: Views\IoTDevice\ConfigurationManagement.cshtml:376
+#: Views\IoTDevice\ConfigurationManagement.cshtml:393
+#: Views\IoTDevice\Index.cshtml:479
+#: Views\IoTDevice\Index.cshtml:487
+#: Views\IoTDevice\Index.cshtml:495
+#: Views\IoTDevice\Index.cshtml:510
+#: Views\IoTDevice\Index.cshtml:520
+#: Views\IoTDevice\Index.cshtml:530
+#: Views\IoTDevice\Index.cshtml:543
+#: Views\IoTDevice\Index.cshtml:552
+#: Views\IoTDevice\Index.cshtml:565
+#: Views\IoTDevice\Index.cshtml:584
+#: Views\IoTDevice\Index.cshtml:681
+#: Views\Message\Index.cshtml:239
+#: Views\Message\MessageElement.cshtml:381
+#: Views\Message\MessageElement.cshtml:389
+#: Views\Message\MessageElement.cshtml:397
+#: Views\Monitor\RunningTask.cshtml:228
+#: Views\Setup\AlarmRuleCatalog.cshtml:590
+#: Views\Setup\AlarmRuleCatalog.cshtml:606
+#: Views\Setup\DashboardCompany.cshtml:354
+#: Views\Setup\DashboardCompany.cshtml:364
+#: Views\Setup\DashboardCompany.cshtml:375
+#: Views\Setup\DashboardCompany.cshtml:386
+#: Views\Setup\DashboardCompany.cshtml:397
+#: Views\Setup\DashboardEquipment.cshtml:360
+#: Views\Setup\DashboardEquipment.cshtml:370
+#: Views\Setup\DashboardEquipment.cshtml:381
+#: Views\Setup\DashboardEquipment.cshtml:392
+#: Views\Setup\DashboardEquipment.cshtml:403
+#: Views\Setup\DashboardFactory.cshtml:354
+#: Views\Setup\DashboardFactory.cshtml:364
+#: Views\Setup\DashboardFactory.cshtml:375
+#: Views\Setup\DashboardFactory.cshtml:386
+#: Views\Setup\DashboardFactory.cshtml:397
+#: Views\Setup\DeviceCertificate.cshtml:233
+#: Views\Setup\DeviceConfiguration.cshtml:301
+#: Views\Setup\Employee.cshtml:418
+#: Views\Setup\Employee.cshtml:441
+#: Views\Setup\Employee.cshtml:545
+#: Views\Setup\ExternalApplication.cshtml:395
+#: Views\Setup\ExternalApplication.cshtml:411
+#: Views\Setup\ExternalApplication.cshtml:422
+#: Views\Setup\ExternalApplication.cshtml:436
+#: Views\Setup\ExternalApplication.cshtml:445
+#: Views\Setup\ExternalApplication.cshtml:456
+#: Views\Setup\ExternalApplication.cshtml:478
+#: Views\Setup\IoTHubAlias.cshtml:317
+#: Views\Setup\IoTHubAlias.cshtml:326
+#: Views\Setup\IoTHubAlias.cshtml:334
+#: Views\Setup\IoTHubAlias.cshtml:352
+#: Views\Setup\IoTHubAlias.cshtml:365
+#: Views\Setup\IoTHubAlias.cshtml:376
+#: Views\Setup\IoTHubAlias.cshtml:387
+#: Views\Setup\IoTHubAlias.cshtml:398
+#: Views\Setup\IoTHubAlias.cshtml:412
+#: Views\Setup\IoTHubAlias.cshtml:423
+#: Views\Setup\IoTHubAlias.cshtml:434
+#: Views\Setup\IoTHubAlias.cshtml:445
+#: Views\Setup\Role.cshtml:245
+#: Views\Setup\WidgetCatalogCompany.cshtml:515
+#: Views\Setup\WidgetCatalogCompany.cshtml:527
+#: Views\Setup\WidgetCatalogCompany.cshtml:537
+#: Views\Setup\WidgetCatalogCompany.cshtml:549
+#: Views\Setup\WidgetCatalogCompany.cshtml:561
+#: Views\Setup\WidgetCatalogCompany.cshtml:573
+#: Views\Setup\WidgetCatalogCompany.cshtml:585
+#: Views\Setup\WidgetCatalogCompany.cshtml:597
+#: Views\Setup\WidgetCatalogCompany.cshtml:616
+#: Views\Setup\WidgetCatalogCompany.cshtml:627
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1455
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1465
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1486
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1496
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1513
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1523
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1538
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1554
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1564
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1574
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1602
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1614
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1632
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1642
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1657
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1674
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1685
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1696
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1706
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1737
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1747
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1758
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1770
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1781
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1791
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1801
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1813
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1824
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1834
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1844
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1856
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1866
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1876
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1904
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1914
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1924
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1936
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1947
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1957
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1967
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1979
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1989
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1999
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2028
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2039
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2051
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2062
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2073
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2091
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2101
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2111
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2121
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2131
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2141
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2153
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2163
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2173
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2183
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2193
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2203
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2213
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2223
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2233
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2243
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2253
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2263
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2273
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2283
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2293
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2314
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2325
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2338
+#: Views\Setup\WidgetCatalogFactory.cshtml:546
+#: Views\Setup\WidgetCatalogFactory.cshtml:558
+#: Views\Setup\WidgetCatalogFactory.cshtml:568
+#: Views\Setup\WidgetCatalogFactory.cshtml:580
+#: Views\Setup\WidgetCatalogFactory.cshtml:592
+#: Views\Setup\WidgetCatalogFactory.cshtml:604
+#: Views\Setup\WidgetCatalogFactory.cshtml:616
+#: Views\Setup\WidgetCatalogFactory.cshtml:628
+#: Views\Setup\WidgetCatalogFactory.cshtml:640
+#: Views\Setup\WidgetCatalogFactory.cshtml:651
+#: Views\Setup\WidgetCatalogFactory.cshtml:670
+#: Views\Setup\WidgetCatalogFactory.cshtml:681
+msgid "Invalid"
+msgstr ""
+
+#: Views\IoTDevice\Index.cshtml:17
+msgid "IoT Deivce"
+msgstr ""
+
+#: Models\Employee.cs:120
+#: Views\IoTDevice\ConfigurationManagement.cshtml:21
+#: Views\IoTDevice\Index.cshtml:63
+#: Views\IoTDevice\Index.cshtml:620
+#: Views\Setup\ExternalApplication.cshtml:85
+#: Views\Setup\ExternalApplication.cshtml:96
+#: Views\Setup\ExternalApplication.cshtml:456
+msgid "IoT Device"
+msgstr ""
+
+#: Views\IoTDevice\MessageAttach.cshtml:17
+msgid "IOT Device"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:21
+msgid "IoT Device ID"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:22
+msgid "IoT Device Type"
+msgstr ""
+
+#: Models\Employee.cs:120
+msgid "IoT Devices"
+msgstr ""
+
+#: Views\Monitor\IoTHubReceiver.cshtml:29
+msgid "IoT Hub"
+msgstr ""
+
+#: Models\Employee.cs:165
+#: Views\IoTDevice\Index.cshtml:71
+#: Views\Monitor\IoTHubReceiver.cshtml:36
+#: Views\Setup\IoTHubAlias.cshtml:9
+#: Views\Setup\IoTHubAlias.cshtml:12
+#: Views\Setup\IoTHubAlias.cshtml:19
+#: Views\Setup\IoTHubAlias.cshtml:62
+#: Views\Setup\IoTHubAlias.cshtml:65
+#: Views\Setup\IoTHubAlias.cshtml:317
+msgid "IoT Hub Alias"
+msgstr ""
+
+#: Views\IoTDevice\MessageAttach.cshtml:18
+msgid "IOT Hub Alias"
+msgstr ""
+
+#: Models\Employee.cs:142
+msgid "IoT Hub Message Receiver"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:85
+#: Views\IoTDevice\ConfigurationManagement.cshtml:7
+#: Views\IoTDevice\Index.cshtml:7
+#: Views\IoTDevice\Index.cshtml:10
+#: Views\IoTDevice\MessageAttach.cshtml:7
+msgid "IoTDevice"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:402
+msgid "IoTDevice is necessary"
+msgstr ""
+
+#: Views\IoTDevice\Index.cshtml:7
+msgid "IoTDevices"
+msgstr ""
+
+#: Views\IoTDevice\Index.cshtml:510
+#: Views\Setup\IoTHubAlias.cshtml:478
+msgid "IoTHub"
+msgstr ""
+
+#: Views\IoTDevice\ConfigurationManagement.cshtml:22
+#: Views\IoTDevice\Index.cshtml:18
+msgid "IoTHub Alias"
+msgstr ""
+
+#: Views\Factory\Index.cshtml:336
+msgid "is invalid"
+msgstr ""
+
+#: Views\Factory\Index.cshtml:308
+#: Views\Factory\Index.cshtml:325
+#: Views\Home\Profile.cshtml:300
+#: Views\IoTDevice\Index.cshtml:479
+#: Views\IoTDevice\Index.cshtml:510
+#: Views\IoTDevice\Index.cshtml:520
+#: Views\IoTDevice\Index.cshtml:530
+#: Views\IoTDevice\Index.cshtml:543
+#: Views\IoTDevice\Index.cshtml:552
+#: Views\IoTDevice\Index.cshtml:565
+#: Views\Setup\DashboardCompany.cshtml:354
+#: Views\Setup\DashboardCompany.cshtml:364
+#: Views\Setup\DashboardCompany.cshtml:375
+#: Views\Setup\DashboardCompany.cshtml:386
+#: Views\Setup\DashboardCompany.cshtml:397
+#: Views\Setup\DashboardEquipment.cshtml:360
+#: Views\Setup\DashboardEquipment.cshtml:370
+#: Views\Setup\DashboardEquipment.cshtml:381
+#: Views\Setup\DashboardEquipment.cshtml:392
+#: Views\Setup\DashboardEquipment.cshtml:403
+#: Views\Setup\DashboardFactory.cshtml:354
+#: Views\Setup\DashboardFactory.cshtml:364
+#: Views\Setup\DashboardFactory.cshtml:386
+#: Views\Setup\DashboardFactory.cshtml:397
+#: Views\Setup\DeviceConfiguration.cshtml:301
+#: Views\Setup\Employee.cshtml:418
+#: Views\Setup\ExternalApplication.cshtml:395
+#: Views\Setup\ExternalApplication.cshtml:411
+#: Views\Setup\ExternalApplication.cshtml:422
+#: Views\Setup\ExternalApplication.cshtml:436
+#: Views\Setup\ExternalApplication.cshtml:445
+#: Views\Setup\ExternalApplication.cshtml:456
+#: Views\Setup\IoTHubAlias.cshtml:317
+#: Views\Setup\IoTHubAlias.cshtml:352
+#: Views\Setup\IoTHubAlias.cshtml:365
+#: Views\Setup\IoTHubAlias.cshtml:376
+#: Views\Setup\IoTHubAlias.cshtml:387
+#: Views\Setup\IoTHubAlias.cshtml:398
+#: Views\Setup\IoTHubAlias.cshtml:412
+#: Views\Setup\IoTHubAlias.cshtml:423
+#: Views\Setup\IoTHubAlias.cshtml:434
+#: Views\Setup\IoTHubAlias.cshtml:445
+#: Views\Setup\Role.cshtml:245
+#: Views\Setup\WidgetCatalogCompany.cshtml:515
+#: Views\Setup\WidgetCatalogCompany.cshtml:527
+#: Views\Setup\WidgetCatalogCompany.cshtml:537
+#: Views\Setup\WidgetCatalogCompany.cshtml:549
+#: Views\Setup\WidgetCatalogCompany.cshtml:561
+#: Views\Setup\WidgetCatalogCompany.cshtml:573
+#: Views\Setup\WidgetCatalogCompany.cshtml:585
+#: Views\Setup\WidgetCatalogCompany.cshtml:597
+#: Views\Setup\WidgetCatalogCompany.cshtml:616
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1455
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1486
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1496
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1513
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1523
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1538
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1554
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1564
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1574
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1602
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1614
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1632
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1642
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1657
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1674
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1685
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1696
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1706
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1737
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1747
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1758
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1770
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1781
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1791
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1801
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1813
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1824
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1834
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1844
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1856
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1866
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1876
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1904
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1914
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1924
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1936
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1947
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1957
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1967
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1979
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1989
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1999
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2028
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2039
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2051
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2062
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2073
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2091
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2101
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2111
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2121
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2131
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2141
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2153
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2163
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2173
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2183
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2193
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2203
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2213
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2223
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2233
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2243
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2253
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2263
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2273
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2283
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2293
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2314
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2325
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2338
+#: Views\Setup\WidgetCatalogFactory.cshtml:546
+#: Views\Setup\WidgetCatalogFactory.cshtml:558
+#: Views\Setup\WidgetCatalogFactory.cshtml:568
+#: Views\Setup\WidgetCatalogFactory.cshtml:580
+#: Views\Setup\WidgetCatalogFactory.cshtml:592
+#: Views\Setup\WidgetCatalogFactory.cshtml:604
+#: Views\Setup\WidgetCatalogFactory.cshtml:616
+#: Views\Setup\WidgetCatalogFactory.cshtml:628
+#: Views\Setup\WidgetCatalogFactory.cshtml:640
+#: Views\Setup\WidgetCatalogFactory.cshtml:651
+#: Views\Setup\WidgetCatalogFactory.cshtml:670
+#: Views\Setup\WidgetCatalogFactory.cshtml:681
+msgid "is necessary"
+msgstr ""
+
+#: Views\Home\Profile.cshtml:102
+msgid "Language"
+msgstr ""
+
+#: assets\plugins\datatables\jquery.dataTables.min.js:140
+msgid "Last"
+msgstr ""
+
+#: Views\Home\Profile.cshtml:96
+#: Views\Setup\Employee.cshtml:19
+#: Views\Setup\Employee.cshtml:87
+msgid "Last Name"
+msgstr ""
+
+#: Views\Dashboard\EquipmentList.cshtml:41
+msgid "Last Update"
+msgstr ""
+
+#: Views\Monitor\UsageLog.cshtml:23
+msgid "Last Update Time"
+msgstr ""
+
+#: Views\Monitor\IoTHubReceiver.cshtml:39
+msgid "Last Updated"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:101
+#: Views\Equipment\Index.cshtml:423
+#: Views\Factory\Index.cshtml:80
+#: Views\Factory\Index.cshtml:82
+#: Views\Factory\Index.cshtml:346
+#: Views\Setup\WidgetCatalogEquipment.cshtml:769
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2062
+msgid "Latitude"
+msgstr ""
+
+#: Views\Monitor\IoTHubReceiver.cshtml:93
+msgid "Launch"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:173
+#: Views\Setup\WidgetCatalogEquipment.cshtml:210
+#: Views\Setup\WidgetCatalogEquipment.cshtml:245
+msgid "Left"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2441
+#: Views\Setup\WidgetCatalogFactory.cshtml:95
+msgid "Line Chart"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogCompany.cshtml:97
+#: Views\Setup\WidgetCatalogEquipment.cshtml:104
+msgid "Line Chart Define"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:133
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1642
+msgid "Line Pixel"
+msgstr ""
+
+#: Views\Dashboard\FactoryList.cshtml:17
+msgid "Local Time"
+msgstr ""
+
+#: Views\Factory\Index.cshtml:325
+#: Views\Factory\Index.cshtml:336
+#: Views\Setup\WidgetCatalogEquipment.cshtml:169
+#: Views\Setup\WidgetCatalogEquipment.cshtml:206
+#: Views\Setup\WidgetCatalogEquipment.cshtml:241
+msgid "Location"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:413
+msgid "Location is invalid"
+msgstr ""
+
+#: Views\Home\Login.cshtml:73
+msgid "Log In"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogCompany.cshtml:702
+msgid "Logo Card"
+msgstr ""
+
+#: Views\Shared\_Layout.cshtml:55
+#: Views\Shared\_Layout.cshtml:97
+msgid "Logout"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:107
+#: Views\Equipment\Index.cshtml:434
+#: Views\Factory\Index.cshtml:86
+#: Views\Factory\Index.cshtml:88
+#: Views\Factory\Index.cshtml:357
+#: Views\Setup\WidgetCatalogEquipment.cshtml:777
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2073
+msgid "Longitude"
+msgstr ""
+
+#: Views\Message\MessageElement.cshtml:49
+#: Views\Message\MessageElement.cshtml:115
+msgid "Mandatory"
+msgstr ""
+
+#: Views\Message\Index.cshtml:20
+#: Views\Message\MessageElement.cshtml:17
+msgid "Master Message"
+msgstr ""
+
+#: Views\Message\MessageElement.cshtml:205
+msgid "message"
+msgstr ""
+
+#: Models\Employee.cs:130
+#: Views\IoTDevice\MessageAttach.cshtml:7
+#: Views\Message\Index.cshtml:8
+#: Views\Message\MessageElement.cshtml:8
+#: Views\Monitor\UsageLog.cshtml:19
+#: Views\Monitor\UsageLog.cshtml:61
+#: Views\Monitor\UsageLog.cshtml:145
+msgid "Message"
+msgstr ""
+
+#: Models\Employee.cs:130
+#: Views\Message\Index.cshtml:8
+#: Views\Message\Index.cshtml:11
+#: Views\Setup\WidgetCatalogEquipment.cshtml:20
+#: Views\Setup\WidgetCatalogEquipment.cshtml:78
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2338
+msgid "Message Catalog"
+msgstr ""
+
+#: Models\Employee.cs:132
+#: Views\Message\MessageElement.cshtml:8
+msgid "Message Element"
+msgstr ""
+
+#: Views\Message\Index.cshtml:260
+msgid "MessageCatalog"
+msgstr ""
+
+#: Views\Message\MessageElement.cshtml:423
+msgid "MessageElement"
+msgstr ""
+
+#: Views\IoTDevice\MessageAttach.cshtml:64
+#: Views\IoTDevice\MessageAttach.cshtml:72
+msgid "Messages"
+msgstr ""
+
+#: Views\Setup\ExternalApplication.cshtml:21
+#: Views\Setup\ExternalApplication.cshtml:102
+#: Views\Setup\ExternalApplication.cshtml:422
+msgid "Method"
+msgstr ""
+
+#: Views\IoTDevice\Index.cshtml:137
+msgid "Model"
+msgstr ""
+
+#: Views\Monitor\IoTHubReceiver.cshtml:29
+#: Views\Monitor\RunningTask.cshtml:7
+#: Views\Monitor\UsageLog.cshtml:10
+msgid "Monitor"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:423
+#: Views\Equipment\Index.cshtml:434
+#: Views\Factory\Index.cshtml:346
+#: Views\Factory\Index.cshtml:357
+msgid "must be a number"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1465
+msgid "must be number"
+msgstr ""
+
+#: Views\Dashboard\EquipmentList.cshtml:36
+#: Views\Dashboard\EquipmentList.cshtml:38
+#: Views\Dashboard\FactoryList.cshtml:15
+#: Views\Equipment\Index.cshtml:64
+#: Views\Equipment\Index.cshtml:67
+#: Views\Factory\Index.cshtml:18
+#: Views\Factory\Index.cshtml:65
+#: Views\Factory\Index.cshtml:68
+#: Views\Factory\Index.cshtml:308
+#: Views\IoTDevice\ConfigurationManagement.cshtml:60
+#: Views\Message\Index.cshtml:18
+#: Views\Message\Index.cshtml:61
+#: Views\Message\Index.cshtml:64
+#: Views\Message\MessageElement.cshtml:15
+#: Views\Message\MessageElement.cshtml:47
+#: Views\Message\MessageElement.cshtml:94
+#: Views\Message\MessageElement.cshtml:97
+#: Views\Monitor\RunningTask.cshtml:14
+#: Views\Setup\AlarmRuleCatalog.cshtml:18
+#: Views\Setup\AlarmRuleCatalog.cshtml:64
+#: Views\Setup\AlarmRuleCatalog.cshtml:67
+#: Views\Setup\DashboardCompany.cshtml:16
+#: Views\Setup\DashboardEquipment.cshtml:19
+#: Views\Setup\DashboardFactory.cshtml:17
+#: Views\Setup\DeviceCertificate.cshtml:18
+#: Views\Setup\DeviceCertificate.cshtml:61
+#: Views\Setup\DeviceCertificate.cshtml:64
+#: Views\Setup\DeviceConfiguration.cshtml:18
+#: Views\Setup\DeviceConfiguration.cshtml:61
+#: Views\Setup\DeviceConfiguration.cshtml:64
+#: Views\Setup\DeviceConfiguration.cshtml:301
+#: Views\Setup\ExternalApplication.cshtml:18
+#: Views\Setup\ExternalApplication.cshtml:58
+#: Views\Setup\ExternalApplication.cshtml:61
+#: Views\Setup\ExternalApplication.cshtml:395
+#: Views\Setup\Role.cshtml:19
+#: Views\Setup\Role.cshtml:58
+#: Views\Setup\Role.cshtml:61
+#: Views\Setup\Role.cshtml:245
+#: Views\Setup\WidgetCatalogCompany.cshtml:21
+#: Views\Setup\WidgetCatalogCompany.cshtml:71
+#: Views\Setup\WidgetCatalogCompany.cshtml:74
+#: Views\Setup\WidgetCatalogEquipment.cshtml:19
+#: Views\Setup\WidgetCatalogEquipment.cshtml:70
+#: Views\Setup\WidgetCatalogEquipment.cshtml:73
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2325
+#: Views\Setup\WidgetCatalogFactory.cshtml:19
+#: Views\Setup\WidgetCatalogFactory.cshtml:69
+#: Views\Setup\WidgetCatalogFactory.cshtml:72
+#: Views\Setup\WidgetCatalogFactory.cshtml:681
+msgid "Name"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:362
+#: Views\Message\Index.cshtml:239
+#: Views\Message\MessageElement.cshtml:381
+#: Views\Setup\AlarmRuleCatalog.cshtml:590
+#: Views\Setup\DeviceCertificate.cshtml:233
+#: Views\Setup\WidgetCatalogCompany.cshtml:627
+msgid "Name is necessary"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:470
+#: Views\IoTDevice\Index.cshtml:620
+#: Views\Message\Index.cshtml:260
+#: Views\Setup\Employee.cshtml:159
+#: Views\Setup\Employee.cshtml:162
+#: Views\Setup\Employee.cshtml:484
+#: Views\Setup\ExternalApplication.cshtml:511
+msgid "New"
+msgstr ""
+
+#: Views\Home\Profile.cshtml:136
+#: Views\Home\Profile.cshtml:139
+#: Views\IoTDevice\Index.cshtml:182
+#: Views\IoTDevice\Index.cshtml:185
+msgid "New Password"
+msgstr ""
+
+#: assets\plugins\datatables\jquery.dataTables.min.js:140
+msgid "Next"
+msgstr ""
+
+#: Views\Dashboard\EquipmentList.cshtml:35
+#: Views\Dashboard\FactoryList.cshtml:14
+#: Views\Equipment\Index.cshtml:17
+#: Views\Factory\Index.cshtml:17
+#: Views\IoTDevice\ConfigurationManagement.cshtml:20
+#: Views\IoTDevice\ConfigurationManagement.cshtml:58
+#: Views\IoTDevice\Index.cshtml:16
+#: Views\IoTDevice\MessageAttach.cshtml:16
+#: Views\Message\Index.cshtml:17
+#: Views\Message\MessageElement.cshtml:14
+#: Views\Message\MessageElement.cshtml:46
+#: Views\Monitor\IoTHubReceiver.cshtml:35
+#: Views\Monitor\RunningTask.cshtml:13
+#: Views\Setup\AlarmNotify.cshtml:16
+#: Views\Setup\AlarmRuleCatalog.cshtml:17
+#: Views\Setup\DashboardCompany.cshtml:15
+#: Views\Setup\DashboardCompany.cshtml:46
+#: Views\Setup\DashboardEquipment.cshtml:18
+#: Views\Setup\DashboardEquipment.cshtml:50
+#: Views\Setup\DashboardFactory.cshtml:16
+#: Views\Setup\DashboardFactory.cshtml:47
+#: Views\Setup\DeviceCertificate.cshtml:17
+#: Views\Setup\DeviceConfiguration.cshtml:17
+#: Views\Setup\Employee.cshtml:16
+#: Views\Setup\ExternalApplication.cshtml:17
+#: Views\Setup\IoTHubAlias.cshtml:18
+#: Views\Setup\Role.cshtml:18
+#: Views\Setup\WidgetCatalogCompany.cshtml:19
+#: Views\Setup\WidgetCatalogEquipment.cshtml:17
+#: Views\Setup\WidgetCatalogFactory.cshtml:17
+msgid "No"
+msgstr ""
+
+#: Views\Setup\AlarmNotify.cshtml:253
+#: Views\Setup\AlarmRuleCatalog.cshtml:718
+#: Views\Setup\AlarmRuleCatalog.cshtml:740
+#: Views\Setup\AlarmRuleCatalog.cshtml:790
+msgid "No Alarm Rule Catalog Select"
+msgstr ""
+
+#: assets\plugins\datatables\jquery.dataTables.min.js:140
+msgid "No data available in table"
+msgstr ""
+
+#: Views\Setup\DeviceCertificate.cshtml:320
+#: Views\Setup\DeviceCertificate.cshtml:342
+msgid "No Device Certificate Select"
+msgstr ""
+
+#: Views\Setup\DeviceConfiguration.cshtml:382
+#: Views\Setup\DeviceConfiguration.cshtml:404
+msgid "No Device Configuration Select"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:539
+#: Views\Setup\Employee.cshtml:535
+#: Views\Setup\Employee.cshtml:594
+#: Views\Setup\Employee.cshtml:617
+#: Views\Setup\ExternalApplication.cshtml:580
+msgid "No Employee Select"
+msgstr ""
+
+#: Views\Setup\DashboardEquipment.cshtml:524
+msgid "No Equipment Name Select"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:516
+msgid "No Equipment Select"
+msgstr ""
+
+#: Views\Setup\ExternalApplication.cshtml:557
+msgid "No ExternalApplication Select"
+msgstr ""
+
+#: Views\Factory\Index.cshtml:443
+#: Views\Factory\Index.cshtml:465
+msgid "No Factory Select"
+msgstr ""
+
+#: Views\IoTDevice\Index.cshtml:670
+#: Views\IoTDevice\Index.cshtml:730
+#: Views\IoTDevice\Index.cshtml:753
+msgid "No IoT Device Select"
+msgstr ""
+
+#: Views\IoTDevice\MessageAttach.cshtml:385
+#: Views\IoTDevice\MessageAttach.cshtml:411
+msgid "No IOT Device Select"
+msgstr ""
+
+#: Views\Setup\IoTHubAlias.cshtml:548
+#: Views\Setup\IoTHubAlias.cshtml:570
+msgid "No IoT Hub Select"
+msgstr ""
+
+#: Views\IoTDevice\ConfigurationManagement.cshtml:450
+msgid "No IoTDevice Select"
+msgstr ""
+
+#: assets\plugins\datatables\jquery.dataTables.min.js:141
+msgid "No matching records found"
+msgstr ""
+
+#: Views\Message\Index.cshtml:320
+#: Views\Message\Index.cshtml:342
+msgid "No Message Catalog Select"
+msgstr ""
+
+#: Views\Message\MessageElement.cshtml:482
+#: Views\Message\MessageElement.cshtml:504
+msgid "No Message Element Select"
+msgstr ""
+
+#: Views\Setup\Role.cshtml:326
+#: Views\Setup\Role.cshtml:348
+msgid "No Role Select"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogCompany.cshtml:778
+#: Views\Setup\WidgetCatalogCompany.cshtml:800
+#: Views\Setup\WidgetCatalogCompany.cshtml:833
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2729
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2765
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2798
+#: Views\Setup\WidgetCatalogFactory.cshtml:839
+#: Views\Setup\WidgetCatalogFactory.cshtml:861
+#: Views\Setup\WidgetCatalogFactory.cshtml:894
+msgid "No Widget Catalog Select"
+msgstr ""
+
+#: Views\Setup\DashboardCompany.cshtml:471
+#: Views\Setup\DashboardCompany.cshtml:493
+#: Views\Setup\DashboardEquipment.cshtml:477
+#: Views\Setup\DashboardEquipment.cshtml:499
+#: Views\Setup\DashboardFactory.cshtml:471
+#: Views\Setup\DashboardFactory.cshtml:493
+msgid "No Widget Select"
+msgstr ""
+
+#: Views\Monitor\IoTHubReceiver.cshtml:38
+msgid "Node"
+msgstr ""
+
+#: Views\Setup\ExternalApplication.cshtml:478
+msgid "Not an valid JSON Content"
+msgstr ""
+
+#: Views\IoTDevice\ConfigurationManagement.cshtml:329
+msgid "Now Only Support"
+msgstr ""
+
+#: Views\Setup\DeviceConfiguration.cshtml:94
+msgid "number"
+msgstr ""
+
+#: Views\Home\Profile.cshtml:83
+#: Views\Setup\Employee.cshtml:17
+#: Views\Setup\Employee.cshtml:74
+msgid "Number"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:557
+msgid "Numerator"
+msgstr ""
+
+#: Views\Message\MessageElement.cshtml:108
+msgid "numeric"
+msgstr ""
+
+#: assets\plugins\datatables\jquery.dataTables.min.js:140
+#: assets\plugins\datatables\jquery.dataTables.min.js:140
+msgid "of"
+msgstr ""
+
+#: Views\Home\Profile.cshtml:128
+#: Views\Home\Profile.cshtml:131
+#: Views\Home\Profile.cshtml:360
+msgid "Old Password"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:649
+#: Views\Setup\WidgetCatalogEquipment.cshtml:652
+#: Views\Setup\WidgetCatalogEquipment.cshtml:657
+#: Views\Setup\WidgetCatalogEquipment.cshtml:660
+msgid "on Alert"
+msgstr ""
+
+#: Views\Setup\AlarmNotify.cshtml:19
+#: Views\Setup\AlarmRuleCatalog.cshtml:20
+#: Views\Setup\AlarmRuleCatalog.cshtml:90
+msgid "On Message"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:665
+#: Views\Setup\WidgetCatalogEquipment.cshtml:668
+msgid "on Normal"
+msgstr ""
+
+#: Models\Employee.cs:138
+msgid "Operation"
+msgstr ""
+
+#: Views\Setup\ExternalApplication.cshtml:124
+msgid "Output Template"
+msgstr ""
+
+#: Views\Home\Login.cshtml:55
+#: Views\IoTDevice\Index.cshtml:147
+#: Views\Setup\DeviceCertificate.cshtml:82
+#: Views\Setup\DeviceCertificate.cshtml:84
+#: Views\Setup\Employee.cshtml:124
+#: Views\Setup\Employee.cshtml:159
+#: Views\Setup\Employee.cshtml:162
+msgid "Password"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2472
+msgid "Percentage Card"
+msgstr ""
+
+#: Views\Setup\Role.cshtml:20
+#: Views\Setup\Role.cshtml:66
+msgid "Permission"
+msgstr ""
+
+#: Views\Setup\DeviceCertificate.cshtml:72
+msgid "PFX File Name"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2500
+msgid "Pie Chart"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:137
+#: Views\Setup\WidgetCatalogEquipment.cshtml:138
+#: Views\Setup\WidgetCatalogEquipment.cshtml:139
+msgid "Pixel"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2121
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2173
+msgid "Planned Production Time"
+msgstr ""
+
+#: Views\Home\Profile.cshtml:369
+#: Views\IoTDevice\Index.cshtml:584
+#: Views\IoTDevice\Index.cshtml:681
+#: Views\Setup\Employee.cshtml:441
+#: Views\Setup\Employee.cshtml:545
+msgid "Please Confirm Password"
+msgstr ""
+
+#: Views\Home\Profile.cshtml:360
+msgid "Please Input"
+msgstr ""
+
+#: Controllers\DashboardController.cs:124
+#: Controllers\DashboardController.cs:176
+#: Controllers\DashboardController.cs:294
+#: Controllers\DashboardController.cs:350
+#: Controllers\DashboardController.cs:433
+#: Controllers\EquipmentController.cs:56
+#: Controllers\FactoryController.cs:55
+#: Controllers\HomeController.cs:147
+#: Controllers\HomeController.cs:199
+#: Controllers\HomeController.cs:260
+#: Controllers\IoTDeviceController.cs:61
+#: Controllers\IoTDeviceController.cs:115
+#: Controllers\IoTDeviceController.cs:170
+#: Controllers\MessageController.cs:53
+#: Controllers\MessageController.cs:106
+#: Controllers\MonitorController.cs:134
+#: Controllers\MonitorController.cs:187
+#: Controllers\MonitorController.cs:241
+#: Controllers\SetupController.cs:67
+#: Controllers\SetupController.cs:123
+#: Controllers\SetupController.cs:180
+#: Controllers\SetupController.cs:237
+#: Controllers\SetupController.cs:294
+#: Controllers\SetupController.cs:356
+#: Controllers\SetupController.cs:413
+#: Controllers\SetupController.cs:468
+#: Controllers\SetupController.cs:522
+#: Controllers\SetupController.cs:580
+#: Controllers\SetupController.cs:638
+#: Controllers\SetupController.cs:696
+#: Controllers\SetupController.cs:750
+#: Controllers\SetupController.cs:804
+msgid "Please Login"
+msgstr ""
+
+#: Views\IoTDevice\MessageAttach.cshtml:411
+msgid "Please select one"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2618
+msgid "Preferred OEE Card"
+msgstr ""
+
+#: assets\plugins\datatables\jquery.dataTables.min.js:140
+msgid "Previous"
+msgstr ""
+
+#: Views\Setup\IoTHubAlias.cshtml:20
+#: Views\Setup\IoTHubAlias.cshtml:77
+#: Views\Setup\IoTHubAlias.cshtml:79
+#: Views\Setup\IoTHubAlias.cshtml:83
+#: Views\Setup\IoTHubAlias.cshtml:85
+#: Views\Setup\IoTHubAlias.cshtml:89
+#: Views\Setup\IoTHubAlias.cshtml:91
+#: Views\Setup\IoTHubAlias.cshtml:352
+#: Views\Setup\IoTHubAlias.cshtml:365
+#: Views\Setup\IoTHubAlias.cshtml:376
+#: Views\Setup\IoTHubAlias.cshtml:387
+msgid "Primary IoT Hub"
+msgstr ""
+
+#: Views\Setup\IoTHubAlias.cshtml:95
+#: Views\Setup\IoTHubAlias.cshtml:97
+#: Views\Setup\IoTHubAlias.cshtml:398
+msgid "Primary Upload Storage Container"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2183
+msgid "Produced Units"
+msgstr ""
+
+#: Views\Home\Profile.cshtml:24
+#: Views\Home\Profile.cshtml:46
+#: Views\Home\Profile.cshtml:325
+#: Views\Shared\_Layout.cshtml:54
+#: Views\Shared\_Layout.cshtml:96
+msgid "Profile"
+msgstr ""
+
+#: Views\IoTDevice\ConfigurationManagement.cshtml:23
+#: Views\IoTDevice\Index.cshtml:19
+#: Views\IoTDevice\Index.cshtml:79
+#: Views\IoTDevice\Index.cshtml:520
+#: Views\IoTDevice\MessageAttach.cshtml:19
+msgid "Protocol"
+msgstr ""
+
+#: Views\Setup\ExternalApplication.cshtml:137
+msgid "PW"
+msgstr ""
+
+#: Views\Monitor\IoTHubReceiver.cshtml:29
+msgid "Receiver"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2213
+msgid "Rejected Units"
+msgstr ""
+
+#: Views\Monitor\RunningTask.cshtml:104
+msgid "Reload"
+msgstr ""
+
+#: Views\Monitor\RunningTask.cshtml:191
+msgid "Reload success"
+msgstr ""
+
+#: Views\Home\Login.cshtml:64
+msgid "Remember me"
+msgstr ""
+
+#: Views\IoTDevice\Index.cshtml:41
+#: Views\IoTDevice\Index.cshtml:647
+#: Views\Setup\Employee.cshtml:41
+#: Views\Setup\Employee.cshtml:511
+msgid "Reset Password"
+msgstr ""
+
+#: Views\IoTDevice\Index.cshtml:694
+msgid "resetpassword"
+msgstr ""
+
+#: Views\Monitor\RunningTask.cshtml:17
+msgid "Retry"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:174
+#: Views\Setup\WidgetCatalogEquipment.cshtml:211
+#: Views\Setup\WidgetCatalogEquipment.cshtml:246
+msgid "Right"
+msgstr ""
+
+#: Models\Employee.cs:191
+#: Views\Setup\Employee.cshtml:22
+#: Views\Setup\Employee.cshtml:102
+#: Views\Setup\Role.cshtml:9
+#: Views\Setup\Role.cshtml:12
+#: Views\Setup\Role.cshtml:19
+#: Views\Setup\Role.cshtml:267
+msgid "Role"
+msgstr ""
+
+#: Views\Setup\Employee.cshtml:106
+#: Views\Setup\Employee.cshtml:114
+msgid "Roles"
+msgstr ""
+
+#: Views\Setup\DashboardCompany.cshtml:47
+#: Views\Setup\DashboardCompany.cshtml:93
+#: Views\Setup\DashboardCompany.cshtml:354
+#: Views\Setup\DashboardEquipment.cshtml:51
+#: Views\Setup\DashboardEquipment.cshtml:97
+#: Views\Setup\DashboardEquipment.cshtml:100
+#: Views\Setup\DashboardEquipment.cshtml:360
+#: Views\Setup\DashboardFactory.cshtml:48
+#: Views\Setup\DashboardFactory.cshtml:94
+#: Views\Setup\DashboardFactory.cshtml:354
+msgid "Row No"
+msgstr ""
+
+#: Views\Setup\AlarmRuleCatalog.cshtml:46
+#: Views\Setup\AlarmRuleCatalog.cshtml:764
+msgid "Rule"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2163
+msgid "Run Time"
+msgstr ""
+
+#: Views\Dashboard\EquipmentList.cshtml:61
+#: Views\Monitor\IoTHubReceiver.cshtml:57
+msgid "Running"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:43
+#: Views\Factory\Index.cshtml:43
+#: Views\Home\Profile.cshtml:50
+#: Views\IoTDevice\Index.cshtml:43
+#: Views\IoTDevice\MessageAttach.cshtml:44
+#: Views\Message\Index.cshtml:42
+#: Views\Message\MessageElement.cshtml:75
+#: Views\Setup\AlarmNotify.cshtml:41
+#: Views\Setup\AlarmRuleCatalog.cshtml:43
+#: Views\Setup\DashboardCompany.cshtml:74
+#: Views\Setup\DashboardEquipment.cshtml:78
+#: Views\Setup\DashboardFactory.cshtml:75
+#: Views\Setup\DeviceCertificate.cshtml:43
+#: Views\Setup\DeviceConfiguration.cshtml:44
+#: Views\Setup\Employee.cshtml:43
+#: Views\Setup\ExternalApplication.cshtml:41
+#: Views\Setup\IoTHubAlias.cshtml:43
+#: Views\Setup\Role.cshtml:40
+#: Views\Setup\WidgetCatalogCompany.cshtml:44
+#: Views\Setup\WidgetCatalogCompany.cshtml:100
+#: Views\Setup\WidgetCatalogEquipment.cshtml:43
+#: Views\Setup\WidgetCatalogEquipment.cshtml:107
+#: Views\Setup\WidgetCatalogFactory.cshtml:42
+#: Views\Setup\WidgetCatalogFactory.cshtml:98
+msgid "Save"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:169
+#: Views\Setup\WidgetCatalogEquipment.cshtml:206
+#: Views\Setup\WidgetCatalogEquipment.cshtml:241
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1685
+msgid "Scale"
+msgstr ""
+
+#: assets\plugins\datatables\jquery.dataTables.min.js:141
+msgid "Search"
+msgstr ""
+
+#: Views\Setup\IoTHubAlias.cshtml:21
+#: Views\Setup\IoTHubAlias.cshtml:109
+#: Views\Setup\IoTHubAlias.cshtml:115
+#: Views\Setup\IoTHubAlias.cshtml:121
+#: Views\Setup\IoTHubAlias.cshtml:412
+#: Views\Setup\IoTHubAlias.cshtml:423
+#: Views\Setup\IoTHubAlias.cshtml:434
+msgid "Secondary IoT Hub"
+msgstr ""
+
+#: Views\Setup\IoTHubAlias.cshtml:127
+#: Views\Setup\IoTHubAlias.cshtml:445
+msgid "Secondary Upload Storage Container"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:209
+msgid "select an Classification"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:223
+#: Views\IoTDevice\Index.cshtml:304
+msgid "select an Factory"
+msgstr ""
+
+#: Views\IoTDevice\Index.cshtml:297
+msgid "select an IoT Hub"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:216
+msgid "select an IoT Hub Device"
+msgstr ""
+
+#: Views\Monitor\RunningTask.cshtml:94
+#: Views\Monitor\RunningTask.cshtml:100
+msgid "select an option"
+msgstr ""
+
+#: Views\Setup\ExternalApplication.cshtml:20
+#: Views\Setup\ExternalApplication.cshtml:90
+#: Views\Setup\ExternalApplication.cshtml:411
+msgid "ServiceURL"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:189
+#: Views\Equipment\Index.cshtml:300
+#: Views\Factory\Index.cshtml:203
+#: Views\Factory\Index.cshtml:253
+#: Views\Home\Profile.cshtml:278
+#: Views\IoTDevice\ConfigurationManagement.cshtml:153
+#: Views\IoTDevice\ConfigurationManagement.cshtml:219
+#: Views\IoTDevice\ConfigurationManagement.cshtml:278
+#: Views\IoTDevice\Index.cshtml:346
+#: Views\IoTDevice\Index.cshtml:403
+#: Views\IoTDevice\MessageAttach.cshtml:172
+#: Views\IoTDevice\MessageAttach.cshtml:196
+#: Views\IoTDevice\MessageAttach.cshtml:302
+#: Views\Message\Index.cshtml:186
+#: Views\Message\MessageElement.cshtml:269
+#: Views\Message\MessageElement.cshtml:308
+#: Views\Monitor\IoTHubReceiver.cshtml:164
+#: Views\Monitor\RunningTask.cshtml:148
+#: Views\Monitor\RunningTask.cshtml:198
+#: Views\Monitor\UsageLog.cshtml:209
+#: Views\Setup\AlarmNotify.cshtml:164
+#: Views\Setup\AlarmNotify.cshtml:193
+#: Views\Setup\AlarmRuleCatalog.cshtml:460
+#: Views\Setup\AlarmRuleCatalog.cshtml:507
+#: Views\Setup\AlarmRuleCatalog.cshtml:535
+#: Views\Setup\AlarmRuleCatalog.cshtml:556
+#: Views\Setup\DashboardCompany.cshtml:273
+#: Views\Setup\DashboardCompany.cshtml:310
+#: Views\Setup\DashboardEquipment.cshtml:279
+#: Views\Setup\DashboardEquipment.cshtml:316
+#: Views\Setup\DashboardFactory.cshtml:273
+#: Views\Setup\DashboardFactory.cshtml:310
+#: Views\Setup\DeviceCertificate.cshtml:153
+#: Views\Setup\DeviceCertificate.cshtml:197
+#: Views\Setup\DeviceConfiguration.cshtml:164
+#: Views\Setup\DeviceConfiguration.cshtml:212
+#: Views\Setup\Employee.cshtml:248
+#: Views\Setup\Employee.cshtml:294
+#: Views\Setup\Employee.cshtml:366
+#: Views\Setup\ExternalApplication.cshtml:233
+#: Views\Setup\ExternalApplication.cshtml:302
+#: Views\Setup\IoTHubAlias.cshtml:203
+#: Views\Setup\IoTHubAlias.cshtml:286
+#: Views\Setup\Role.cshtml:154
+#: Views\Setup\Role.cshtml:198
+#: Views\Setup\WidgetCatalogCompany.cshtml:419
+#: Views\Setup\WidgetCatalogCompany.cshtml:474
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1321
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1351
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1414
+#: Views\Setup\WidgetCatalogFactory.cshtml:450
+#: Views\Setup\WidgetCatalogFactory.cshtml:505
+msgid "Session Expired. Please Re-Login"
+msgstr ""
+
+#: Views\IoTDevice\ConfigurationManagement.cshtml:64
+msgid "Setting Value"
+msgstr ""
+
+#: Models\Employee.cs:162
+#: Views\Setup\AlarmNotify.cshtml:9
+#: Views\Setup\AlarmRuleCatalog.cshtml:8
+#: Views\Setup\DashboardCompany.cshtml:9
+#: Views\Setup\DashboardEquipment.cshtml:9
+#: Views\Setup\DashboardFactory.cshtml:10
+#: Views\Setup\DeviceCertificate.cshtml:8
+#: Views\Setup\Employee.cshtml:7
+#: Views\Setup\ExternalApplication.cshtml:8
+#: Views\Setup\IoTHubAlias.cshtml:9
+#: Views\Setup\Role.cshtml:9
+#: Views\Setup\WidgetCatalogCompany.cshtml:10
+#: Views\Setup\WidgetCatalogEquipment.cshtml:8
+#: Views\Setup\WidgetCatalogFactory.cshtml:8
+msgid "Setup"
+msgstr ""
+
+#: assets\plugins\datatables\jquery.dataTables.min.js:141
+msgid "Show"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1465
+msgid "Show Alarm Duration"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:644
+msgid "Show Alarm Duration (second)"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:137
+#: Views\IoTDevice\ConfigurationManagement.cshtml:95
+#: Views\IoTDevice\Index.cshtml:223
+#: Views\IoTDevice\MessageAttach.cshtml:99
+msgid "Show Factory"
+msgstr ""
+
+#: assets\plugins\datatables\jquery.dataTables.min.js:140
+#: assets\plugins\datatables\jquery.dataTables.min.js:140
+msgid "Showing"
+msgstr ""
+
+#: Views\Monitor\IoTHubReceiver.cshtml:56
+msgid "Shutdown"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2592
+msgid "Simple OEE Card"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:145
+#: Views\Setup\WidgetCatalogEquipment.cshtml:161
+#: Views\Setup\WidgetCatalogEquipment.cshtml:198
+#: Views\Setup\WidgetCatalogEquipment.cshtml:233
+#: Views\Setup\WidgetCatalogEquipment.cshtml:302
+#: Views\Setup\WidgetCatalogEquipment.cshtml:318
+#: Views\Setup\WidgetCatalogEquipment.cshtml:344
+#: Views\Setup\WidgetCatalogEquipment.cshtml:368
+#: Views\Setup\WidgetCatalogEquipment.cshtml:415
+#: Views\Setup\WidgetCatalogEquipment.cshtml:439
+#: Views\Setup\WidgetCatalogEquipment.cshtml:465
+#: Views\Setup\WidgetCatalogEquipment.cshtml:489
+#: Views\Setup\WidgetCatalogEquipment.cshtml:535
+#: Views\Setup\WidgetCatalogEquipment.cshtml:557
+#: Views\Setup\WidgetCatalogEquipment.cshtml:603
+#: Views\Setup\WidgetCatalogEquipment.cshtml:838
+#: Views\Setup\WidgetCatalogEquipment.cshtml:862
+#: Views\Setup\WidgetCatalogEquipment.cshtml:888
+#: Views\Setup\WidgetCatalogEquipment.cshtml:912
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1538
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1554
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1657
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1674
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1824
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1856
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1947
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1979
+#: Views\Setup\WidgetCatalogFactory.cshtml:290
+msgid "Source"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:294
+#: Views\Setup\WidgetCatalogEquipment.cshtml:295
+#: Views\Setup\WidgetCatalogEquipment.cshtml:296
+msgid "Space"
+msgstr ""
+
+#: Views\IoTDevice\MessageAttach.cshtml:191
+msgid "Start Download"
+msgstr ""
+
+#: Views\Dashboard\EquipmentList.cshtml:39
+#: Views\Monitor\IoTHubReceiver.cshtml:37
+#: Views\Monitor\RunningTask.cshtml:15
+#: Views\Monitor\RunningTask.cshtml:93
+msgid "Status"
+msgstr ""
+
+#: Views\Dashboard\EquipmentList.cshtml:63
+#: Views\Monitor\IoTHubReceiver.cshtml:58
+msgid "Stop"
+msgstr ""
+
+#: Views\Setup\IoTHubAlias.cshtml:89
+#: Views\Setup\IoTHubAlias.cshtml:91
+msgid "Storage"
+msgstr ""
+
+#: Views\Setup\IoTHubAlias.cshtml:121
+#: Views\Setup\IoTHubAlias.cshtml:387
+#: Views\Setup\IoTHubAlias.cshtml:434
+msgid "Storage Connection String"
+msgstr ""
+
+#: Views\Message\MessageElement.cshtml:107
+msgid "string"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:45
+#: Views\Equipment\Index.cshtml:501
+#: Views\Factory\Index.cshtml:45
+#: Views\Factory\Index.cshtml:421
+#: Views\Home\Profile.cshtml:52
+#: Views\Home\Profile.cshtml:54
+#: Views\Home\Profile.cshtml:379
+#: Views\IoTDevice\Index.cshtml:45
+#: Views\IoTDevice\Index.cshtml:47
+#: Views\IoTDevice\Index.cshtml:691
+#: Views\IoTDevice\Index.cshtml:715
+#: Views\Message\Index.cshtml:44
+#: Views\Message\Index.cshtml:297
+#: Views\Message\MessageElement.cshtml:77
+#: Views\Message\MessageElement.cshtml:459
+#: Views\Monitor\RunningTask.cshtml:98
+#: Views\Setup\AlarmRuleCatalog.cshtml:45
+#: Views\Setup\AlarmRuleCatalog.cshtml:48
+#: Views\Setup\AlarmRuleCatalog.cshtml:695
+#: Views\Setup\AlarmRuleCatalog.cshtml:834
+#: Views\Setup\DashboardCompany.cshtml:76
+#: Views\Setup\DashboardCompany.cshtml:448
+#: Views\Setup\DashboardEquipment.cshtml:80
+#: Views\Setup\DashboardEquipment.cshtml:454
+#: Views\Setup\DashboardFactory.cshtml:77
+#: Views\Setup\DashboardFactory.cshtml:448
+#: Views\Setup\DeviceCertificate.cshtml:45
+#: Views\Setup\DeviceCertificate.cshtml:297
+#: Views\Setup\DeviceConfiguration.cshtml:46
+#: Views\Setup\DeviceConfiguration.cshtml:360
+#: Views\Setup\Employee.cshtml:45
+#: Views\Setup\Employee.cshtml:47
+#: Views\Setup\Employee.cshtml:555
+#: Views\Setup\Employee.cshtml:579
+#: Views\Setup\ExternalApplication.cshtml:43
+#: Views\Setup\ExternalApplication.cshtml:542
+#: Views\Setup\IoTHubAlias.cshtml:45
+#: Views\Setup\IoTHubAlias.cshtml:525
+#: Views\Setup\Role.cshtml:42
+#: Views\Setup\Role.cshtml:303
+#: Views\Setup\WidgetCatalogCompany.cshtml:46
+#: Views\Setup\WidgetCatalogCompany.cshtml:754
+#: Views\Setup\WidgetCatalogEquipment.cshtml:45
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2705
+#: Views\Setup\WidgetCatalogFactory.cshtml:44
+#: Views\Setup\WidgetCatalogFactory.cshtml:815
+msgid "Submit"
+msgstr ""
+
+#: Views\Setup\ExternalApplication.cshtml:19
+#: Views\Setup\ExternalApplication.cshtml:73
+msgid "Target"
+msgstr ""
+
+#: Views\Monitor\RunningTask.cshtml:55
+msgid "Task"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:649
+#: Views\Setup\WidgetCatalogEquipment.cshtml:652
+#: Views\Setup\WidgetCatalogEquipment.cshtml:838
+#: Views\Setup\WidgetCatalogEquipment.cshtml:846
+#: Views\Setup\WidgetCatalogEquipment.cshtml:854
+#: Views\Setup\WidgetCatalogEquipment.cshtml:862
+#: Views\Setup\WidgetCatalogEquipment.cshtml:870
+#: Views\Setup\WidgetCatalogEquipment.cshtml:878
+#: Views\Setup\WidgetCatalogEquipment.cshtml:888
+#: Views\Setup\WidgetCatalogEquipment.cshtml:896
+#: Views\Setup\WidgetCatalogEquipment.cshtml:904
+#: Views\Setup\WidgetCatalogEquipment.cshtml:912
+#: Views\Setup\WidgetCatalogEquipment.cshtml:920
+#: Views\Setup\WidgetCatalogEquipment.cshtml:928
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1486
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1947
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1957
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1967
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1979
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1989
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1999
+msgid "Text"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2528
+msgid "Text Card"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2539
+msgid "Text List Card"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2131
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2141
+msgid "Threads"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1021
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1107
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1123
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1139
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1155
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2223
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2233
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2243
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2253
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2263
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2273
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2283
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2293
+msgid "Threadshold"
+msgstr ""
+
+#: Views\Setup\DeviceCertificate.cshtml:20
+#: Views\Setup\DeviceCertificate.cshtml:76
+#: Views\Setup\DeviceCertificate.cshtml:78
+msgid "Thumbprint"
+msgstr ""
+
+#: Views\Monitor\RunningTask.cshtml:99
+msgid "Time Range"
+msgstr ""
+
+#: Views\Factory\Index.cshtml:21
+msgid "Time Zone"
+msgstr ""
+
+#: Views\Factory\Index.cshtml:100
+msgid "TimeZone"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogCompany.cshtml:118
+#: Views\Setup\WidgetCatalogCompany.cshtml:121
+#: Views\Setup\WidgetCatalogCompany.cshtml:140
+#: Views\Setup\WidgetCatalogCompany.cshtml:143
+#: Views\Setup\WidgetCatalogCompany.cshtml:174
+#: Views\Setup\WidgetCatalogCompany.cshtml:177
+#: Views\Setup\WidgetCatalogCompany.cshtml:196
+#: Views\Setup\WidgetCatalogCompany.cshtml:199
+#: Views\Setup\WidgetCatalogCompany.cshtml:218
+#: Views\Setup\WidgetCatalogCompany.cshtml:221
+#: Views\Setup\WidgetCatalogCompany.cshtml:240
+#: Views\Setup\WidgetCatalogCompany.cshtml:243
+#: Views\Setup\WidgetCatalogCompany.cshtml:262
+#: Views\Setup\WidgetCatalogCompany.cshtml:265
+#: Views\Setup\WidgetCatalogCompany.cshtml:515
+#: Views\Setup\WidgetCatalogCompany.cshtml:527
+#: Views\Setup\WidgetCatalogCompany.cshtml:549
+#: Views\Setup\WidgetCatalogCompany.cshtml:561
+#: Views\Setup\WidgetCatalogCompany.cshtml:573
+#: Views\Setup\WidgetCatalogCompany.cshtml:585
+#: Views\Setup\WidgetCatalogCompany.cshtml:597
+#: Views\Setup\WidgetCatalogEquipment.cshtml:125
+#: Views\Setup\WidgetCatalogEquipment.cshtml:128
+#: Views\Setup\WidgetCatalogEquipment.cshtml:153
+#: Views\Setup\WidgetCatalogEquipment.cshtml:180
+#: Views\Setup\WidgetCatalogEquipment.cshtml:217
+#: Views\Setup\WidgetCatalogEquipment.cshtml:252
+#: Views\Setup\WidgetCatalogEquipment.cshtml:282
+#: Views\Setup\WidgetCatalogEquipment.cshtml:285
+#: Views\Setup\WidgetCatalogEquipment.cshtml:310
+#: Views\Setup\WidgetCatalogEquipment.cshtml:326
+#: Views\Setup\WidgetCatalogEquipment.cshtml:352
+#: Views\Setup\WidgetCatalogEquipment.cshtml:376
+#: Views\Setup\WidgetCatalogEquipment.cshtml:407
+#: Views\Setup\WidgetCatalogEquipment.cshtml:410
+#: Views\Setup\WidgetCatalogEquipment.cshtml:527
+#: Views\Setup\WidgetCatalogEquipment.cshtml:530
+#: Views\Setup\WidgetCatalogEquipment.cshtml:595
+#: Views\Setup\WidgetCatalogEquipment.cshtml:598
+#: Views\Setup\WidgetCatalogEquipment.cshtml:633
+#: Views\Setup\WidgetCatalogEquipment.cshtml:636
+#: Views\Setup\WidgetCatalogEquipment.cshtml:687
+#: Views\Setup\WidgetCatalogEquipment.cshtml:690
+#: Views\Setup\WidgetCatalogEquipment.cshtml:709
+#: Views\Setup\WidgetCatalogEquipment.cshtml:712
+#: Views\Setup\WidgetCatalogEquipment.cshtml:761
+#: Views\Setup\WidgetCatalogEquipment.cshtml:764
+#: Views\Setup\WidgetCatalogEquipment.cshtml:830
+#: Views\Setup\WidgetCatalogEquipment.cshtml:833
+#: Views\Setup\WidgetCatalogEquipment.cshtml:950
+#: Views\Setup\WidgetCatalogEquipment.cshtml:953
+#: Views\Setup\WidgetCatalogEquipment.cshtml:984
+#: Views\Setup\WidgetCatalogEquipment.cshtml:987
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1051
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1054
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1455
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1513
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1602
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1614
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1632
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1737
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1813
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1904
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1936
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2028
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2051
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2091
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2153
+#: Views\Setup\WidgetCatalogFactory.cshtml:116
+#: Views\Setup\WidgetCatalogFactory.cshtml:119
+#: Views\Setup\WidgetCatalogFactory.cshtml:138
+#: Views\Setup\WidgetCatalogFactory.cshtml:141
+#: Views\Setup\WidgetCatalogFactory.cshtml:172
+#: Views\Setup\WidgetCatalogFactory.cshtml:175
+#: Views\Setup\WidgetCatalogFactory.cshtml:194
+#: Views\Setup\WidgetCatalogFactory.cshtml:197
+#: Views\Setup\WidgetCatalogFactory.cshtml:216
+#: Views\Setup\WidgetCatalogFactory.cshtml:219
+#: Views\Setup\WidgetCatalogFactory.cshtml:238
+#: Views\Setup\WidgetCatalogFactory.cshtml:241
+#: Views\Setup\WidgetCatalogFactory.cshtml:260
+#: Views\Setup\WidgetCatalogFactory.cshtml:263
+#: Views\Setup\WidgetCatalogFactory.cshtml:282
+#: Views\Setup\WidgetCatalogFactory.cshtml:285
+#: Views\Setup\WidgetCatalogFactory.cshtml:546
+#: Views\Setup\WidgetCatalogFactory.cshtml:558
+#: Views\Setup\WidgetCatalogFactory.cshtml:580
+#: Views\Setup\WidgetCatalogFactory.cshtml:592
+#: Views\Setup\WidgetCatalogFactory.cshtml:604
+#: Views\Setup\WidgetCatalogFactory.cshtml:616
+#: Views\Setup\WidgetCatalogFactory.cshtml:628
+#: Views\Setup\WidgetCatalogFactory.cshtml:640
+#: Views\Setup\WidgetCatalogFactory.cshtml:651
+msgid "Title"
+msgstr ""
+
+#: assets\plugins\datatables\jquery.dataTables.min.js:140
+#: assets\plugins\datatables\jquery.dataTables.min.js:140
+msgid "to"
+msgstr ""
+
+#: Views\Setup\ExternalApplication.cshtml:145
+msgid "Token"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1758
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1770
+msgid "Total Number"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1747
+msgid "Total Source From"
+msgstr ""
+
+#: Views\Message\MessageElement.cshtml:119
+msgid "true"
+msgstr ""
+
+#: Views\IoTDevice\ConfigurationManagement.cshtml:26
+#: Views\IoTDevice\ConfigurationManagement.cshtml:59
+#: Views\IoTDevice\Index.cshtml:22
+#: Views\IoTDevice\Index.cshtml:121
+#: Views\IoTDevice\Index.cshtml:552
+#: Views\IoTDevice\MessageAttach.cshtml:22
+#: Views\Setup\ExternalApplication.cshtml:112
+msgid "Type"
+msgstr ""
+
+#: Views\Equipment\Index.cshtml:551
+#: Views\Factory\Index.cshtml:477
+#: Views\Home\Profile.cshtml:408
+#: Views\IoTDevice\ConfigurationManagement.cshtml:463
+#: Views\IoTDevice\Index.cshtml:765
+#: Views\IoTDevice\MessageAttach.cshtml:397
+#: Views\Message\Index.cshtml:354
+#: Views\Message\MessageElement.cshtml:516
+#: Views\Setup\AlarmNotify.cshtml:265
+#: Views\Setup\AlarmRuleCatalog.cshtml:752
+#: Views\Setup\DashboardCompany.cshtml:505
+#: Views\Setup\DashboardEquipment.cshtml:511
+#: Views\Setup\DashboardFactory.cshtml:505
+#: Views\Setup\DeviceCertificate.cshtml:354
+#: Views\Setup\DeviceConfiguration.cshtml:416
+#: Views\Setup\Employee.cshtml:629
+#: Views\Setup\ExternalApplication.cshtml:592
+#: Views\Setup\IoTHubAlias.cshtml:582
+#: Views\Setup\Role.cshtml:360
+#: Views\Setup\WidgetCatalogCompany.cshtml:817
+#: Views\Setup\WidgetCatalogCompany.cshtml:845
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2782
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2810
+#: Views\Setup\WidgetCatalogFactory.cshtml:878
+#: Views\Setup\WidgetCatalogFactory.cshtml:906
+msgid "Update"
+msgstr ""
+
+#: Models\Employee.cs:144
+#: Views\Monitor\UsageLog.cshtml:10
+msgid "Usage Log"
+msgstr ""
+
+#: Views\Setup\AlarmRuleCatalog.cshtml:125
+#: Views\Setup\WidgetCatalogEquipment.cshtml:415
+#: Views\Setup\WidgetCatalogEquipment.cshtml:423
+#: Views\Setup\WidgetCatalogEquipment.cshtml:431
+#: Views\Setup\WidgetCatalogEquipment.cshtml:439
+#: Views\Setup\WidgetCatalogEquipment.cshtml:447
+#: Views\Setup\WidgetCatalogEquipment.cshtml:455
+#: Views\Setup\WidgetCatalogEquipment.cshtml:465
+#: Views\Setup\WidgetCatalogEquipment.cshtml:473
+#: Views\Setup\WidgetCatalogEquipment.cshtml:481
+#: Views\Setup\WidgetCatalogEquipment.cshtml:489
+#: Views\Setup\WidgetCatalogEquipment.cshtml:497
+#: Views\Setup\WidgetCatalogEquipment.cshtml:505
+#: Views\Setup\WidgetCatalogEquipment.cshtml:546
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1824
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1834
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1844
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1856
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1866
+#: Views\Setup\WidgetCatalogEquipment.cshtml:1876
+msgid "Value"
+msgstr ""
+
+#: Views\IoTDevice\Index.cshtml:129
+msgid "Vendor"
+msgstr ""
+
+#: Views\Home\Login.cshtml:83
+#: Views\Shared\_Layout.cshtml:131
+msgid "Version"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogFactory.cshtml:290
+#: Views\Setup\WidgetCatalogFactory.cshtml:293
+#: Views\Setup\WidgetCatalogFactory.cshtml:762
+msgid "Video"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogCompany.cshtml:20
+#: Views\Setup\WidgetCatalogCompany.cshtml:63
+#: Views\Setup\WidgetCatalogCompany.cshtml:616
+#: Views\Setup\WidgetCatalogEquipment.cshtml:18
+#: Views\Setup\WidgetCatalogEquipment.cshtml:62
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2314
+#: Views\Setup\WidgetCatalogFactory.cshtml:18
+#: Views\Setup\WidgetCatalogFactory.cshtml:61
+#: Views\Setup\WidgetCatalogFactory.cshtml:670
+msgid "Visual Type"
+msgstr ""
+
+#: Views\Monitor\RunningTask.cshtml:96
+msgid "Warning"
+msgstr ""
+
+#: Views\Setup\DashboardCompany.cshtml:37
+#: Views\Setup\DashboardCompany.cshtml:375
+#: Views\Setup\DashboardCompany.cshtml:413
+#: Views\Setup\DashboardEquipment.cshtml:41
+#: Views\Setup\DashboardEquipment.cshtml:381
+#: Views\Setup\DashboardEquipment.cshtml:419
+#: Views\Setup\DashboardFactory.cshtml:38
+#: Views\Setup\DashboardFactory.cshtml:413
+msgid "Widget"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogCompany.cshtml:13
+#: Views\Setup\WidgetCatalogCompany.cshtml:713
+#: Views\Setup\WidgetCatalogEquipment.cshtml:11
+#: Views\Setup\WidgetCatalogFactory.cshtml:11
+msgid "Widget Catalog"
+msgstr ""
+
+#: Models\Employee.cs:178
+#: Views\Setup\WidgetCatalogCompany.cshtml:10
+msgid "Widget Catalog - Company"
+msgstr ""
+
+#: Models\Employee.cs:180
+#: Views\Setup\WidgetCatalogEquipment.cshtml:8
+msgid "Widget Catalog - Equipment"
+msgstr ""
+
+#: Models\Employee.cs:179
+#: Views\Setup\WidgetCatalogFactory.cshtml:8
+msgid "Widget Catalog - Factory"
+msgstr ""
+
+#: Views\Setup\DashboardFactory.cshtml:375
+msgid "Widget is necessary"
+msgstr ""
+
+#: Views\Setup\DashboardCompany.cshtml:34
+#: Views\Setup\DashboardEquipment.cshtml:38
+msgid "Widget Layout"
+msgstr ""
+
+#: Views\Setup\DashboardCompany.cshtml:49
+#: Views\Setup\DashboardCompany.cshtml:109
+#: Views\Setup\DashboardEquipment.cshtml:53
+#: Views\Setup\DashboardEquipment.cshtml:113
+#: Views\Setup\DashboardFactory.cshtml:50
+#: Views\Setup\DashboardFactory.cshtml:110
+msgid "Widget Name"
+msgstr ""
+
+#: Views\Setup\WidgetCatalogEquipment.cshtml:2664
+#: Views\Setup\WidgetCatalogFactory.cshtml:774
+msgid "WidgetCatalog"
+msgstr ""
+
+#: Views\Setup\DashboardCompany.cshtml:50
+#: Views\Setup\DashboardCompany.cshtml:119
+#: Views\Setup\DashboardCompany.cshtml:386
+#: Views\Setup\DashboardEquipment.cshtml:54
+#: Views\Setup\DashboardEquipment.cshtml:123
+#: Views\Setup\DashboardEquipment.cshtml:392
+#: Views\Setup\DashboardFactory.cshtml:51
+#: Views\Setup\DashboardFactory.cshtml:120
+#: Views\Setup\DashboardFactory.cshtml:386
+msgid "Width Space"
+msgstr ""
+
+#~ msgid "[[[[["
+#~ msgstr ""
+
+#~ msgid "[[[[[["
+#~ msgstr ""
+
+#~ msgid "[Connection String"
+#~ msgstr ""
+
+#~ msgid "{ c: ['1'] }"
+#~ msgstr ""
+
+#~ msgid "{ c: '1' }"
+#~ msgstr ""
+
+#~ msgid "Aggregate Alarms in Sec"
+#~ msgstr ""
+
+#~ msgid "Authencitcation"
+#~ msgstr ""
+
+#~ msgid "Catalog"
+#~ msgstr ""
+
+#~ msgid "Cer"
+#~ msgstr ""
+
+#~ msgid "Context"
+#~ msgstr ""
+
+#~ msgid "Deivce"
+#~ msgstr ""
+
+#~ msgid "Equippment"
+#~ msgstr ""
+
+#~ msgid "Grant"
+#~ msgstr ""
+
+#~ msgid "Grant Permissions"
+#~ msgstr ""
+
+#~ msgid "IoT Hub Node"
+#~ msgstr ""
+
+#~ msgid "IoTHub Receiver"
+#~ msgstr ""
+
+#~ msgid "Is Child Message"
+#~ msgstr ""
+
+#~ msgid "Launch Receiver"
+#~ msgstr ""
+
+#~ msgid "Map Initial Zoom"
+#~ msgstr ""
+
+#~ msgid "n, n"
+#~ msgstr ""
+
+#~ msgid "Receiver Status"
+#~ msgstr ""
+
+#~ msgid "Restart"
+#~ msgstr ""
+
+#~ msgid "Scale At"
+#~ msgstr ""
+
+#~ msgid "Start"
+#~ msgstr ""
+
+#~ msgid "Total Source"
+#~ msgstr ""
+
+#~ msgid "Yes"
+#~ msgstr ""
+

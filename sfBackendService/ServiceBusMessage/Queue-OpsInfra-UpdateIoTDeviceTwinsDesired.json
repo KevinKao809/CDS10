@@ -1,0 +1,22 @@
+{
+  "job": "device management",
+  "entity": "iotdevice",
+  "entityId": "ACarDevice002",
+  "task": "update device desired property",
+  "taskId": 1512,
+  "primaryIothubConnectionString": "HostName=SmartFactoryTest.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=kL6UDlBi0yZs9Jd4LnbhxBMj4/m9YXE8Ft8V14Y72EQ=",
+  "secondaryIothubConnectionString": "",
+  "iothubDeviceId": "ACarDevice002",
+  "requester": "IoTHubRec",
+  "requesterEmail": "admin@a-car.com",
+  "requestDateTime": "2017-02-19T15:54:26.4208436Z",
+  "deviceConfiguration": {
+    "SF_SystemConfig": {
+      "MinSmartFactorySDKVersion": 5
+    },
+    "SF_CustomizedConfig": {
+      "Interval": 30
+    },
+    "SF_LastUpdatedTimestamp": 1495077112
+  }
+}

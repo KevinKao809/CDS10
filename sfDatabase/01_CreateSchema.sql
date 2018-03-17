@@ -1,0 +1,2 @@
+﻿CREATE SCHEMA SmartFactory AUTHORIZATION dbo
+Go

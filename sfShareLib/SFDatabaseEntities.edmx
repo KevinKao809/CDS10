@@ -1,0 +1,3149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SFDatabaseEntitiesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AlarmNotification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AlarmRuleCatalogId" Type="int" />
+          <Property Name="ExternalApplicationId" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AlarmRuleCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="MessageCatalogId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="KeepHappenInSec" Type="int" Nullable="false" />
+          <Property Name="ActiveFlag" Type="bit" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AlarmRuleItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AlarmRuleCatalogId" Type="int" Nullable="false" />
+          <Property Name="Ordering" Type="int" Nullable="false" />
+          <Property Name="MessageElementParentId" Type="int" />
+          <Property Name="MessageElementId" Type="int" Nullable="false" />
+          <Property Name="EqualOperation" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BitWiseOperation" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="10" />
+          <Property Name="Address" Type="nvarchar" MaxLength="255" />
+          <Property Name="CompanyWebSite" Type="nvarchar" MaxLength="255" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="LogoURL" Type="nvarchar" MaxLength="100" />
+          <Property Name="CultureInfo" Type="nvarchar" MaxLength="10" />
+          <Property Name="DocDBConnectionString" Type="nvarchar" MaxLength="256" />
+          <Property Name="AllowDomain" Type="nvarchar" MaxLength="1000" />
+          <Property Name="ExtAppAuthenticationKey" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Dashboard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="DashboardType" Type="nvarchar" MaxLength="50" />
+          <Property Name="FactoryID" Type="int" />
+          <Property Name="EquipmentClassID" Type="int" />
+          <Property Name="EquipmentID" Type="int" />
+        </EntityType>
+        <EntityType Name="DashboardWidgets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DashboardID" Type="int" Nullable="false" />
+          <Property Name="WidgetCatalogID" Type="int" Nullable="false" />
+          <Property Name="RowNo" Type="int" Nullable="false" />
+          <Property Name="ColumnSeq" Type="int" />
+          <Property Name="WidthSpace" Type="int" Nullable="false" />
+          <Property Name="HeightPixel" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeviceCertificate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Thumbprint" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="PFXPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExpiredAt" Type="datetime" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DeviceType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="EmployeeNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PhotoURL" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="AdminFlag" Type="bit" Nullable="false" />
+          <Property Name="Lang" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeInRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="UserRoleID" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EquipmentId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EquipmentClassId" Type="int" Nullable="false" />
+          <Property Name="FactoryId" Type="int" Nullable="false" />
+          <Property Name="IoTHubDeviceID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="MaxIdleInSec" Type="int" Nullable="false" />
+          <Property Name="PhotoURL" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EquipmentClass">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExternalApplication">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="MessageTemplate" Type="nvarchar" MaxLength="2000" />
+          <Property Name="TargetType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Method" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ServiceURL" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="AuthType" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AuthID" Type="nvarchar" MaxLength="50" />
+          <Property Name="AuthPW" Type="nvarchar" MaxLength="50" />
+          <Property Name="TokenURL" Type="nvarchar" MaxLength="255" />
+          <Property Name="HeaderValues" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExternalDashboard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="Order" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="URL" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Factory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="PhotoURL" Type="nvarchar" MaxLength="255" />
+          <Property Name="TimeZone" Type="int" Nullable="false" />
+          <Property Name="CultureInfo" Type="nvarchar" MaxLength="10" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IoTDevice">
+          <Key>
+            <PropertyRef Name="IoTHubDeviceID" />
+          </Key>
+          <Property Name="IoTHubDeviceID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="IoTHubDevicePW" Type="nvarchar" MaxLength="128" />
+          <Property Name="IoTHubDeviceKey" Type="nvarchar" MaxLength="128" />
+          <Property Name="IoTHubAlias" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IoTHubProtocol" Type="nvarchar" MaxLength="128" />
+          <Property Name="FactoryID" Type="int" />
+          <Property Name="AuthenticationType" Type="nvarchar" MaxLength="20" />
+          <Property Name="DeviceCertificateID" Type="int" />
+          <Property Name="DeviceTypeId" Type="int" Nullable="false" />
+          <Property Name="DeviceVendor" Type="nvarchar" MaxLength="128" />
+          <Property Name="DeviceModel" Type="nvarchar" MaxLength="128" />
+          <Property Name="MessageConvertScript" Type="nvarchar(max)" />
+          <Property Name="EnableMessageConvert" Type="bit" Nullable="false" />
+          <Property Name="DeviceTwinsDesired" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="DeviceTwinsReported" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="DeviceConfigurationStatus" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IoTDeviceConfiguration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataType" Type="nvarchar" MaxLength="10" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="DefaultValue" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="IoTDeviceCustomizedConfiguration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="DefaultValue" Type="nvarchar" MaxLength="50" />
+          <Property Name="DeleteFlag" Type="bit" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="IoTDeviceMessageCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IoTHubDeviceID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="MessageCatalogID" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IoTHub">
+          <Key>
+            <PropertyRef Name="IoTHubAlias" />
+          </Key>
+          <Property Name="IoTHubAlias" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="P_IoTHubEndPoint" Type="nvarchar" MaxLength="50" />
+          <Property Name="P_IoTHubConnectionString" Type="nvarchar" MaxLength="256" />
+          <Property Name="P_EventConsumerGroup" Type="nvarchar" MaxLength="50" />
+          <Property Name="P_EventHubStorageConnectionString" Type="nvarchar" MaxLength="256" />
+          <Property Name="P_UploadContainer" Type="nvarchar" MaxLength="50" />
+          <Property Name="S_IoTHubEndPoint" Type="nvarchar" MaxLength="50" />
+          <Property Name="S_IoTHubConnectionString" Type="nvarchar" MaxLength="256" />
+          <Property Name="S_EventConsumerGroup" Type="nvarchar" MaxLength="50" />
+          <Property Name="S_EventHubStorageConnectionString" Type="nvarchar" MaxLength="256" />
+          <Property Name="S_UploadContainer" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MessageCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="ChildMessageFlag" Type="bit" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MessageElement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MessageCatalogID" Type="int" Nullable="false" />
+          <Property Name="ElementName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ElementDataType" Type="nvarchar" MaxLength="20" />
+          <Property Name="ChildMessageCatalogID" Type="int" />
+          <Property Name="MandatoryFlag" Type="bit" Nullable="false" />
+          <Property Name="SFMandatoryFlag" Type="bit" Nullable="false" />
+          <Property Name="ShowOnEquipmentList" Type="bit" />
+          <Property Name="ShowOnFactoryBoard" Type="bit" />
+        </EntityType>
+        <EntityType Name="MessageMandatoryElementDef">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ElementName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ElementDataType" Type="nvarchar" MaxLength="20" />
+          <Property Name="MandatoryFlag" Type="bit" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MetaDataDefination">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="EntityType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ObjectName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MetaDataValue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MetaDataDefinationId" Type="int" Nullable="false" />
+          <Property Name="ObjectValue" Type="nvarchar(max)" />
+          <Property Name="ReferenceId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OperationTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TaskStatus" Type="nvarchar" MaxLength="20" />
+          <Property Name="CompletedAt" Type="datetime" />
+          <Property Name="RetryCounter" Type="int" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="Entity" Type="nvarchar" MaxLength="50" />
+          <Property Name="EntityId" Type="nvarchar" MaxLength="50" />
+          <Property Name="TaskContent" Type="nvarchar" MaxLength="1500" />
+          <Property Name="TaskLog" Type="nvarchar" MaxLength="3000" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermissionCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="PermissionId" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" />
+        </EntityType>
+        <EntityType Name="RefCultureInfo">
+          <Key>
+            <PropertyRef Name="CultureCode" />
+          </Key>
+          <Property Name="CultureCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="SuperAdmin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsageLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="FactoryQty" Type="int" />
+          <Property Name="EquipmentQty" Type="int" />
+          <Property Name="DeviceMessage" Type="bigint" Nullable="false" />
+          <Property Name="AlarmMessage" Type="bigint" Nullable="false" />
+          <Property Name="DocSizeInGB" Type="int" Nullable="false" />
+          <Property Name="DocDBPercentage" Type="int" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRolePermission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserRoleID" Type="int" Nullable="false" />
+          <Property Name="PermissionCatalogID" Type="int" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WidgetCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="MessageCatalogID" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Level" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WidgetClassKey" Type="int" Nullable="false" />
+          <Property Name="Context" Type="nvarchar" MaxLength="2000" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WidgetClass">
+          <Key>
+            <PropertyRef Name="Key" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Key" Type="int" Nullable="false" />
+          <Property Name="Level" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhotoURL" Type="nvarchar" MaxLength="255" />
+          <Property Name="MinWidth" Type="int" />
+          <Property Name="MinHeight" Type="int" />
+          <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="DeletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BackendService.SmartFactory.UsageLogSumByDay' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="UsageLogSumByDay">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="CompanyQty" Type="int" />
+          <Property Name="FactoryQty" Type="int" />
+          <Property Name="EquipmentQty" Type="int" />
+          <Property Name="DeviceMessage" Type="bigint" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_AlarmNotification_ToTable">
+          <End Role="AlarmRuleCatalog" Type="Self.AlarmRuleCatalog" Multiplicity="0..1" />
+          <End Role="AlarmNotification" Type="Self.AlarmNotification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlarmRuleCatalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AlarmNotification">
+              <PropertyRef Name="AlarmRuleCatalogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlarmNotification_ToTable_1">
+          <End Role="ExternalApplication" Type="Self.ExternalApplication" Multiplicity="0..1" />
+          <End Role="AlarmNotification" Type="Self.AlarmNotification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalApplication">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AlarmNotification">
+              <PropertyRef Name="ExternalApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlarmRuleCatalog_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="AlarmRuleCatalog" Type="Self.AlarmRuleCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AlarmRuleCatalog">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlarmRuleCatalog_ToTable_1">
+          <End Role="MessageCatalog" Type="Self.MessageCatalog" Multiplicity="1" />
+          <End Role="AlarmRuleCatalog" Type="Self.AlarmRuleCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageCatalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AlarmRuleCatalog">
+              <PropertyRef Name="MessageCatalogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlarmRuleItem_ParentMessageElement">
+          <End Role="MessageElement" Type="Self.MessageElement" Multiplicity="0..1" />
+          <End Role="AlarmRuleItem" Type="Self.AlarmRuleItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageElement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AlarmRuleItem">
+              <PropertyRef Name="MessageElementParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlarmRuleItem_ToTable">
+          <End Role="AlarmRuleCatalog" Type="Self.AlarmRuleCatalog" Multiplicity="1" />
+          <End Role="AlarmRuleItem" Type="Self.AlarmRuleItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlarmRuleCatalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AlarmRuleItem">
+              <PropertyRef Name="AlarmRuleCatalogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlarmRuleItem_ToTable_1">
+          <End Role="MessageElement" Type="Self.MessageElement" Multiplicity="1" />
+          <End Role="AlarmRuleItem" Type="Self.AlarmRuleItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageElement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AlarmRuleItem">
+              <PropertyRef Name="MessageElementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_IoTDeviceCustomizedConfiguration">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="IoTDeviceCustomizedConfiguration" Type="Self.IoTDeviceCustomizedConfiguration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IoTDeviceCustomizedConfiguration">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_ToTable">
+          <End Role="RefCultureInfo" Type="Self.RefCultureInfo" Multiplicity="0..1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefCultureInfo">
+              <PropertyRef Name="CultureCode" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="CultureInfo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dashboard_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dashboard">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dashboard_ToTable_1">
+          <End Role="EquipmentClass" Type="Self.EquipmentClass" Multiplicity="0..1" />
+          <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipmentClass">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dashboard">
+              <PropertyRef Name="EquipmentClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dashboard_ToTable_2">
+          <End Role="Factory" Type="Self.Factory" Multiplicity="0..1" />
+          <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dashboard">
+              <PropertyRef Name="FactoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dashboard_ToTable_3">
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="0..1" />
+          <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dashboard">
+              <PropertyRef Name="EquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DashboardWidgets_ToTable">
+          <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="1" />
+          <End Role="DashboardWidgets" Type="Self.DashboardWidgets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dashboard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DashboardWidgets">
+              <PropertyRef Name="DashboardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DashboardWidgets_ToTable_1">
+          <End Role="WidgetCatalog" Type="Self.WidgetCatalog" Multiplicity="1" />
+          <End Role="DashboardWidgets" Type="Self.DashboardWidgets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WidgetCatalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DashboardWidgets">
+              <PropertyRef Name="WidgetCatalogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceCertificate_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="DeviceCertificate" Type="Self.DeviceCertificate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeviceCertificate">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeInRole_ToTable">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="EmployeeInRole" Type="Self.EmployeeInRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeInRole">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeInRole_ToTable_1">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+          <End Role="EmployeeInRole" Type="Self.EmployeeInRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeInRole">
+              <PropertyRef Name="UserRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_ToTable">
+          <End Role="Factory" Type="Self.Factory" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="FactoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_ToTable_1">
+          <End Role="IoTDevice" Type="Self.IoTDevice" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IoTDevice">
+              <PropertyRef Name="IoTHubDeviceID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="IoTHubDeviceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_ToTable_2">
+          <End Role="EquipmentClass" Type="Self.EquipmentClass" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipmentClass">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="EquipmentClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EquipmentClass_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="EquipmentClass" Type="Self.EquipmentClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EquipmentClass">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExternalApplication_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="ExternalApplication" Type="Self.ExternalApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExternalApplication">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExternalDashboard_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="ExternalDashboard" Type="Self.ExternalDashboard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExternalDashboard">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factory_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Factory" Type="Self.Factory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Factory">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factory_ToTable_1">
+          <End Role="RefCultureInfo" Type="Self.RefCultureInfo" Multiplicity="0..1" />
+          <End Role="Factory" Type="Self.Factory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefCultureInfo">
+              <PropertyRef Name="CultureCode" />
+            </Principal>
+            <Dependent Role="Factory">
+              <PropertyRef Name="CultureInfo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IoTDevice_ToTable">
+          <End Role="IoTHub" Type="Self.IoTHub" Multiplicity="1" />
+          <End Role="IoTDevice" Type="Self.IoTDevice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IoTHub">
+              <PropertyRef Name="IoTHubAlias" />
+            </Principal>
+            <Dependent Role="IoTDevice">
+              <PropertyRef Name="IoTHubAlias" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IoTDevice_ToTable_1">
+          <End Role="DeviceType" Type="Self.DeviceType" Multiplicity="1" />
+          <End Role="IoTDevice" Type="Self.IoTDevice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviceType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IoTDevice">
+              <PropertyRef Name="DeviceTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IoTDevice_ToTable_2">
+          <End Role="Factory" Type="Self.Factory" Multiplicity="0..1" />
+          <End Role="IoTDevice" Type="Self.IoTDevice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IoTDevice">
+              <PropertyRef Name="FactoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IoTDevice_ToTable_3">
+          <End Role="DeviceCertificate" Type="Self.DeviceCertificate" Multiplicity="0..1" />
+          <End Role="IoTDevice" Type="Self.IoTDevice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviceCertificate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IoTDevice">
+              <PropertyRef Name="DeviceCertificateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IoTHub_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="IoTHub" Type="Self.IoTHub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IoTHub">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MessageCatalog_ToTable_1">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="MessageCatalog" Type="Self.MessageCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MessageCatalog">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MessageElement_ToTable">
+          <End Role="MessageCatalog" Type="Self.MessageCatalog" Multiplicity="1" />
+          <End Role="MessageElement" Type="Self.MessageElement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageCatalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MessageElement">
+              <PropertyRef Name="MessageCatalogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MetaDataDefination_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="MetaDataDefination" Type="Self.MetaDataDefination" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MetaDataDefination">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MetaDataValue_ToTable">
+          <End Role="MetaDataDefination" Type="Self.MetaDataDefination" Multiplicity="1" />
+          <End Role="MetaDataValue" Type="Self.MetaDataValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MetaDataDefination">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MetaDataValue">
+              <PropertyRef Name="MetaDataDefinationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToTable">
+          <End Role="IoTDevice" Type="Self.IoTDevice" Multiplicity="1" />
+          <End Role="IoTDeviceMessageCatalog" Type="Self.IoTDeviceMessageCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IoTDevice">
+              <PropertyRef Name="IoTHubDeviceID" />
+            </Principal>
+            <Dependent Role="IoTDeviceMessageCatalog">
+              <PropertyRef Name="IoTHubDeviceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToTable_1">
+          <End Role="MessageCatalog" Type="Self.MessageCatalog" Multiplicity="1" />
+          <End Role="IoTDeviceMessageCatalog" Type="Self.IoTDeviceMessageCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageCatalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IoTDeviceMessageCatalog">
+              <PropertyRef Name="MessageCatalogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsageLog_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="UsageLog" Type="Self.UsageLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsageLog">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRolePermission_ToTable">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+          <End Role="UserRolePermission" Type="Self.UserRolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRolePermission">
+              <PropertyRef Name="UserRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRolePermission_ToTable_1">
+          <End Role="PermissionCatalog" Type="Self.PermissionCatalog" Multiplicity="1" />
+          <End Role="UserRolePermission" Type="Self.UserRolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PermissionCatalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRolePermission">
+              <PropertyRef Name="PermissionCatalogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WidgetCatalog_ToTable">
+          <End Role="WidgetClass" Type="Self.WidgetClass" Multiplicity="1" />
+          <End Role="WidgetCatalog" Type="Self.WidgetCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WidgetClass">
+              <PropertyRef Name="Key" />
+            </Principal>
+            <Dependent Role="WidgetCatalog">
+              <PropertyRef Name="WidgetClassKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WidgetCatalog_ToTable_1">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="WidgetCatalog" Type="Self.WidgetCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WidgetCatalog">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WidgetCatalog_ToTable_2">
+          <End Role="MessageCatalog" Type="Self.MessageCatalog" Multiplicity="0..1" />
+          <End Role="WidgetCatalog" Type="Self.WidgetCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageCatalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WidgetCatalog">
+              <PropertyRef Name="MessageCatalogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SFDatabaseEntitiesModelStoreContainer">
+          <EntitySet Name="AlarmNotification" EntityType="Self.AlarmNotification" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="AlarmRuleCatalog" EntityType="Self.AlarmRuleCatalog" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="AlarmRuleItem" EntityType="Self.AlarmRuleItem" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="Dashboard" EntityType="Self.Dashboard" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="DashboardWidgets" EntityType="Self.DashboardWidgets" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="DeviceCertificate" EntityType="Self.DeviceCertificate" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="DeviceType" EntityType="Self.DeviceType" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="EmployeeInRole" EntityType="Self.EmployeeInRole" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="EquipmentClass" EntityType="Self.EquipmentClass" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="ExternalApplication" EntityType="Self.ExternalApplication" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="ExternalDashboard" EntityType="Self.ExternalDashboard" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="Factory" EntityType="Self.Factory" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="IoTDevice" EntityType="Self.IoTDevice" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="IoTDeviceConfiguration" EntityType="Self.IoTDeviceConfiguration" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="IoTDeviceCustomizedConfiguration" EntityType="Self.IoTDeviceCustomizedConfiguration" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="IoTDeviceMessageCatalog" EntityType="Self.IoTDeviceMessageCatalog" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="IoTHub" EntityType="Self.IoTHub" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="MessageCatalog" EntityType="Self.MessageCatalog" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="MessageElement" EntityType="Self.MessageElement" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="MessageMandatoryElementDef" EntityType="Self.MessageMandatoryElementDef" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="MetaDataDefination" EntityType="Self.MetaDataDefination" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="MetaDataValue" EntityType="Self.MetaDataValue" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="OperationTask" EntityType="Self.OperationTask" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="PermissionCatalog" EntityType="Self.PermissionCatalog" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="RefCultureInfo" EntityType="Self.RefCultureInfo" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="SuperAdmin" EntityType="Self.SuperAdmin" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="UsageLog" EntityType="Self.UsageLog" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="UserRolePermission" EntityType="Self.UserRolePermission" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="WidgetCatalog" EntityType="Self.WidgetCatalog" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="WidgetClass" EntityType="Self.WidgetClass" Schema="SmartFactory" store:Type="Tables" />
+          <EntitySet Name="UsageLogSumByDay" EntityType="Self.UsageLogSumByDay" store:Type="Views" store:Schema="SmartFactory">
+            <DefiningQuery>SELECT 
+    [UsageLogSumByDay].[Id] AS [Id], 
+    [UsageLogSumByDay].[CompanyQty] AS [CompanyQty], 
+    [UsageLogSumByDay].[FactoryQty] AS [FactoryQty], 
+    [UsageLogSumByDay].[EquipmentQty] AS [EquipmentQty], 
+    [UsageLogSumByDay].[DeviceMessage] AS [DeviceMessage], 
+    [UsageLogSumByDay].[UpdatedDateTime] AS [UpdatedDateTime]
+    FROM [SmartFactory].[UsageLogSumByDay] AS [UsageLogSumByDay]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_AlarmNotification_ToTable" Association="Self.FK_AlarmNotification_ToTable">
+            <End Role="AlarmRuleCatalog" EntitySet="AlarmRuleCatalog" />
+            <End Role="AlarmNotification" EntitySet="AlarmNotification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlarmNotification_ToTable_1" Association="Self.FK_AlarmNotification_ToTable_1">
+            <End Role="ExternalApplication" EntitySet="ExternalApplication" />
+            <End Role="AlarmNotification" EntitySet="AlarmNotification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlarmRuleCatalog_ToTable" Association="Self.FK_AlarmRuleCatalog_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="AlarmRuleCatalog" EntitySet="AlarmRuleCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlarmRuleCatalog_ToTable_1" Association="Self.FK_AlarmRuleCatalog_ToTable_1">
+            <End Role="MessageCatalog" EntitySet="MessageCatalog" />
+            <End Role="AlarmRuleCatalog" EntitySet="AlarmRuleCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlarmRuleItem_ParentMessageElement" Association="Self.FK_AlarmRuleItem_ParentMessageElement">
+            <End Role="MessageElement" EntitySet="MessageElement" />
+            <End Role="AlarmRuleItem" EntitySet="AlarmRuleItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlarmRuleItem_ToTable" Association="Self.FK_AlarmRuleItem_ToTable">
+            <End Role="AlarmRuleCatalog" EntitySet="AlarmRuleCatalog" />
+            <End Role="AlarmRuleItem" EntitySet="AlarmRuleItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlarmRuleItem_ToTable_1" Association="Self.FK_AlarmRuleItem_ToTable_1">
+            <End Role="MessageElement" EntitySet="MessageElement" />
+            <End Role="AlarmRuleItem" EntitySet="AlarmRuleItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_IoTDeviceCustomizedConfiguration" Association="Self.FK_Company_IoTDeviceCustomizedConfiguration">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="IoTDeviceCustomizedConfiguration" EntitySet="IoTDeviceCustomizedConfiguration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_ToTable" Association="Self.FK_Company_ToTable">
+            <End Role="RefCultureInfo" EntitySet="RefCultureInfo" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dashboard_ToTable" Association="Self.FK_Dashboard_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Dashboard" EntitySet="Dashboard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dashboard_ToTable_1" Association="Self.FK_Dashboard_ToTable_1">
+            <End Role="EquipmentClass" EntitySet="EquipmentClass" />
+            <End Role="Dashboard" EntitySet="Dashboard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dashboard_ToTable_2" Association="Self.FK_Dashboard_ToTable_2">
+            <End Role="Factory" EntitySet="Factory" />
+            <End Role="Dashboard" EntitySet="Dashboard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dashboard_ToTable_3" Association="Self.FK_Dashboard_ToTable_3">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="Dashboard" EntitySet="Dashboard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DashboardWidgets_ToTable" Association="Self.FK_DashboardWidgets_ToTable">
+            <End Role="Dashboard" EntitySet="Dashboard" />
+            <End Role="DashboardWidgets" EntitySet="DashboardWidgets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DashboardWidgets_ToTable_1" Association="Self.FK_DashboardWidgets_ToTable_1">
+            <End Role="WidgetCatalog" EntitySet="WidgetCatalog" />
+            <End Role="DashboardWidgets" EntitySet="DashboardWidgets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceCertificate_ToTable" Association="Self.FK_DeviceCertificate_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="DeviceCertificate" EntitySet="DeviceCertificate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_ToTable" Association="Self.FK_Employee_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeInRole_ToTable" Association="Self.FK_EmployeeInRole_ToTable">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeeInRole" EntitySet="EmployeeInRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeInRole_ToTable_1" Association="Self.FK_EmployeeInRole_ToTable_1">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="EmployeeInRole" EntitySet="EmployeeInRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_ToTable" Association="Self.FK_Equipment_ToTable">
+            <End Role="Factory" EntitySet="Factory" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_ToTable_1" Association="Self.FK_Equipment_ToTable_1">
+            <End Role="IoTDevice" EntitySet="IoTDevice" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_ToTable_2" Association="Self.FK_Equipment_ToTable_2">
+            <End Role="EquipmentClass" EntitySet="EquipmentClass" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EquipmentClass_ToTable" Association="Self.FK_EquipmentClass_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="EquipmentClass" EntitySet="EquipmentClass" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExternalApplication_ToTable" Association="Self.FK_ExternalApplication_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="ExternalApplication" EntitySet="ExternalApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExternalDashboard_ToTable" Association="Self.FK_ExternalDashboard_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="ExternalDashboard" EntitySet="ExternalDashboard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factory_ToTable" Association="Self.FK_Factory_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Factory" EntitySet="Factory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factory_ToTable_1" Association="Self.FK_Factory_ToTable_1">
+            <End Role="RefCultureInfo" EntitySet="RefCultureInfo" />
+            <End Role="Factory" EntitySet="Factory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IoTDevice_ToTable" Association="Self.FK_IoTDevice_ToTable">
+            <End Role="IoTHub" EntitySet="IoTHub" />
+            <End Role="IoTDevice" EntitySet="IoTDevice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IoTDevice_ToTable_1" Association="Self.FK_IoTDevice_ToTable_1">
+            <End Role="DeviceType" EntitySet="DeviceType" />
+            <End Role="IoTDevice" EntitySet="IoTDevice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IoTDevice_ToTable_2" Association="Self.FK_IoTDevice_ToTable_2">
+            <End Role="Factory" EntitySet="Factory" />
+            <End Role="IoTDevice" EntitySet="IoTDevice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IoTDevice_ToTable_3" Association="Self.FK_IoTDevice_ToTable_3">
+            <End Role="DeviceCertificate" EntitySet="DeviceCertificate" />
+            <End Role="IoTDevice" EntitySet="IoTDevice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IoTHub_ToTable" Association="Self.FK_IoTHub_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="IoTHub" EntitySet="IoTHub" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MessageCatalog_ToTable_1" Association="Self.FK_MessageCatalog_ToTable_1">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="MessageCatalog" EntitySet="MessageCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MessageElement_ToTable" Association="Self.FK_MessageElement_ToTable">
+            <End Role="MessageCatalog" EntitySet="MessageCatalog" />
+            <End Role="MessageElement" EntitySet="MessageElement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MetaDataDefination_ToTable" Association="Self.FK_MetaDataDefination_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="MetaDataDefination" EntitySet="MetaDataDefination" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MetaDataValue_ToTable" Association="Self.FK_MetaDataValue_ToTable">
+            <End Role="MetaDataDefination" EntitySet="MetaDataDefination" />
+            <End Role="MetaDataValue" EntitySet="MetaDataValue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable" Association="Self.FK_Table_ToTable">
+            <End Role="IoTDevice" EntitySet="IoTDevice" />
+            <End Role="IoTDeviceMessageCatalog" EntitySet="IoTDeviceMessageCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable_1" Association="Self.FK_Table_ToTable_1">
+            <End Role="MessageCatalog" EntitySet="MessageCatalog" />
+            <End Role="IoTDeviceMessageCatalog" EntitySet="IoTDeviceMessageCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsageLog_ToTable" Association="Self.FK_UsageLog_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="UsageLog" EntitySet="UsageLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_ToTable" Association="Self.FK_UserRole_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRolePermission_ToTable" Association="Self.FK_UserRolePermission_ToTable">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="UserRolePermission" EntitySet="UserRolePermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRolePermission_ToTable_1" Association="Self.FK_UserRolePermission_ToTable_1">
+            <End Role="PermissionCatalog" EntitySet="PermissionCatalog" />
+            <End Role="UserRolePermission" EntitySet="UserRolePermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WidgetCatalog_ToTable" Association="Self.FK_WidgetCatalog_ToTable">
+            <End Role="WidgetClass" EntitySet="WidgetClass" />
+            <End Role="WidgetCatalog" EntitySet="WidgetCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WidgetCatalog_ToTable_1" Association="Self.FK_WidgetCatalog_ToTable_1">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="WidgetCatalog" EntitySet="WidgetCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WidgetCatalog_ToTable_2" Association="Self.FK_WidgetCatalog_ToTable_2">
+            <End Role="MessageCatalog" EntitySet="MessageCatalog" />
+            <End Role="WidgetCatalog" EntitySet="WidgetCatalog" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SFDatabaseEntitiesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AlarmNotification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlarmRuleCatalogId" Type="Int32" />
+          <Property Name="ExternalApplicationId" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AlarmRuleCatalog" Relationship="Self.FK_AlarmNotification_ToTable" FromRole="AlarmNotification" ToRole="AlarmRuleCatalog" />
+          <NavigationProperty Name="ExternalApplication" Relationship="Self.FK_AlarmNotification_ToTable_1" FromRole="AlarmNotification" ToRole="ExternalApplication" />
+        </EntityType>
+        <EntityType Name="AlarmRuleCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="MessageCatalogId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="KeepHappenInSec" Type="Int32" Nullable="false" />
+          <Property Name="ActiveFlag" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AlarmNotification" Relationship="Self.FK_AlarmNotification_ToTable" FromRole="AlarmRuleCatalog" ToRole="AlarmNotification" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_AlarmRuleCatalog_ToTable" FromRole="AlarmRuleCatalog" ToRole="Company" />
+          <NavigationProperty Name="MessageCatalog" Relationship="Self.FK_AlarmRuleCatalog_ToTable_1" FromRole="AlarmRuleCatalog" ToRole="MessageCatalog" />
+          <NavigationProperty Name="AlarmRuleItem" Relationship="Self.FK_AlarmRuleItem_ToTable" FromRole="AlarmRuleCatalog" ToRole="AlarmRuleItem" />
+        </EntityType>
+        <EntityType Name="AlarmRuleItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlarmRuleCatalogId" Type="Int32" Nullable="false" />
+          <Property Name="Ordering" Type="Int32" Nullable="false" />
+          <Property Name="MessageElementParentId" Type="Int32" />
+          <Property Name="MessageElementId" Type="Int32" Nullable="false" />
+          <Property Name="EqualOperation" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BitWiseOperation" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AlarmRuleCatalog" Relationship="Self.FK_AlarmRuleItem_ToTable" FromRole="AlarmRuleItem" ToRole="AlarmRuleCatalog" />
+          <NavigationProperty Name="MessageElement" Relationship="Self.FK_AlarmRuleItem_ParentMessageElement" FromRole="AlarmRuleItem" ToRole="MessageElement" />
+          <NavigationProperty Name="MessageElement1" Relationship="Self.FK_AlarmRuleItem_ToTable_1" FromRole="AlarmRuleItem" ToRole="MessageElement" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyWebSite" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="Double" />
+          <Property Name="Longitude" Type="Double" />
+          <Property Name="LogoURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CultureInfo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DocDBConnectionString" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="AllowDomain" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ExtAppAuthenticationKey" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AlarmRuleCatalog" Relationship="Self.FK_AlarmRuleCatalog_ToTable" FromRole="Company" ToRole="AlarmRuleCatalog" />
+          <NavigationProperty Name="IoTDeviceCustomizedConfiguration" Relationship="Self.FK_Company_IoTDeviceCustomizedConfiguration" FromRole="Company" ToRole="IoTDeviceCustomizedConfiguration" />
+          <NavigationProperty Name="RefCultureInfo" Relationship="Self.FK_Company_ToTable" FromRole="Company" ToRole="RefCultureInfo" />
+          <NavigationProperty Name="Dashboard" Relationship="Self.FK_Dashboard_ToTable" FromRole="Company" ToRole="Dashboard" />
+          <NavigationProperty Name="DeviceCertificate" Relationship="Self.FK_DeviceCertificate_ToTable" FromRole="Company" ToRole="DeviceCertificate" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_ToTable" FromRole="Company" ToRole="Employee" />
+          <NavigationProperty Name="EquipmentClass" Relationship="Self.FK_EquipmentClass_ToTable" FromRole="Company" ToRole="EquipmentClass" />
+          <NavigationProperty Name="ExternalApplication" Relationship="Self.FK_ExternalApplication_ToTable" FromRole="Company" ToRole="ExternalApplication" />
+          <NavigationProperty Name="ExternalDashboard" Relationship="Self.FK_ExternalDashboard_ToTable" FromRole="Company" ToRole="ExternalDashboard" />
+          <NavigationProperty Name="Factory" Relationship="Self.FK_Factory_ToTable" FromRole="Company" ToRole="Factory" />
+          <NavigationProperty Name="IoTHub" Relationship="Self.FK_IoTHub_ToTable" FromRole="Company" ToRole="IoTHub" />
+          <NavigationProperty Name="MessageCatalog" Relationship="Self.FK_MessageCatalog_ToTable_1" FromRole="Company" ToRole="MessageCatalog" />
+          <NavigationProperty Name="UsageLog" Relationship="Self.FK_UsageLog_ToTable" FromRole="Company" ToRole="UsageLog" />
+          <NavigationProperty Name="UserRole" Relationship="Self.FK_UserRole_ToTable" FromRole="Company" ToRole="UserRole" />
+          <NavigationProperty Name="WidgetCatalog" Relationship="Self.FK_WidgetCatalog_ToTable_1" FromRole="Company" ToRole="WidgetCatalog" />
+          <NavigationProperty Name="MetaDataDefination" Relationship="SFDatabaseEntitiesModel.FK_MetaDataDefination_ToTable" FromRole="Company" ToRole="MetaDataDefination" />
+        </EntityType>
+        <EntityType Name="Dashboard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="DashboardType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FactoryID" Type="Int32" />
+          <Property Name="EquipmentClassID" Type="Int32" />
+          <Property Name="EquipmentID" Type="Int32" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Dashboard_ToTable" FromRole="Dashboard" ToRole="Company" />
+          <NavigationProperty Name="EquipmentClass" Relationship="Self.FK_Dashboard_ToTable_1" FromRole="Dashboard" ToRole="EquipmentClass" />
+          <NavigationProperty Name="Factory" Relationship="Self.FK_Dashboard_ToTable_2" FromRole="Dashboard" ToRole="Factory" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK_Dashboard_ToTable_3" FromRole="Dashboard" ToRole="Equipment" />
+          <NavigationProperty Name="DashboardWidgets" Relationship="Self.FK_DashboardWidgets_ToTable" FromRole="Dashboard" ToRole="DashboardWidgets" />
+        </EntityType>
+        <EntityType Name="DashboardWidgets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DashboardID" Type="Int32" Nullable="false" />
+          <Property Name="WidgetCatalogID" Type="Int32" Nullable="false" />
+          <Property Name="RowNo" Type="Int32" Nullable="false" />
+          <Property Name="ColumnSeq" Type="Int32" />
+          <Property Name="WidthSpace" Type="Int32" Nullable="false" />
+          <Property Name="HeightPixel" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dashboard" Relationship="Self.FK_DashboardWidgets_ToTable" FromRole="DashboardWidgets" ToRole="Dashboard" />
+          <NavigationProperty Name="WidgetCatalog" Relationship="Self.FK_DashboardWidgets_ToTable_1" FromRole="DashboardWidgets" ToRole="WidgetCatalog" />
+        </EntityType>
+        <EntityType Name="DeviceCertificate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Thumbprint" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PFXPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExpiredAt" Type="DateTime" Precision="3" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_DeviceCertificate_ToTable" FromRole="DeviceCertificate" ToRole="Company" />
+          <NavigationProperty Name="IoTDevice" Relationship="Self.FK_IoTDevice_ToTable_3" FromRole="DeviceCertificate" ToRole="IoTDevice" />
+        </EntityType>
+        <EntityType Name="DeviceType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="IoTDevice" Relationship="Self.FK_IoTDevice_ToTable_1" FromRole="DeviceType" ToRole="IoTDevice" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhotoURL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminFlag" Type="Boolean" Nullable="false" />
+          <Property Name="Lang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Employee_ToTable" FromRole="Employee" ToRole="Company" />
+          <NavigationProperty Name="EmployeeInRole" Relationship="Self.FK_EmployeeInRole_ToTable" FromRole="Employee" ToRole="EmployeeInRole" />
+        </EntityType>
+        <EntityType Name="EmployeeInRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UserRoleID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_EmployeeInRole_ToTable" FromRole="EmployeeInRole" ToRole="Employee" />
+          <NavigationProperty Name="UserRole" Relationship="Self.FK_EmployeeInRole_ToTable_1" FromRole="EmployeeInRole" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EquipmentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EquipmentClassId" Type="Int32" Nullable="false" />
+          <Property Name="FactoryId" Type="Int32" Nullable="false" />
+          <Property Name="IoTHubDeviceID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Latitude" Type="Double" />
+          <Property Name="Longitude" Type="Double" />
+          <Property Name="MaxIdleInSec" Type="Int32" Nullable="false" />
+          <Property Name="PhotoURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Dashboard" Relationship="Self.FK_Dashboard_ToTable_3" FromRole="Equipment" ToRole="Dashboard" />
+          <NavigationProperty Name="Factory" Relationship="Self.FK_Equipment_ToTable" FromRole="Equipment" ToRole="Factory" />
+          <NavigationProperty Name="IoTDevice" Relationship="Self.FK_Equipment_ToTable_1" FromRole="Equipment" ToRole="IoTDevice" />
+          <NavigationProperty Name="EquipmentClass" Relationship="Self.FK_Equipment_ToTable_2" FromRole="Equipment" ToRole="EquipmentClass" />
+        </EntityType>
+        <EntityType Name="EquipmentClass">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_EquipmentClass_ToTable" FromRole="EquipmentClass" ToRole="Company" />
+          <NavigationProperty Name="Dashboard" Relationship="Self.FK_Dashboard_ToTable_1" FromRole="EquipmentClass" ToRole="Dashboard" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK_Equipment_ToTable_2" FromRole="EquipmentClass" ToRole="Equipment" />
+        </EntityType>
+        <EntityType Name="ExternalApplication">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MessageTemplate" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="TargetType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Method" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ServiceURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AuthID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AuthPW" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TokenURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="HeaderValues" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AlarmNotification" Relationship="Self.FK_AlarmNotification_ToTable_1" FromRole="ExternalApplication" ToRole="AlarmNotification" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_ExternalApplication_ToTable" FromRole="ExternalApplication" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="ExternalDashboard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="Order" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="URL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_ExternalDashboard_ToTable" FromRole="ExternalDashboard" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="Factory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="Latitude" Type="Double" />
+          <Property Name="Longitude" Type="Double" />
+          <Property Name="PhotoURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TimeZone" Type="Int32" Nullable="false" />
+          <Property Name="CultureInfo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Factory_ToTable" FromRole="Factory" ToRole="Company" />
+          <NavigationProperty Name="Dashboard" Relationship="Self.FK_Dashboard_ToTable_2" FromRole="Factory" ToRole="Dashboard" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK_Equipment_ToTable" FromRole="Factory" ToRole="Equipment" />
+          <NavigationProperty Name="RefCultureInfo" Relationship="Self.FK_Factory_ToTable_1" FromRole="Factory" ToRole="RefCultureInfo" />
+          <NavigationProperty Name="IoTDevice" Relationship="Self.FK_IoTDevice_ToTable_2" FromRole="Factory" ToRole="IoTDevice" />
+        </EntityType>
+        <EntityType Name="IoTDevice">
+          <Key>
+            <PropertyRef Name="IoTHubDeviceID" />
+          </Key>
+          <Property Name="IoTHubDeviceID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IoTHubDevicePW" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IoTHubDeviceKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IoTHubAlias" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IoTHubProtocol" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FactoryID" Type="Int32" />
+          <Property Name="AuthenticationType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceCertificateID" Type="Int32" />
+          <Property Name="DeviceTypeId" Type="Int32" Nullable="false" />
+          <Property Name="DeviceVendor" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceModel" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DeviceTwinsDesired" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DeviceTwinsReported" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DeviceConfigurationStatus" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="DeviceCertificate" Relationship="Self.FK_IoTDevice_ToTable_3" FromRole="IoTDevice" ToRole="DeviceCertificate" />
+          <NavigationProperty Name="DeviceType" Relationship="Self.FK_IoTDevice_ToTable_1" FromRole="IoTDevice" ToRole="DeviceType" />
+          <NavigationProperty Name="Equipment" Relationship="Self.FK_Equipment_ToTable_1" FromRole="IoTDevice" ToRole="Equipment" />
+          <NavigationProperty Name="Factory" Relationship="Self.FK_IoTDevice_ToTable_2" FromRole="IoTDevice" ToRole="Factory" />
+          <NavigationProperty Name="IoTHub" Relationship="Self.FK_IoTDevice_ToTable" FromRole="IoTDevice" ToRole="IoTHub" />
+          <NavigationProperty Name="IoTDeviceMessageCatalog" Relationship="Self.FK_Table_ToTable" FromRole="IoTDevice" ToRole="IoTDeviceMessageCatalog" />
+          <Property Name="MessageConvertScript" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EnableMessageConvert" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IoTDeviceConfiguration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DefaultValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="IoTDeviceCustomizedConfiguration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DefaultValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DeleteFlag" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Company_IoTDeviceCustomizedConfiguration" FromRole="IoTDeviceCustomizedConfiguration" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="IoTDeviceMessageCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IoTHubDeviceID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MessageCatalogID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="IoTDevice" Relationship="Self.FK_Table_ToTable" FromRole="IoTDeviceMessageCatalog" ToRole="IoTDevice" />
+          <NavigationProperty Name="MessageCatalog" Relationship="Self.FK_Table_ToTable_1" FromRole="IoTDeviceMessageCatalog" ToRole="MessageCatalog" />
+        </EntityType>
+        <EntityType Name="IoTHub">
+          <Key>
+            <PropertyRef Name="IoTHubAlias" />
+          </Key>
+          <Property Name="IoTHubAlias" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="P_IoTHubEndPoint" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="P_IoTHubConnectionString" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="P_EventConsumerGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="P_EventHubStorageConnectionString" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="P_UploadContainer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="S_IoTHubEndPoint" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="S_IoTHubConnectionString" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="S_EventConsumerGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="S_EventHubStorageConnectionString" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="S_UploadContainer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_IoTHub_ToTable" FromRole="IoTHub" ToRole="Company" />
+          <NavigationProperty Name="IoTDevice" Relationship="Self.FK_IoTDevice_ToTable" FromRole="IoTHub" ToRole="IoTDevice" />
+        </EntityType>
+        <EntityType Name="MessageCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ChildMessageFlag" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AlarmRuleCatalog" Relationship="Self.FK_AlarmRuleCatalog_ToTable_1" FromRole="MessageCatalog" ToRole="AlarmRuleCatalog" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_MessageCatalog_ToTable_1" FromRole="MessageCatalog" ToRole="Company" />
+          <NavigationProperty Name="IoTDeviceMessageCatalog" Relationship="Self.FK_Table_ToTable_1" FromRole="MessageCatalog" ToRole="IoTDeviceMessageCatalog" />
+          <NavigationProperty Name="MessageElement" Relationship="Self.FK_MessageElement_ToTable" FromRole="MessageCatalog" ToRole="MessageElement" />
+          <NavigationProperty Name="WidgetCatalog" Relationship="Self.FK_WidgetCatalog_ToTable_2" FromRole="MessageCatalog" ToRole="WidgetCatalog" />
+        </EntityType>
+        <EntityType Name="MessageElement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MessageCatalogID" Type="Int32" Nullable="false" />
+          <Property Name="ElementName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ElementDataType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ChildMessageCatalogID" Type="Int32" />
+          <Property Name="MandatoryFlag" Type="Boolean" Nullable="false" />
+          <Property Name="SFMandatoryFlag" Type="Boolean" Nullable="false" />
+          <Property Name="ShowOnEquipmentList" Type="Boolean" />
+          <Property Name="ShowOnFactoryBoard" Type="Boolean" />
+          <NavigationProperty Name="AlarmRuleItem" Relationship="Self.FK_AlarmRuleItem_ParentMessageElement" FromRole="MessageElement" ToRole="AlarmRuleItem" />
+          <NavigationProperty Name="AlarmRuleItem1" Relationship="Self.FK_AlarmRuleItem_ToTable_1" FromRole="MessageElement" ToRole="AlarmRuleItem" />
+          <NavigationProperty Name="MessageCatalog" Relationship="Self.FK_MessageElement_ToTable" FromRole="MessageElement" ToRole="MessageCatalog" />
+        </EntityType>
+        <EntityType Name="MessageMandatoryElementDef">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ElementName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ElementDataType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MandatoryFlag" Type="Boolean" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OperationTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TaskStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CompletedAt" Type="DateTime" Precision="3" />
+          <Property Name="RetryCounter" Type="Int32" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="Entity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EntityId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaskContent" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="TaskLog" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PermissionCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PermissionId" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" />
+          <NavigationProperty Name="UserRolePermission" Relationship="Self.FK_UserRolePermission_ToTable_1" FromRole="PermissionCatalog" ToRole="UserRolePermission" />
+        </EntityType>
+        <EntityType Name="RefCultureInfo">
+          <Key>
+            <PropertyRef Name="CultureCode" />
+          </Key>
+          <Property Name="CultureCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_Company_ToTable" FromRole="RefCultureInfo" ToRole="Company" />
+          <NavigationProperty Name="Factory" Relationship="Self.FK_Factory_ToTable_1" FromRole="RefCultureInfo" ToRole="Factory" />
+        </EntityType>
+        <EntityType Name="SuperAdmin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsageLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="FactoryQty" Type="Int32" />
+          <Property Name="EquipmentQty" Type="Int32" />
+          <Property Name="DeviceMessage" Type="Int64" Nullable="false" />
+          <Property Name="AlarmMessage" Type="Int64" Nullable="false" />
+          <Property Name="DocSizeInGB" Type="Int32" Nullable="false" />
+          <Property Name="DocDBPercentage" Type="Int32" Nullable="false" />
+          <Property Name="UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_UsageLog_ToTable" FromRole="UsageLog" ToRole="Company" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_UserRole_ToTable" FromRole="UserRole" ToRole="Company" />
+          <NavigationProperty Name="EmployeeInRole" Relationship="Self.FK_EmployeeInRole_ToTable_1" FromRole="UserRole" ToRole="EmployeeInRole" />
+          <NavigationProperty Name="UserRolePermission" Relationship="Self.FK_UserRolePermission_ToTable" FromRole="UserRole" ToRole="UserRolePermission" />
+        </EntityType>
+        <EntityType Name="UserRolePermission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserRoleID" Type="Int32" Nullable="false" />
+          <Property Name="PermissionCatalogID" Type="Int32" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PermissionCatalog" Relationship="Self.FK_UserRolePermission_ToTable_1" FromRole="UserRolePermission" ToRole="PermissionCatalog" />
+          <NavigationProperty Name="UserRole" Relationship="Self.FK_UserRolePermission_ToTable" FromRole="UserRolePermission" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="WidgetCatalog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="MessageCatalogID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Level" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WidgetClassKey" Type="Int32" Nullable="false" />
+          <Property Name="Context" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Company" Relationship="Self.FK_WidgetCatalog_ToTable_1" FromRole="WidgetCatalog" ToRole="Company" />
+          <NavigationProperty Name="DashboardWidgets" Relationship="Self.FK_DashboardWidgets_ToTable_1" FromRole="WidgetCatalog" ToRole="DashboardWidgets" />
+          <NavigationProperty Name="MessageCatalog" Relationship="Self.FK_WidgetCatalog_ToTable_2" FromRole="WidgetCatalog" ToRole="MessageCatalog" />
+          <NavigationProperty Name="WidgetClass" Relationship="Self.FK_WidgetCatalog_ToTable" FromRole="WidgetCatalog" ToRole="WidgetClass" />
+        </EntityType>
+        <EntityType Name="WidgetClass">
+          <Key>
+            <PropertyRef Name="Key" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Key" Type="Int32" Nullable="false" />
+          <Property Name="Level" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhotoURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MinWidth" Type="Int32" />
+          <Property Name="MinHeight" Type="Int32" />
+          <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="DeletedFlag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="WidgetCatalog" Relationship="Self.FK_WidgetCatalog_ToTable" FromRole="WidgetClass" ToRole="WidgetCatalog" />
+        </EntityType>
+        <EntityType Name="UsageLogSumByDay">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="CompanyQty" Type="Int32" />
+          <Property Name="FactoryQty" Type="Int32" />
+          <Property Name="EquipmentQty" Type="Int32" />
+          <Property Name="DeviceMessage" Type="Int64" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK_AlarmNotification_ToTable">
+          <End Role="AlarmRuleCatalog" Type="Self.AlarmRuleCatalog" Multiplicity="0..1" />
+          <End Role="AlarmNotification" Type="Self.AlarmNotification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlarmRuleCatalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AlarmNotification">
+              <PropertyRef Name="AlarmRuleCatalogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlarmNotification_ToTable_1">
+          <End Role="ExternalApplication" Type="Self.ExternalApplication" Multiplicity="0..1" />
+          <End Role="AlarmNotification" Type="Self.AlarmNotification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExternalApplication">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AlarmNotification">
+              <PropertyRef Name="ExternalApplicationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlarmRuleCatalog_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="AlarmRuleCatalog" Type="Self.AlarmRuleCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AlarmRuleCatalog">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlarmRuleCatalog_ToTable_1">
+          <End Role="MessageCatalog" Type="Self.MessageCatalog" Multiplicity="1" />
+          <End Role="AlarmRuleCatalog" Type="Self.AlarmRuleCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageCatalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AlarmRuleCatalog">
+              <PropertyRef Name="MessageCatalogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlarmRuleItem_ToTable">
+          <End Role="AlarmRuleCatalog" Type="Self.AlarmRuleCatalog" Multiplicity="1" />
+          <End Role="AlarmRuleItem" Type="Self.AlarmRuleItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlarmRuleCatalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AlarmRuleItem">
+              <PropertyRef Name="AlarmRuleCatalogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlarmRuleItem_ParentMessageElement">
+          <End Role="MessageElement" Type="Self.MessageElement" Multiplicity="0..1" />
+          <End Role="AlarmRuleItem" Type="Self.AlarmRuleItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageElement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AlarmRuleItem">
+              <PropertyRef Name="MessageElementParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AlarmRuleItem_ToTable_1">
+          <End Role="MessageElement" Type="Self.MessageElement" Multiplicity="1" />
+          <End Role="AlarmRuleItem" Type="Self.AlarmRuleItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageElement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AlarmRuleItem">
+              <PropertyRef Name="MessageElementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_IoTDeviceCustomizedConfiguration">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="IoTDeviceCustomizedConfiguration" Type="Self.IoTDeviceCustomizedConfiguration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IoTDeviceCustomizedConfiguration">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Company_ToTable">
+          <End Role="RefCultureInfo" Type="Self.RefCultureInfo" Multiplicity="0..1" />
+          <End Role="Company" Type="Self.Company" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefCultureInfo">
+              <PropertyRef Name="CultureCode" />
+            </Principal>
+            <Dependent Role="Company">
+              <PropertyRef Name="CultureInfo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dashboard_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dashboard">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DeviceCertificate_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="DeviceCertificate" Type="Self.DeviceCertificate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DeviceCertificate">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EquipmentClass_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="EquipmentClass" Type="Self.EquipmentClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EquipmentClass">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExternalApplication_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="ExternalApplication" Type="Self.ExternalApplication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExternalApplication">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExternalDashboard_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="ExternalDashboard" Type="Self.ExternalDashboard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExternalDashboard">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factory_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="Factory" Type="Self.Factory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Factory">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IoTHub_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="IoTHub" Type="Self.IoTHub" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IoTHub">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MessageCatalog_ToTable_1">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="MessageCatalog" Type="Self.MessageCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MessageCatalog">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UsageLog_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="UsageLog" Type="Self.UsageLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UsageLog">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_ToTable">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WidgetCatalog_ToTable_1">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="WidgetCatalog" Type="Self.WidgetCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WidgetCatalog">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dashboard_ToTable_1">
+          <End Role="EquipmentClass" Type="Self.EquipmentClass" Multiplicity="0..1" />
+          <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipmentClass">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dashboard">
+              <PropertyRef Name="EquipmentClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dashboard_ToTable_2">
+          <End Role="Factory" Type="Self.Factory" Multiplicity="0..1" />
+          <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dashboard">
+              <PropertyRef Name="FactoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dashboard_ToTable_3">
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="0..1" />
+          <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dashboard">
+              <PropertyRef Name="EquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DashboardWidgets_ToTable">
+          <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="1" />
+          <End Role="DashboardWidgets" Type="Self.DashboardWidgets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dashboard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DashboardWidgets">
+              <PropertyRef Name="DashboardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DashboardWidgets_ToTable_1">
+          <End Role="WidgetCatalog" Type="Self.WidgetCatalog" Multiplicity="1" />
+          <End Role="DashboardWidgets" Type="Self.DashboardWidgets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WidgetCatalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DashboardWidgets">
+              <PropertyRef Name="WidgetCatalogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IoTDevice_ToTable_3">
+          <End Role="DeviceCertificate" Type="Self.DeviceCertificate" Multiplicity="0..1" />
+          <End Role="IoTDevice" Type="Self.IoTDevice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviceCertificate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IoTDevice">
+              <PropertyRef Name="DeviceCertificateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IoTDevice_ToTable_1">
+          <End Role="DeviceType" Type="Self.DeviceType" Multiplicity="1" />
+          <End Role="IoTDevice" Type="Self.IoTDevice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DeviceType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IoTDevice">
+              <PropertyRef Name="DeviceTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeInRole_ToTable">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="EmployeeInRole" Type="Self.EmployeeInRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeInRole">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeInRole_ToTable_1">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+          <End Role="EmployeeInRole" Type="Self.EmployeeInRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmployeeInRole">
+              <PropertyRef Name="UserRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_ToTable">
+          <End Role="Factory" Type="Self.Factory" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="FactoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_ToTable_1">
+          <End Role="IoTDevice" Type="Self.IoTDevice" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IoTDevice">
+              <PropertyRef Name="IoTHubDeviceID" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="IoTHubDeviceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Equipment_ToTable_2">
+          <End Role="EquipmentClass" Type="Self.EquipmentClass" Multiplicity="1" />
+          <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EquipmentClass">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipment">
+              <PropertyRef Name="EquipmentClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factory_ToTable_1">
+          <End Role="RefCultureInfo" Type="Self.RefCultureInfo" Multiplicity="0..1" />
+          <End Role="Factory" Type="Self.Factory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefCultureInfo">
+              <PropertyRef Name="CultureCode" />
+            </Principal>
+            <Dependent Role="Factory">
+              <PropertyRef Name="CultureInfo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IoTDevice_ToTable_2">
+          <End Role="Factory" Type="Self.Factory" Multiplicity="0..1" />
+          <End Role="IoTDevice" Type="Self.IoTDevice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IoTDevice">
+              <PropertyRef Name="FactoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IoTDevice_ToTable">
+          <End Role="IoTHub" Type="Self.IoTHub" Multiplicity="1" />
+          <End Role="IoTDevice" Type="Self.IoTDevice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IoTHub">
+              <PropertyRef Name="IoTHubAlias" />
+            </Principal>
+            <Dependent Role="IoTDevice">
+              <PropertyRef Name="IoTHubAlias" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToTable">
+          <End Role="IoTDevice" Type="Self.IoTDevice" Multiplicity="1" />
+          <End Role="IoTDeviceMessageCatalog" Type="Self.IoTDeviceMessageCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IoTDevice">
+              <PropertyRef Name="IoTHubDeviceID" />
+            </Principal>
+            <Dependent Role="IoTDeviceMessageCatalog">
+              <PropertyRef Name="IoTHubDeviceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToTable_1">
+          <End Role="MessageCatalog" Type="Self.MessageCatalog" Multiplicity="1" />
+          <End Role="IoTDeviceMessageCatalog" Type="Self.IoTDeviceMessageCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageCatalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IoTDeviceMessageCatalog">
+              <PropertyRef Name="MessageCatalogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MessageElement_ToTable">
+          <End Role="MessageCatalog" Type="Self.MessageCatalog" Multiplicity="1" />
+          <End Role="MessageElement" Type="Self.MessageElement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageCatalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MessageElement">
+              <PropertyRef Name="MessageCatalogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WidgetCatalog_ToTable_2">
+          <End Role="MessageCatalog" Type="Self.MessageCatalog" Multiplicity="0..1" />
+          <End Role="WidgetCatalog" Type="Self.WidgetCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MessageCatalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WidgetCatalog">
+              <PropertyRef Name="MessageCatalogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRolePermission_ToTable_1">
+          <End Role="PermissionCatalog" Type="Self.PermissionCatalog" Multiplicity="1" />
+          <End Role="UserRolePermission" Type="Self.UserRolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PermissionCatalog">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRolePermission">
+              <PropertyRef Name="PermissionCatalogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRolePermission_ToTable">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="1" />
+          <End Role="UserRolePermission" Type="Self.UserRolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRolePermission">
+              <PropertyRef Name="UserRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WidgetCatalog_ToTable">
+          <End Role="WidgetClass" Type="Self.WidgetClass" Multiplicity="1" />
+          <End Role="WidgetCatalog" Type="Self.WidgetCatalog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WidgetClass">
+              <PropertyRef Name="Key" />
+            </Principal>
+            <Dependent Role="WidgetCatalog">
+              <PropertyRef Name="WidgetClassKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SFDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AlarmNotification" EntityType="Self.AlarmNotification" />
+          <EntitySet Name="AlarmRuleCatalog" EntityType="Self.AlarmRuleCatalog" />
+          <EntitySet Name="AlarmRuleItem" EntityType="Self.AlarmRuleItem" />
+          <EntitySet Name="Company" EntityType="Self.Company" />
+          <EntitySet Name="Dashboard" EntityType="Self.Dashboard" />
+          <EntitySet Name="DashboardWidgets" EntityType="Self.DashboardWidgets" />
+          <EntitySet Name="DeviceCertificate" EntityType="Self.DeviceCertificate" />
+          <EntitySet Name="DeviceType" EntityType="Self.DeviceType" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="EmployeeInRole" EntityType="Self.EmployeeInRole" />
+          <EntitySet Name="Equipment" EntityType="Self.Equipment" />
+          <EntitySet Name="EquipmentClass" EntityType="Self.EquipmentClass" />
+          <EntitySet Name="ExternalApplication" EntityType="Self.ExternalApplication" />
+          <EntitySet Name="ExternalDashboard" EntityType="Self.ExternalDashboard" />
+          <EntitySet Name="Factory" EntityType="Self.Factory" />
+          <EntitySet Name="IoTDevice" EntityType="Self.IoTDevice" />
+          <EntitySet Name="IoTDeviceConfiguration" EntityType="Self.IoTDeviceConfiguration" />
+          <EntitySet Name="IoTDeviceCustomizedConfiguration" EntityType="Self.IoTDeviceCustomizedConfiguration" />
+          <EntitySet Name="IoTDeviceMessageCatalog" EntityType="Self.IoTDeviceMessageCatalog" />
+          <EntitySet Name="IoTHub" EntityType="Self.IoTHub" />
+          <EntitySet Name="MessageCatalog" EntityType="Self.MessageCatalog" />
+          <EntitySet Name="MessageElement" EntityType="Self.MessageElement" />
+          <EntitySet Name="MessageMandatoryElementDef" EntityType="Self.MessageMandatoryElementDef" />
+          <EntitySet Name="OperationTask" EntityType="Self.OperationTask" />
+          <EntitySet Name="PermissionCatalog" EntityType="Self.PermissionCatalog" />
+          <EntitySet Name="RefCultureInfo" EntityType="Self.RefCultureInfo" />
+          <EntitySet Name="SuperAdmin" EntityType="Self.SuperAdmin" />
+          <EntitySet Name="UsageLog" EntityType="Self.UsageLog" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" />
+          <EntitySet Name="UserRolePermission" EntityType="Self.UserRolePermission" />
+          <EntitySet Name="WidgetCatalog" EntityType="Self.WidgetCatalog" />
+          <EntitySet Name="WidgetClass" EntityType="Self.WidgetClass" />
+          <EntitySet Name="UsageLogSumByDay" EntityType="Self.UsageLogSumByDay" />
+          <AssociationSet Name="FK_AlarmNotification_ToTable" Association="Self.FK_AlarmNotification_ToTable">
+            <End Role="AlarmRuleCatalog" EntitySet="AlarmRuleCatalog" />
+            <End Role="AlarmNotification" EntitySet="AlarmNotification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlarmNotification_ToTable_1" Association="Self.FK_AlarmNotification_ToTable_1">
+            <End Role="ExternalApplication" EntitySet="ExternalApplication" />
+            <End Role="AlarmNotification" EntitySet="AlarmNotification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlarmRuleCatalog_ToTable" Association="Self.FK_AlarmRuleCatalog_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="AlarmRuleCatalog" EntitySet="AlarmRuleCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlarmRuleCatalog_ToTable_1" Association="Self.FK_AlarmRuleCatalog_ToTable_1">
+            <End Role="MessageCatalog" EntitySet="MessageCatalog" />
+            <End Role="AlarmRuleCatalog" EntitySet="AlarmRuleCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlarmRuleItem_ToTable" Association="Self.FK_AlarmRuleItem_ToTable">
+            <End Role="AlarmRuleCatalog" EntitySet="AlarmRuleCatalog" />
+            <End Role="AlarmRuleItem" EntitySet="AlarmRuleItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlarmRuleItem_ParentMessageElement" Association="Self.FK_AlarmRuleItem_ParentMessageElement">
+            <End Role="MessageElement" EntitySet="MessageElement" />
+            <End Role="AlarmRuleItem" EntitySet="AlarmRuleItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AlarmRuleItem_ToTable_1" Association="Self.FK_AlarmRuleItem_ToTable_1">
+            <End Role="MessageElement" EntitySet="MessageElement" />
+            <End Role="AlarmRuleItem" EntitySet="AlarmRuleItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_IoTDeviceCustomizedConfiguration" Association="Self.FK_Company_IoTDeviceCustomizedConfiguration">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="IoTDeviceCustomizedConfiguration" EntitySet="IoTDeviceCustomizedConfiguration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Company_ToTable" Association="Self.FK_Company_ToTable">
+            <End Role="RefCultureInfo" EntitySet="RefCultureInfo" />
+            <End Role="Company" EntitySet="Company" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dashboard_ToTable" Association="Self.FK_Dashboard_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Dashboard" EntitySet="Dashboard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DeviceCertificate_ToTable" Association="Self.FK_DeviceCertificate_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="DeviceCertificate" EntitySet="DeviceCertificate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_ToTable" Association="Self.FK_Employee_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EquipmentClass_ToTable" Association="Self.FK_EquipmentClass_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="EquipmentClass" EntitySet="EquipmentClass" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExternalApplication_ToTable" Association="Self.FK_ExternalApplication_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="ExternalApplication" EntitySet="ExternalApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExternalDashboard_ToTable" Association="Self.FK_ExternalDashboard_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="ExternalDashboard" EntitySet="ExternalDashboard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factory_ToTable" Association="Self.FK_Factory_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Factory" EntitySet="Factory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IoTHub_ToTable" Association="Self.FK_IoTHub_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="IoTHub" EntitySet="IoTHub" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MessageCatalog_ToTable_1" Association="Self.FK_MessageCatalog_ToTable_1">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="MessageCatalog" EntitySet="MessageCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UsageLog_ToTable" Association="Self.FK_UsageLog_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="UsageLog" EntitySet="UsageLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_ToTable" Association="Self.FK_UserRole_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WidgetCatalog_ToTable_1" Association="Self.FK_WidgetCatalog_ToTable_1">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="WidgetCatalog" EntitySet="WidgetCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dashboard_ToTable_1" Association="Self.FK_Dashboard_ToTable_1">
+            <End Role="EquipmentClass" EntitySet="EquipmentClass" />
+            <End Role="Dashboard" EntitySet="Dashboard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dashboard_ToTable_2" Association="Self.FK_Dashboard_ToTable_2">
+            <End Role="Factory" EntitySet="Factory" />
+            <End Role="Dashboard" EntitySet="Dashboard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dashboard_ToTable_3" Association="Self.FK_Dashboard_ToTable_3">
+            <End Role="Equipment" EntitySet="Equipment" />
+            <End Role="Dashboard" EntitySet="Dashboard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DashboardWidgets_ToTable" Association="Self.FK_DashboardWidgets_ToTable">
+            <End Role="Dashboard" EntitySet="Dashboard" />
+            <End Role="DashboardWidgets" EntitySet="DashboardWidgets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DashboardWidgets_ToTable_1" Association="Self.FK_DashboardWidgets_ToTable_1">
+            <End Role="WidgetCatalog" EntitySet="WidgetCatalog" />
+            <End Role="DashboardWidgets" EntitySet="DashboardWidgets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IoTDevice_ToTable_3" Association="Self.FK_IoTDevice_ToTable_3">
+            <End Role="DeviceCertificate" EntitySet="DeviceCertificate" />
+            <End Role="IoTDevice" EntitySet="IoTDevice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IoTDevice_ToTable_1" Association="Self.FK_IoTDevice_ToTable_1">
+            <End Role="DeviceType" EntitySet="DeviceType" />
+            <End Role="IoTDevice" EntitySet="IoTDevice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeInRole_ToTable" Association="Self.FK_EmployeeInRole_ToTable">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeeInRole" EntitySet="EmployeeInRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeInRole_ToTable_1" Association="Self.FK_EmployeeInRole_ToTable_1">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="EmployeeInRole" EntitySet="EmployeeInRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_ToTable" Association="Self.FK_Equipment_ToTable">
+            <End Role="Factory" EntitySet="Factory" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_ToTable_1" Association="Self.FK_Equipment_ToTable_1">
+            <End Role="IoTDevice" EntitySet="IoTDevice" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Equipment_ToTable_2" Association="Self.FK_Equipment_ToTable_2">
+            <End Role="EquipmentClass" EntitySet="EquipmentClass" />
+            <End Role="Equipment" EntitySet="Equipment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factory_ToTable_1" Association="Self.FK_Factory_ToTable_1">
+            <End Role="RefCultureInfo" EntitySet="RefCultureInfo" />
+            <End Role="Factory" EntitySet="Factory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IoTDevice_ToTable_2" Association="Self.FK_IoTDevice_ToTable_2">
+            <End Role="Factory" EntitySet="Factory" />
+            <End Role="IoTDevice" EntitySet="IoTDevice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IoTDevice_ToTable" Association="Self.FK_IoTDevice_ToTable">
+            <End Role="IoTHub" EntitySet="IoTHub" />
+            <End Role="IoTDevice" EntitySet="IoTDevice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable" Association="Self.FK_Table_ToTable">
+            <End Role="IoTDevice" EntitySet="IoTDevice" />
+            <End Role="IoTDeviceMessageCatalog" EntitySet="IoTDeviceMessageCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable_1" Association="Self.FK_Table_ToTable_1">
+            <End Role="MessageCatalog" EntitySet="MessageCatalog" />
+            <End Role="IoTDeviceMessageCatalog" EntitySet="IoTDeviceMessageCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MessageElement_ToTable" Association="Self.FK_MessageElement_ToTable">
+            <End Role="MessageCatalog" EntitySet="MessageCatalog" />
+            <End Role="MessageElement" EntitySet="MessageElement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WidgetCatalog_ToTable_2" Association="Self.FK_WidgetCatalog_ToTable_2">
+            <End Role="MessageCatalog" EntitySet="MessageCatalog" />
+            <End Role="WidgetCatalog" EntitySet="WidgetCatalog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRolePermission_ToTable_1" Association="Self.FK_UserRolePermission_ToTable_1">
+            <End Role="PermissionCatalog" EntitySet="PermissionCatalog" />
+            <End Role="UserRolePermission" EntitySet="UserRolePermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRolePermission_ToTable" Association="Self.FK_UserRolePermission_ToTable">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="UserRolePermission" EntitySet="UserRolePermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WidgetCatalog_ToTable" Association="Self.FK_WidgetCatalog_ToTable">
+            <End Role="WidgetClass" EntitySet="WidgetClass" />
+            <End Role="WidgetCatalog" EntitySet="WidgetCatalog" />
+          </AssociationSet>
+          <EntitySet Name="MetaDataDefination" EntityType="SFDatabaseEntitiesModel.MetaDataDefination" />
+          <EntitySet Name="MetaDataValue" EntityType="SFDatabaseEntitiesModel.MetaDataValue" />
+          <AssociationSet Name="FK_MetaDataDefination_ToTable" Association="SFDatabaseEntitiesModel.FK_MetaDataDefination_ToTable">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="MetaDataDefination" EntitySet="MetaDataDefination" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MetaDataValue_ToTable" Association="SFDatabaseEntitiesModel.FK_MetaDataValue_ToTable">
+            <End Role="MetaDataDefination" EntitySet="MetaDataDefination" />
+            <End Role="MetaDataValue" EntitySet="MetaDataValue" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="MetaDataDefination">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" Nullable="false" />
+          <Property Name="EntityType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ObjectName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Company" Relationship="SFDatabaseEntitiesModel.FK_MetaDataDefination_ToTable" FromRole="MetaDataDefination" ToRole="Company" />
+          <NavigationProperty Name="MetaDataValue" Relationship="SFDatabaseEntitiesModel.FK_MetaDataValue_ToTable" FromRole="MetaDataDefination" ToRole="MetaDataValue" />
+        </EntityType>
+        <EntityType Name="MetaDataValue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MetaDataDefinationId" Type="Int32" Nullable="false" />
+          <Property Name="ObjectValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReferenceId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MetaDataDefination" Relationship="SFDatabaseEntitiesModel.FK_MetaDataValue_ToTable" FromRole="MetaDataValue" ToRole="MetaDataDefination" />
+        </EntityType>
+        <Association Name="FK_MetaDataDefination_ToTable">
+          <End Type="SFDatabaseEntitiesModel.Company" Role="Company" Multiplicity="1" />
+          <End Type="SFDatabaseEntitiesModel.MetaDataDefination" Role="MetaDataDefination" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MetaDataDefination">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MetaDataValue_ToTable">
+          <End Type="SFDatabaseEntitiesModel.MetaDataDefination" Role="MetaDataDefination" Multiplicity="1" />
+          <End Type="SFDatabaseEntitiesModel.MetaDataValue" Role="MetaDataValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MetaDataDefination">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MetaDataValue">
+              <PropertyRef Name="MetaDataDefinationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SFDatabaseEntitiesModelStoreContainer" CdmEntityContainer="SFDatabaseEntities">
+          <EntitySetMapping Name="AlarmNotification">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.AlarmNotification">
+              <MappingFragment StoreEntitySet="AlarmNotification">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AlarmRuleCatalogId" ColumnName="AlarmRuleCatalogId" />
+                <ScalarProperty Name="ExternalApplicationId" ColumnName="ExternalApplicationId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlarmRuleCatalog">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.AlarmRuleCatalog">
+              <MappingFragment StoreEntitySet="AlarmRuleCatalog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="MessageCatalogId" ColumnName="MessageCatalogId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="KeepHappenInSec" ColumnName="KeepHappenInSec" />
+                <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlarmRuleItem">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.AlarmRuleItem">
+              <MappingFragment StoreEntitySet="AlarmRuleItem">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AlarmRuleCatalogId" ColumnName="AlarmRuleCatalogId" />
+                <ScalarProperty Name="Ordering" ColumnName="Ordering" />
+                <ScalarProperty Name="MessageElementParentId" ColumnName="MessageElementParentId" />
+                <ScalarProperty Name="MessageElementId" ColumnName="MessageElementId" />
+                <ScalarProperty Name="EqualOperation" ColumnName="EqualOperation" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="BitWiseOperation" ColumnName="BitWiseOperation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Company">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CompanyWebSite" ColumnName="CompanyWebSite" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="LogoURL" ColumnName="LogoURL" />
+                <ScalarProperty Name="CultureInfo" ColumnName="CultureInfo" />
+                <ScalarProperty Name="DocDBConnectionString" ColumnName="DocDBConnectionString" />
+                <ScalarProperty Name="AllowDomain" ColumnName="AllowDomain" />
+                <ScalarProperty Name="ExtAppAuthenticationKey" ColumnName="ExtAppAuthenticationKey" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dashboard">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.Dashboard">
+              <MappingFragment StoreEntitySet="Dashboard">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="DashboardType" ColumnName="DashboardType" />
+                <ScalarProperty Name="FactoryID" ColumnName="FactoryID" />
+                <ScalarProperty Name="EquipmentClassID" ColumnName="EquipmentClassID" />
+                <ScalarProperty Name="EquipmentID" ColumnName="EquipmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DashboardWidgets">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.DashboardWidgets">
+              <MappingFragment StoreEntitySet="DashboardWidgets">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DashboardID" ColumnName="DashboardID" />
+                <ScalarProperty Name="WidgetCatalogID" ColumnName="WidgetCatalogID" />
+                <ScalarProperty Name="RowNo" ColumnName="RowNo" />
+                <ScalarProperty Name="ColumnSeq" ColumnName="ColumnSeq" />
+                <ScalarProperty Name="WidthSpace" ColumnName="WidthSpace" />
+                <ScalarProperty Name="HeightPixel" ColumnName="HeightPixel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeviceCertificate">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.DeviceCertificate">
+              <MappingFragment StoreEntitySet="DeviceCertificate">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Thumbprint" ColumnName="Thumbprint" />
+                <ScalarProperty Name="PFXPassword" ColumnName="PFXPassword" />
+                <ScalarProperty Name="ExpiredAt" ColumnName="ExpiredAt" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeviceType">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.DeviceType">
+              <MappingFragment StoreEntitySet="DeviceType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="EmployeeNumber" ColumnName="EmployeeNumber" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhotoURL" ColumnName="PhotoURL" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="AdminFlag" ColumnName="AdminFlag" />
+                <ScalarProperty Name="Lang" ColumnName="Lang" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeInRole">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.EmployeeInRole">
+              <MappingFragment StoreEntitySet="EmployeeInRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipment">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.Equipment">
+              <MappingFragment StoreEntitySet="Equipment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EquipmentId" ColumnName="EquipmentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EquipmentClassId" ColumnName="EquipmentClassId" />
+                <ScalarProperty Name="FactoryId" ColumnName="FactoryId" />
+                <ScalarProperty Name="IoTHubDeviceID" ColumnName="IoTHubDeviceID" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="MaxIdleInSec" ColumnName="MaxIdleInSec" />
+                <ScalarProperty Name="PhotoURL" ColumnName="PhotoURL" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EquipmentClass">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.EquipmentClass">
+              <MappingFragment StoreEntitySet="EquipmentClass">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExternalApplication">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.ExternalApplication">
+              <MappingFragment StoreEntitySet="ExternalApplication">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="MessageTemplate" ColumnName="MessageTemplate" />
+                <ScalarProperty Name="TargetType" ColumnName="TargetType" />
+                <ScalarProperty Name="Method" ColumnName="Method" />
+                <ScalarProperty Name="ServiceURL" ColumnName="ServiceURL" />
+                <ScalarProperty Name="AuthType" ColumnName="AuthType" />
+                <ScalarProperty Name="AuthID" ColumnName="AuthID" />
+                <ScalarProperty Name="AuthPW" ColumnName="AuthPW" />
+                <ScalarProperty Name="TokenURL" ColumnName="TokenURL" />
+                <ScalarProperty Name="HeaderValues" ColumnName="HeaderValues" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExternalDashboard">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.ExternalDashboard">
+              <MappingFragment StoreEntitySet="ExternalDashboard">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Factory">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.Factory">
+              <MappingFragment StoreEntitySet="Factory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="PhotoURL" ColumnName="PhotoURL" />
+                <ScalarProperty Name="TimeZone" ColumnName="TimeZone" />
+                <ScalarProperty Name="CultureInfo" ColumnName="CultureInfo" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IoTDevice">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.IoTDevice">
+              <MappingFragment StoreEntitySet="IoTDevice">
+                <ScalarProperty Name="EnableMessageConvert" ColumnName="EnableMessageConvert" />
+                <ScalarProperty Name="MessageConvertScript" ColumnName="MessageConvertScript" />
+                <ScalarProperty Name="IoTHubDeviceID" ColumnName="IoTHubDeviceID" />
+                <ScalarProperty Name="IoTHubDevicePW" ColumnName="IoTHubDevicePW" />
+                <ScalarProperty Name="IoTHubDeviceKey" ColumnName="IoTHubDeviceKey" />
+                <ScalarProperty Name="IoTHubAlias" ColumnName="IoTHubAlias" />
+                <ScalarProperty Name="IoTHubProtocol" ColumnName="IoTHubProtocol" />
+                <ScalarProperty Name="FactoryID" ColumnName="FactoryID" />
+                <ScalarProperty Name="AuthenticationType" ColumnName="AuthenticationType" />
+                <ScalarProperty Name="DeviceCertificateID" ColumnName="DeviceCertificateID" />
+                <ScalarProperty Name="DeviceTypeId" ColumnName="DeviceTypeId" />
+                <ScalarProperty Name="DeviceVendor" ColumnName="DeviceVendor" />
+                <ScalarProperty Name="DeviceModel" ColumnName="DeviceModel" />
+                <ScalarProperty Name="DeviceTwinsDesired" ColumnName="DeviceTwinsDesired" />
+                <ScalarProperty Name="DeviceTwinsReported" ColumnName="DeviceTwinsReported" />
+                <ScalarProperty Name="DeviceConfigurationStatus" ColumnName="DeviceConfigurationStatus" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IoTDeviceConfiguration">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.IoTDeviceConfiguration">
+              <MappingFragment StoreEntitySet="IoTDeviceConfiguration">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IoTDeviceCustomizedConfiguration">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.IoTDeviceCustomizedConfiguration">
+              <MappingFragment StoreEntitySet="IoTDeviceCustomizedConfiguration">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DataType" ColumnName="DataType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+                <ScalarProperty Name="DeleteFlag" ColumnName="DeleteFlag" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IoTDeviceMessageCatalog">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.IoTDeviceMessageCatalog">
+              <MappingFragment StoreEntitySet="IoTDeviceMessageCatalog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IoTHubDeviceID" ColumnName="IoTHubDeviceID" />
+                <ScalarProperty Name="MessageCatalogID" ColumnName="MessageCatalogID" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IoTHub">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.IoTHub">
+              <MappingFragment StoreEntitySet="IoTHub">
+                <ScalarProperty Name="IoTHubAlias" ColumnName="IoTHubAlias" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="P_IoTHubEndPoint" ColumnName="P_IoTHubEndPoint" />
+                <ScalarProperty Name="P_IoTHubConnectionString" ColumnName="P_IoTHubConnectionString" />
+                <ScalarProperty Name="P_EventConsumerGroup" ColumnName="P_EventConsumerGroup" />
+                <ScalarProperty Name="P_EventHubStorageConnectionString" ColumnName="P_EventHubStorageConnectionString" />
+                <ScalarProperty Name="P_UploadContainer" ColumnName="P_UploadContainer" />
+                <ScalarProperty Name="S_IoTHubEndPoint" ColumnName="S_IoTHubEndPoint" />
+                <ScalarProperty Name="S_IoTHubConnectionString" ColumnName="S_IoTHubConnectionString" />
+                <ScalarProperty Name="S_EventConsumerGroup" ColumnName="S_EventConsumerGroup" />
+                <ScalarProperty Name="S_EventHubStorageConnectionString" ColumnName="S_EventHubStorageConnectionString" />
+                <ScalarProperty Name="S_UploadContainer" ColumnName="S_UploadContainer" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MessageCatalog">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.MessageCatalog">
+              <MappingFragment StoreEntitySet="MessageCatalog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ChildMessageFlag" ColumnName="ChildMessageFlag" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MessageElement">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.MessageElement">
+              <MappingFragment StoreEntitySet="MessageElement">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MessageCatalogID" ColumnName="MessageCatalogID" />
+                <ScalarProperty Name="ElementName" ColumnName="ElementName" />
+                <ScalarProperty Name="ElementDataType" ColumnName="ElementDataType" />
+                <ScalarProperty Name="ChildMessageCatalogID" ColumnName="ChildMessageCatalogID" />
+                <ScalarProperty Name="MandatoryFlag" ColumnName="MandatoryFlag" />
+                <ScalarProperty Name="SFMandatoryFlag" ColumnName="SFMandatoryFlag" />
+                <ScalarProperty Name="ShowOnEquipmentList" ColumnName="ShowOnEquipmentList" />
+                <ScalarProperty Name="ShowOnFactoryBoard" ColumnName="ShowOnFactoryBoard" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MessageMandatoryElementDef">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.MessageMandatoryElementDef">
+              <MappingFragment StoreEntitySet="MessageMandatoryElementDef">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ElementName" ColumnName="ElementName" />
+                <ScalarProperty Name="ElementDataType" ColumnName="ElementDataType" />
+                <ScalarProperty Name="MandatoryFlag" ColumnName="MandatoryFlag" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OperationTask">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.OperationTask">
+              <MappingFragment StoreEntitySet="OperationTask">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TaskStatus" ColumnName="TaskStatus" />
+                <ScalarProperty Name="CompletedAt" ColumnName="CompletedAt" />
+                <ScalarProperty Name="RetryCounter" ColumnName="RetryCounter" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Entity" ColumnName="Entity" />
+                <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+                <ScalarProperty Name="TaskContent" ColumnName="TaskContent" />
+                <ScalarProperty Name="TaskLog" ColumnName="TaskLog" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermissionCatalog">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.PermissionCatalog">
+              <MappingFragment StoreEntitySet="PermissionCatalog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefCultureInfo">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.RefCultureInfo">
+              <MappingFragment StoreEntitySet="RefCultureInfo">
+                <ScalarProperty Name="CultureCode" ColumnName="CultureCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuperAdmin">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.SuperAdmin">
+              <MappingFragment StoreEntitySet="SuperAdmin">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsageLog">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.UsageLog">
+              <MappingFragment StoreEntitySet="UsageLog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="FactoryQty" ColumnName="FactoryQty" />
+                <ScalarProperty Name="EquipmentQty" ColumnName="EquipmentQty" />
+                <ScalarProperty Name="DeviceMessage" ColumnName="DeviceMessage" />
+                <ScalarProperty Name="AlarmMessage" ColumnName="AlarmMessage" />
+                <ScalarProperty Name="DocSizeInGB" ColumnName="DocSizeInGB" />
+                <ScalarProperty Name="DocDBPercentage" ColumnName="DocDBPercentage" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRole">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRolePermission">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.UserRolePermission">
+              <MappingFragment StoreEntitySet="UserRolePermission">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserRoleID" ColumnName="UserRoleID" />
+                <ScalarProperty Name="PermissionCatalogID" ColumnName="PermissionCatalogID" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WidgetCatalog">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.WidgetCatalog">
+              <MappingFragment StoreEntitySet="WidgetCatalog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="MessageCatalogID" ColumnName="MessageCatalogID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="WidgetClassKey" ColumnName="WidgetClassKey" />
+                <ScalarProperty Name="Context" ColumnName="Context" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WidgetClass">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.WidgetClass">
+              <MappingFragment StoreEntitySet="WidgetClass">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="PhotoURL" ColumnName="PhotoURL" />
+                <ScalarProperty Name="MinWidth" ColumnName="MinWidth" />
+                <ScalarProperty Name="MinHeight" ColumnName="MinHeight" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="DeletedFlag" ColumnName="DeletedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsageLogSumByDay">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.UsageLogSumByDay">
+              <MappingFragment StoreEntitySet="UsageLogSumByDay">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyQty" ColumnName="CompanyQty" />
+                <ScalarProperty Name="FactoryQty" ColumnName="FactoryQty" />
+                <ScalarProperty Name="EquipmentQty" ColumnName="EquipmentQty" />
+                <ScalarProperty Name="DeviceMessage" ColumnName="DeviceMessage" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MetaDataDefination">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.MetaDataDefination">
+              <MappingFragment StoreEntitySet="MetaDataDefination">
+                <ScalarProperty Name="ObjectName" ColumnName="ObjectName" />
+                <ScalarProperty Name="EntityType" ColumnName="EntityType" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MetaDataValue">
+            <EntityTypeMapping TypeName="SFDatabaseEntitiesModel.MetaDataValue">
+              <MappingFragment StoreEntitySet="MetaDataValue">
+                <ScalarProperty Name="ReferenceId" ColumnName="ReferenceId" />
+                <ScalarProperty Name="ObjectValue" ColumnName="ObjectValue" />
+                <ScalarProperty Name="MetaDataDefinationId" ColumnName="MetaDataDefinationId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

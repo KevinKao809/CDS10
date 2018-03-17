@@ -1,0 +1,569 @@
+﻿
+
+@{
+    ViewBag.Title = "Setup / Factory Dashboard";
+}
+
+<div class="row">
+    <div class="card-box table-responsive">
+        <div style="float:left">
+            <h4 class="header-title m-t-0 m-b-30">[[[Setup]]] / [[[Factory]]] [[[Dashboard]]]</h4>
+        </div>
+        <div class="col-sm-12">
+            <table id="datatable-responsive" name="factoryDashboardListTable" class="table table-striped table-bordered dt-responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>[[[No]]]</th>
+                        <th>[[[Factory]]] [[[Name]]]</th>
+                        <th>[[[Dashboard]]]</th>
+                    </tr>
+                </thead>
+
+                <tbody id="FactoryDashboardList"></tbody>
+            </table>
+        </div>
+    </div><!-- end col -->
+</div>
+<!-- end row -->
+<div class="row">
+    <div class="panel-group" id="accordionElement" 2 role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default" id="element" style="display:none;">
+            <div class="panel-heading" role="tab" id="headingElement" style="height: 60px;">
+                <a role="button" data-toggle="collapse" data-parent="#accordionElement" href="#collapseElement" aria-expanded="true" aria-controls="collapseElement">
+                </a>
+                <div style="float:left">
+                    <h4 class="header-title m-t-0 m-b-30">Widget Layout Define</h4>
+                </div>
+                <div style="float:right">
+                    <button id="AddNewWidgetButton" type="button" class="btn btn-inverse waves-effect waves-light m-b-5"> <i class="ti-plus m-r-5"></i> <span>[[[Add]]] [[[Widget]]]</span> </button>
+                </div>
+            </div>
+
+            <div id="collapseElement" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingElement">
+                <div class="panel-body">
+                    <table id="elementListTable" class="table table-striped table-bordered dt-responsive nowrap">
+                        <thead>
+                            <tr>
+                                <th>[[[No]]]</th>
+                                <th>[[[Row No]]]</th>
+                                <th>[[[Column No]]]</th>
+                                <th>[[[Widget Name]]]</th>
+                                <th>[[[Width Space]]]</th>
+                                <th>[[[Height Pixel]]]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="WidgetList"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+
+<div class="row" id="panel_detail" style="display:none;">
+    <div class="panel-group" id="accordion" 2 role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingDetail" style="height: 60px;">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDetail" aria-expanded="true" aria-controls="collapseDetail">
+                </a>
+                <div style="float:left">
+                    <h4 id="EditingPanelTitle" class="header-title m-t-0 m-b-30">Detail</h4>
+                </div>
+                <div style="float:right">
+                    <button id="DeleteWidgetButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px;"> <i class="ti-trash m-r-5"></i> <span>[[[Delete]]]</span> </button>
+                    <button id="UpdateWidgetButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px;"> <i class="ti-save m-r-5"></i> <span>[[[Save]]]</span> </button>
+                    <button id="CancelAddNewWidgetButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px; display:none"> <i class="ti-close m-r-5"></i> <span>[[[Cancel]]]</span> </button>
+                    <button id="SubmitNewWidgetButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px; display:none"> <i class="ti-location-arrow m-r-5"></i> <span>[[[Submit]]]</span> </button>
+                </div>
+            </div>
+
+            <div id="collapseDetail" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingDetail">
+                <div class="panel-body">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-sm-4">
+                            <img id="imgPhotoURL" src="/assets/images/widget/Default.JPG" class="img-responsive" alt="Photo" style="max-width: 320px; height: inherit; padding-bottom: 15px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <form id="factoryDashboard-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cRowNo" class="col-sm-4 control-label">
+                                            [[[Row No]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input id="cRowNo" type="text" class="form-control" placeholder="Row No" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cColumnNo" class="col-sm-4 control-label">
+                                            [[[Column No]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input id="cColumnNo" type="text" class="form-control" placeholder="Column No" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mWidgetCatalog" class="col-sm-4 control-label">
+                                            [[[Widget Name]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <select id="mWidgetCatalog" class="form-control"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="mWidthSpace" class="col-sm-4 control-label">
+                                            [[[Width Space]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <select id="mWidthSpace" class="form-control"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mHeightPixel" class="col-sm-4 control-label">
+                                            [[[Height Pixel]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <select id="mHeightPixel" class="form-control"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+
+<script type="text/javascript">
+
+    var _factoryDashboardJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.FactoryDashboardList'));
+    var _widgetCatalogJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.WidgetCatalogList'));
+    var _widgetClassJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.WidgetClassList'));
+    var _widgetInDashboardJSONObjs;
+    var _selectedFactoryDashboardId = -1;
+    var _selectedFactoryId = -1;
+    var _selectedWidgetId = -1;
+
+    function LoadFactoryDashboardListIntoTable() {
+        var factoryDashboardDataSet = $('#datatable-responsive').DataTable();
+        factoryDashboardDataSet.clear().draw(false);
+
+        for (var i in _factoryDashboardJSONObjs) {
+            var DashboardMessage = "Dashboard Undefine";
+            if (_factoryDashboardJSONObjs[i].Id > 0)
+                DashboardMessage = "Ready";
+            factoryDashboardDataSet.row.add([
+                parseInt(i) + 1,
+                _factoryDashboardJSONObjs[i].FactoryName,
+                DashboardMessage,
+            ]).draw(false);
+        }
+        factoryDashboardDataSet.columns.adjust().draw();
+    }
+
+    function LoadWidgetListIntoTable() {
+        var widgetListDataSet = $('#elementListTable').DataTable();
+        widgetListDataSet.clear().draw(false);
+
+        for (var i in _widgetInDashboardJSONObjs) {
+            widgetListDataSet.row.add([
+                parseInt(i) + 1,
+                _widgetInDashboardJSONObjs[i].RowNo,
+                _widgetInDashboardJSONObjs[i].ColumnSeq,
+                _widgetInDashboardJSONObjs[i].WidgetCatalogName,
+                _widgetInDashboardJSONObjs[i].WidthSpace,
+                _widgetInDashboardJSONObjs[i].HeightPixel
+            ]).draw(false);
+        }
+        widgetListDataSet.columns.adjust().draw();
+    }
+
+    function LoadWidgetCatalogIntoForm()
+    {
+        var options = "";
+        for (var i in _widgetCatalogJSONObjs) {
+            options += "<option value='" + _widgetCatalogJSONObjs[i].Id + "'>" + _widgetCatalogJSONObjs[i].Name + "</option>"
+        }
+        document.getElementById("mWidgetCatalog").innerHTML = options;
+    }
+
+    function CleanFormInput() {
+        $("#cRowNo").val('');
+        $('#cColumnNo').val('');
+        $('#mWidgetCatalog').val('');
+        $('#mWidthSpace').val('');
+        $('#mHeightPixel').val('');
+    }
+
+    function OnSelectFactoryClassDashboardItem(factoryDashboardId, FactoryId) {
+        _selectedFactoryDashboardId = factoryDashboardId;
+        _selectedFactoryId = FactoryId;
+        if (factoryDashboardId > 0)
+        {
+            $('#element').css("display", "block");
+            $('#panel_detail').css("display", "none");
+            DoDashboardWidgetTransactionAjax("getdashboardwidgetbyid", _selectedFactoryDashboardId, null);
+        }
+        else
+        {
+            $('#element').css("display", "none");
+            $('#panel_detail').css("display", "none");
+        }
+    }
+    function OnSelectWidgetItem(widgetId) {
+        $('#panel_detail').css("display", "block");
+        $('#EditingPanelTitle').html("[[[Detail]]]");
+
+        $('#DeleteWidgetButton').css("display", "inline");
+        $('#UpdateWidgetButton').css("display", "inline");
+        $('#AddNewWidgetButton').css("display", "inline");
+        $('#CancelAddNewWidgetButton').css("display", "none");
+        $('#SubmitNewWidgetButton').css("display", "none");
+
+        _selectedWidgetId = widgetId;
+        CleanFormInput();
+        for (var i in _widgetInDashboardJSONObjs) {
+            if (_widgetInDashboardJSONObjs[i].Id == _selectedWidgetId) {
+                $('#cRowNo').val(_widgetInDashboardJSONObjs[i].RowNo);
+                $('#cColumnNo').val(_widgetInDashboardJSONObjs[i].ColumnSeq);
+                $('#mWidgetCatalog').val(_widgetInDashboardJSONObjs[i].WidgetCatalogId);
+                $('#mWidgetCatalog').trigger("change");
+                $('#mWidthSpace').val(String(_widgetInDashboardJSONObjs[i].WidthSpace));
+                $('#mHeightPixel').val(_widgetInDashboardJSONObjs[i].HeightPixel);
+
+                break;
+            }
+        }
+    }
+
+    function DoDashboardTransactionAjax(actionName, Id, postData) {
+        var endPoint = "/Setup/ReqAction?action=" + actionName;
+        /*  createfactorydashboard */
+        $.ajax({
+            type: "POST",
+            url: endPoint + "&t=" + Date.now(),
+            data: postData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                switch (actionName) {
+                    case "getfactorydashboard":
+                        _factoryDashboardJSONObjs = $.parseJSON(jsonStringFilter(data));
+                        LoadFactoryDashboardListIntoTable();
+                        break;
+                    default:
+                        DoDashboardTransactionAjax("getfactorydashboard", -1, null);
+                        toastr["success"]("[[[Action Completed]]]. (" + data + ")");
+                        break;
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    function DoDashboardWidgetTransactionAjax(actionName, Id, postData) {
+        var endPoint = "/Setup/ReqAction?action=" + actionName;
+        if (postData != null) postData.append('DashboardId', _selectedFactoryDashboardId);
+
+        if (Id != -1)
+            endPoint = endPoint + "&Id=" + Id;
+        $.ajax({
+            type: "POST",
+            url: endPoint + "&t=" + Date.now(),
+            data: postData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                switch (actionName) {
+                    case "getdashboardwidgetbyid":
+                        _widgetInDashboardJSONObjs = $.parseJSON(jsonStringFilter(data));
+                        LoadWidgetListIntoTable();
+                        break;
+                    default:
+                        DoDashboardWidgetTransactionAjax("getdashboardwidgetbyid", _selectedFactoryDashboardId, null);
+                        _selectedWidgetId = -1;
+                        toastr["success"]("[[[Action Completed]]]. (" + data + ")");
+                        break;
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    TableManageButtons.init();
+    LoadFactoryDashboardListIntoTable();
+    LoadWidgetCatalogIntoForm();
+
+    $(document).ready(function () {
+        var table = $('#datatable-responsive').DataTable();
+        $('#datatable-responsive #FactoryDashboardList').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                table.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+            OnSelectFactoryClassDashboardItem(_factoryDashboardJSONObjs[table.row(this).index()].Id, _factoryDashboardJSONObjs[table.row(this).index()].FactoryId);
+        });
+
+        var eletable = $('#elementListTable').DataTable();
+        $('#elementListTable #WidgetList').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                eletable.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+            OnSelectWidgetItem(_widgetInDashboardJSONObjs[eletable.row(this).index()].Id);
+
+        });
+
+        function dataValidation(postData) {
+            if ($("#cRowNo").val().length != 0) {
+                postData.append('RowNo', $("#cRowNo").val());
+            } else {
+                $("#cRowNo").focus();
+                swal("[[[Invalid]]] !", "[[[Row No]]] [[[is necessary]]].");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+            if ($("#cColumnNo").val().length != 0) {
+                postData.append('ColumnSeq', $("#cColumnNo").val());
+            } else {
+                $("#cColumnNo").focus();
+                swal("[[[Invalid]]] !", "[[[Column No]]] [[[is necessary]]].");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+            if ($("#mWidgetCatalog").val().length != 0) {
+                postData.append('WidgetCatalogId', $("#mWidgetCatalog").val());
+            } else {
+                $("#mWidgetCatalog").focus();
+                swal("[[[Invalid]]] !", "[[[Widget is necessary]]].");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+            if ($("#mWidthSpace").val().length != 0) {
+                postData.append('WidthSpace', $("#mWidthSpace").val());
+            } else {
+                $("#mWidthSpace").focus();
+                swal("[[[Invalid]]] !", "[[[Width Space]]] [[[is necessary]]].");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+            if ($("#mHeightPixel").val().length != 0) {
+                postData.append('HeightPixel', $("#mHeightPixel").val());
+            } else {
+                $("#mHeightPixel").focus();
+                swal("[[[Invalid]]] !", "[[[Height Pixel]]] [[[is necessary]]].");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+            return {
+                postData: postData,
+                isValidated: true
+            }
+        }
+
+        $('#AddNewWidgetButton').click(function () {
+            $('#panel_detail').css("display", "block");
+
+            $('#EditingPanelTitle').html("[[[Add New]]] [[[Widget]]]");
+            $('#DeleteWidgetButton').css("display", "none");
+            $('#UpdateWidgetButton').css("display", "none");
+
+            $('#CancelAddNewWidgetButton').css("display", "inline");
+            $('#SubmitNewWidgetButton').css("display", "inline");
+            $('#AddNewWidgetButton').css("display", "none");
+            CleanFormInput();
+            $("#cRowNo").focus();
+        });
+
+        $('#CancelAddNewWidgetButton').click(function () {
+            $('#panel_detail').css("display", "none");
+            $('#EditingPanelTitle').html("[[[Detail]]]");
+            $('#DeleteWidgetButton').css("display", "inline");
+            $('#UpdateWidgetButton').css("display", "inline");
+            $('#CancelAddNewWidgetButton').css("display", "none");
+            $('#SubmitNewWidgetButton').css("display", "none");
+
+            $('#AddNewWidgetButton').css("display", "inline");
+            CleanFormInput();
+            window.scrollTo(0, 0);
+        });
+
+        $('#SubmitNewWidgetButton').click(function () {
+            var postData = new FormData();
+            var result = dataValidation(postData);
+
+            if (result.isValidated) {
+                swal({
+                    title: "[[[Are you sure]]]?",
+                    text: "",
+                    type: "success",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-success waves-effect waves-light',
+                    confirmButtonText: '[[[Submit]]]!'
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        DoDashboardWidgetTransactionAjax("addwidgetintodashboard", -1, result.postData);
+
+                        $('#panel_detail').css("display", "none");
+                        $('#EditingPanelTitle').html("[[[Detail]]]");
+                        $('#DeleteWidgetButton').css("display", "inline");
+                        $('#UpdateWidgetButton').css("display", "inline");
+                        $('#CancelAddNewWidgetButton').css("display", "none");
+                        $('#SubmitNewWidgetButton').css("display", "none");
+
+                        $('#AddNewWidgetButton').css("display", "inline");
+
+                        CleanFormInput();
+                        window.scrollTo(0, 0);
+                    }
+                });
+            }
+        });
+
+        $('#DeleteWidgetButton').click(function () {
+            if (_selectedWidgetId < 0)
+                toastr["error"]("[[[No Widget Select]]].");
+            else {
+                swal({
+                    title: "[[[Are you sure]]]?",
+                    text: "",
+                    type: "error",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-danger waves-effect waves-light',
+                    confirmButtonText: '[[[Delete]]]!'
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        DoDashboardWidgetTransactionAjax("deletwidgetfromdashboard", _selectedWidgetId, null);
+                        CleanFormInput();
+                        $('#panel_detail').css("display", "none");
+                        window.scrollTo(0, 0);
+                    }
+                });
+            }
+        });
+
+        $('#UpdateWidgetButton').click(function () {
+            if (_selectedWidgetId < 0)
+                toastr["error"]("[[[No Widget Select]]].");
+            else {
+                var postData = new FormData();
+                var result = dataValidation(postData);
+
+                if(result.isValidated){
+                    swal({
+                        title: "[[[Are you sure]]]?",
+                        text: "",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonClass: 'btn-warning waves-effect waves-light',
+                        confirmButtonText: '[[[Update]]]!'
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            DoDashboardWidgetTransactionAjax("updatewidgetindashboard", _selectedWidgetId, result.postData);
+                            $('#panel_detail').css("display", "none");
+                        }
+                    });
+                }
+            }
+        });
+
+        $('#mWidgetCatalog').change(function () {
+            var WidgetClassName;
+            for (var i in _widgetCatalogJSONObjs) {
+                if ($('#mWidgetCatalog').val() == _widgetCatalogJSONObjs[i].Id)
+                {
+                    WidgetClassName = _widgetCatalogJSONObjs[i].WidgetClassName;
+                    break;
+                }
+            }
+            var MinWidth = 0, MinHeight = 0, WidgetPhotoURL = "";
+            for (var i in _widgetClassJSONObjs) {
+                if (WidgetClassName == _widgetClassJSONObjs[i].Name) {
+                    MinWidth = _widgetClassJSONObjs[i].MinWidth;
+                    MinHeight = _widgetClassJSONObjs[i].MinHeight;
+                    WidgetPhotoURL = _widgetClassJSONObjs[i].PhotoURL;
+                    break;
+                }
+            }
+
+            //$('#imgPhotoURL').prop('src', WidgetPhotoURL);
+
+            var options = "";
+            if (MinWidth <= 3)
+                options = options + '<option value="3">3 / 12</option>';
+            if (MinWidth <= 4)
+                options = options + '<option value="4">4 / 12</option>';
+            if (MinWidth <= 6)
+                options = options + '<option value="6">6 / 12</option>';
+            if (MinWidth <= 8)
+                options = options + '<option value="8">8 / 12</option>';
+            if (MinWidth <= 9)
+                options = options + '<option value="9">9 / 12</option>';
+            options = options + '<option value="12">12 / 12</option>';
+            document.getElementById("mWidthSpace").innerHTML = options;
+
+            var options = "";
+            if (MinHeight <= 120)
+                options = options + '<option value="120">120</option>';
+            if (MinHeight <= 160)
+                options = options + '<option value="160">160</option>';
+            if (MinHeight <= 180)
+                options = options + '<option value="180">180</option>';
+            if (MinHeight <= 200)
+                options = options + '<option value="200">200</option>';
+            if (MinHeight <= 240)
+                options = options + '<option value="240">240</option>';
+            options = options + '<option value="300">300</option>';
+            document.getElementById("mHeightPixel").innerHTML = options;
+        });
+    });
+</script>
+
+
+

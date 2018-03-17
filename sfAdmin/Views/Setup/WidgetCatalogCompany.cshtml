@@ -1,0 +1,1333 @@
+﻿
+
+@{
+    ViewBag.Title = "Setup / Widget Catalog - Company";
+}
+
+<div class="row">
+    <div class="card-box table-responsive">
+        <div style="float:left">
+            <h4 class="header-title m-t-0 m-b-30">[[[Setup]]] / [[[Widget Catalog - Company]]]</h4>
+        </div>
+        <div style="float:right">
+            <button id="AddNewWidgetCatalogButton" type="button" class="btn btn-inverse waves-effect waves-light m-b-5"> <i class="ti-plus m-r-5"></i> <span>[[[Add]]] [[[Widget Catalog]]]</span> </button>
+        </div>
+        <div class="col-sm-12">
+            <table id="datatable-responsive" name="widgetCatalogListTable" class="table table-striped table-bordered dt-responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>[[[No]]]</th>
+                        <th>[[[Visual Type]]]</th>
+                        <th>[[[Name]]]</th>
+                    </tr>
+                </thead>
+
+                <tbody id="WidgetCatalogList"></tbody>
+            </table>
+        </div>
+    </div><!-- end col -->
+</div>
+<!-- end row -->
+<!-- Start Detail Panel -->
+<div class="row" id="panel_detail" style="display:none;">
+    <div class="panel-group" id="accordion" 2 role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingDetail" style="height: 60px;">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDetail" aria-expanded="true" aria-controls="collapseDetail">
+                </a>
+                <div style="float:left">
+                    <h4 id="EditingPanelTitle" class="header-title m-t-0 m-b-30">[[[Detail]]]</h4>
+                </div>
+                <div style="float:right">
+                    <button id="EditWidgetContextButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:128px;"> <i class="ti-ruler-pencil m-r-5"></i> <span>[[[Edit]]] [[[Content]]]</span> </button>
+                    <button id="DeleteWidgetCatalogButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px;"> <i class="ti-trash m-r-5"></i> <span>[[[Delete]]]</span> </button>
+                    <button id="UpdateWidgetCatalogButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px;"> <i class="ti-save m-r-5"></i> <span>[[[Save]]]</span> </button>
+                    <button id="CancelAddNewWidgetCatalogButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px; display:none"> <i class="ti-close m-r-5"></i> <span>[[[Cancel]]]</span> </button>
+                    <button id="SubmitNewWidgetCatalogButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px; display:none"> <i class="ti-location-arrow m-r-5"></i> <span>[[[Submit]]]</span> </button>
+                </div>
+            </div>
+
+            <div id="collapseDetail" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingDetail">
+                <div class="panel-body">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-sm-4">
+                            <img id="imgPhotoURL" src="/assets/images/widget/Default.JPG" class="img-responsive" alt="Photo" style="max-width: 320px; height: inherit; padding-bottom: 15px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <form id="widgetCatalog-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label for="cWidgetClassName" class="col-sm-3 control-label">
+                                            [[[Visual Type]]](*)
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <select id="cWidgetClassName" class="form-control" required></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cName" class="col-sm-3 control-label">
+                                            [[[Name]]](*)
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input id="cName" type="text" class="form-control" placeholder="[[[Name]]]" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="messageCatalogDiv" style="display:none">
+                                        <label for="cMessageCatalogID" class="col-sm-3 control-label">
+                                            [[[Message Catalog]]] (*)
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <select id="cMessageCatalogID" class="form-control" required></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end Detail Panel -->
+<!-- Start Widget Context Panel -->
+<div class="row" id="panel_widgetContext" style="display:none;">
+    <div class="panel-group" id="accordion" 2 role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingDetail" style="height: 60px;">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDetail" aria-expanded="true" aria-controls="collapseDetail">
+                </a>
+                <div style="float:left">
+                    <h4 id="WidgetContextPanelTitle" class="header-title m-t-0 m-b-30">[[[Line Chart Define]]]</h4>
+                </div>
+                <div style="float:right">
+                    <button id="UpdateWidgetContextButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px;"> <i class="ti-save m-r-5"></i> <span>[[[Save]]]</span> </button>
+                </div>
+            </div>
+
+            <div id="collapseDetail" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingDetail">
+                <div class="panel-body">
+                    <div class="col-sm-3">
+                    </div>
+                    <!-- Alarm Card Start 100-->
+                    <div id="WidgetAlarmCardDefine" class="row" style="margin-top: 10px;">
+                        <div class="col-sm-4">
+                            <img id="AlarmCardURL" src="/assets/images/widget/Default.JPG" class="img-responsive" alt="Photo" style="max-width: 320px; height: inherit; padding-bottom: 15px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <form id="AlarmCard-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cAlarmCardTitle" class="col-sm-4 control-label">
+                                            [[[Title]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input id="cAlarmCardTitle" type="text" class="form-control" placeholder="[[[Title]]]" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>  <!-- End of Alarm Card -->
+                    <!-- Alarm List Start 101-->
+                    <div id="WidgetAlarmListDefine" class="row" style="margin-top: 10px;">
+                        <div class="col-sm-4">
+                            <img id="AlarmListURL" src="/assets/images/widget/Default.JPG" class="img-responsive" alt="Photo" style="max-width: 320px; height: inherit; padding-bottom: 15px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <form id="AlarmList-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cAlarmListTitle" class="col-sm-4 control-label">
+                                            [[[Title]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input id="cAlarmListTitle" type="text" class="form-control" placeholder="[[[Title]]]" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cAlarmListDataRange" class="col-sm-4 control-label">
+                                            [[[Alarm Data Range]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <select id="cAlarmListDataRange" class="form-control" required>
+                                                <option value="6">6 hours</option>
+                                                <option value="24">24 hours</option>
+                                                <option value="168">7 days</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>  <!-- End of Alarm List -->
+                    <!-- Equipment Card Start 102-->
+                    <div id="WidgetEquipmentCardDefine" class="row" style="margin-top: 10px;">
+                        <div class="col-sm-4">
+                            <img id="EquipmentCardURL" src="/assets/images/widget/Default.JPG" class="img-responsive" alt="Photo" style="max-width: 320px; height: inherit; padding-bottom: 15px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <form id="EquipmentCard-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cEquipmentCardTitle" class="col-sm-4 control-label">
+                                            [[[Title]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input id="cEquipmentCardTitle" type="text" class="form-control" placeholder="[[[Title]]]" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>  <!-- End of Equipment Card -->
+                    <!-- Factory Card Start 103 -->
+                    <div id="WidgetFactoryCardDefine" class="row" style="margin-top: 10px;">
+                        <div class="col-sm-4">
+                            <img id="FactoryCardURL" src="/assets/images/widget/Default.JPG" class="img-responsive" alt="Photo" style="max-width: 320px; height: inherit; padding-bottom: 15px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <form id="FactoryCard-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="cFactoryCardTitle" class="col-sm-4 control-label">
+                                            [[[Title]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input id="cFactoryCardTitle" type="text" class="form-control" placeholder="[[[Title]]]" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>  <!-- End of Factory Card -->
+                    <!-- Factory List Start 104-->
+                    <div id="WidgetFactoryListDefine" class="row" style="margin-top: 10px;">
+                        <div class="col-sm-4">
+                            <img id="FactoryListURL" src="/assets/images/widget/Default.JPG" class="img-responsive" alt="Photo" style="max-width: 320px; height: inherit; padding-bottom: 15px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <form id="FactoryList-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label for="cFactoryListTitle" class="col-sm-4 control-label">
+                                            [[[Title]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input id="cFactoryListTitle" type="text" class="form-control" placeholder="[[[Title]]]" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>  <!-- End of Factory List -->
+                    <!-- Map Card Start 105 -->
+                    <div id="WidgetMapCardDefine" class="row" style="margin-top: 10px;">
+                        <div class="col-sm-4">
+                            <img id="MapCardURL" src="/assets/images/widget/Default.JPG" class="img-responsive" alt="Photo" style="max-width: 320px; height: inherit; padding-bottom: 15px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <form id="MapCard-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label for="cMapCardTitle" class="col-sm-4 control-label">
+                                            [[[Title]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input id="cMapCardTitle" type="text" class="form-control" placeholder="[[[Title]]]" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label for="cMapProvider" class="col-sm-4 control-label">
+                                            [[[Map Provider]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <select id="cMapProvider" class="form-control" required>
+                                                <option value="Google">Google Map</option>
+                                                <option value="Baidu">Baidu Map</option>                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label for="cInitialMapZoom" class="col-sm-4 control-label">
+                                            [[[Initial Zoom Level]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <select id="cInitialMapZoom" class="form-control" required>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>  <!-- End of  Map Card -->
+                    <!-- Logo Card Start 106-->
+                    <div id="WidgetLogoCardDefine" class="row" style="margin-top: 10px;">
+                        <div class="col-sm-4">
+                            <img id="LogoCardURL" src="/assets/images/widget/Default.JPG" class="img-responsive" alt="Photo" style="max-width: 320px; height: inherit; padding-bottom: 15px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <form id="LogoCard-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label for="cLogoCardTitle" class="col-sm-4 control-label">
+                                            [[[Title]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input id="cLogoCardTitle" type="text" class="form-control" placeholder="[[[Title]]]" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>  <!-- End of Logo Card -->
+                    <!-- HTML Content Card 107 -->
+                    <div id="WidgetHTMLContentDefine" class="row" style="margin-top: 10px;">
+                        <div class="col-sm-4">
+                            <img id="HTMLContentURL" src="/assets/images/widget/Default.JPG" class="img-responsive" alt="Photo" style="max-width: 320px; height: inherit; padding-bottom: 15px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <form id="HTMLContent-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label for="cHTMLContentTitle" class="col-sm-4 control-label">
+                                            [[[Title]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <input id="cHTMLContentTitle" type="text" class="form-control" placeholder="[[[Title]]]" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="divHTMLContentSourceValue">
+                                        <label for="cHTMLContentSourceValue" class="col-sm-4 control-label">
+                                            [[[HTML]]] [[[Content]]] (*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <textarea id="cHTMLContentSourceInputValue" class="form-control" rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>  <!-- End of HTML Static Content Card 107 -->
+                    <!-- Preferred OEE Card Start 108 -->
+                    <div id="WidgetPreferredOEECardtDefine" class="row" style="margin-top: 10px;">
+                        <div class="col-sm-4">
+                            <img id="PreferredOEECardURL" src="/assets/images/widget/Default.JPG" class="img-responsive" alt="Photo" style="max-width: 320px; height: inherit; padding-bottom: 15px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <form id="PreferredOEECard-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="cPreferredOEETitle" class="col-sm-6 control-label">
+                                            [[[Title]]](*)
+                                        </label>
+                                        <div class="col-sm-6">
+                                            <input id="cPreferredOEETitle" type="text" class="form-control" placeholder="[[[Title]]]" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cPreferredOEE_RunTime" class="col-sm-6 control-label">
+                                            Run Time (*)
+                                        </label>
+                                        <div class="col-sm-6">
+                                            <select id="cPreferredOEE_RunTime" class="form-control" required></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cPreferredOEE_PlannedProductionTime" class="col-sm-6 control-label">
+                                            Planned Production Time (*)
+                                        </label>
+                                        <div class="col-sm-6">
+                                            <select id="cPreferredOEE_PlannedProductionTime" class="form-control" required></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cPreferredOEE_ProducedUnits" class="col-sm-6 control-label">
+                                            Produced Units (*)
+                                        </label>
+                                        <div class="col-sm-6">
+                                            <select id="cPreferredOEE_ProducedUnits" class="form-control" required></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cPreferredOEE_ExpectedUnits" class="col-sm-6 control-label">
+                                            Expected Units (*)
+                                        </label>
+                                        <div class="col-sm-6">
+                                            <select id="cPreferredOEE_ExpectedUnits" class="form-control" required></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cPreferredOEE_GoodUnits" class="col-sm-6 control-label">
+                                            Good Units (*)
+                                        </label>
+                                        <div class="col-sm-6">
+                                            <select id="cPreferredOEE_GoodUnits" class="form-control" required></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cPreferredOEE_RejectedUnits" class="col-sm-6 control-label">
+                                            Rejected Units (*)
+                                        </label>
+                                        <div class="col-sm-6">
+                                            <select id="cPreferredOEE_RejectedUnits" class="form-control" required></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Threadshold" class="col-sm-4 control-label">
+                                            OEE [[[Threadshold]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="20%"><div style="background-color:red;padding:20px;" /></td>
+                                                    <td width="20%" align="center" valign="middle"><input id="cPreferredOEEThreadsLow" class="form-control" style="width:60%;" type="text" required /></td>
+                                                    <td width="20%"><div style="background-color:orange;padding:20px;" /></td>
+                                                    <td width="20%" align="center" valign="middle"><input id="cPreferredOEEThreadsHigh" class="form-control" style="width:60%;" type="text" required /></td>
+                                                    <td width="20%"><div style="background-color:forestgreen;padding:20px;" /></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Threadshold" class="col-sm-4 control-label">
+                                            Availability [[[Threadshold]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="20%"><div style="background-color:red;padding:20px;" /></td>
+                                                    <td width="20%" align="center" valign="middle"><input id="cAvailabilityThreadsLow" class="form-control" style="width:60%;" type="text" required /></td>
+                                                    <td width="20%"><div style="background-color:orange;padding:20px;" /></td>
+                                                    <td width="20%" align="center" valign="middle"><input id="cAvailabilityThreadsHigh" class="form-control" style="width:60%;" type="text" required /></td>
+                                                    <td width="20%"><div style="background-color:forestgreen;padding:20px;" /></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Threadshold" class="col-sm-4 control-label">
+                                            Performance [[[Threadshold]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="20%"><div style="background-color:red;padding:20px;" /></td>
+                                                    <td width="20%" align="center" valign="middle"><input id="cPerformanceThreadsLow" class="form-control" style="width:60%;" type="text" required /></td>
+                                                    <td width="20%"><div style="background-color:orange;padding:20px;" /></td>
+                                                    <td width="20%" align="center" valign="middle"><input id="cPerformanceThreadsHigh" class="form-control" style="width:60%;" type="text" required /></td>
+                                                    <td width="20%"><div style="background-color:forestgreen;padding:20px;" /></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Threadshold" class="col-sm-4 control-label">
+                                            Quality [[[Threadshold]]](*)
+                                        </label>
+                                        <div class="col-sm-8">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td width="20%"><div style="background-color:red;padding:20px;" /></td>
+                                                    <td width="20%" align="center" valign="middle"><input id="cQualityThreadsLow" class="form-control" style="width:60%;" type="text" required /></td>
+                                                    <td width="20%"><div style="background-color:orange;padding:20px;" /></td>
+                                                    <td width="20%" align="center" valign="middle"><input id="cQualityThreadsHigh" class="form-control" style="width:60%;" type="text" required /></td>
+                                                    <td width="20%"><div style="background-color:forestgreen;padding:20px;" /></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>  <!-- Preferred OEE Card Start 108 -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end Detail Panel -->
+
+<script type="text/javascript">
+    var _widgetCatalogJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.WidgetCatalogList'));
+    var _widgetClassJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.WidgetClassList'));
+    var _messageCatalogJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.MessageCatalogList'));
+    var _selectedWidgetCatalogId = -1;
+    var _selectedVisualType = "";
+
+    function LoadWidgetCatalogListIntoTable() {
+
+        var widgetCatalogDataSet = $('#datatable-responsive').DataTable();
+        widgetCatalogDataSet.clear();
+
+        for (var i in _widgetCatalogJSONObjs) {
+            widgetCatalogDataSet.row.add([
+                parseInt(i) + 1,
+                GetWidgetClassNameByKey(_widgetCatalogJSONObjs[i].WidgetClassKey),
+                _widgetCatalogJSONObjs[i].Name,
+                _widgetCatalogJSONObjs[i].MessageCatalogName,
+            ]).draw(false);
+        }
+        widgetCatalogDataSet.columns.adjust().draw();
+    }
+
+    function GetWidgetClassNameByKey(key)
+    {
+        for (var i in _widgetClassJSONObjs) {
+            if (_widgetClassJSONObjs[i].Key == key)
+                return _widgetClassJSONObjs[i].Name;
+        }
+        return '';
+    }
+
+    function LoadWidgetClassList() {
+        var options = "";
+        for (var i in _widgetClassJSONObjs) {
+            if (!_widgetClassJSONObjs[i].DeletedFlag) {
+                options += "<option value='" + _widgetClassJSONObjs[i].Key + "'>" + _widgetClassJSONObjs[i].Name + "</option>";
+                switch (_widgetClassJSONObjs[i].Key) {
+                    case 100:        //Alarm Card
+                        $('#AlarmCardURL').prop('src', _widgetClassJSONObjs[i].PhotoURL);
+                        break;
+                    case 101:       //Alarm List
+                        $('#AlarmListURL').prop('src', _widgetClassJSONObjs[i].PhotoURL);
+                        break;
+                    case 102:       //Equipment Card
+                        $('#EquipmentCardURL').prop('src', _widgetClassJSONObjs[i].PhotoURL);
+                        break;
+                    case 103:       //Factory Card
+                        $('#FactoryCardURL').prop('src', _widgetClassJSONObjs[i].PhotoURL);
+                        break;
+                    case 104:       //Factory List
+                        $('#FactoryListURL').prop('src', _widgetClassJSONObjs[i].PhotoURL);
+                        break;
+                    case 105:       // Map Card
+                        $('#MapCardURL').prop('src', _widgetClassJSONObjs[i].PhotoURL);
+                        break;
+                    case 106:       //Logo Card
+                        $('#LogoCardURL').prop('src', _widgetClassJSONObjs[i].PhotoURL);
+                        break;
+                    case 107:       // HTML Content
+                        $('#HTMLContentURL').prop('src', _widgetClassJSONObjs[i].PhotoURL);
+                        break;
+                    case 108:       // Preferred OEE Card
+                        $('#PreferredOEECardURL').prop('src', _widgetClassJSONObjs[i].PhotoURL);
+                        break;
+                }
+            }
+        }
+        document.getElementById("cWidgetClassName").innerHTML = options;
+    }
+
+    function LoadMessageCatalogList() {
+        var options = "";
+        for (var i in _messageCatalogJSONObjs) {
+            options += "<option value='" + _messageCatalogJSONObjs[i].Id + "'>" + _messageCatalogJSONObjs[i].Name + "</option>"
+        }
+        document.getElementById("cMessageCatalogID").innerHTML = options;
+    }
+
+    function RefreshMessageElementOnWidgetContext(messageCatalogId) {
+        $.ajax({
+            type: "POST",
+            url: "/Setup/ReqAction?action=getmessageflatelement&Id=" + messageCatalogId + "&t=" + Date.now(),
+            data: null,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                var messageElementObjs = $.parseJSON(data.replace(/&quot;/g, '\"'));
+                var options = "";
+                for (var i in messageElementObjs) {
+                    options += "<option value='" + messageElementObjs[i].Id + "'>" + messageElementObjs[i].Name + " (" + messageElementObjs[i].DataType + ")</option>"
+                }
+                document.getElementById("cPreferredOEE_RunTime").innerHTML = options;
+                document.getElementById("cPreferredOEE_PlannedProductionTime").innerHTML = options;
+                document.getElementById("cPreferredOEE_ProducedUnits").innerHTML = options;
+                document.getElementById("cPreferredOEE_ExpectedUnits").innerHTML = options;
+                document.getElementById("cPreferredOEE_GoodUnits").innerHTML = options;
+                document.getElementById("cPreferredOEE_RejectedUnits").innerHTML = options;
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("Session Expired. Please Re-Login.");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    function CleanFormInput() {
+        $("#cWidgetClassName").val('');
+        $('#cName').val('');
+        $('#imgPhotoURL').prop("src", "/assets/images/widget/Default.JPG");
+    }
+
+    function RefreshWidgetCatalogTable() {
+        $.ajax({
+            type: "POST",
+            url: "/Setup/ReqAction?action=getCompanyWidgetCatalog" + "&t=" + Date.now(),
+            data: null,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                _widgetCatalogJSONObjs = $.parseJSON(data.replace(/&quot;/g, '\"'));
+                LoadWidgetCatalogListIntoTable();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    function OnSelectWidgetCatalogItem(widgetCatalogId) {
+        $('#panel_widgetContext').css("display", "none");
+        $('#messageCatalogDiv').css("display", "none"); 
+        $('#panel_detail').css("display", "block");
+        $('#EditingPanelTitle').html("[[[Detail]]]");
+        _selectedWidgetCatalogId = widgetCatalogId;
+        //CleanFormInput();
+        for (var i in _widgetCatalogJSONObjs) {
+            if (_widgetCatalogJSONObjs[i].Id == _selectedWidgetCatalogId) {
+                $('#cWidgetClassName').val(_widgetCatalogJSONObjs[i].WidgetClassKey);
+                $('#cMessageCatalogID').val(_widgetCatalogJSONObjs[i].MessageCatalogId);
+                $('#cName').val(_widgetCatalogJSONObjs[i].Name);
+                _selectedVisualType = _widgetCatalogJSONObjs[i].WidgetClassName;
+                if (_widgetCatalogJSONObjs[i].WidgetClassKey == '108')   //Preferred OEE 
+                {
+                    RefreshMessageElementOnWidgetContext(_widgetCatalogJSONObjs[i].MessageCatalogId);
+                    $('#messageCatalogDiv').css("display", "block"); 
+                }
+
+                ChangeImgPhotoURL(_widgetCatalogJSONObjs[i].WidgetClassKey);
+                break;
+            }
+        }
+    }
+
+    function ChangeImgPhotoURL(WidgetClassKey) {
+        for (var i in _widgetClassJSONObjs) {
+            if (_widgetClassJSONObjs[i].Key == WidgetClassKey) {
+                $('#imgPhotoURL').prop('src', _widgetClassJSONObjs[i].PhotoURL);
+                break;
+            }
+        }
+    }
+
+    function DoWidgetCatalogTransactionAjax(actionName, Id, postData) {
+        var endPoint = "/Setup/ReqAction?action=" + actionName;
+        if (Id >= 0)
+            endPoint = endPoint + "&Id=" + Id;
+        $.ajax({
+            type: "POST",
+            url: endPoint + "&t=" + Date.now(),
+            data: postData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                RefreshWidgetCatalogTable();
+                _selectedWidgetCatalogId = -1;
+                toastr["success"]("[[[Action Completed]]]. (" + data + ")");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    TableManageButtons.init();
+
+    LoadWidgetCatalogListIntoTable();
+    LoadWidgetClassList();
+    LoadMessageCatalogList();
+
+    $(document).ready(function () {
+        var table = $('#datatable-responsive').DataTable();
+        $('#datatable-responsive #WidgetCatalogList').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                table.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+            OnSelectWidgetCatalogItem(_widgetCatalogJSONObjs[table.row(this).index()].Id);
+        });
+
+        jQuery('#datepicker-autoclose').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+
+        function dataContextValidation(contextString) {
+            if ($('#cWidgetClassName').val() != 0) {
+                switch (eval($('#cWidgetClassName').val())) {
+                    case 100:       //Alarm Card
+                        if ($("#cAlarmCardTitle").val().length != 0) {
+                            contextString = '"Title":"' + $("#cAlarmCardTitle").val() + '",';
+                        } else {
+                            $("#cAlarmCardTitle").focus();
+                            swal("[[[Invalid]]] !", "[[[Title]]] [[[is necessary]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        break;
+                    case 101:       //Alarm List
+                        if ($("#cAlarmListTitle").val().length != 0) {
+                            contextString = '"Title":"' + $("#cAlarmListTitle").val() + '",';
+                        } else {
+                            $("#cAlarmListTitle").focus();
+                            swal("[[[Invalid]]] !", "[[[Title]]] [[[is necessary]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        if ($("#cAlarmListDataRange").val() != null) {
+                            contextString = contextString + '"DataRange":"' + $("#cAlarmListDataRange").val() + '",';
+                        } else {
+                            $("#cAlarmListDataRange").focus();
+                            swal("[[[Invalid]]] !", "[[[Data Range]]] [[[is necessary]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        break;
+                    case 102:       //Equipment Card
+                        if ($("#cEquipmentCardTitle").val().length != 0) {
+                            contextString = '"Title":"' + $("#cEquipmentCardTitle").val() + '",';
+                        } else {
+                            $("#cEquipmentCardTitle").focus();
+                            swal("[[[Invalid]]] !", "[[[Title]]] [[[is necessary]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        break;
+                    case 103:       //Factory Card
+                        if ($("#cFactoryCardTitle").val().length != 0) {
+                            contextString = '"Title":"' + $("#cFactoryCardTitle").val() + '",';
+                        } else {
+                            $("#cFactoryCardTitle").focus();
+                            swal("[[[Invalid]]] !", "[[[Title]]] [[[is necessary]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        break;
+                    case 104:       //Factory List
+                        if ($("#cFactoryListTitle").val().length != 0) {
+                            contextString = '"Title":"' + $("#cFactoryListTitle").val() + '",';
+                        } else {
+                            $("#cFactoryListTitle").focus();
+                            swal("[[[Invalid]]] !", "[[[Title]]] [[[is necessary]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        break;
+                    case 105:       // Map Card
+                        if ($("#cMapCardTitle").val().length != 0) {
+                            contextString = '"Title":"' + $("#cMapCardTitle").val() + '",';
+                        } else {
+                            $("#cMapCardTitle").focus();
+                            swal("[[[Invalid]]] !", "[[[Title]]] [[[is necessary]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        if ($("#cMapProvider").val() != null) {
+                            contextString = contextString + '"MapProvider":"' + $("#cMapProvider").val() + '",';
+                        } else {
+                            contextString = contextString + '"MapProvider":"Google",';
+                        }
+                        if ($("#cInitialMapZoom").val() != null) {
+                            contextString = contextString + '"MapZoom":"' + $("#cInitialMapZoom").val() + '",';
+                        } else {
+                            contextString = contextString + '"MapZoom":"12",';
+                        }
+                        break;
+                    case 106:       //Logo Card
+                        if ($("#cLogoCardTitle").val().length != 0) {
+                            contextString = '"Title":"' + $("#cLogoCardTitle").val() + '",';
+                        } else {
+                            $("#cLogoCardTitle").focus();
+                            swal("[[[Invalid]]] !", "[[[Title]]] [[[is necessary]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        break;
+                    case 107:       //'HTML Content':
+                        if ($("#cHTMLContentTitle").val().length != 0) {
+                            contextString = '"Title":"' + $("#cHTMLContentTitle").val() + '",';
+                        } else {
+                            $("#cHTMLContentTitle").focus();
+                            swal("[[[Invalid]]] !", "[[[Title]]] [[[is necessary]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+
+                            if ($("#cHTMLContentSourceInputValue").val().length != 0) {
+                                var validHTMLContent = $("#cHTMLContentSourceInputValue").val().replaceAll('"', '\'');
+                                $("#cHTMLContentSourceInputValue").val(validHTMLContent);
+                                contextString = contextString + '"HTMLContent":"' + validHTMLContent + '",';
+                            } else {
+                                $("#cHTMLContentInputValue").focus();
+                                swal("[[[Invalid]]] !", "[[[HTML Content]]] [[[is necessary]]].");
+                                return {
+                                    contextString: contextString,
+                                    isValidated: false
+                                };
+                            }
+                            break;
+                    case 108:       //Preferred OEE Card
+                        if ($("#cPreferredOEETitle").val().length != 0) {
+                            contextString = '"Title":"' + $("#cPreferredOEETitle").val() + '",';
+                        } else {
+                            $("#cPreferredOEETitle").focus();
+                            swal("[[[Invalid]]] !", "[[[Title]]] [[[is necessary]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        if ($("#cPreferredOEE_RunTime").val() != null) {
+                            contextString = contextString + '"RunTime":"' + $("#cPreferredOEE_RunTime").val() + '",';
+                        } else {
+                            $("#cPreferredOEE_RunTime").focus();
+                            swal("[[[Invalid]]] !", "[[[Run Time]]] [[[is necessary]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        if ($("#cPreferredOEE_PlannedProductionTime").val() != null) {
+                            contextString = contextString + '"PlannedProductionTime":"' + $("#cPreferredOEE_PlannedProductionTime").val() + '",';
+                        } else {
+                            $("#cPreferredOEE_PlannedProductionTime").focus();
+                            swal("[[[Invalid]]] !", "[[[Planned Production Time]]] [[[is necessary]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        if ($("#cPreferredOEE_ProducedUnits").val() != null) {
+                            contextString = contextString + '"ProducedUnits":"' + $("#cPreferredOEE_ProducedUnits").val() + '",';
+                        } else {
+                            $("#cPreferredOEE_ProducedUnits").focus();
+                            swal("[[[Invalid]]] !", "[[[Produced Units]]] [[[is necessary]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        if ($("#cPreferredOEE_ExpectedUnits").val() != null) {
+                            contextString = contextString + '"ExpectedUnits":"' + $("#cPreferredOEE_ExpectedUnits").val() + '",';
+                        } else {
+                            $("#cPreferredOEE_ExpectedUnits").focus();
+                            swal("[[[Invalid]]] !", "[[[Expected Units]]] [[[is necessary]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        if ($("#cPreferredOEE_GoodUnits").val() != null) {
+                            contextString = contextString + '"GoodUnits":"' + $("#cPreferredOEE_GoodUnits").val() + '",';
+                        } else {
+                            $("#cPreferredOEE_GoodUnits").focus();
+                            swal("[[[Invalid]]] !", "[[[Good Units]]] [[[is necessary]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        if ($("#cPreferredOEE_RejectedUnits").val() != null) {
+                            contextString = contextString + '"RejectedUnits":"' + $("#cPreferredOEE_RejectedUnits").val() + '",';
+                        } else {
+                            $("#cPreferredOEE_RejectedUnits").focus();
+                            swal("[[[Invalid]]] !", "[[[Rejected Units]]] [[[is necessary]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        if ($("#cPreferredOEEThreadsLow").val().length != 0 && $.isNumeric($("#cPreferredOEEThreadsLow").val()) && $("#cPreferredOEEThreadsLow").val() >= 0 && $("#cPreferredOEEThreadsLow").val() <= 100) {
+                            contextString = contextString + '"PreferredOEEThreadsLow":"' + $("#cPreferredOEEThreadsLow").val() + '",';
+                        } else {
+                            $("#cPreferredOEEThreadsLow").focus();
+                            swal("[[[Invalid]]] !", "OEE [[[Threadshold]]] [[[is necessary]]] [[[and must between 0 to 100]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        if ($("#cPreferredOEEThreadsHigh").val().length != 0 && $.isNumeric($("#cPreferredOEEThreadsHigh").val()) && $("#cPreferredOEEThreadsHigh").val() >= 0 && $("#cPreferredOEEThreadsHigh").val() <= 100) {
+                            contextString = contextString + '"PreferredOEEThreadsHigh":"' + $("#cPreferredOEEThreadsHigh").val() + '",';
+                        } else {
+                            $("#cPreferredOEEThreadsHigh").focus();
+                            swal("[[[Invalid]]] !", "OEE [[[Threadshold]]] [[[is necessary]]] [[[and must between 0 to 100]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        if ($("#cAvailabilityThreadsLow").val().length != 0 && $.isNumeric($("#cAvailabilityThreadsLow").val()) && $("#cAvailabilityThreadsLow").val() >= 0 && $("#cAvailabilityThreadsLow").val() <= 100) {
+                            contextString = contextString + '"AvailabilityThreadsLow":"' + $("#cAvailabilityThreadsLow").val() + '",';
+                        } else {
+                            $("#cAvailabilityThreadsLow").focus();
+                            swal("[[[Invalid]]] !", "Availability [[[Threadshold]]] [[[is necessary]]] [[[and must between 0 to 100]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        if ($("#cAvailabilityThreadsHigh").val().length != 0 && $.isNumeric($("#cAvailabilityThreadsHigh").val()) && $("#cAvailabilityThreadsHigh").val() >= 0 && $("#cAvailabilityThreadsHigh").val() <= 100) {
+                            contextString = contextString + '"AvailabilityThreadsHigh":"' + $("#cAvailabilityThreadsHigh").val() + '",';
+                        } else {
+                            $("#cAvailabilityThreadsHigh").focus();
+                            swal("[[[Invalid]]] !", "Availability [[[Threadshold]]] [[[is necessary]]] [[[and must between 0 to 100]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        if ($("#cPerformanceThreadsLow").val().length != 0 && $.isNumeric($("#cPerformanceThreadsLow").val()) && $("#cPerformanceThreadsLow").val() >= 0 && $("#cPerformanceThreadsLow").val() <= 100) {
+                            contextString = contextString + '"PerformanceThreadsLow":"' + $("#cPerformanceThreadsLow").val() + '",';
+                        } else {
+                            $("#cPerformanceThreadsLow").focus();
+                            swal("[[[Invalid]]] !", "Performance [[[Threadshold]]] [[[is necessary]]] [[[and must between 0 to 100]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        if ($("#cPerformanceThreadsHigh").val().length != 0 && $.isNumeric($("#cPerformanceThreadsHigh").val()) && $("#cPerformanceThreadsHigh").val() >= 0 && $("#cPerformanceThreadsHigh").val() <= 100) {
+                            contextString = contextString + '"PerformanceThreadsHigh":"' + $("#cPerformanceThreadsHigh").val() + '",';
+                        } else {
+                            $("#cPerformanceThreadsHigh").focus();
+                            swal("[[[Invalid]]] !", "Performance [[[Threadshold]]] [[[is necessary]]] [[[and must between 0 to 100]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        if ($("#cQualityThreadsLow").val().length != 0 && $.isNumeric($("#cQualityThreadsLow").val()) && $("#cQualityThreadsLow").val() >= 0 && $("#cQualityThreadsLow").val() <= 100) {
+                            contextString = contextString + '"QualityThreadsLow":"' + $("#cQualityThreadsLow").val() + '",';
+                        } else {
+                            $("#cQualityThreadsLow").focus();
+                            swal("[[[Invalid]]] !", "Quality [[[Threadshold]]] [[[is necessary]]] [[[and must between 0 to 100]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        if ($("#cQualityThreadsHigh").val().length != 0 && $.isNumeric($("#cQualityThreadsHigh").val()) && $("#cQualityThreadsHigh").val() >= 0 && $("#cQualityThreadsHigh").val() <= 100) {
+                            contextString = contextString + '"QualityThreadsHigh":"' + $("#cQualityThreadsHigh").val() + '",';
+                        } else {
+                            $("#cQualityThreadsHigh").focus();
+                            swal("[[[Invalid]]] !", "Quality [[[Threadshold]]] [[[is necessary]]] [[[and must between 0 to 100]]].");
+                            return {
+                                contextString: contextString,
+                                isValidated: false
+                            };
+                        }
+                        break;
+                }
+            }
+            return {
+                contextString: contextString,
+                isValidated: true
+            };
+        }
+
+        function dataValidation(postData, withContextData) {
+            if ($("#cWidgetClassName").val() != null) {
+                postData.append('WidgetClassKey', $("#cWidgetClassName").val());
+            } else {
+                $("#cWidgetClassName").focus();
+                swal("[[[Invalid]]] !", "[[[Visual Type]]] [[[is necessary]]].");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+            if ($("#cName").val().length != 0) {
+                postData.append('Name', $("#cName").val());
+            } else {
+                $("#cName").focus();
+                swal("[[[Invalid]]] !", "[[[Name is necessary]]].");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+            if ($('#cWidgetClassName').val() == '108') {
+                if ($("#cMessageCatalogID").val() != null) {
+                    postData.append('MessageCatalogId', $("#cMessageCatalogID").val());
+                } else {
+                    $("#cMessageCatalogID").focus();
+                    swal("[[[Invalid]]] !", "[[[Message Catalog]]] [[[is necessary]]].");
+                    return {
+                        postData: postData,
+                        isValidated: false
+                    };
+                }
+            }
+
+            if (withContextData) {
+                var contextData = "{}";
+                for (var i in _widgetCatalogJSONObjs) {
+                    if (_widgetCatalogJSONObjs[i].Id == _selectedWidgetCatalogId) {
+                        contextData = JSON.stringify(_widgetCatalogJSONObjs[i].Context);
+                        break;
+                    }
+                }
+                postData.append('Context', contextData);
+            }
+
+            postData.append('Level', 'company');
+
+            return {
+                postData: postData,
+                isValidated: true
+            }
+        }
+
+        $('#EditWidgetContextButton').click(function () {
+            var contextObj;
+            for (var i in _widgetCatalogJSONObjs) {
+                if (_widgetCatalogJSONObjs[i].Id == _selectedWidgetCatalogId) {
+                    contextObj = _widgetCatalogJSONObjs[i].Context;
+                    break;
+                }
+            }
+            $('#WidgetAlarmCardDefine').css("display", "none");
+            $('#WidgetAlarmListDefine').css("display", "none");
+            $('#WidgetEquipmentCardDefine').css("display", "none");
+            $('#WidgetFactoryCardDefine').css("display", "none");
+            $('#WidgetFactoryListDefine').css("display", "none");
+            $('#WidgetMapCardDefine').css("display", "none");
+            $('#WidgetLogoCardDefine').css("display", "none");
+            $('#WidgetHTMLContentDefine').css("display", "none");
+            $('#WidgetPreferredOEECardtDefine').css("display", "none");
+
+            switch (eval($('#cWidgetClassName').val())) {
+                case 100:       //Alarm Card
+                    $('#WidgetAlarmCardDefine').css("display", "block");
+                    $('#WidgetContextPanelTitle').html('[[[Alarm Card]]] [[[Definition]]]');
+                    $('#cAlarmCardTitle').val(contextObj.Title);
+                    break;
+                case 101:       //Alarm List
+                    $('#WidgetAlarmListDefine').css("display", "block");
+                    $('#WidgetContextPanelTitle').html('[[[Alarm List]]] [[[Definition]]]');
+                    $('#cAlarmListTitle').val(contextObj.Title);
+                    break;
+                case 102:       //Equipment Card
+                    $('#WidgetEquipmentCardDefine').css("display", "block");
+                    $('#WidgetContextPanelTitle').html('[[[Equipment Card]]] [[[Definition]]]');
+                    $('#cEquipmentCardTitle').val(contextObj.Title);
+                    break;
+                case 103:       //FactoryCard
+                    $('#WidgetFactoryCardDefine').css("display", "block");
+                    $('#WidgetContextPanelTitle').html('[[[Factory Card]]] [[[Definition]]]');
+                    $('#cFactoryCardTitle').val(contextObj.Title);
+                    break;
+                case 104:       //FactoryList
+                    $('#WidgetFactoryListDefine').css("display", "block");
+                    $('#WidgetContextPanelTitle').html('[[[Factory List]]] [[[Definition]]]');
+                    $('#cFactoryListTitle').val(contextObj.Title);
+                    break;
+                case 105:       //MapCard
+                    $('#WidgetMapCardDefine').css("display", "block");
+                    $('#WidgetContextPanelTitle').html('[[[Map Card]]] [[[Definition]]]');
+                    $('#cMapCardTitle').val(contextObj.Title);
+                    $('#cMapProvider').val(contextObj.MapProvider);
+                    $('#cInitialMapZoom').val(contextObj.MapZoom);
+                    break;
+                case 106:       //LogoCard
+                    $('#WidgetLogoCardDefine').css("display", "block");
+                    $('#WidgetContextPanelTitle').html('[[[Logo Card]]] [[[Definition]]]');
+                    $('#cLogoCardTitle').val(contextObj.Title);
+                    break;
+                case 107:       //HTML Content
+                    $('#WidgetHTMLContentDefine').css("display", "block");
+                    $('#WidgetContextPanelTitle').html('[[[HTML Content]]] [[[Definition]]]');
+                    $('#cHTMLContentTitle').val(contextObj.Title);
+                    $('#cHTMLContentSourceInputValue').css("display", "block");
+                    $('#cHTMLContentSourceInputValue').html(contextObj.HTMLContent);
+                    break;
+                case 108:       //Preferred OEE Card
+                    $('#WidgetPreferredOEECardtDefine').css("display", "block");
+                    $('#WidgetContextPanelTitle').html('[[[Preferred OEE Card]]] [[[Definition]]]');
+                    $('#cPreferredOEETitle').val(contextObj.Title);
+                    if (contextObj.RunTime != null)
+                        $('#cPreferredOEE_RunTime').val(contextObj.RunTime);
+                    else
+                        $('#cPreferredOEE_RunTime').val('');
+                    if (contextObj.PlannedProductionTime != null)
+                        $('#cPreferredOEE_PlannedProductionTime').val(contextObj.PlannedProductionTime);
+                    else
+                        $('#cPreferredOEE_PlannedProductionTime').val('');
+                    if (contextObj.ProducedUnits != null)
+                        $('#cPreferredOEE_ProducedUnits').val(contextObj.ProducedUnits);
+                    else
+                        $('#cPreferredOEE_ProducedUnits').val('');
+                    if (contextObj.ExpectedUnits != null)
+                        $('#cPreferredOEE_ExpectedUnits').val(contextObj.ExpectedUnits);
+                    else
+                        $('#cPreferredOEE_ExpectedUnits').val('');
+                    if (contextObj.GoodUnits != null)
+                        $('#cPreferredOEE_GoodUnits').val(contextObj.GoodUnits);
+                    else
+                        $('#cPreferredOEE_GoodUnits').val('');
+                    if (contextObj.RejectedUnits != null)
+                        $('#cPreferredOEE_RejectedUnits').val(contextObj.RejectedUnits);
+                    else
+                        $('#cPreferredOEE_RejectedUnits').val('');
+
+                    $('#cPreferredOEEThreadsLow').val(contextObj.PreferredOEEThreadsLow);
+                    $('#cPreferredOEEThreadsHigh').val(contextObj.PreferredOEEThreadsHigh);
+                    $('#cAvailabilityThreadsLow').val(contextObj.AvailabilityThreadsLow);
+                    $('#cAvailabilityThreadsHigh').val(contextObj.AvailabilityThreadsHigh);
+                    $('#cPerformanceThreadsLow').val(contextObj.PerformanceThreadsLow);
+                    $('#cPerformanceThreadsHigh').val(contextObj.PerformanceThreadsHigh);
+                    $('#cQualityThreadsLow').val(contextObj.QualityThreadsLow);
+                    $('#cQualityThreadsHigh').val(contextObj.QualityThreadsHigh);
+                    break;
+            }
+            $('#panel_widgetContext').css("display", "block");
+            $('#panel_detail').css("display", "none");
+        });
+
+        $('#AddNewWidgetCatalogButton').click(function () {
+            $('#panel_detail').css("display", "block");
+
+            $('#EditingPanelTitle').html("[[[Add New]]] [[[Widget Catalog]]]");
+            $('#DeleteWidgetCatalogButton').css("display", "none");
+            $('#UpdateWidgetCatalogButton').css("display", "none");
+            $('#EditWidgetContextButton').css("display", "none");
+            $('#panel_widgetContext').css("display", "none");
+            $('#CancelAddNewWidgetCatalogButton').css("display", "inline");
+
+            $('#SubmitNewWidgetCatalogButton').css("display", "inline");
+
+            $('#AddNewWidgetCatalogButton').css("display", "none");
+            CleanFormInput();
+            _selectedWidgetCatalogId = -1;
+            $("#cWidgetClassName").focus();
+            window.scrollTo(0, 400);
+        });
+
+        $('#CancelAddNewWidgetCatalogButton').click(function () {
+            $('#panel_detail').css("display", "none");
+            $('#EditingPanelTitle').html("[[[Detail]]]");
+            $('#DeleteWidgetCatalogButton').css("display", "inline");
+            $('#UpdateWidgetCatalogButton').css("display", "inline");
+            $('#EditWidgetContextButton').css("display", "inline");
+            $('#CancelAddNewWidgetCatalogButton').css("display", "none");
+            $('#SubmitNewWidgetCatalogButton').css("display", "none");
+
+            $('#AddNewWidgetCatalogButton').css("display", "inline");
+            CleanFormInput();
+            window.scrollTo(0, 0);
+        });
+
+        $('#SubmitNewWidgetCatalogButton').click(function () {
+            var postData = new FormData();
+            var result = dataValidation(postData, true);
+
+            if (result.isValidated) {
+                swal({
+                    title: "[[[Are you sure]]]?",
+                    text: "",
+                    type: "success",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-success waves-effect waves-light',
+                    confirmButtonText: '[[[Submit]]]!'
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        DoWidgetCatalogTransactionAjax("addwidgetCatalog", -1, result.postData);
+
+                        $('#panel_detail').css("display", "none");
+                        $('#EditingPanelTitle').html("[[[Detail]]]");
+                        $('#DeleteWidgetCatalogButton').css("display", "inline");
+                        $('#UpdateWidgetCatalogButton').css("display", "inline");
+                        $('#EditWidgetContextButton').css("display", "inline");
+                        $('#CancelAddNewWidgetCatalogButton').css("display", "none");
+                        $('#SubmitNewWidgetCatalogButton').css("display", "none");
+
+                        $('#AddNewWidgetCatalogButton').css("display", "inline");
+
+                        CleanFormInput();
+                        window.scrollTo(0, 0);
+                    }
+                });
+            }
+        });
+
+        $('#DeleteWidgetCatalogButton').click(function () {
+            if (_selectedWidgetCatalogId < 0)
+                toastr["error"]("[[[No Widget Catalog Select]]].");
+            else {
+                swal({
+                    title: "[[[Are you sure]]]?",
+                    text: "",
+                    type: "error",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-danger waves-effect waves-light',
+                    confirmButtonText: '[[[Delete]]]!'
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        DoWidgetCatalogTransactionAjax("deletewidgetCatalog", _selectedWidgetCatalogId, null);
+                        CleanFormInput();
+                        $('#panel_detail').css("display", "none");
+                        window.scrollTo(0, 0);
+                    }
+                });
+            }
+        });
+
+        $('#UpdateWidgetContextButton').click(function () {
+            if (_selectedWidgetCatalogId < 0)
+                toastr["error"]("[[[No Widget Catalog Select]]].");
+            else {
+                var postData = new FormData();
+                dataValidation(postData, false);
+
+                var contextString;
+                var result = dataContextValidation(contextString);
+                contextData = "{" + result.contextString + "}";
+                postData.append('Context', contextData);
+
+                if (result.isValidated) {
+                    swal({
+                        title: "[[[Are you sure]]]?",
+                        text: "",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonClass: 'btn-warning waves-effect waves-light',
+                        confirmButtonText: '[[[Update]]]!'
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            DoWidgetCatalogTransactionAjax("updatewidgetCatalog", _selectedWidgetCatalogId, postData);
+                            CleanFormInput();
+                            $('#panel_widgetContext').css("display", "none");
+                            window.scrollTo(0, 0);
+                        }
+                    });
+                }
+            }
+
+        });
+
+        $('#UpdateWidgetCatalogButton').click(function () {
+            if (_selectedWidgetCatalogId < 0)
+                toastr["error"]("[[[No Widget Catalog Select]]].");
+            else {
+                var postData = new FormData();
+                var result = dataValidation(postData, true);
+
+                if (result.isValidated) {
+                    swal({
+                        title: "[[[Are you sure]]]?",
+                        text: "",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonClass: 'btn-warning waves-effect waves-light',
+                        confirmButtonText: '[[[Update]]] !'
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            DoWidgetCatalogTransactionAjax("updatewidgetCatalog", _selectedWidgetCatalogId, result.postData);
+                            CleanFormInput();
+                            $('#panel_detail').css("display", "none");
+                            window.scrollTo(0, 0);
+                        }
+                    });
+                }
+            }
+        });
+
+        $('#cWidgetClassName').change(function () {
+            ChangeImgPhotoURL($('#cWidgetClassName').val());
+            $('#messageCatalogDiv').css("display", "none");
+            switch (eval($('#cWidgetClassName').val())) {
+                case 108:       //Preferred OEE                    
+                    $('#messageCatalogDiv').css("display", "block");
+                    break;
+            }
+        });
+
+    });
+</script>
+

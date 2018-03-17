@@ -1,0 +1,17 @@
+Purpose:
+  Launch EventProcessor
+  
+Message Property:
+  process='launcher'
+  machine='xx'
+
+Message Payload:
+{  
+  "command": "Launch Program",
+  "program": "C:\SmartFactory\IoTHubEvenProcessor\IoTHubEventProcessor.exe",
+  "parameters": "IoTHubAlias",
+  "requester": "First Name Last Name",
+  "requesterEmail": "email",
+  "requestDateTime": "UTC DateTime",
+  "taskId": 18
+}

@@ -1,0 +1,425 @@
+﻿
+
+@{
+    ViewBag.Title = "Setup / Factory Widget Class";
+}
+
+<div class="row">
+    <div class="card-box table-responsive">
+        <div style="float:left">
+            <h4 class="header-title m-t-0 m-b-30">Setup / Factory Widget Class</h4>
+        </div>
+        <div style="float:right">
+            <button id="AddNewWidgetClassButton" type="button" class="btn btn-inverse waves-effect waves-light m-b-5"> <i class="ti-plus m-r-5"></i> <span>Add Widget Class</span> </button>
+        </div>
+        <div class="col-sm-12">
+            <table id="datatable-responsive" name="equipClassListTable" class="table table-striped table-bordered dt-responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Widget Key</th>
+                        <!--
+                        <th>Min Width (space)</th>
+                        <th>Min Height (pixel)</th>
+                        -->
+                        <th>Active</th>
+                    </tr>
+                </thead>
+
+                <tbody id="WidgetClassList"></tbody>
+            </table>
+        </div>
+    </div><!-- end col -->
+</div>
+<!-- end row -->
+
+<div class="row" id="panel_detail" style="display:none;">
+    <div class="panel-group" id="accordion" 2 role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingDetail" style="height: 60px;">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDetail" aria-expanded="true" aria-controls="collapseDetail">
+                </a>
+                <div style="float:left">
+                    <h4 id="EditingPanelTitle" class="header-title m-t-0 m-b-30">Detail</h4>
+                </div>
+                <div style="float:right">
+                    <button id="UpdateWidgetClassButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px;"> <i class="ti-save m-r-5"></i> <span>Save</span> </button>
+                    <button id="CancelAddNewWidgetClassButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px; display:none"> <i class="ti-close m-r-5"></i> <span>Cancel</span> </button>
+                    <button id="SubmitNewWidgetClassButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:92px; display:none"> <i class="ti-location-arrow m-r-5"></i> <span>Submit</span> </button>
+                </div>
+            </div>
+
+            <div id="collapseDetail" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingDetail">
+                <div class="panel-body">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-sm-4">
+                            <img id="imgPhotoURL" src="/assets/images/widget/Default.JPG" class="img-responsive" alt="Photo" style="max-width: 320px; height: inherit; padding-bottom: 15px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <form id="widget-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="col-sm-9">
+                                    <div class="form-group">
+                                        <label for="cWidgetClassName" class="col-sm-3 control-label">
+                                            Name(*)
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input id="cWidgetClassName" type="text" class="form-control" placeholder="Widget Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cWidgetClassKey" class="col-sm-3 control-label">
+                                            Key(Unique *)
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input id="cWidgetClassKey" type="text" class="form-control" placeholder="Widget Key" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cPhotoURL" class="col-sm-3 control-label">
+                                            Visual URL (*)
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input id="cPhotoURL" type="text" class="form-control" placeholder="Visual URL" required>
+                                        </div>
+                                    </div>
+                                    <!--
+                                    <div class="form-group">
+                                        <label for="mMinWidth" class="col-sm-3 control-label">
+                                            Min Width (*)
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <select id="mMinWidth" class="form-control">
+                                                <option value="3">3 / 12</option>
+                                                <option value="4">4 / 12</option>
+                                                <option value="6">6 / 12</option>
+                                                <option value="8">8 / 12</option>
+                                                <option value="9">9 / 12</option>
+                                                <option value="12">12 / 12</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mMinHeight" class="col-sm-3 control-label">
+                                            Min Height (*)
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <select id="mMinHeight" class="form-control">
+                                                <option value="120">120 pixel</option>
+                                                <option value="140">140 pixel</option>
+                                                <option value="160">160 pixel</option>
+                                                <option value="180">180 pixel</option>
+                                                <option value="200">200 pixel</option>
+                                                <option value="240">240 pixel</option>
+                                                <option value="280">280 pixel</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    -->
+                                    <div class="form-group">
+                                        <label for="bDeletedFlag" class="col-sm-3 control-label">
+                                            Deleted (*)
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <select id="bDeletedFlag" class="form-control">
+                                                <option value="true">true</option>
+                                                <option value="false" selected="selected">false</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- end row -->
+
+<script type="text/javascript">
+    var _widgetJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.Widget'));
+    var _selectedWidget = "";
+
+    function LoadWidgetClassListIntoTable() {
+
+        var widgetClassSet = $('#datatable-responsive').DataTable();
+        widgetClassSet.clear().draw(false);
+
+        for (var i in _widgetJSONObjs) {
+            widgetClassSet.row.add([
+                parseInt(i) + 1,
+                _widgetJSONObjs[i].Name,
+                _widgetJSONObjs[i].Key,
+                //_widgetJSONObjs[i].MinWidth + " / 12",
+                //_widgetJSONObjs[i].MinHeight,
+                (_widgetJSONObjs[i].DeletedFlag ? '<i class="zmdi zmdi-circle text-muted"></i>' : '<i class="zmdi zmdi-circle text-success"></i> <span class="name"> Active</span>'),
+            ]).draw(false);
+        }
+        widgetClassSet.columns.adjust().draw();
+    }
+
+    function CleanFormInput() {
+        $("#cWidgetClassName").val('');
+        $('#cWidgetClassKey').val('');
+        $('#cPhotoURL').val('');
+        $('#imgPhotoURL').prop('src', '/assets/images/widget/Default.JPG');
+        //$('#mMinWidth').val('');
+        //$('#mMinHeight').val('');
+        $('#bDeletedFlag').val('false');
+    }
+
+    function RefreshWidgetClassTable() {
+        $.ajax({
+            type: "POST",
+            url: "/Setup/ReqAction?action=" + "getfactorywidgetclass" + "&t=" + Date.now(),
+            data: null,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                _widgetJSONObjs = $.parseJSON(jsonStringFilter(data));
+                LoadWidgetClassListIntoTable();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("Session Expired. Please Re-Login.");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    function OnSelectWidgetClassItem(equipId) {
+        $('#panel_detail').css("display", "block");
+        $('#EditingPanelTitle').html("Detail");
+        _selectedWidget = String(equipId);
+        CleanFormInput();
+        for (var i in _widgetJSONObjs) {
+            if (_widgetJSONObjs[i].Id == _selectedWidget) {
+                $('#cWidgetClassName').val(_widgetJSONObjs[i].Name);
+                $('#cWidgetClassKey').val(_widgetJSONObjs[i].Key);
+                $('#cWidgetClassKey').prop('readonly', true);
+                $('#cPhotoURL').val(_widgetJSONObjs[i].PhotoURL);
+                if (_widgetJSONObjs[i].PhotoURL != null)
+                    $('#imgPhotoURL').prop('src', _widgetJSONObjs[i].PhotoURL);
+                //$('#mMinWidth').val(_widgetJSONObjs[i].MinWidth);
+                //$('#mMinHeight').val(_widgetJSONObjs[i].MinHeight);
+                if (_widgetJSONObjs[i].DeletedFlag) {
+                    $('#bDeletedFlag option[value=true]').prop('selected', true);
+                } else {
+                    $('#bDeletedFlag option[value=false]').prop('selected', true);
+                }
+                break;
+            }
+        }
+    }
+
+    function DoWidgetClassTransactionAjax(actionName, Id, postData) {
+        var endPoint = "/Setup/ReqAction?action=" + actionName;
+        if (Id.length > 0)
+            endPoint = endPoint + "&Id=" + Id;
+        $.ajax({
+            type: "POST",
+            url: endPoint + "&t=" + Date.now(),
+            data: postData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                RefreshWidgetClassTable();
+                _selectedWidget = "";
+                toastr["success"]("Action Completed. (" + data + ")");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("Session Expired. Please Re-Login.");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    TableManageButtons.init();
+
+    LoadWidgetClassListIntoTable();
+
+    $(document).ready(function () {
+        var table = $('#datatable-responsive').DataTable();
+        $('#datatable-responsive #WidgetClassList').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                table.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+            OnSelectWidgetClassItem(_widgetJSONObjs[table.row(this).index()].Id);
+        });
+
+        function dataValidation(postData) {
+            if ($("#cWidgetClassName").val().length != 0) {
+                postData.append('Name', $("#cWidgetClassName").val());
+            } else {
+                $("#cWidgetClassName").focus();
+                swal("Invalid !", "Name is necessary.");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+            if ($("#cWidgetClassKey").val().length != 0) {
+                postData.append('Key', $("#cWidgetClassKey").val());
+            } else {
+                $("#cWidgetClassKey").focus();
+                swal("Invalid !", "Key is necessary.");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+            if ($("#cPhotoURL").val().length != 0) {
+                postData.append('PhotoURL', $("#cPhotoURL").val());
+            }
+            //else {
+            //    $("#cPhotoURL").focus();
+            //    swal("Invalid !", "Visual URL is necessary.");
+            //    return {
+            //        postData: postData,
+            //        isValidated: false
+            //    };
+            //}
+
+            //if ($("#mMinWidth").val().length != 0) {
+            //    postData.append('MinWidth', $("#mMinWidth").val());
+            //} else {
+            //    $("#mMinWidth").focus();
+            //    swal("Invalid !", "Min Width is necessary.");
+            //    return {
+            //        postData: postData,
+            //        isValidated: false
+            //    };
+            //}
+
+            //if ($("#mMinHeight").val().length != 0) {
+            //    postData.append('MinHeight', $("#mMinHeight").val());
+            //} else {
+            //    $("#mMinHeight").focus();
+            //    swal("Invalid !", "Min Height is necessary.");
+            //    return {
+            //        postData: postData,
+            //        isValidated: false
+            //    };
+            //}
+
+            if ($("#bDeletedFlag").val().length != 0) {
+                postData.append('DeletedFlag', $("#bDeletedFlag").val());
+            } else {
+                postData.append('DeletedFlag', 'false');
+            }
+
+            postData.append('Level', 'factory');
+
+            return {
+                postData: postData,
+                isValidated: true
+            }
+        }
+
+        $('#AddNewWidgetClassButton').click(function () {
+            $('#panel_detail').css("display", "block");
+
+            $('#EditingPanelTitle').html("Add New Widget Class");
+            $('#UpdateWidgetClassButton').css("display", "none");
+            $('#CancelAddNewWidgetClassButton').css("display", "inline");
+
+            $('#SubmitNewWidgetClassButton').css("display", "inline");
+
+            $('#AddNewWidgetClassButton').css("display", "none");
+            CleanFormInput();
+            $("#cWidgetClassKey").prop('readonly', false);
+            $("#cWidgetClassName").focus();
+        });
+
+        $('#CancelAddNewWidgetClassButton').click(function () {
+            $('#panel_detail').css("display", "none");
+            $('#EditingPanelTitle').html("Detail");
+            $('#UpdateWidgetClassButton').css("display", "inline");
+            $('#CancelAddNewWidgetClassButton').css("display", "none");
+            $('#SubmitNewWidgetClassButton').css("display", "none");
+
+            $('#AddNewWidgetClassButton').css("display", "inline");
+            CleanFormInput();
+            window.scrollTo(0, 0);
+        });
+
+        $('#SubmitNewWidgetClassButton').click(function () {
+            var postData = new FormData();
+            var result = dataValidation(postData);
+
+            if (result.isValidated) {
+                swal({
+                    title: "Are you sure?",
+                    text: "",
+                    type: "success",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-success waves-effect waves-light',
+                    confirmButtonText: 'Submit!'
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                        DoWidgetClassTransactionAjax("addwidgetclass", "", result.postData);
+                        $('#panel_detail').css("display", "none");
+                        $('#EditingPanelTitle').html("Detail");
+                        $('#UpdateWidgetClassButton').css("display", "inline");
+                        $('#CancelAddNewWidgetClassButton').css("display", "none");
+                        $('#SubmitNewWidgetClassButton').css("display", "none");
+
+                        $('#AddNewWidgetClassButton').css("display", "inline");
+
+                        CleanFormInput();
+                        window.scrollTo(0, 0);
+                    }
+                });
+            }
+        });
+
+        $('#UpdateWidgetClassButton').click(function () {
+            if (_selectedWidget.length == 0)
+                toastr["error"]("No Widget Select.");
+            else {
+                var postData = new FormData();
+                var result = dataValidation(postData);
+
+                if (result.isValidated) {
+                    swal({
+                        title: "Are you sure?",
+                        text: "",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonClass: 'btn-warning waves-effect waves-light',
+                        confirmButtonText: 'Update!'
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            DoWidgetClassTransactionAjax("updatewidgetclass", _selectedWidget, result.postData);
+                            $('#panel_detail').css("display", "none");
+                        }
+                    });
+                }
+            }
+        });
+    });
+</script>
+
+

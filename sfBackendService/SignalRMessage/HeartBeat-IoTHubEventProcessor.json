@@ -1,0 +1,8 @@
+{
+  "companyId": 49,
+  "topic": "IoTHubEventProcessor Heartbeat",
+  "iotHubAlias": "AutoCarIoTHubAsia",
+  "iotHubNode": "Primary",
+  "status": "Running",
+  "timestampSource": "2017-02-19T14:27:07.5014962Z"
+}

@@ -1,0 +1,18 @@
+{
+  "job": "provisioning iotdevice",
+  "entity": "iotdevice",
+  "entityId": "ACarDevice002",
+  "task": "remove iothub register",
+  "taskId": 1515,
+  "oldPrimaryIothubConnectionString": null,
+  "oldSecondaryIothubConnectionString": null,
+  "primaryIothubConnectionString": "HostName=sfContosoIoTHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=9+YrNbSvpRi6/AbpLt75R1i263Q+9bzI6PwL910/h44=",
+  "secondaryIothubConnectionString": "HostName=sfContosoIoTHub.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=9+YrNbSvpRi6/AbpLt75R1i263Q+9bzI6PwL910/h44=",
+  "iothubDeviceId": "ACarDevice002",
+  "authenticationType": "Key",
+  "iothubDeviceKey": "NmE4Mjk5MTUtY2FhMi00ZTdhLWE2NmYtYTAwNTk0",
+  "certificateThumbprint": null,
+  "requester": "Admin A-Car",
+  "requesterEmail": "admin@a-car.com",
+  "requestDateTime": "2017-02-19T15:57:11.6786624Z"
+}

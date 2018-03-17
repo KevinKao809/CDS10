@@ -1,0 +1,247 @@
+﻿@{
+    ViewBag.Title = "Monitor / Backend Task";
+}
+<div class="row">
+    <div class="card-box table-responsive">
+        <div style="float:left">
+            <h4 class="header-title m-t-0 m-b-30">[[[Monitor]]] / [[[Backend Task]]]</h4>
+        </div>
+        <div class="col-sm-12">
+            <table id="datatable-responsive" name="runningTaskListTable" class="table table-striped table-bordered dt-responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>[[[No]]]</th>
+                        <th>[[[Name]]]</th>
+                        <th>[[[Status]]]</th>
+                        <th>[[[Completed At]]]</th>
+                        <th>[[[Retry]]]</th>
+                        <th>[[[Entity]]]</th>
+                        <th>[[[Entity]]] Id</th>
+                        <th>[[[Created At]]]</th>
+                    </tr>
+                </thead>
+
+                <tbody id="RunningTaskList"></tbody>
+            </table>
+        </div>
+    </div><!-- end col -->
+</div>
+<!-- end row -->
+
+<div class="row" id="panel_detail" style="display:none;">
+    <div class="panel-group" id="accordion" 2 role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingDetail" style="height: 60px;">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDetail" aria-expanded="true" aria-controls="collapseDetail">
+                </a>
+                <div style="float:left">
+                    <h4 id="EditingPanelTitle" class="header-title m-t-0 m-b-30">[[[Execution]]] [[[Detail]]]</h4>
+                </div>
+            </div>
+
+            <div id="collapseDetail" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingDetail">
+                <div class="panel-body">
+                    <div class="col-sm-6">
+                    </div>
+
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-sm-2 text-left">
+                        </div>
+                        <div class="col-sm-12">
+                            <form id="runningTask-form" class="form-horizontal" role="form" data-toggle="validator">
+                                <div class="col-sm-5 " style="margin-left:50px;">
+                                    <div class="form-group">
+                                        <label for="inputName" control-label">
+                                            [[[Task]]] [[[Content]]]
+                                        </label>
+                                        <div>
+                                            <textarea rows="8" id="cTaskContnet" class="form-control" readonly></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5 col-sm-offset-1">
+                                    <div class="form-group">
+                                        <label for="inputName"  control-label">
+                                            [[[Execution Log]]]
+                                        </label>
+                                        <div >
+                                            <textarea rows="8" id="cExecutionLog" class="form-control" readonly></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-5">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+
+<script type="text/javascript">
+    var _runningTaskJSONObjs = $.parseJSON(jsonStringFilter("@ViewBag.RunningTaskList"));
+    var _selectedTaskCatalogId = -1;
+    var _permissions = [@ViewBag.PermissionList];
+    var runningTaskDataSet = $('#datatable-responsive').DataTable({
+        dom: 'l<"toolbar">frtip',
+        initComplete: function () {
+            $("div.toolbar")
+               .html(' <div ><div class="col-sm-4" >[[[Status]]]  <select id="status" class="form-control" >' +
+               '<option selected value> -- [[[select an option]]] -- </option>' +
+               '<option value="Fail">[[[Fail]]]</option>' +
+               '<option value="Warning">[[[Warning]]]</option>' +
+               '<option value="Completed">[[[Completed]]]</option>' +
+               '<option value="Submit">[[[Submit]]]</option></select></div>' +
+               '<div class="col-sm-4">[[[Time Range]]]  <select id="timerange" class="form-control" >' +
+               '<option selected value> -- [[[select an option]]] -- </option>' +
+               '<option value="6">6HRs</option>' +
+               '<option value="24">24HRS</option>' +
+               '<option value="168">7Days</option></select></div>' +
+               '<div class="col-sm-1"><button type="button" onclick="search()"class="btn btn-inverse waves-effect waves-light m-b-5"> <span>[[[Reload]]]</span> </button>' +
+               '</div>');
+            $("div.dataTables_length").css("margin-left", "10px");
+        }
+    });
+    function LoadRunningTaskListIntoTable() {
+        runningTaskDataSet.clear().draw(false);
+
+        for (var i in _runningTaskJSONObjs) {
+            var completedDT = sfStringToDate(_runningTaskJSONObjs[i].CompletedAt);
+            var requestDT = sfStringToDate(_runningTaskJSONObjs[i].TaskContent.requestDateTime);
+            runningTaskDataSet.row.add([
+                parseInt(i) + 1,
+                _runningTaskJSONObjs[i].Name,
+                _runningTaskJSONObjs[i].TaskStatus,
+                sfDateToString(completedDT),
+                _runningTaskJSONObjs[i].RetryCounter,
+                _runningTaskJSONObjs[i].Entity,
+                _runningTaskJSONObjs[i].EntityId,
+                sfDateToString(requestDT)
+            ]).draw(false);
+        }
+        runningTaskDataSet.columns.adjust().draw();
+    }
+
+    function CleanFormInput() {
+        $("#cTaskContnet").val('');
+        $('#cExecutionLog').val('');
+    }
+
+    function RefreshMessageCatalogTable(status, timerange) {
+        $.ajax({
+            type: "POST",
+            url: "/Monitor/ReqAction?action=getrunningtask" + "&t=" + Date.now(),
+            data: null,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                _runningTaskJSONObjs = $.parseJSON(data.replace(/&quot;/g, '\"'));
+                LoadRunningTaskListIntoTable();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    function OnRunningTaskItemClick(runningTaskId) {
+        $('#panel_detail').css("display", "block");
+        _selectedTaskCatalogId = runningTaskId;
+        CleanFormInput();
+        for (var i in _runningTaskJSONObjs) {
+            if (_runningTaskJSONObjs[i].Id == _selectedTaskCatalogId) {
+                var content = _runningTaskJSONObjs[i].TaskContent;
+                var contentStr = '{\n';
+                for (var j in content) {
+                    contentStr += "\t" + j + " : " + content[j] +',\n';
+                }
+                contentStr +=  "}"
+                $('#cTaskContnet').val(contentStr);
+                $('#cExecutionLog').val(_runningTaskJSONObjs[i].TaskLog);
+                break;
+            }
+        }
+    }
+
+    function search() {
+        var taskstatus = '';
+        var hours = '';
+        if ($('#status').val())
+            taskstatus += "&taskstatus=" + $('#status').val()
+        if ($('#timerange').val())
+            hours += "&hours=" + $('#timerange').val();
+        $.ajax({
+            type: "POST",
+            url: "/Monitor/ReqAction?mAction=getrunningtask" + "&t=" + Date.now() + taskstatus + hours,
+            data: null,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                toastr["success"]("[[[Reload success]]]!");
+                _runningTaskJSONObjs = $.parseJSON(data.replace(/&quot;/g, '\"'));
+                LoadRunningTaskListIntoTable();
+                $("#panel_detail").css("display", "none");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+    TableManageButtons.init();
+
+    LoadRunningTaskListIntoTable();
+
+    $(document).ready(function () {
+        var table = $('#datatable-responsive').DataTable();
+        $('#datatable-responsive #RunningTaskList').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                table.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+            OnRunningTaskItemClick(_runningTaskJSONObjs[table.row(this).index()].Id);
+        });
+
+        function dataValidation(postData) {
+            if ($("#cTaskContnet").val().length != 0) {
+                postData.append('Name', $("#cTaskContnet").val());
+            } else {
+                $("#cTaskContnet").focus();
+                swal("[[[Invalid]]] !", "[[Name is necessary]]].");
+                return {
+                    postData: postData,
+                    isValidated: false
+                };
+            }
+
+            if ($("#cExecutionLog").val().length != 0)
+                postData.append('Description', $("#cExecutionLog").val());
+
+            postData.append('ChildMessageFlag', $("#cChildMessageFlag").is(":checked")?true:false);
+
+            return {
+                postData: postData,
+                isValidated: true
+            }
+        }
+    });
+</script>
+

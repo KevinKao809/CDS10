@@ -1,0 +1,24 @@
+{
+  "id": "22c84ec2-f0e4-4ea2-9660-d770d405ed75",
+  "Type": "Message",
+  "DeviceId": "device02",
+  "MessageCatalogId": 41,
+  "Message": {
+    "companyId": 9,
+    "msgTimestamp": "2017-02-22T11:16:35",
+    "equipmentId": "EquipmentIDA",
+    "equipmentRunStatus": 1,
+    "RPM": 5400,
+    "Temperature": 44.5,
+    "VehicleId": "SN20170221001",
+    "Vehicle-Sensors_humidity": 93,
+    "Vehicle-Sensors_pressure": 11,
+    "Vehicle-Sensors_macAddr": "null1",
+    "Vehicle-Sensors_city": "null1"
+  },
+  "_rid": "USlMAIcgdQBCVgAAAAAAAA==",
+  "_self": "dbs/USlMAA==/colls/USlMAIcgdQA=/docs/USlMAIcgdQBCVgAAAAAAAA==/",
+  "_etag": "\"00006604-0000-0000-0000-58ad02a60000\"",
+  "_attachments": "attachments/",
+  "_ts": 1487733413
+}

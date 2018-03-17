@@ -1,0 +1,526 @@
+﻿@{
+    ViewBag.Title = "IoTDevice  / Device Configuration";
+}
+<div class="row">
+    <div class="card-box table-responsive">
+        <div style="float:left">
+            <h4 class="header-title m-t-0 m-b-30">[[[IoTDevice]]] / [[[Device Configuration]]] </h4>
+        </div>
+        <div style="float:right">
+            <button id="DeviceButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:300px;"><span>[[[Apply All Devices Configuration to IoT Device]]]</span> </button>
+        </div>
+        <div style="float:right">
+            <button id="ConfigTButton" class="btn btn-inverse waves-effect waves-light m-b-5" style="width:350px;"><span>[[[Repopulate All Device from Configuration Catalog]]]</span> </button>
+        </div>
+
+        <div class="col-sm-12">
+            <table id="datatable-responsive" name="employeeListTable" class="table table-striped table-bordered dt-responsive nowrap">
+                <thead>
+                    <tr>
+                        <th>[[[No]]]</th>
+                        <th>[[[IoT Device]]] ID</th>
+                        <th>[[[IoTHub Alias]]]</th>
+                        <th>[[[Protocol]]]</th>
+                        <th>[[[Factory]]]</th>
+                        <th>[[[Authentication]]]</th>
+                        <th>[[[Type]]]</th>
+                        <th>[[[Configuration Status]]]</th>
+
+                    </tr>
+                </thead>
+                <tbody id="IoTDeviceList"></tbody>
+            </table>
+        </div>
+    </div><!-- end col -->
+</div>
+<!-- end row -->
+
+<div class="row">
+    <div class="panel-group" id="accordionElement" 2 role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default" id="panel_detail" style="display:none;">
+            <div class="panel-heading" role="tab" id="headingElement" style="height: 60px;">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDetail" aria-expanded="true" aria-controls="collapseElement">
+                </a>
+                <div style="float:left">
+                    <h4 class="header-title m-t-0 m-b-30">[[[Detail]]]</h4>
+                </div>
+                <div style="float:right">
+                    <button id="applyConfigToIoTDeviceButton" type="button" class="btn btn-inverse waves-effect waves-light m-b-5"> <i class="ti-plus m-r-5"></i> <span>[[[Apply Configuration to IoT Device]]]</span> </button>
+                </div>
+            </div>
+
+            <div id="collapseElement" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingElement">
+                <div class="panel-body">
+                    <table id="datatable-configuration" name="configurationListTable" class="table table-striped table-bordered dt-responsive nowrap" >
+                        <thead>
+                            <tr>
+                                <th>[[[Enable]]]</th>
+                                <th>[[[No]]]</th>
+                                <th>[[[Type]]]</th>
+                                <th>[[[Name]]]</th>
+                                <th>[[[Description]]]</th>
+                                <th>[[[Data Type]]]</th>
+                                <th>[[[Device Value]]]</th>
+                                <th>[[[Setting Value]]]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ConfigurationList"></tbody>
+                    </table> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end row -->
+
+
+<script type="text/javascript">
+    var _iotDeviceJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.IoTDeviceList'));
+    var _iotDeviceConfigurationJSONObjs, _customizeConfigurationJSONObjs;
+    var _factoryJSONObjs = $.parseJSON(jsonStringFilter('@ViewBag.FactoryList'));
+    var _selectedIoTDeviceId = -1;
+    var _permissions = [@ViewBag.PermissionList];
+    var _systemDeviceConfigList=[];
+    var _customizeDeviceConfigList = [];
+    var _customizeReadOnlyDeviceConfigList = [];
+
+
+    if (_iotDeviceJSONObjs[0] != null) {
+        var iotDevcieId = _iotDeviceJSONObjs[0].IoTHubDeviceId;
+    }
+    var ioTDeviceDataSet = $('#datatable-responsive').DataTable({
+        dom: 'l<"toolbar">frtip',
+        initComplete: function () {
+            $("div.toolbar")
+               .html(' <div><div class="col-sm-4" >[[[Show Factory]]]:  <select id="factoryFilter" class="form-control" onChange=search(this)>' +
+               getFactoryFilterOptionsHTML() +
+               '<select>' +
+               '</div>');
+            $("div.dataTables_length").css("margin-left", "10px");
+        }
+    });
+    function getFactoryFilterOptionsHTML() {
+        var options = "<option value=all>ALL</option>";
+        for (var i in _factoryJSONObjs) {
+            options = options + "<option value= " + _factoryJSONObjs[i].Id + ">" + _factoryJSONObjs[i].Name + "</option>";
+        }
+        return options;
+
+    }
+    function LoadIoTDeviceListIntoTable() {
+        ioTDeviceDataSet.clear().draw(false);
+        for (var i in _iotDeviceJSONObjs) {
+            ioTDeviceDataSet.row.add([
+                parseInt(i) + 1,
+                _iotDeviceJSONObjs[i].IoTHubDeviceId,
+                _iotDeviceJSONObjs[i].IoTHubAlias,
+                _iotDeviceJSONObjs[i].IoTHubProtocol,
+                _iotDeviceJSONObjs[i].FactoryName,
+                _iotDeviceJSONObjs[i].AuthenticationType,
+                _iotDeviceJSONObjs[i].DeviceTypeName,
+                getDeviceConfiurationStatus(parseInt(_iotDeviceJSONObjs[i].DeviceConfigurationStatus))
+            ]).draw(false);
+        }
+        ioTDeviceDataSet.columns.adjust().draw();
+    }
+
+    function getDeviceConfiurationStatus(deviceConfiurationStatusId) {
+        switch (deviceConfiurationStatusId) {
+            case 0: return "Submit";
+            case 1: return "Waiting Device Ack";
+            case 2: return "Receive Device Ack";
+        }
+    }
+    function search(factoryId) {
+
+        var factory = "&factoryId=" + factoryId.value;
+
+        $.ajax({
+            type: "POST",
+            url: "/IoTDevice/ReqAction?action=getIoTDeviceByFactory" + "&t=" + Date.now() + factory,
+            data: null,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                console.log("data" + data);
+                _iotDeviceJSONObjs = $.parseJSON(data.replace(/&quot;/g, '\"'));
+                LoadIoTDeviceListIntoTable();
+                $("#panel_detail").css("display", "none");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+
+    function GetDeviceConfiguration(deviceId) {
+        $.ajax({
+            type: "POST",
+            url: "/IoTDevice/ReqAction?action=getdeviceconfiguration" + "&Id=" + deviceId + "&t=" + Date.now(),
+            data: null,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                _iotDeviceConfigurationJSONObjs = $.parseJSON(data.replace(/&quot;/g, '\"'));
+                
+                var configurationDataSet = $('#datatable-configuration').DataTable();
+                configurationDataSet.clear().draw(false);
+             
+                for (var i in _iotDeviceConfigurationJSONObjs) {
+                    var type = "";
+                    var element_checkbox = "";
+                    var element_input = "";
+                    var checked = _iotDeviceConfigurationJSONObjs[i].EnabledFlag == true ? "checked" : "";
+
+                    if (_iotDeviceConfigurationJSONObjs[i].IsSystem) { //SystemConfig  
+                        //_systemDeviceConfigList.push(_iotDeviceConfigurationJSONObjs[i]);
+                        element_checkbox = "<span><input id=\"" + i + "\" type=\"checkbox\" style=\"width:100%;display:none\" checked=\"true\"/></span>";
+                        element_input = "<input id=\"value" + i + "\" type=\"text\" class=\"form-control\" value=\"" + _iotDeviceConfigurationJSONObjs[i].SettingValue + "\" >";
+                        type = "System";
+                    }
+                    else {
+                        if (!(_iotDeviceConfigurationJSONObjs[i].Readonly)) { //not readonly
+                            //_customizeDeviceConfigList.push(_iotDeviceConfigurationJSONObjs[i]);
+                            element_checkbox = "<span><input id=\"" + i + "\" type=\"checkbox\" style=\"width:100%\"" + checked + "/></span>";
+                            element_input = "<input id=\"value" + i + "\" type=\"text\" class=\"form-control\" value=\"" + _iotDeviceConfigurationJSONObjs[i].SettingValue + "\" >";
+                            type = "Customized";
+                        }
+                        else { //readOnly
+                            //_customizeReadOnlyDeviceConfigList.push(_iotDeviceConfigurationJSONObjs[i]);
+                            element_checkbox = "<span><input id=\"" + i + "\" type=\"checkbox\" style=\"width:100%;display:none\" checked=\"false\"/></span>";
+                            type = "ReadOnly";
+                        }
+                    }
+                    
+                    configurationDataSet.row.add([
+                        element_checkbox,
+                        parseInt(i) + 1,
+                        type,
+                        _iotDeviceConfigurationJSONObjs[i].ConfigurationName,
+                        _iotDeviceConfigurationJSONObjs[i].ConfigurationDescription,
+                        _iotDeviceConfigurationJSONObjs[i].ConfigurationDataTye,
+                        _iotDeviceConfigurationJSONObjs[i].DeviceValue,
+                        element_input,
+                    ]).draw(false);
+                    
+                }
+                configurationDataSet.columns.adjust().draw();
+              
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("[[[Error]]]");
+            }
+        });
+    }
+    
+    function RefreshIoTDeviceTable() {
+        $.ajax({
+            type: "POST",
+            url: "/IoTDevice/ReqAction?action=getiotdevice" + "&t=" + Date.now(),
+            data: null,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                _iotDeviceJSONObjs = $.parseJSON(data.replace(/&quot;/g, '\"'));
+                LoadIoTDeviceListIntoTable();
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("Session Expired. Please Re-Login.");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("[[[Error]]]");
+            }
+        });
+    }
+    function OnSelectDeviceItem(iotDeviceId) {
+        $('#panel_detail').css("display", "block");
+        $('#EditingPanelTitle').html("[[[Configuration Management]]]");
+        _selectedIoTDeviceId = iotDeviceId;
+        GetDeviceConfiguration(_selectedIoTDeviceId);      
+
+    }
+
+
+    function DoIoTDeviceTransactionAjax(actionName, Id, postData) {
+        var endPoint = "/IoTDevice/ReqAction?action=" + actionName;
+
+        if (Id)
+            endPoint = endPoint + "&Id=" + Id;
+        $.ajax({
+            type: "POST",
+            url: endPoint + "&t=" + Date.now(),
+            data: postData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                RefreshIoTDeviceTable();
+                _selectedIoTDeviceId = -1;
+                toastr["success"]("[[[Action Completed]]]. (" + data + ")");
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (XMLHttpRequest.status == 401) {
+                    toastr["error"]("[[[Session Expired. Please Re-Login]]].");
+                    setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                }
+                else
+                    toastr["error"]("Error");
+            }
+        });
+    }
+    function checkPermission() {
+        var piority = -1;
+        for (var i in _permissions) {
+            if (_permissions[i] == 0) {  //Admin
+                piority = 2;
+                break;
+            }
+            if (_permissions[i] == 32) {  //Config View
+                piority = 1;
+            }
+            if (_permissions[i] == 33) {  //Config Edit
+                piority = 2;
+                break;
+            }
+        }
+        if (piority == 1) {  //only View
+            $('#SaveSystemConfigurationButton').css("display", "none");
+            $('#SaveCustomizeConfigurationButton').css("display", "none");
+
+        }
+
+    }
+
+
+    TableManageButtons.init();
+    LoadIoTDeviceListIntoTable();
+
+
+    $(document).ready(function () {
+
+        var table = $('#datatable-responsive').DataTable();
+        $('#datatable-responsive #IoTDeviceList').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                table.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+            }
+           
+            if (_iotDeviceJSONObjs[table.row(this).index()].IoTHubProtocol != "MQTT" && _iotDeviceJSONObjs[table.row(this).index()].IoTHubProtocol != "AMQP") {
+                //alert("Now Only Support MQTT and AMQP!");
+                swal({
+                    title: "[[[Now Only Support]]] MQTT and AMQP !",
+                    text: "",
+                    type: "warning",
+                    showCancelButton: false,
+                    confirmButtonClass: 'btn-warning waves-effect waves-light',
+                    confirmButtonText: '[[[Confirm]]]'
+                }, function (isConfirm) {
+                    if (isConfirm) {
+                            //donothing
+                    }
+                });
+                $('#panel_detail').css("display", "none");
+            }
+            else {
+                OnSelectDeviceItem(_iotDeviceJSONObjs[table.row(this).index()].IoTHubDeviceId);
+                SwitchToEditMode();
+            }
+            
+        });
+        //$('#datatable-configuration').dataTable({
+        //    "autoWidth": false
+        //});
+        //$("#datatable-configuration tr").each(function () {
+        //    var cellCount = $(this).find("td").length;
+        //    if (cellCount == 4) {
+        //        $(this).find("td:eq(0)").css("white-space", "nowrap");
+        //    }
+        //    else {
+        //        $(this).find("td:eq(1)").css("white-space", "nowrap");
+        //    }
+        //});
+
+
+        function DataValidation(postData) {
+            var table = $("#datatable-configuration").DataTable();
+            var flag = false;
+            var systemObj = new Object();
+            var cusObj = new Object();
+            var AllObj = new Object();
+            table.rows().every(function () {
+                var row = this.data();
+                var element_chekbox = document.getElementById(this.index());
+                if (document.body.contains(element_chekbox) && element_chekbox.checked) {
+                    switch (_iotDeviceConfigurationJSONObjs[this.index()].ConfigurationDataTye) {
+                        case "numeric":
+                            if (isNaN(document.getElementById("value" + this.index()).value)) {
+                                flag = true;
+                                swal("[[[Invalid]]] !", "Index:" + (this.index() + 1) + " field need to be numeric.");
+                                return {
+                                    postData: postData,
+                                    isValidated: false
+                                };
+                            } else {
+                               
+                                if (_iotDeviceConfigurationJSONObjs[this.index()].IsSystem) {
+                                    systemObj[_iotDeviceConfigurationJSONObjs[this.index()].ConfigurationName] = Number(document.getElementById("value" + this.index()).value);
+                                }
+                                else if (!(_iotDeviceConfigurationJSONObjs[this.index()].IsSystem) && !(_iotDeviceConfigurationJSONObjs[this.index()].ReadOnly)) cusObj[_iotDeviceConfigurationJSONObjs[this.index()].ConfigurationName] = Number(document.getElementById("value" + this.index()).value);
+                            }
+                            break;
+                        case "bool":
+                            var input = document.getElementById("value" + this.index()).value;
+                            if (!(input == "true" || input == "false")) {
+                                flag = true;
+                                swal("[[[Invalid]]] !", "this field need to be \"true\" or \"false\".");
+                                return {
+                                    postData: postData,
+                                    isValidated: false
+                                };
+                            } else {
+                                var booleanValue = true;
+                                if (input == "false")
+                                    booleanValue = false;
+
+                                if (_iotDeviceConfigurationJSONObjs[this.index()].IsSystem) systemObj[_iotDeviceConfigurationJSONObjs[this.index()].ConfigurationName] = booleanValue;
+                                else if (!(_iotDeviceConfigurationJSONObjs[this.index()].IsSystem) && !(_iotDeviceConfigurationJSONObjs[this.index()].ReadOnly)) cusObj[_iotDeviceConfigurationJSONObjs[this.index()].ConfigurationName] = booleanValue;
+                            }
+                            break;
+                        case "string":
+                            if (_iotDeviceConfigurationJSONObjs[this.index()].IsSystem)
+                                systemObj[_iotDeviceConfigurationJSONObjs[this.index()].ConfigurationName] = document.getElementById("value" + this.index()).value;
+                            else if (!(_iotDeviceConfigurationJSONObjs[this.index()].IsSystem) && !(_iotDeviceConfigurationJSONObjs[this.index()].ReadOnly))
+                                cusObj[_iotDeviceConfigurationJSONObjs[this.index()].ConfigurationName] = document.getElementById("value" + this.index()).value;
+                            break; 
+                        default:
+                            break;
+                    }
+                }
+            
+                
+            })
+        
+            AllObj.SF_SystemConfig = systemObj;
+            AllObj.SF_CustomizedConfig = cusObj;
+            AllObj.SF_LastUpdatedTimestamp = Math.floor(Date.now() / 1000);
+            var jsonString = JSON.stringify(AllObj);
+            postData.append("devicetwinsdesired", jsonString);
+            if (!flag)
+                return {
+                    postData: postData,
+                    isValidated: true
+                }
+        }
+       
+        function isValidDate(date) {
+            var matches = /^(\d{1,2})[-\/](\d{1,2})[-\/](\d{4})$/.exec(date);
+            if (matches == null) return false;
+            var d = matches[2];
+            var m = matches[1] - 1;
+            var y = matches[3];
+            var composedDate = new Date(y, m, d);
+            return composedDate.getDate() == d &&
+                    composedDate.getMonth() == m &&
+                    composedDate.getFullYear() == y;
+        }
+        function SwitchToEditMode() {
+            $('#EditingPanelTitle').html("[[[Configuration]]]");
+            $('#DeleteIoTDeviceButton').css("display", "inline");
+            $('#applyConfigToIoTDeviceButton').css("display", "inline");
+            $('#CancleAddNewIoTDeviceButton').css("display", "none");
+            $('#panel_detail').css("display", "block");
+            checkPermission();
+        }
+
+        $('#applyConfigToIoTDeviceButton').click(function () {
+            if (_selectedIoTDeviceId < 0)
+                toastr["error"]("[[[No IoTDevice Select]]].");
+            else {
+                var postData = new FormData();
+                console.log(postData);
+                var table = $("#datatable-configuration").DataTable();
+            
+                var result = DataValidation(postData);
+                if (result.isValidated) {
+                    swal({
+                        title: "[[[Are you sure]]]?",
+                        text: "",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonClass: 'btn-warning waves-effect waves-light',
+                        confirmButtonText: '[[[Update]]]!'
+                    }, function (isConfirm) {
+                        if (isConfirm) {
+                            DoIoTDeviceTransactionAjax("updatedeviceconfiguration", _selectedIoTDeviceId, result.postData);
+                            
+                            SwitchToEditMode();
+                            $('#panel_detail').css("display", "none");
+                        }
+                    });
+                }
+
+
+            }
+        });
+      
+        function search() {
+            var taskstatus = '';
+            var hours = '';
+            if ($('#status').val())
+                taskstatus += "&taskstatus=" + $('#status').val()
+            if ($('#timerange').val())
+                hours += "&hours=" + $('#timerange').val();
+            $.ajax({
+                type: "POST",
+                url: "/Monitor/ReqAction?mAction=" + "getrunningtask" + "&t=" + Date.now() + taskstatus + hours,
+                data: null,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    toastr["success"]("Reload success!");
+                    _runningTaskJSONObjs = $.parseJSON(data.replace(/&quot;/g, '\"'));
+                    LoadRunningTaskListIntoTable();
+                    $("#panel_detail").css("display", "none");
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    if (XMLHttpRequest.status == 401) {
+                        toastr["error"]("Session Expired. Please Re-Login.");
+                        setTimeout(function () { sfBacktoHomeIndex(); }, 2000);
+                    }
+                    else
+                        toastr["error"]("Error");
+                }
+            });
+        }
+    });
+</script>
+
+<style type="text/css">
+    
+    input.checkbox {
+        width: 0.5em;
+        height: 0.5em;
+        padding: 0px;
+        margin: 0px;
+    }
+
+</style>

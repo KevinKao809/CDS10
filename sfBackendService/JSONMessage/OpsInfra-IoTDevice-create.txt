@@ -1,0 +1,16 @@
+{
+  "job": "provisioning iotdevice",
+  "entity": "iotdevice",
+  "entityId": "sfiotdevice001",
+  "task": "create iothub register",
+  "taskId": 18,
+  "primaryIothubConnectionString": "xxxxx",
+  "secondaryIothubConnectionString": "yyyyy",
+  "iothubDeviceId": "sfiotdevice001",
+  "authenticationType": "key|certificate",
+  "iothubDeviceKey": "12345",
+  "certificateThumbprint": "xxxxxxxxxx",
+  "requester": "First Name Last Name",
+  "requesterEmail": "email",
+  "requestDateTime": "UTC DateTime"
+}

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ed681efef9034371b23c6c31f1b2d1ab" Name="Diagram1" ZoomLevel="68">
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.AlarmNotification" Width="1.5" PointX="9.75" PointY="38.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.AlarmRuleCatalog" Width="1.5" PointX="7.5" PointY="43.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.AlarmRuleItem" Width="1.5" PointX="9.75" PointY="51.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.Company" Width="1.5" PointX="3" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.Dashboard" Width="1.5" PointX="8.25" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.DashboardWidgets" Width="1.5" PointX="12.75" PointY="38.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.DeviceCertificate" Width="1.5" PointX="5.25" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.DeviceType" Width="1.5" PointX="5.25" PointY="42.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.Employee" Width="1.5" PointX="5.25" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.EmployeeInRole" Width="1.5" PointX="7.5" PointY="48" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.Equipment" Width="1.5" PointX="10.5" PointY="32.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.EquipmentClass" Width="1.5" PointX="8.25" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.ExternalApplication" Width="1.5" PointX="5.25" PointY="32.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.ExternalDashboard" Width="1.5" PointX="5.25" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.Factory" Width="1.5" PointX="8.25" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.IoTDevice" Width="1.5" PointX="7.5" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.IoTDeviceConfiguration" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.IoTDeviceCustomizedConfiguration" Width="1.5" PointX="5.25" PointY="46.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.IoTDeviceMessageCatalog" Width="1.5" PointX="9.75" PointY="47.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.IoTHub" Width="1.5" PointX="5.25" PointY="50.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.MessageCatalog" Width="1.5" PointX="5.25" PointY="55.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.MessageElement" Width="1.5" PointX="7.5" PointY="55.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.MessageMandatoryElementDef" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.OperationTask" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.PermissionCatalog" Width="1.5" PointX="5.25" PointY="67.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.RefCultureInfo" Width="1.5" PointX="0.75" PointY="33.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.SuperAdmin" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.UsageLog" Width="1.5" PointX="5.25" PointY="59.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.UserRole" Width="1.5" PointX="5.25" PointY="63.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.UserRolePermission" Width="1.5" PointX="7.5" PointY="63.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.WidgetCatalog" Width="1.5" PointX="10.5" PointY="43.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.WidgetClass" Width="1.5" PointX="8.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SFDatabaseEntitiesModel.UsageLogSumByDay" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_AlarmNotification_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_AlarmNotification_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_AlarmRuleCatalog_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_AlarmRuleCatalog_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_AlarmRuleItem_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_AlarmRuleItem_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_Company_IoTDeviceCustomizedConfiguration" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_Company_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_Dashboard_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_DeviceCertificate_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_Employee_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_ExternalApplication_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_ExternalDashboard_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_Factory_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_IoTHub_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_MessageCatalog_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_UsageLog_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_UserRole_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_WidgetCatalog_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_Dashboard_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_Dashboard_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_Dashboard_ToTable_3" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_DashboardWidgets_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_DashboardWidgets_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_IoTDevice_ToTable_3" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_IoTDevice_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_EmployeeInRole_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_EmployeeInRole_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_Equipment_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_Equipment_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_Equipment_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_Factory_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_IoTDevice_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_IoTDevice_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_Table_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_Table_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_MessageElement_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_WidgetCatalog_ToTable_2" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_UserRolePermission_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_UserRolePermission_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="SFDatabaseEntitiesModel.FK_WidgetCatalog_ToTable" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,9 @@
+﻿{
+  "Name": "執行程式名稱",
+  "Wideget": "Text",
+  "Context": {
+    "Title": "執行程式名稱",
+    "Field": "programName",
+    "FGColorCode": "#242424"
+  }
+}

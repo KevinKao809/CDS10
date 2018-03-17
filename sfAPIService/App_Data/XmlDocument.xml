@@ -1,0 +1,1513 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>sfAPIService</name>
+    </assembly>
+    <members>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetCompanyById">
+            <summary>
+            Roles : external
+            </summary>        
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetAllFactoryByCompanyId">
+            <summary>
+            Roles : external
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetFactoryById(System.Int32)">
+            <summary>
+            Roles : external
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetAllIoTDeviceByFactoryId(System.Int32)">
+            <summary>
+            Roles : external
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetAllEquipmentByFactoryId(System.Int32)">
+            <summary>
+            Roles : external
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetAllEquipmentWithMetaDataByFactoryId(System.Int32)">
+            <summary>
+            Roles : external
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetAlarmMessageByEquipmentId(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Roles : external
+            </summary>
+            <param name="top">default 10</param>
+            <param name="hours">default 168</param>
+            <param name="order">value = asc or desc, default desc</param>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetMessageByEquipmentId(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Roles : external
+            </summary>
+            /// <param name="top">default 10</param>
+            <param name="hours">default 168</param>
+            <param name="order">value = asc or desc, default desc</param>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetAllIoTDeviceByCompanyId">
+            <summary>
+            Roles : external
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetAllEquipmentByCompanyId">
+            <summary>
+            Roles : external
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetAllEquipmentWithMetaDataByCompanyId">
+            <summary>
+            Roles : external
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetEquipmentById(System.String)">
+            <summary>
+            Roles : external
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetEquipmentWithMetaDataById(System.String)">
+            <summary>
+            Roles : external
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetAlarmMessageByEquipmentId(System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            Roles : external
+            </summary>
+            <param name="top">default 10</param>
+            <param name="hours">default 168</param>
+            <param name="order">value = asc or desc, default desc</param>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetMessageByEquipmentId(System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            Roles : external
+            </summary>
+            <param name="top">default 10</param>
+            <param name="hours">default 168</param>
+            <param name="order">value = asc or desc, default desc</param>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetAlarmMessageByCompanyId(System.Int32,System.Int32,System.String)">
+            <summary>
+            Roles : external
+            </summary>
+            <param name="top">default 10</param>
+            <param name="hours">default 168</param>
+            <param name="order">value = asc or desc, default desc</param>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.GetMessageByCompanyId(System.Int32,System.Int32,System.String)">
+            <summary>
+            Roles : external
+            </summary>
+            <param name="top">default 10</param>
+            <param name="hours">default 168</param>
+            <param name="order">value = asc or desc, default desc</param>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApiController.SendC2DMessageAsync(System.String)">
+            <summary>
+            Roles : external
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MetaDataDefinationController.GetEquipmentMetaDataDefination(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MetaDataDefinationController.GetFactoryMetaDataDefination(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MetaDataDefinationController.AddFormData(sfAPIService.Models.MetaDataDefinationModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MetaDataDefinationController.EditFormData(System.Int32,sfAPIService.Models.MetaDataDefinationModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MetaDataDefinationController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.AlarmMessageController.GetAlarmMessageByCompanyId(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.AlarmMessageController.GetAlarmMessageByFactoryId(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.AlarmMessageController.GetAlarmMessageByEquipmentId(System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.AlarmRuleCatalogController.GetAllAlarmRuleCatalogByCompanyId(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.AlarmRuleCatalogController.GetAlarmRuleCatalogById(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.AlarmRuleCatalogController.AddFormData(sfAPIService.Models.AlarmRuleCatalogModels.Add)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.AlarmRuleCatalogController.EditFormData(System.Int32,sfAPIService.Models.AlarmRuleCatalogModels.Update)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.AlarmRuleCatalogController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.AlarmRuleCatalogController.GetAllNotification(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.AlarmRuleCatalogController.AttachNotification(System.Int32,sfAPIService.Models.AlarmNotificationModels.Edit)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.AlarmRuleCatalogController.GetAllRules(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.AlarmRuleCatalogController.UpdateAllRules(System.Int32,sfAPIService.Models.AlarmRuleItemModels.Edit)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.CompanyController.GetAllCompanies">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.CompanyController.GetAllCompaniesBySuperAdmin">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.CompanyController.GetCompanyById(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.CompanyController.AddFormData(sfAPIService.Models.CompanyModels.Add)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.CompanyController.GetAllowDomainByCompanyId(System.Int32)">
+            <summary>
+            AllowAnonymous
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.CompanyController.UploadLogoFile(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.CompanyController.EditFormData(System.Int32,sfAPIService.Models.CompanyModels.Update)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.CompanyController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.CompanyController.GetAllUsageLog(System.Int32,System.Int32,System.String)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.CompanyController.GetLastUsageLog(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.CompanyController.GetAllIoTDeviceCustomizedConfiguration(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.CompanyController.GetAllExternalDashboard(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.CompanyController.GetMessageByCompanyId(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DashboardController.GetAllByCompanyId(System.Int32,System.String)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DashboardController.GetAllByFactoryId(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DashboardController.GetAll(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DashboardController.Add(sfAPIService.Models.DashboardModels.Add)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DashboardController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DashboardWidgetController.GetAllByDashboardId(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DashboardWidgetController.GeById(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DashboardWidgetController.AddFormData(sfAPIService.Models.DashboardWidgetModels.Add)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DashboardWidgetController.EditFormData(sfAPIService.Models.DashboardWidgetModels.Update)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DashboardWidgetController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, SuperAdmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DeviceApiController.GetDeviceById(System.String)">
+            <summary>
+            Roles : device
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DeviceApiController.UploadPhotoFile(System.String)">
+            <summary>
+            Roles : device
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DeviceApiController.GetAllMessageSchemaByDeviceId(System.String)">
+            <summary>
+            Roles : device
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DeviceCertificateController.GetAllCompanies(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DeviceCertificateController.GetCompanyById(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DeviceCertificateController.AddFormData(sfAPIService.Models.DeviceCertificateModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DeviceCertificateController.EditFormData(System.Int32,sfAPIService.Models.DeviceCertificateModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DeviceCertificateController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DeviceTypeController.GetAllDeviceTypes">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DeviceTypeController.GetAllDeviceTypesBySuperAdmin">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DeviceTypeController.GetDeviceTypeById(System.Int32)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DeviceTypeController.AddFormData(sfAPIService.Models.DeviceTypeModels.Add)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DeviceTypeController.EditFormData(System.Int32,sfAPIService.Models.DeviceTypeModels.Update)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.DeviceTypeController.Delete(System.Int32)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EmployeeController.GetAllEmployee">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EmployeeController.GetAllEmployeeBySuperAdmin">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EmployeeController.GetEmployeeById(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EmployeeController.GetEmployeeByCompanyId(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EmployeeController.AddEmployee(sfAPIService.Models.EmployeeModels.Add)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EmployeeController.EditEmployeeById(System.Int32,sfAPIService.Models.EmployeeModels.Update)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EmployeeController.DeleteEmployeeById(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EmployeeController.UploadPhotoFile(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EmployeeController.ChangePassword(System.Int32,sfAPIService.Models.ChangePasswordModels)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EmployeeController.ResetPassword(System.Int32,sfAPIService.Models.ResetPasswordModels)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EmployeeController.GetPermissionsByEmployeeId(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EmployeeController.GetRolesByEmployeeId(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EmployeeController.AddRolesByEmployeeId(System.Int32,sfAPIService.Models.EmployeeRoleModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EmployeeController.EditRolesByEmployeeId(System.Int32,sfAPIService.Models.EmployeeRoleModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentClassController.GetAllEquipmentClassByCompanyId(System.Int32)">
+            <summary>
+            Roles : AllowAnonymous
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentClassController.GetAllEquipmentClass">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentClassController.GetAllEquipmentClassBySuperadmin">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentClassController.GetEquipmentClassById(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentClassController.AddFormData(sfAPIService.Models.EquipmentClassModels.Add)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentClassController.EditFormData(System.Int32,sfAPIService.Models.EquipmentClassModels.Update)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentClassController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentController.GetAll">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentController.GetAllByCompanyId(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentController.GetAllByFactoryId(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentController.GetAllWithMetaDataByFactoryId(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentController.GetMetaDataById(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentController.UpdateMetaDataByIdAsync(System.Int32,sfAPIService.Models.EquipmentModels.MetaData_Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentController.GeById(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentController.GetWithMetaDataById(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentController.AddFormData(sfAPIService.Models.EquipmentModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentController.EditFormData(System.Int32,sfAPIService.Models.EquipmentModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentController.UploadLogoFile(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.EquipmentController.GetMessageByEquipmentId(System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApplicationController.GetAllExternalApplicationByCompanyId(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApplicationController.GetExternalApplicationById(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApplicationController.AddFormData(sfAPIService.Models.ExternalApplicationModels.Add)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApplicationController.EditFormData(System.Int32,sfAPIService.Models.ExternalApplicationModels.Update)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.ExternalApplicationController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.FactoryController.GetAllFactoryByCompanyId(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.FactoryController.GetFactoryById(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.FactoryController.AddFactoryFormData(sfAPIService.Models.FactoryModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.FactoryController.EditFactoryFormData(System.Int32,sfAPIService.Models.FactoryModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.FactoryController.UploadFactoryPhotoFile(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.FactoryController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.FactoryController.GetMessageByFactoryId(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceCustomizedConfigurationController.GetIoTDeviceConfigurationById(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceCustomizedConfigurationController.AddFormData(sfAPIService.Models.IoTDeviceCustomizedConfigurationModels.Add)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceCustomizedConfigurationController.EditFormData(System.Int32,sfAPIService.Models.IoTDeviceCustomizedConfigurationModels.Update)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceCustomizedConfigurationController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceConfigurationController.GetAll">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceConfigurationController.GetIoTDeviceConfigurationById(System.Int32)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceConfigurationController.AddFormData(sfAPIService.Models.IoTDeviceConfigurationModels.Edit)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceConfigurationController.EditFormData(System.Int32,sfAPIService.Models.IoTDeviceConfigurationModels.Edit)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceConfigurationController.Delete(System.Int32)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceController.GetAllIoTDeciceByCompanyId(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceController.GetAllIoTDeciceByFactoryId(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceController.GetIoTDeciceById(System.String)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceController.AddFormData(sfAPIService.Models.IoTDeviceModels.Add)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceController.EditFormData(System.String,sfAPIService.Models.IoTDeviceModels.Update)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceController.ResetPassword(System.String,sfAPIService.Models.ResetPasswordModels)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceController.Delete(System.String)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceController.ChangePassword(System.String,sfAPIService.Models.AccountModels.PasswordSet)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceController.GetAllConfigurationByDeviceId(System.String)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceController.UpdateDesiredProperty(System.String,sfAPIService.Models.IoTDeviceModels.Update_Desired)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceController.GetAllMessageByDeviceId(System.String)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceController.AttachMessage(System.String,sfAPIService.Models.IoTDeviceMessageCatalogModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTDeviceController.GetAllMessageTemplateByDeviceId(System.String)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTHubController.GetAll">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTHubController.GetAllByCompanyId(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTHubController.GetById(System.String)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTHubController.AddFormData(sfAPIService.Models.IoTHubModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTHubController.EditFormData(System.String,sfAPIService.Models.IoTHubModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.IoTHubController.Delete(System.String)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageCatalogController.GetAllMessageCatalogByCompanyId(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageCatalogController.GetAllChildMessageCatalogByCompanyId(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageCatalogController.GetAllMessageSchemaByDeviceId(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageCatalogController.GetMessageCatalogById(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageCatalogController.AddFormData(sfAPIService.Models.MessageCatalogModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageCatalogController.EditFormData(System.Int32,sfAPIService.Models.MessageCatalogModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageCatalogController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageElementController.GetAllCompanies(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageElementController.AddFormData(sfAPIService.Models.MessageElementModels.Add)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageElementController.EditFormData(System.Int32,sfAPIService.Models.MessageElementModels.Update)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageElementController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageMandatoryElementDefController.GetAllMessageMandatoryElementDef">
+            <summary>
+            Roles : superadmin, admin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageMandatoryElementDefController.GetAllMessageMandatoryElementDefBySuperAdmin">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageMandatoryElementDefController.GetMessageMandatoryElementDefById(System.Int32)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageMandatoryElementDefController.AddFormData(sfAPIService.Models.MessageMandatoryElementDefModels.Add)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageMandatoryElementDefController.EditFormData(System.Int32,sfAPIService.Models.MessageMandatoryElementDefModels.Update)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.MessageMandatoryElementDefController.Delete(System.Int32)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.OperationTaskController.SearchInPastSevenDaysOperations(sfAPIService.Models.OperationTaskModels.SearchCondition)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.OperationTaskController.GetAllOperationTasksByCompanyId(System.Int32,sfAPIService.Models.OperationTaskModels.SearchCondition)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.OperationTaskController.GetAllOperationTasksByCompanyId(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.OperationTaskController.GetOperationTaskById(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.OperationTaskController.AddFormData(sfAPIService.Models.OperationTaskModels.Add)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.OperationTaskController.EditFormData(System.Int32,sfAPIService.Models.OperationTaskModels.Update)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.OperationTaskController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.PermissionCatalogController.GetAllPermissionCatalogs">
+            <summary>
+            Roles : superadmin, admin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.PermissionCatalogController.GetAllPermissionCatalogsBySuperAdmin">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.PermissionCatalogController.GetPermissionCatalogById(System.Int32)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.PermissionCatalogController.AddFormData(sfAPIService.Models.PermissionCatalogModels.Add)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.PermissionCatalogController.EditFormData(System.Int32,sfAPIService.Models.PermissionCatalogModels.Update)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.PermissionCatalogController.Delete(System.Int32)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.RefCultureInfoController.GetAll">
+            <summary>
+            AllowAnonymous
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.RefCultureInfoController.Heartbeat">
+            <summary>
+            AllowAnonymous
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.SuperAdminController.GetAllSuperAdmins">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.SuperAdminController.GetSuperAdminById(System.Int32)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.SuperAdminController.AddSuperAdmin(sfAPIService.Models.SuperAdminModels.Edit)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.SuperAdminController.EditSuperAdminById(System.Int32,sfAPIService.Models.SuperAdminModels.Edit)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.SuperAdminController.DeleteSuperAdminById(System.Int32)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.SuperAdminController.ChangePassword(System.Int32,sfAPIService.Models.ChangePasswordModels)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.UsageLogSumByDayController.GetAllData(System.Int32,System.String)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.UsageLogSumByDayController.GetLastData">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.UsageLogController.GetAllUsageLog(System.Int32,System.String)">
+            <summary>
+            Roles : superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.UserRoleController.GetAllCompanies(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.UserRoleController.GetCompanyById(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.UserRoleController.AddFormData(sfAPIService.Models.UserRoleModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.UserRoleController.EditFormData(System.Int32,sfAPIService.Models.UserRoleModels.Edit)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.UserRoleController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.WidgetCatalogController.GetAllByCompanyId(System.Int32,System.String)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.WidgetCatalogController.GeById(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.WidgetCatalogController.AddFormData(sfAPIService.Models.WidgetCatalogModels.Add)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.WidgetCatalogController.EditFormData(System.Int32,sfAPIService.Models.WidgetCatalogModels.Update)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.WidgetCatalogController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.WidgetClassController.GetAll(System.String)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.WidgetClassController.GeById(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.WidgetClassController.AddFormData(sfAPIService.Models.WidgetClassModels.Add)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.WidgetClassController.EditFormData(System.Int32,sfAPIService.Models.WidgetClassModels.Update)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Controllers.WidgetClassController.Delete(System.Int32)">
+            <summary>
+            Roles : admin, superadmin
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:sfAPIService.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:sfAPIService.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForMediaType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the sample directly for all actions with the specified media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,sfAPIService.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the model description generator.
+            </summary>
+            <param name="config">The configuration.</param>
+            <returns>The <see cref="T:sfAPIService.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:sfAPIService.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:sfAPIService.Areas.HelpPage.ModelDescriptions.ModelDescription">
+            <summary>
+            Describes a type model.
+            </summary>
+        </member>
+        <member name="T:sfAPIService.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
+            <summary>
+            Generates model descriptions for given types.
+            </summary>
+        </member>
+        <member name="T:sfAPIService.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
+            <summary>
+            Use this attribute to change the name of the <see cref="T:sfAPIService.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            </summary>
+        </member>
+        <member name="T:sfAPIService.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:sfAPIService.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:sfAPIService.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
+            <summary>
+            Gets or sets the <see cref="T:sfAPIService.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            </summary>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
+            <summary>
+            Gets or sets the documentation for the request.
+            </summary>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
+            <summary>
+            Gets or sets the <see cref="T:sfAPIService.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            </summary>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
+            <summary>
+            Gets the request body parameter descriptions.
+            </summary>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
+            <summary>
+            Gets or sets the <see cref="T:sfAPIService.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            </summary>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
+            <summary>
+            Gets the resource property descriptions.
+            </summary>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:sfAPIService.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,sfAPIService.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,sfAPIService.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
+            one using <see cref="M:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(sfAPIService.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:sfAPIService.Areas.HelpPage.ObjectGenerator"/>) and other
+            factories in <see cref="P:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},sfAPIService.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="T:sfAPIService.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Creates a new <see cref="T:sfAPIService.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:sfAPIService.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageSampleKey.#ctor(sfAPIService.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:sfAPIService.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:sfAPIService.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:sfAPIService.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,sfAPIService.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:sfAPIService.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:sfAPIService.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:sfAPIService.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:sfAPIService.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:sfAPIService.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:sfAPIService.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:sfAPIService.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:sfAPIService.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:sfAPIService.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:sfAPIService.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:sfAPIService.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:sfAPIService.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:sfAPIService.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:sfAPIService.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+    </members>
+</doc>

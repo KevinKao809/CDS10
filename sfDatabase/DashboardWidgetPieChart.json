@@ -1,0 +1,29 @@
+﻿{  
+  "Name": "年齡層分佈比例",
+  "Wideget": "PieChart",
+  "Context": {
+    "Title": "年齡層分佈比例",
+    "Values": [
+      {
+        "Field": "FieldY1",
+        "Display": "20~30",
+        "ColorCode": "#121212"
+      },
+      {
+        "Field": "FieldY2",
+        "Display": "30~40",
+        "ColorCode": "#121212"
+      },
+      {
+        "Field": "FieldY3",
+        "Display": "40~50",
+        "ColorCode": "#121212"
+      },
+      {
+        "Field": "FieldY3",
+        "Display": "Others",
+        "ColorCode": "#121212"
+      }
+    ]
+  }
+}

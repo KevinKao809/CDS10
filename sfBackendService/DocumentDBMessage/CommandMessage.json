@@ -1,0 +1,23 @@
+{
+  "id": "22c84ec2-f0e4-4ea2-9660-d770d405ed75",
+  "CommandName": "",
+  "DeviceConfiguration": {
+      "SF_SystemConfig": {
+        "MinSmartFactorySDKVersion": 5
+      },
+      "SF_CustomizedConfig": {
+        "Interval": 30
+      },
+      "SF_LastUpdatedTimestamp": 1495077112
+  },
+  "_rid": "USlMAIcgdQBCVgAAAAAAAA==",
+  "_self": "dbs/USlMAA==/colls/USlMAIcgdQA=/docs/USlMAIcgdQBCVgAAAAAAAA==/",
+  "_etag": "\"00006604-0000-0000-0000-58ad02a60000\"",
+  "_ts": 1487733413
+}
+
+{
+  "MessageProperty": {
+    "Type": "Command"
+  }
+}

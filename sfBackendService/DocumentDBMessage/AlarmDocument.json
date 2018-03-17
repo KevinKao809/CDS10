@@ -1,0 +1,29 @@
+{
+  "id": "9ba7ca61-ad1b-4710-abd8-637cb5833bd2",
+  "Type": "Alarm",
+  "MessageCatalogId": 41,
+  "AlarmRuleCatalogId": 18,
+  "AlarmRuleCatalogName": "VehicleAlarm",
+  "AlarmRuleCatalogDescription": "Alarm for Vehicle Message",
+  "TriggeredTime": "2017-02-23T14:58:57",
+  "AlarmSent": true,
+  "MessageDocumentId": "31bc4528-0b0e-4990-88bb-220ac4a40b96",
+  "Message": {
+    "companyId": 9,
+    "msgTimestamp": "2017-02-23T14:58:57",
+    "equipmentId": "EquipmentIDA",
+    "equipmentRunStatus": 1,
+    "RPM": 5402,
+    "Temperature": 46.5,
+    "VehicleId": "SN20170223001",
+    "Vehicle-Sensors_humidity": 91,
+    "Vehicle-Sensors_pressure": 13,
+    "Vehicle-Sensors_macAddr": "null1",
+    "Vehicle-Sensors_city": "null1"
+  },
+  "_rid": "USlMAIcgdQAmWQAAAAAAAA==",
+  "_self": "dbs/USlMAA==/colls/USlMAIcgdQA=/docs/USlMAIcgdQAmWQAAAAAAAA==/",
+  "_etag": "\"0000e029-0000-0000-0000-58ae88420000\"",
+  "_attachments": "attachments/",
+  "_ts": 1487833148
+}

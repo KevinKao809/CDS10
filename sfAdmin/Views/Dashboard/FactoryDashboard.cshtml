@@ -1,0 +1,307 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factory Dashboard</title>
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/menu.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/bootstrap-sweetalert/sweet-alert.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/gridstack/gridstack.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/dashboard.css" rel="stylesheet" type="text/css" />
+
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    <!-- jQuery  -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/detect.js"></script>
+    <script src="/assets/js/fastclick.js"></script>
+    <script src="/assets/js/jquery.slimscroll.js"></script>
+    <script src="/assets/js/jquery.blockUI.js"></script>
+    <script src="/assets/js/waves.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/jquery.nicescroll.js"></script>
+    <script src="/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="/assets/plugins/bootstrap-sweetalert/sweet-alert.min.js"></script>
+    <script src="/assets/plugins/toastr/toastr.min.js"></script>
+    <script src="/assets/js/smartfactory.js"></script>
+
+    <!--grid stack-->
+    <script src="/assets/plugins/lodash/lodash.js"></script>
+    <script src="/assets/plugins/gridstack/gridstack.js"></script>
+    <script src="/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/assets/plugins/gridstack/gridstack.jQueryUI.min.js"></script>
+
+    <!-- Flot Chart -->
+    <script src="/assets/plugins/flot-chart-083/jquery.flot.js"></script>
+    <script src="/assets/plugins/flot-chart-083/jquery.flot.time.js"></script>
+    <script src="/assets/plugins/flot-chart-083/jquery.flot.symbol.js"></script>
+    <script src="/assets/plugins/flot-chart-083/jquery.flot.pie.js"></script>
+    <script src="/assets/plugins/flot-chart-083/jshashtable-2.1.js"></script>
+    <script src="/assets/plugins/flot-chart-083/jquery.numberformatter-1.2.3.min.js"></script>
+    <script src="/assets/plugins/flot-chart-083/jquery.flot.axislabels.js"></script>
+
+    <!-- DataTable -->
+    <script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.buttons.min.js"></script>
+    <script src="/assets/plugins/datatables/buttons.bootstrap.min.js"></script>
+    <script src="/assets/plugins/datatables/jszip.min.js"></script>
+    <script src="/assets/plugins/datatables/pdfmake.min.js"></script>
+    <script src="/assets/plugins/datatables/vfs_fonts.js"></script>
+    <script src="/assets/plugins/datatables/buttons.html5.min.js"></script>
+    <script src="/assets/plugins/datatables/buttons.print.min.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.fixedHeader.min.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.keyTable.min.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.responsive.min.js"></script>
+    <script src="/assets/plugins/datatables/responsive.bootstrap.min.js"></script>
+    <script src="/assets/plugins/datatables/dataTables.scroller.min.js"></script>
+    <script src="/assets/pages/datatables.init.js"></script>
+    <!-- DashBoard-->
+    <script src="/assets/js/dashboard.js"></script>
+
+</head>
+<body>
+    <div id="loader-screen" class="loader-component">
+        <div class="loader"></div>
+    </div>
+
+    <div class="dashboard-wrapper">
+
+        <div class="grid-stack transparent">
+            @Html.Raw(ViewBag.WidgetOutput)
+        </div>
+    </div>
+
+    <form id="NavDashboardForm" name="NavDashboardForm" method="post" action="/Dashboard/Index">
+        <input type="hidden" id="equipmentId" name="equipmentId" />
+    </form>
+
+    <!-- SignalR -->
+    <script src="/Scripts/jquery.signalR-2.2.1.js"></script>
+    <script src="/signalr/hubs"></script>
+    <script type="text/javascript">
+        function turnLightOff(LightId, inSecond)
+        {
+            setTimeout(function () { document.getElementById(LightId).checked = false; }, inSecond);
+        }
+
+        $(function () {
+            var hub = $.connection.RTMessageHub;
+            hub.client.onReceivedMessage = function (message) {
+                
+                var DeviceMessage = $.parseJSON(message);
+                var equipmentId = "", alarmMsg = false;
+                @Html.Raw(ViewBag.WidgetUpdateFunctions)
+                if (DeviceMessage.AlarmRuleCatalogId == null) {
+                    equipmentId = DeviceMessage.equipmentId;
+                }
+                else {
+                    equipmentId = DeviceMessage.Message.equipmentId;
+                    alarmMsg = true;
+                }
+                for (var i in _EquipmentObjs) {
+                    if (_EquipmentObjs[i].EquipmentId == equipmentId) {
+                        var DTNow = new Date();
+                        _EquipmentObjs[i].msgTimestamp = sfDateToString(DTNow);
+                        document.getElementById('lightConnected_' + _EquipmentObjs[i].Id).checked = true;
+                        document.getElementById('lightOnMessage_' + _EquipmentObjs[i].Id).checked = true;
+                        turnLightOff('lightOnMessage_' + _EquipmentObjs[i].Id, 1500);
+                        if (alarmMsg) {
+                            document.getElementById('lightAlert_' + _EquipmentObjs[i].Id).checked = true;
+                            turnLightOff('lightAlert_' + _EquipmentObjs[i].Id, 3000);                            
+                            _Alarm24H++;
+                            _EquipmentObjs[i].alarmMsgTimestamp = sfDateToString(DTNow);
+                            _alarmDataSet.row.add([
+                                _MessageAlarmObjs.length + 1,
+                                DeviceMessage.Message.equipmentId,
+                                DeviceMessage.AlarmRuleCatalogName,
+                                DeviceMessage.AlarmRuleCatalogDescription,
+                                DeviceMessage.Message.msgTimestamp,
+                                '<input onClick="javascript:showMessageContentofAlert(' + _MessageAlarmObjs.length + ')" type="button" value="Message" />'
+                            ]).order([0, 'desc']).draw(false);
+                            _MessageAlarmObjs.push(DeviceMessage);
+                            Alert_GoogleMap();
+                        }
+                    }
+                }
+            };
+
+            $.connection.hub.start().done(function () {
+                hub.server.register("@ViewBag.CompanyId");
+            });
+        })
+    </script>
+
+    <!-- KNOB JS -->
+    <script src="/assets/plugins/jquery-knob/jquery.knob.js"></script>
+
+    <!-- App js -->
+    <script src="/assets/js/jquery.core.js"></script>
+    <script src="/assets/js/jquery.app.js"></script>
+    <script src="/assets/js/modernizr.min.js"></script>
+
+    <!-- Company Dashboard js-->
+    <script type="text/javascript">
+        var _FactoryObj = $.parseJSON(jsonStringFilter('@ViewBag.Factory'));
+        var _EquipmentObjs = $.parseJSON(jsonStringFilter('@ViewBag.EquipmentList'));
+        var _MessageAlarmCount = @ViewBag.AlarmMessageCount;
+        //var _MessageAlarmObjs = $.parseJSON(jsonStringFilter('@Html.Raw(ViewBag.AlarmMessageList)'));
+
+        var _TotalEquipment = 0, _Alarm24H = 0; _ConnectedEquipment = 0, _Alarm1M = 0;
+        
+        // For Equipment List
+        function LoadEquipmentIntoUL() {
+            var equipmentItem = "";
+            for (var i in _EquipmentObjs) {
+                var equipmentImage = _EquipmentObjs[i].PhotoUrl;
+                if (equipmentImage == null)
+                    equipmentImage = "/assets/images/default/equipment-128.png";
+                equipmentItem = equipmentItem + "<li class='list-group-item'>";
+                equipmentItem = equipmentItem + "<table border='1' style='width:100%'><tr><td style='text-align:center;width:20%'><img src='" + equipmentImage + "' style='max-height:70px; max-width:70px;'></td>";
+                equipmentItem = equipmentItem + "<td style='text-align:center'><h5><a href='javascript:NavToEquipmentDashboard(" + _EquipmentObjs[i].Id + ");' class='user-list-item'>" + _EquipmentObjs[i].Name + "</a></h5></td>";
+                equipmentItem = equipmentItem + "<td style='text-align:center;width:50%'><table width='100%'><tr><td style='text-align:center'><div class='radio radio-success'><input id='lightConnected_" + _EquipmentObjs[i].Id + "' type='radio' disabled /><label></label></div></td><td style='text-align:center'><div class='radio radio-warning'><input id='lightOnMessage_" + _EquipmentObjs[i].Id + "' type='radio' disabled /><label></label></div></td><td style='text-align:center'><div class='radio radio-danger'><input id='lightAlert_" + _EquipmentObjs[i].Id + "' type='radio' disabled /><label></label></div></td></tr></table></td>";
+                equipmentItem = equipmentItem + "</tr></table></li>";
+            }
+            $('#EquipmentList').html(equipmentItem);
+        }
+
+        function FilterEquipmentAlarm(equipmentName) {
+            $('#datatable-responsive').DataTable().search(equipmentName).draw();
+        }
+        // End Equipment List
+        // For TableData
+        //var _alarmDataSet = $('#datatable-responsive').DataTable();
+        //function LoadAlarmListIntoTable() {
+        //    //construct table
+        //    for (var i in _MessageAlarmObjs) {
+
+        //        for (var j in _EquipmentObjs) {
+        //            if (_EquipmentObjs[j].EquipmentId == _MessageAlarmObjs[i].Message.equipmentId) {
+        //                _EquipmentObjs[j].alarm24H++;
+        //                break;
+        //            }
+        //        }
+
+        //        _alarmDataSet.row.add([
+        //            parseInt(i) + 1,
+        //            _FactoryObj.Name,
+        //            _MessageAlarmObjs[i].Message.equipmentId,
+        //            _MessageAlarmObjs[i].AlarmRuleCatalogName,
+        //            _MessageAlarmObjs[i].AlarmRuleCatalogDescription,
+        //            _MessageAlarmObjs[i].Message.msgTimestamp,
+        //            '<input onClick="javascript:showMessageContentofAlert(' + i + ')" type="button" value="Message" />'
+        //        ]).draw(false);
+        //    }
+        //    _alarmDataSet.columns.adjust().draw();
+        //}
+
+        //function showMessageContentofAlert(item) {
+        //    var content = "";
+        //    $.each(_MessageAlarmObjs[item].Message, function (k, v) {
+        //        content = content + k + " = " + v + "\n";
+        //    });
+        //    alert(content);
+        //}
+        // End Table Data
+
+        // RefreshDashboard
+        function RefreshDataboard() {
+            _ConnectedEquipment = 0;
+            _Alarm1M = 0;
+            var nowDT = new Date();
+            for (var i in _EquipmentObjs) {
+                if (_EquipmentObjs[i].msgTimestamp.length > 0) {
+                    var lastUpdated = sfStringToDate(_EquipmentObjs[i].msgTimestamp);
+                    var difInSec = (nowDT.getTime() - lastUpdated.getTime()) / 1000;
+                    if (difInSec < 60) {
+                        _ConnectedEquipment++;
+                    }
+                    else
+                        _EquipmentObjs[i].msgTimestamp = "";
+                }
+                if (_EquipmentObjs[i].alarmMsgTimestamp.length > 0) {
+                    var lastUpdated = sfStringToDate(_EquipmentObjs[i].alarmMsgTimestamp);
+                    var difInSec = (nowDT.getTime() - lastUpdated.getTime()) / 1000;
+                    if (difInSec < 60) {
+                        _Alarm1M++;
+                    }
+                    else
+                        _EquipmentObjs[i].alarmMsgTimestamp = "";
+                }
+            }
+            $('#ConnectedEquipmentCard').html(_ConnectedEquipment);
+            $('#Alarm1MCard').html(_Alarm1M);
+            $('#Alarm24HCard').html(_Alarm24H);
+        }
+
+        function NavToEquipmentDashboard(EquipId) {
+            document.getElementById('equipmentId').value = EquipId;
+            var dashboardForm = document.getElementById('NavDashboardForm');
+            dashboardForm.action = "/Dashboard/EquipmentClassDashboard";
+            dashboardForm.submit();
+        }
+
+        $('#CompanyDiv').click(function () {
+            var dashboardForm = document.getElementById('NavDashboardForm');
+            dashboardForm.action = "/Dashboard/Index";
+            dashboardForm.submit();
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var factoryPhoto = _FactoryObj.PhotoURL;
+            if (factoryPhoto == null)
+                factoryPhoto = "/assets/images/default/factory-128.png";
+            $('#factoryPhotoURL').prop("src", factoryPhoto);
+            //LoadAlarmListIntoTable();
+            LoadEquipmentIntoUL();
+
+            var companyDashboardId = "@ViewBag.DashboardId";
+            var widgetCatalogJson = $.parseJSON(jsonStringFilter("@ViewBag.WidgetCatalogList"));
+            var dashboardAttrObj = {
+                'companyDashboardId': companyDashboardId,
+                'widgetCatalogJson': widgetCatalogJson,
+                 'permissionList':[@ViewBag.PermissionList],
+                'dashboardLevel':1
+            };
+
+            toastr.options = {
+                positionClass: 'toast-top-right',
+            }
+            dashboardWidget.dashboardInit(dashboardAttrObj);
+
+            _TotalEquipment = Object.keys(_EquipmentObjs).length
+
+            $('#EquipmentCard').html(_TotalEquipment);
+            _Alarm24H = _MessageAlarmCount;
+            $('#Alarm24HCard').html(_Alarm24H);
+
+            setInterval(function () { RefreshDataboard() }, 2000);
+        });
+    </script>    
+</body>
+</html>
